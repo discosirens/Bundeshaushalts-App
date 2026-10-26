@@ -49,5 +49,8 @@
 ## Zusammenarbeit
 - Maßgeblich ist das GitHub-Repository https://github.com/discosirens/Bundeshaushalts-App.
   Vor jeder Arbeit den Stand von GitHub holen, nach jeder Änderung committen und hochladen.
+- Vor jedem Hochladen von Änderungen an HTML, CSS, JavaScript oder Daten `py skripte/version_setzen.py`
+  ausführen. Es hängt eine neue Versionsnummer an alle Dateien, damit Browser keine veralteten Dateien
+  aus dem Zwischenspeicher mit neuen mischen (GitHub Pages speichert 10 Minuten zwischen).
 - Commits anonym unter `discosirens` mit der GitHub-Noreply-Adresse, nie mit Klarnamen oder privater E-Mail.
 - Ich bin kein Entwickler: Erkläre am Ende jeder Sitzung kurz, was du geändert hast.

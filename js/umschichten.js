@@ -286,7 +286,7 @@ function zeigeErgebnis() {
 
 async function start() {
   try {
-    const antwort = await fetch("daten/bereiche.json");
+    const antwort = await fetch(datei("daten/bereiche.json"));
     daten = await antwort.json();
   } catch (fehler) {
     el("bereiche").textContent = t("fehler.laden");

@@ -31,6 +31,7 @@ skripte/
   haushalt_zu_json.py
   bereiche_erzeugen.py
   hintergrund_erzeugen.py
+  version_setzen.py   neue Versionsnummer für alle Dateien (vor jedem Hochladen ausführen)
 ```
 
 ## Die CSV-Dateien `HH_2025_ALL.csv` und `HH_2026_ALL.csv`

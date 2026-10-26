@@ -305,8 +305,8 @@ function zeigeQuellen() {
 async function start() {
   try {
     [hg, debatten] = await Promise.all([
-      fetch("daten/hintergrund.json").then((a) => a.json()),
-      fetch("daten/debatten.json").then((a) => a.json()),
+      fetch(datei("daten/hintergrund.json")).then((a) => a.json()),
+      fetch(datei("daten/debatten.json")).then((a) => a.json()),
     ]);
   } catch (fehler) {
     el("einnahmen-text").textContent = t("fehler.laden");

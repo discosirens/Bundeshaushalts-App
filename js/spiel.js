@@ -292,8 +292,8 @@ function neuStarten() {
 async function start() {
   try {
     const [b, r] = await Promise.all([
-      fetch("daten/bereiche.json").then((a) => a.json()),
-      fetch("daten/runden.json").then((a) => a.json()),
+      fetch(datei("daten/bereiche.json")).then((a) => a.json()),
+      fetch(datei("daten/runden.json")).then((a) => a.json()),
     ]);
     bereiche = Object.fromEntries(b.bereiche.map((x) => [x.id, x]));
     soll2026 = b.summe_2026;

@@ -442,10 +442,10 @@ function zeigeFakten() {
 
 async function start() {
   try {
-    const antwort = await fetch("daten/haushalt.json");
+    const antwort = await fetch(datei("daten/haushalt.json"));
     daten = await antwort.json();
     // Kapiteltexte sind optional: fehlen sie, bleibt es bei der automatischen Kurzinfo
-    kapitelTexte = await fetch("daten/kapitel_texte.json").then((a) => a.json()).catch(() => kapitelTexte);
+    kapitelTexte = await fetch(datei("daten/kapitel_texte.json")).then((a) => a.json()).catch(() => kapitelTexte);
   } catch (fehler) {
     el("gesamt-text").textContent = t("fehler.laden");
     return;

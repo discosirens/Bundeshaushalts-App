@@ -4,6 +4,11 @@
 
 const SPRACHEN = ["de", "en"];
 
+// Versionsnummer aus <meta name="app-version"> (gesetzt von skripte/version_setzen.py).
+// Wird an Daten-Abrufe angehängt, damit der Browser keine veraltete Datei aus dem Zwischenspeicher nimmt.
+const APP_VERSION = document.querySelector('meta[name="app-version"]')?.content || "";
+const datei = (pfad) => (APP_VERSION ? `${pfad}?v=${APP_VERSION}` : pfad);
+
 const SPRACHE = (() => {
   const ausAdresse = new URLSearchParams(location.search).get("lang");
   if (SPRACHEN.includes(ausAdresse)) {
@@ -581,7 +586,12 @@ const ANLAGEN_EN = {
 };
 
 function t(schluessel, werte = {}) {
-  let text = TEXTE[SPRACHE][schluessel] ?? TEXTE.de[schluessel] ?? schluessel;
+  let text = TEXTE[SPRACHE][schluessel] ?? TEXTE.de[schluessel];
+  if (text === undefined) {
+    // Nie den internen Schlüssel anzeigen; Hinweis nur für die Entwicklung
+    console.warn(`Text fehlt: ${schluessel}`);
+    return "";
+  }
   for (const [name, wert] of Object.entries(werte)) text = text.replaceAll(`{${name}}`, wert);
   return text;
 }
