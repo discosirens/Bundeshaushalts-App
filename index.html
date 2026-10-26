@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bundeshaushalt verständlich</title>
+  <meta name="description" content="Wofür gibt der Bund sein Geld aus? Der Bundeshaushalt 2026 einfach erklärt.">
+  <link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+  <main class="seite">
+    <header class="kopf">
+      <p class="dachzeile">Bundeshaushalt 2026</p>
+      <p class="grosse-zahl" id="gesamt">…</p>
+      <p class="unterzeile" id="gesamt-text">Daten werden geladen.</p>
+      <p class="pro-kopf" id="pro-kopf"></p>
+    </header>
+
+    <section class="bereich" aria-labelledby="treemap-titel">
+      <nav class="pfad" id="pfad" aria-label="Ebene"></nav>
+      <h1 id="treemap-titel">Wofür gibt der Bund Geld aus?</h1>
+      <p class="hinweis" id="treemap-hinweis">Jede Fläche ist so groß wie die Ausgaben. Tippen Sie auf ein Feld, um Details und die Kapitel zu sehen.</p>
+
+      <div class="treemap" id="treemap" role="group" aria-label="Ausgaben als Flächen"></div>
+
+      <div class="details" id="details" aria-live="polite" hidden></div>
+
+      <div class="anlagen" id="anlagen" hidden></div>
+
+      <details class="liste">
+        <summary>Alle Werte als Tabelle</summary>
+        <div class="tabelle-rahmen">
+          <table id="tabelle">
+            <thead>
+              <tr><th scope="col">Name</th><th scope="col">Soll 2026</th><th scope="col">Soll 2025</th><th scope="col">Veränderung</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="hinweis" id="tabelle-hinweis"></p>
+      </details>
+    </section>
+
+    <footer class="quellen">
+      <h2>Quellen</h2>
+      <ul>
+        <li>Ausgaben: Bundeshaushaltsplan 2025 und 2026, Soll-Werte (vom Bundestag beschlossene Beträge), Bundesministerium der Finanzen, <a href="https://www.bundeshaushalt.de/">bundeshaushalt.de</a>.</li>
+        <li>Einwohnerzahl: 83,5 Millionen zum 31.12.2025, Statistisches Bundesamt, <a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html">Pressemitteilung Nr. 203 vom 16. Juni 2026</a>.</li>
+        <li>Alle Beträge betreffen den Kernhaushalt. Sondervermögen und andere Anlagen zum Haushaltsplan sind nicht enthalten und werden gesondert gezeigt.</li>
+      </ul>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
