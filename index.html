@@ -14,6 +14,7 @@
     <div class="topbar-rechts">
       <nav class="hauptnav" aria-label="Hauptnavigation">
         <a href="index.html" data-intern aria-current="page" data-t="nav.ueberblick">Überblick</a>
+        <a href="spiel.html" data-intern data-t="nav.spielen">Spielen</a>
         <a href="umschichten.html" data-intern data-t="nav.verteilen">Selbst verteilen</a>
       </nav>
       <nav class="sprachwahl" data-t-label="nav.sprache" aria-label="Sprache">
@@ -37,7 +38,7 @@
 
       <div class="hero-knoepfe">
         <a class="knopf" href="#treemap-titel" data-t="hero.knopf.ansehen">Ausgaben ansehen ↓</a>
-        <a class="knopf knopf-hell" href="umschichten.html" data-intern data-t="hero.knopf.verteilen">Selbst verteilen →</a>
+        <a class="knopf knopf-hell" href="spiel.html" data-intern data-t="hero.knopf.spiel">Spiel starten →</a>
       </div>
     </div>
   </section>
@@ -74,12 +75,15 @@
       </details>
     </section>
 
-    <a class="aufruf" href="umschichten.html" data-intern>
+    <div class="aufruf">
       <span class="aufruf-etikett" data-t="aufruf.etikett">Mitmachen</span>
-      <strong data-t="aufruf.titel">Wie würdest du das Geld verteilen?</strong>
+      <strong data-t="aufruf.titel">Was würdest du entscheiden?</strong>
       <span data-t="aufruf.text"></span>
-      <span class="knopf" data-t="aufruf.knopf">Jetzt ausprobieren →</span>
-    </a>
+      <div class="aufruf-knoepfe">
+        <a class="knopf" href="spiel.html" data-intern data-t="aufruf.spiel">Spiel starten →</a>
+        <a class="knopf knopf-hell" href="umschichten.html" data-intern data-t="aufruf.frei">Frei umschichten</a>
+      </div>
+    </div>
 
     <footer class="quellen">
       <h2 data-t="quellen.titel">Quellen</h2>

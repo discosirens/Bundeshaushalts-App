@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haushaltsspiel</title>
+  <meta name="description" content="Übernimm das Finanzministerium: sechs Runden, sechs Entscheidungen zum Bundeshaushalt 2026.">
+  <meta name="theme-color" content="#0f1630">
+  <link rel="stylesheet" href="css/stil.css">
+</head>
+<body data-seite="spiel">
+  <header class="topbar">
+    <a class="marke" href="index.html" data-intern data-t-html="marke">Bundeshaushalt <span>verständlich</span></a>
+    <div class="topbar-rechts">
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <a href="index.html" data-intern data-t="nav.ueberblick">Überblick</a>
+        <a href="spiel.html" data-intern aria-current="page" data-t="nav.spielen">Spielen</a>
+        <a href="umschichten.html" data-intern data-t="nav.verteilen">Selbst verteilen</a>
+      </nav>
+      <nav class="sprachwahl" data-t-label="nav.sprache" aria-label="Sprache">
+        <a data-lang="de" hreflang="de" lang="de">DE</a>
+        <a data-lang="en" hreflang="en" lang="en">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero seiten-kopf">
+    <div class="hero-inhalt">
+      <p class="dachzeile" data-t="spiel.dachzeile">Haushaltsspiel · 2026</p>
+      <h1 data-t="spiel.ueberschrift">Du entscheidest über den Haushalt</h1>
+      <p data-t="spiel.einleitung"></p>
+    </div>
+  </section>
+
+  <main class="seite">
+    <div class="spiel-status" id="status" hidden>
+      <div class="fortschritt"><div class="fortschritt-balken" id="fortschritt"></div></div>
+      <dl class="kennzahlen">
+        <div><dt data-t="spiel.status.runde"></dt><dd id="status-runde"></dd></div>
+        <div><dt data-t="spiel.status.ausgaben"></dt><dd id="status-ausgaben"></dd></div>
+        <div><dt data-t="spiel.status.kredite"></dt><dd id="status-kredite"></dd></div>
+        <div><dt data-t="spiel.status.gesetze"></dt><dd id="status-gesetze"></dd></div>
+      </dl>
+    </div>
+
+    <section class="spiel-karte" id="spiel" aria-live="polite">
+      <div id="start">
+        <h2 data-t="spiel.regeln.titel">So geht's</h2>
+        <ul class="regeln">
+          <li data-t="spiel.regel1"></li>
+          <li data-t="spiel.regel2"></li>
+          <li data-t="spiel.regel3"></li>
+        </ul>
+        <button type="button" class="knopf knopf-gross" id="starten" data-t="spiel.start">Spiel starten</button>
+      </div>
+      <div id="runde" hidden></div>
+      <div id="ende" hidden></div>
+    </section>
+
+    <footer class="quellen">
+      <h2 data-t="quellen.titel">Quellen</h2>
+      <ul>
+        <li data-t-html="um.quellen.werte"></li>
+        <li data-t-html="spiel.quellen.schuldenbremse"></li>
+        <li data-t="spiel.quellen.modell"></li>
+      </ul>
+    </footer>
+  </main>
+
+  <script src="js/sprache.js"></script>
+  <script src="js/spiel.js"></script>
+</body>
+</html>

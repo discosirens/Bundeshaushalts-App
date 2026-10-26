@@ -1,0 +1,243 @@
+{
+  "hinweis": "Inhalte der Ministerrunden. Von Hand gepflegt. Beträge in Mrd. Euro. 'fest' = durch die Situation vorgegebene Änderung, 'ziel' = Änderung der Gesamtsumme, 'kredit' = zusätzliche Kredite der Option, 'kredit_ausnahme' = Kredite für Ausgaben der Bereichsausnahme. Bereich-IDs wie in bereiche.json.",
+  "schuldenbremse_2026": {
+    "zulaessige_kreditaufnahme_mrd": 40.392,
+    "geplante_relevante_kreditaufnahme_mrd": 40.392,
+    "quelle": {"titel": "Bundeshaushaltsplan 2026, Vorspann, Gesamtplan Teil II B: Berechnung der zulässigen Kreditaufnahme", "url": "https://www.bundeshaushalt.de/"}
+  },
+  "runden": [
+    {
+      "id": "zinsen",
+      "titel": {"de": "Die Zinsen steigen", "en": "Interest rates rise"},
+      "situation": {
+        "de": "Angenommen, die Zinsen steigen. Der Bund muss dadurch 5 Mrd. € mehr für seine Schulden zahlen als geplant. Zinsen müssen gezahlt werden. Wie finanzierst du das?",
+        "en": "Suppose interest rates rise. As a result, the federal government has to pay €5bn more on its debt than planned. Interest has to be paid. How do you finance it?"
+      },
+      "hintergrund": {
+        "de": "2026 plant der Bund 30,2 Mrd. € für Zinsen ein (Soll).",
+        "en": "In 2026 the federal government has budgeted €30.2bn for interest (Soll)."
+      },
+      "quelle": {"titel": "Bundeshaushaltsplan 2026, Kap. 3205", "url": "https://www.bundeshaushalt.de/"},
+      "fest": {"zinsen": 5},
+      "ziel": 0,
+      "optionen": [
+        {
+          "id": "a",
+          "titel": {"de": "In mehreren Bereichen kürzen", "en": "Cut several areas"},
+          "text": {"de": "Außenpolitik und Entwicklung −2, Wirtschaft und Energie −2, Umwelt und Wohnen −1 Mrd. €", "en": "Foreign policy and development −2, economy and energy −2, environment and housing −1 (€bn)"},
+          "aenderungen": {"aussen": -2, "wirtschaft": -2, "umwelt": -1},
+          "kredit": 0
+        },
+        {
+          "id": "b",
+          "titel": {"de": "Beim Bürgergeld kürzen", "en": "Cut citizen's income"},
+          "text": {"de": "Arbeitsmarkt und Bürgergeld −5 Mrd. €", "en": "Labour market and citizen's income −€5bn"},
+          "aenderungen": {"arbeit": -5},
+          "kredit": 0
+        },
+        {
+          "id": "c",
+          "titel": {"de": "Mehr Kredite aufnehmen", "en": "Borrow more"},
+          "text": {"de": "5 Mrd. € zusätzliche Schulden", "en": "€5bn of additional debt"},
+          "aenderungen": {},
+          "kredit": 5,
+          "kredit_ausnahme": false
+        }
+      ]
+    },
+    {
+      "id": "verteidigung",
+      "titel": {"de": "Mehr Geld für die Bundeswehr", "en": "More money for the armed forces"},
+      "situation": {
+        "de": "Angenommen, die Bundesregierung will 10 Mrd. € mehr für Verteidigung ausgeben. Woher soll das Geld kommen?",
+        "en": "Suppose the federal government wants to spend €10bn more on defence. Where should the money come from?"
+      },
+      "hintergrund": {
+        "de": "2026 sind im Einzelplan Verteidigung 82,7 Mrd. € eingeplant, dazu 25,5 Mrd. € im Sondervermögen Bundeswehr (Soll).",
+        "en": "In 2026 the defence budget section plans €82.7bn, plus €25.5bn in the Bundeswehr special fund (Soll)."
+      },
+      "quelle": {"titel": "Bundeshaushaltsplan 2026, Einzelplan 14 und Kap. 1491", "url": "https://www.bundeshaushalt.de/"},
+      "fest": {"verteidigung": 10},
+      "ziel": 0,
+      "optionen": [
+        {
+          "id": "a",
+          "titel": {"de": "Mehr Kredite aufnehmen", "en": "Borrow more"},
+          "text": {"de": "10 Mrd. € zusätzliche Schulden", "en": "€10bn of additional debt"},
+          "aenderungen": {},
+          "kredit": 10,
+          "kredit_ausnahme": true
+        },
+        {
+          "id": "b",
+          "titel": {"de": "Bei Rente und Bürgergeld kürzen", "en": "Cut pensions and citizen's income"},
+          "text": {"de": "Rente −5, Arbeitsmarkt und Bürgergeld −5 Mrd. €", "en": "Pensions −5, labour market and citizen's income −5 (€bn)"},
+          "aenderungen": {"rente": -5, "arbeit": -5},
+          "kredit": 0
+        },
+        {
+          "id": "c",
+          "titel": {"de": "Bei Bildung, Verkehr und Wirtschaft kürzen", "en": "Cut education, transport and economy"},
+          "text": {"de": "Bildung −3, Verkehr −4, Wirtschaft und Energie −3 Mrd. €", "en": "Education −3, transport −4, economy and energy −3 (€bn)"},
+          "aenderungen": {"bildung": -3, "verkehr": -4, "wirtschaft": -3},
+          "kredit": 0
+        }
+      ]
+    },
+    {
+      "id": "bildung",
+      "titel": {"de": "Mehr Geld für Bildung und Forschung", "en": "More money for education and research"},
+      "situation": {
+        "de": "Angenommen, Bund und Länder vereinbaren, dass der Bund 5 Mrd. € mehr für Bildung und Forschung gibt. Wie finanzierst du das?",
+        "en": "Suppose the federal and state governments agree that the federal government gives €5bn more for education and research. How do you finance it?"
+      },
+      "hintergrund": {
+        "de": "Schulen bezahlen vor allem Länder und Kommunen. Der Bund fördert Forschung, Hochschulen und das BAföG.",
+        "en": "Schools are mainly paid for by the states and municipalities. The federal government funds research, universities and student grants (BAföG)."
+      },
+      "quelle": {"titel": "Art. 30 Grundgesetz", "url": "https://www.gesetze-im-internet.de/gg/art_30.html"},
+      "fest": {"bildung": 5},
+      "ziel": 0,
+      "optionen": [
+        {
+          "id": "a",
+          "titel": {"de": "Bei der Verteidigung kürzen", "en": "Cut defence"},
+          "text": {"de": "Verteidigung −5 Mrd. €", "en": "Defence −€5bn"},
+          "aenderungen": {"verteidigung": -5},
+          "kredit": 0
+        },
+        {
+          "id": "b",
+          "titel": {"de": "Mehr Kredite aufnehmen", "en": "Borrow more"},
+          "text": {"de": "5 Mrd. € zusätzliche Schulden", "en": "€5bn of additional debt"},
+          "aenderungen": {},
+          "kredit": 5,
+          "kredit_ausnahme": false
+        },
+        {
+          "id": "c",
+          "titel": {"de": "Bei Verwaltung und Familienleistungen kürzen", "en": "Cut administration and family benefits"},
+          "text": {"de": "Verwaltung, Sicherheit und Justiz −3, Familie −2 Mrd. €", "en": "Administration, security and justice −3, families −2 (€bn)"},
+          "aenderungen": {"staat": -3, "familie": -2},
+          "kredit": 0
+        }
+      ]
+    },
+    {
+      "id": "pflege",
+      "titel": {"de": "Die Pflegeversicherung braucht Geld", "en": "Long-term care insurance needs money"},
+      "situation": {
+        "de": "Angenommen, die Pflegeversicherung braucht 2026 zusätzlich 3 Mrd. € vom Bund. Wo nimmst du das Geld her?",
+        "en": "Suppose long-term care insurance needs an extra €3bn from the federal government in 2026. Where do you take the money from?"
+      },
+      "hintergrund": {
+        "de": "2026 leiht der Bund der Pflegeversicherung bereits 3,2 Mrd. € (Soll).",
+        "en": "In 2026 the federal government already lends long-term care insurance €3.2bn (Soll)."
+      },
+      "quelle": {"titel": "Bundeshaushaltsplan 2026, Kap. 1502 Tit. 856 02", "url": "https://www.bundeshaushalt.de/"},
+      "fest": {"gesundheit": 3},
+      "ziel": 0,
+      "optionen": [
+        {
+          "id": "a",
+          "titel": {"de": "Beim Verkehr kürzen", "en": "Cut transport"},
+          "text": {"de": "Verkehr −3 Mrd. €", "en": "Transport −€3bn"},
+          "aenderungen": {"verkehr": -3},
+          "kredit": 0
+        },
+        {
+          "id": "b",
+          "titel": {"de": "Bei der Verteidigung kürzen", "en": "Cut defence"},
+          "text": {"de": "Verteidigung −3 Mrd. €", "en": "Defence −€3bn"},
+          "aenderungen": {"verteidigung": -3},
+          "kredit": 0
+        },
+        {
+          "id": "c",
+          "titel": {"de": "Bei Familienleistungen kürzen", "en": "Cut family benefits"},
+          "text": {"de": "Familie und weitere Sozialleistungen −3 Mrd. €", "en": "Families and other social benefits −€3bn"},
+          "aenderungen": {"familie": -3},
+          "kredit": 0
+        }
+      ]
+    },
+    {
+      "id": "ukraine",
+      "titel": {"de": "Militärhilfe für die Ukraine", "en": "Military aid for Ukraine"},
+      "situation": {
+        "de": "Angenommen, die Höhe der Militärhilfe für die Ukraine steht neu zur Entscheidung. Was entscheidest du?",
+        "en": "Suppose the amount of military aid for Ukraine is up for a new decision. What do you decide?"
+      },
+      "hintergrund": {
+        "de": "2025 waren 8,3 Mrd. € eingeplant, 2026 sind es 11,5 Mrd. € (Soll).",
+        "en": "€8.3bn was budgeted in 2025; in 2026 it is €11.5bn (Soll)."
+      },
+      "quelle": {"titel": "Bundeshaushaltsplan 2025 und 2026, Kap. 6002 Tit. 687 06", "url": "https://www.bundeshaushalt.de/"},
+      "fest": {},
+      "ziel": 0,
+      "optionen": [
+        {
+          "id": "a",
+          "titel": {"de": "Auf den Stand von 2025 senken", "en": "Lower it to the 2025 level"},
+          "text": {"de": "Militärhilfe −3,2 Mrd. €, dafür entsprechend weniger Kredite", "en": "Military aid −€3.2bn, and correspondingly less borrowing"},
+          "aenderungen": {"ukraine": -3.2},
+          "kredit": -3.2,
+          "kredit_ausnahme": true
+        },
+        {
+          "id": "b",
+          "titel": {"de": "Unverändert lassen", "en": "Leave it unchanged"},
+          "text": {"de": "Militärhilfe bleibt bei 11,5 Mrd. €", "en": "Military aid stays at €11.5bn"},
+          "aenderungen": {},
+          "kredit": 0
+        },
+        {
+          "id": "c",
+          "titel": {"de": "Um 5 Mrd. € erhöhen, mit Krediten", "en": "Raise it by €5bn, with borrowing"},
+          "text": {"de": "Militärhilfe +5 Mrd. €, finanziert mit zusätzlichen Schulden", "en": "Military aid +€5bn, financed with additional debt"},
+          "aenderungen": {"ukraine": 5},
+          "kredit": 5,
+          "kredit_ausnahme": true
+        }
+      ]
+    },
+    {
+      "id": "sparen",
+      "titel": {"de": "Sparrunde", "en": "Savings round"},
+      "situation": {
+        "de": "Angenommen, die Steuereinnahmen fallen niedriger aus als erwartet. Der Bund muss 5 Mrd. € weniger ausgeben. Wo sparst du?",
+        "en": "Suppose tax revenue turns out lower than expected. The federal government has to spend €5bn less. Where do you save?"
+      },
+      "hintergrund": {
+        "de": "Im Haushalt 2026 steht bereits eine Sparvorgabe von 8 Mrd. € ohne festgelegten Posten, eine sogenannte globale Minderausgabe (Soll).",
+        "en": "The 2026 budget already contains an €8bn savings target without a specified item, a so-called lump-sum spending cut (Soll)."
+      },
+      "quelle": {"titel": "Bundeshaushaltsplan 2026, Kap. 6002 Tit. 972 01", "url": "https://www.bundeshaushalt.de/"},
+      "fest": {},
+      "ziel": -5,
+      "optionen": [
+        {
+          "id": "a",
+          "titel": {"de": "Bei der Rente sparen", "en": "Save on pensions"},
+          "text": {"de": "Rente und Grundsicherung im Alter −5 Mrd. €", "en": "Pensions and basic income in old age −€5bn"},
+          "aenderungen": {"rente": -5},
+          "kredit": 0
+        },
+        {
+          "id": "b",
+          "titel": {"de": "Bei der Verteidigung sparen", "en": "Save on defence"},
+          "text": {"de": "Verteidigung −5 Mrd. €", "en": "Defence −€5bn"},
+          "aenderungen": {"verteidigung": -5},
+          "kredit": 0
+        },
+        {
+          "id": "c",
+          "titel": {"de": "Bei Verkehr, Bildung und Verwaltung sparen", "en": "Save on transport, education and administration"},
+          "text": {"de": "Verkehr −2, Bildung −1, Verwaltung, Sicherheit und Justiz −2 Mrd. €", "en": "Transport −2, education −1, administration, security and justice −2 (€bn)"},
+          "aenderungen": {"verkehr": -2, "bildung": -1, "staat": -2},
+          "kredit": 0
+        }
+      ]
+    }
+  ]
+}

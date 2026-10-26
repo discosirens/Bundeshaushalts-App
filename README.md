@@ -10,14 +10,17 @@ Bundeshaushalt für Laien verständlich darstellt. Online: https://discosirens.g
 ```
 index.html          Startseite: Gesamtsumme, Treemap nach Einzelplan und Kapitel
 umschichten.html    Umschicht-Modus: Geld zwischen 14 Bereichen verschieben
+spiel.html          Haushaltsspiel: sechs Runden als Finanzministerin oder Finanzminister
 css/stil.css        Gestaltung beider Seiten (hell und dunkel)
 js/sprache.js       alle Oberflächentexte Deutsch/Englisch, Zahlenformate, Sprachwahl
 js/app.js           Logik der Startseite
 js/umschichten.js   Logik des Umschicht-Modus
+js/spiel.js         Logik des Haushaltsspiels
 daten/
   roh/              Rohdaten, unverändert (CSV, PDF, Excel)
   haushalt.json     aufbereitete Ausgaben 2025 und 2026 (wird vom Skript erzeugt)
   bereiche.json     14 Bereiche mit Erklärungen auf Deutsch und Englisch (wird vom Skript erzeugt)
+  runden.json       Situationen und Optionen des Haushaltsspiels (von Hand gepflegt)
 skripte/
   haushalt_zu_json.py
   bereiche_erzeugen.py

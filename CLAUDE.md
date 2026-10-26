@@ -32,6 +32,10 @@
 - Kernhaushalt = alle Ausgaben ohne die Kapitel, deren Name mit „Anlage“ beginnt
   (Sondervermögen, EU-Abführungen u. a.). Details in der README.
 - `daten/haushalt.json` wird mit `py skripte/haushalt_zu_json.py` erzeugt, nicht von Hand bearbeitet.
+- `daten/runden.json` (Haushaltsspiel) wird von Hand gepflegt, Deutsch und Englisch. Jede Option muss
+  aufgehen (Mehrausgaben minus Kürzungen minus Kredite = Ziel der Runde; das Spiel prüft das beim Laden).
+  Über alle Runden hinweg stehen Kürzungen in verschiedenen politischen Richtungen zur Wahl.
+  Rückmeldungen nur aus belegten Daten, keine erfundenen Wirtschaftseffekte.
 
 ## Zusammenarbeit
 - Maßgeblich ist das GitHub-Repository https://github.com/discosirens/Bundeshaushalts-App.

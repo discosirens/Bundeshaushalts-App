@@ -356,7 +356,92 @@ td button {
   letter-spacing: 0.08em;
   color: #8fe3c4;
 }
-.aufruf .knopf { margin-top: 0.75rem; }
+.aufruf-knoepfe { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; }
+
+/* ==========================================================================
+   Haushaltsspiel
+   ========================================================================== */
+
+.spiel-status {
+  position: sticky;
+  top: 3.25rem;
+  z-index: 5;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--karte);
+  box-shadow: var(--schatten);
+}
+.fortschritt { height: 6px; border-radius: 999px; background: var(--flaeche); overflow: hidden; margin-bottom: 0.625rem; }
+.fortschritt-balken { height: 100%; width: 0; background: linear-gradient(90deg, #1baf7a, #4b3fd1); transition: width 0.3s ease; }
+.kennzahlen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0; }
+.kennzahlen dt { font-size: 0.75rem; color: var(--text-leise); line-height: 1.2; }
+.kennzahlen dd { margin: 0.125rem 0 0; font-weight: 800; font-variant-numeric: tabular-nums; }
+.kennzahlen-ende { grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); margin: 1rem 0; }
+.kennzahlen-ende > div { padding: 0.75rem; border-radius: 12px; background: var(--flaeche); }
+.kennzahlen-ende dd { font-size: 1.25rem; }
+
+.spiel-karte {
+  padding: 1.5rem 1.25rem;
+  border-radius: 24px;
+  background: var(--karte);
+  box-shadow: var(--schatten);
+}
+.regeln { padding-left: 1.25rem; margin: 0 0 1.5rem; }
+.regeln li { margin-bottom: 0.5rem; }
+.knopf-gross { font: inherit; font-weight: 700; border: 0; cursor: pointer; font-size: 1.0625rem; padding: 0.875rem 1.5rem; }
+.knopf-rand { background: transparent; color: var(--akzent); border: 2px solid var(--akzent); }
+
+.runde-nummer { margin: 0; font-size: 0.875rem; font-weight: 700; color: var(--akzent); text-transform: uppercase; letter-spacing: 0.06em; }
+.runde-titel { font-size: clamp(1.5rem, 6vw, 2.25rem); font-weight: 900; margin: 0.25rem 0 0.75rem; }
+.runde-situation { font-size: 1.125rem; margin: 0 0 1rem; }
+.runde-hintergrund { margin: 0 0 1.5rem; padding: 0.75rem 1rem; border-radius: 12px; background: var(--flaeche); font-size: 0.9375rem; }
+.runde-frage { font-size: 1.125rem; margin: 0 0 0.75rem; }
+
+.optionen { display: grid; gap: 0.625rem; }
+.option {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--linie);
+  border-radius: var(--radius);
+  background: var(--karte);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.option:hover:not(:disabled) { border-color: var(--akzent); transform: translateY(-1px); }
+.option:disabled { cursor: default; opacity: 0.45; }
+.option.gewaehlt { opacity: 1; border-color: var(--akzent); background: var(--akzent-hell); }
+.option-buchstabe {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--akzent);
+  color: var(--akzent-text);
+  font-weight: 800;
+}
+.option-text { display: grid; gap: 0.125rem; }
+.option-text span { color: var(--text-leise); font-size: 0.9375rem; }
+
+.rueckmeldung { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--linie); }
+.rueckmeldung h3 { margin: 0 0 0.75rem; }
+.rueckmeldung-liste { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.625rem; }
+.rueckmeldung-liste li { padding: 0.875rem 1rem; border-radius: 12px; background: var(--flaeche); }
+.rueckmeldung-liste p { margin: 0.375rem 0 0; font-size: 0.9375rem; color: var(--text-leise); }
+.rm-kopf { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; }
+.rm-kopf strong { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.ende-summe { font-size: 1.125rem; }
+.entscheidungen { padding-left: 1.25rem; }
+.entscheidungen li { margin-bottom: 0.375rem; }
 
 /* ---------- Quellen ---------- */
 
@@ -528,7 +613,10 @@ td button {
   .topbar .marke { display: none; }
   .topbar { justify-content: flex-end; }
   .topbar-rechts { width: 100%; justify-content: space-between; }
-  .hauptnav a { padding: 0.375rem 0.625rem; }
+  .topbar { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .hauptnav { gap: 0; }
+  .hauptnav a { padding: 0.375rem 0.5rem; font-size: 0.875rem; }
+  .sprachwahl a { padding: 0.25rem 0.4rem; }
   .hero-inhalt { padding: 2rem 1rem 2.5rem; }
   .fakten { grid-template-columns: 1fr; }
   .fakt { display: grid; grid-template-columns: auto 1fr; column-gap: 0.75rem; align-items: baseline; }
@@ -539,6 +627,9 @@ td button {
   table { font-size: 0.875rem; }
   td:last-child { min-width: 5.5rem; }
   .bilanz { border-radius: 20px; }
+  .kennzahlen { grid-template-columns: repeat(2, 1fr); }
+  .spiel-status { top: 3rem; padding: 0.625rem 0.875rem; }
+  .spiel-karte { padding: 1.25rem 1rem; }
   .bilanz-text { font-size: 0.9375rem; line-height: 1.35; }
 }
 
