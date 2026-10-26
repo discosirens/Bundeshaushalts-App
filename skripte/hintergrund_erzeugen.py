@@ -72,6 +72,44 @@ STEUER_EN = {
 }
 
 
+# Ukraine-Hilfe: der Ertüchtigungstitel (nennt die Ukraine nicht im Namen) und alle Titel mit "Ukraine" im Namen
+UKRAINE_TITEL = {("6002", "68706")}
+UKRAINE_EN = {
+    ("6002", "68706"): "Capacity building for states attacked in violation of international law (military aid)",
+    ("6002", "68721"): "German share of the interest subsidy for EU macro-financial assistance to Ukraine",
+    ("0904", "68711"): "Energy and economic policy cooperation with Ukraine",
+    ("6002", "67106"): "Losses from guarantees for the KfW special programme Ukraine, Belarus, Russia",
+    ("2310", "89602"): "Obligations from an untied energy loan to Ukraine",
+    ("6002", "67111"): "KfW expenses related to support for Ukraine",
+    ("1010", "68307"): "Aid to mitigate the consequences of the war in Ukraine (agriculture)",
+    ("0502", "54627"): "Expenses related to the Ukraine Recovery Conference 2024",
+    ("2310", "54601"): "Expenses related to the Ukraine Recovery Conference 2024",
+    ("6002", "67621"): "Securing the German share of an EU macro-financial loan",
+    ("6002", "68707"): "Financial support for Ukraine",
+}
+
+
+def ukraine_posten():
+    werte = {}
+    for jahr in ("2025", "2026"):
+        with open(ROH / f"HH_{jahr}_ALL.csv", encoding="utf-8-sig", newline="") as f:
+            for z in csv.DictReader(f, delimiter=";"):
+                z = {k.strip(): (v or "").strip() for k, v in z.items() if k is not None}
+                schluessel = (z["kapitel"], z["titel"])
+                if z["einahmen-ausgaben"] != "A":
+                    continue
+                if schluessel in UKRAINE_TITEL or "Ukraine" in z["titel-text"]:
+                    eintrag = werte.setdefault(schluessel, {
+                        "kapitel": z["kapitel"], "titel": z["titel"], "einzelplan": z["einzelplan"],
+                        "de": z["titel-text"].replace('"', ""), "en": UKRAINE_EN.get(schluessel, z["titel-text"]),
+                        "2025": 0, "2026": 0,
+                    })
+                    eintrag[jahr] = int(z["soll"] or 0)
+                    eintrag["de"] = z["titel-text"].replace('"', "")  # 2026 wird zuletzt gelesen: aktueller Name
+    posten = [p for p in werte.values() if p["2025"] or p["2026"]]
+    return sorted(posten, key=lambda p: -p["2026"])
+
+
 def lese_einnahmen(jahr):
     zeilen = []
     with open(ROH / f"HH_{jahr}_ALL.csv", encoding="utf-8-sig", newline="") as f:
@@ -135,6 +173,19 @@ def main():
         },
         "zeitreihe": zeitreihe,
         "ereignisse": EREIGNISSE,
+        "ukraine": {
+            "hinweis": "Soll in Tausend Euro. Titel 6002/687 06 plus alle Titel mit 'Ukraine' im Namen.",
+            "posten": ukraine_posten(),
+            "quellen": [
+                {"titel": "Bundesregierung: Militärische Unterstützungsleistungen für die Ukraine, Stand 17. April 2025 (PDF)",
+                 "url": "https://www.bundesregierung.de/breg-de/bundesregierung/2054526-2054526.pdf"},
+                {"titel": "ZDFheute, Merz: Waffenlieferungen an Ukraine künftig nicht mehr öffentlich",
+                 "url": "https://www.zdfheute.de/politik/ausland/bundeskanzler-friedrich-merz-stopp-waffenlieferungen-veroeffentlichung-ukraine-krieg-russland-100.html"},
+                {"titel": "Bundesregierung: Bundeshaushalt 2026",
+                 "url": "https://www.bundesregierung.de/breg-de/aktuelles/bundeshaushalt-2026-2374030"},
+                QUELLE_PLAN,
+            ],
+        },
     }
     ZIEL.write_text(json.dumps(daten, ensure_ascii=False, indent=1), encoding="utf-8")
 

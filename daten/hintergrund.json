@@ -384,5 +384,100 @@
    "de": "Corona-Pandemie und Energiekrise",
    "en": "COVID-19 pandemic and energy crisis"
   }
- ]
+ ],
+ "ukraine": {
+  "hinweis": "Soll in Tausend Euro. Titel 6002/687 06 plus alle Titel mit 'Ukraine' im Namen.",
+  "posten": [
+   {
+    "kapitel": "6002",
+    "titel": "68706",
+    "einzelplan": "60",
+    "de": "Ertüchtigung von völkerrechtswidrig angegriffenen Staaten im Bereich Sicherheit, Verteidigung und Stabilisierung",
+    "en": "Capacity building for states attacked in violation of international law (military aid)",
+    "2025": 8258821,
+    "2026": 11546799
+   },
+   {
+    "kapitel": "6002",
+    "titel": "68721",
+    "einzelplan": "60",
+    "de": "Deutscher Anteil am Zinszuschuss im Rahmen der Makrofinanzhilfe+ zugunsten der Ukraine",
+    "en": "German share of the interest subsidy for EU macro-financial assistance to Ukraine",
+    "2025": 142233,
+    "2026": 177377
+   },
+   {
+    "kapitel": "0904",
+    "titel": "68711",
+    "einzelplan": "09",
+    "de": "Energie- und wirtschaftspolitische Zusammenarbeit mit der Ukraine",
+    "en": "Energy and economic policy cooperation with Ukraine",
+    "2025": 120000,
+    "2026": 99318
+   },
+   {
+    "kapitel": "6002",
+    "titel": "67106",
+    "einzelplan": "60",
+    "de": "Erstattung von Ausfällen aus der Garantie für das KfW-Sonderprogramm Ukraine-Belarus-Russland",
+    "en": "Losses from guarantees for the KfW special programme Ukraine, Belarus, Russia",
+    "2025": 5000,
+    "2026": 14000
+   },
+   {
+    "kapitel": "2310",
+    "titel": "89602",
+    "einzelplan": "23",
+    "de": "Übernahme von Verpflichtungen aus dem ungebundenen Finanzkredit Energie an die Ukraine",
+    "en": "Obligations from an untied energy loan to Ukraine",
+    "2025": 18000,
+    "2026": 12500
+   },
+   {
+    "kapitel": "6002",
+    "titel": "67111",
+    "einzelplan": "60",
+    "de": "Aufwendungen der KfW im Zusammenhang mit der Unterstützung der Ukraine",
+    "en": "KfW expenses related to support for Ukraine",
+    "2025": 2000,
+    "2026": 1000
+   },
+   {
+    "kapitel": "1010",
+    "titel": "68307",
+    "einzelplan": "10",
+    "de": "Hilfen zur Abmilderung der Folgen des Krieges in der Ukraine",
+    "en": "Aid to mitigate the consequences of the war in Ukraine (agriculture)",
+    "2025": 800,
+    "2026": 500
+   },
+   {
+    "kapitel": "0502",
+    "titel": "54627",
+    "einzelplan": "05",
+    "de": "Ausgaben im Zusammenhang mit der Ukraine Recovery Conference 2024",
+    "en": "Expenses related to the Ukraine Recovery Conference 2024",
+    "2025": 1000,
+    "2026": 0
+   }
+  ],
+  "quellen": [
+   {
+    "titel": "Bundesregierung: Militärische Unterstützungsleistungen für die Ukraine, Stand 17. April 2025 (PDF)",
+    "url": "https://www.bundesregierung.de/breg-de/bundesregierung/2054526-2054526.pdf"
+   },
+   {
+    "titel": "ZDFheute, Merz: Waffenlieferungen an Ukraine künftig nicht mehr öffentlich",
+    "url": "https://www.zdfheute.de/politik/ausland/bundeskanzler-friedrich-merz-stopp-waffenlieferungen-veroeffentlichung-ukraine-krieg-russland-100.html"
+   },
+   {
+    "titel": "Bundesregierung: Bundeshaushalt 2026",
+    "url": "https://www.bundesregierung.de/breg-de/aktuelles/bundeshaushalt-2026-2374030"
+   },
+   {
+    "titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann",
+    "url": "https://www.bundeshaushalt.de/"
+   }
+  ]
+ }
 }

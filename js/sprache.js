@@ -263,6 +263,18 @@ const TEXTE = {
     "suche.anlage": "nicht im Kernhaushalt",
     "suche.markiert": "Dein Suchtreffer: {name}: {betrag} (Soll 2026)",
     "suche.hinweis.en": "",
+
+    "ua.titel": "Ukraine-Hilfe im Haushalt",
+    "ua.einleitung": "Im Kernhaushalt 2026 stehen {n} Posten mit Bezug zur Ukraine, zusammen {summe} (Soll). 2025 waren es {summe25}. Fast alles davon ist Militärhilfe.",
+    "ua.posten": "Posten",
+    "ua.summe": "Zusammen",
+    "ua.hinweis.programm": "Die Liste enthält den Posten für die Militärhilfe und alle Posten mit „Ukraine“ im Namen. Der Posten zu den KfW-Garantien betrifft ein gemeinsames Programm für die Ukraine, Belarus und Russland.",
+    "ua.aufschluesselung.titel": "Warum die Militärhilfe nicht aufgeschlüsselt ist",
+    "ua.aufschluesselung.text": "Die Militärhilfe ist im Haushaltsplan ein einziger Posten. Er nennt die Ukraine nicht beim Namen, sondern gilt für „völkerrechtswidrig angegriffene Staaten“. Wofür das Geld genau ausgegeben wird, steht nicht im Plan. Damit werden unter anderem Lieferungen der Industrie bezahlt. Bis April 2025 veröffentlichte die Bundesregierung eine Liste der gelieferten Waffen und Ausrüstung. Seit Mai 2025 tut sie das nicht mehr. Bundeskanzler Merz begründete das damit, dass Russland aus den Angaben keine Vorteile ziehen soll.",
+    "ua.fehlt.titel": "Was nicht als Ukraine-Posten erkennbar ist",
+    "ua.fehlt.1": "Kosten für Geflüchtete aus der Ukraine, zum Beispiel im Grundsicherungsgeld. Der Haushalt weist sie nicht nach Herkunftsland getrennt aus.",
+    "ua.fehlt.2": "Humanitäre Hilfe im Ausland, die im Haushalt nicht nach Ländern aufgeteilt ist.",
+    "ua.fazit": "Den gesamten Umfang der deutschen Unterstützung für die Ukraine kann man aus dem Bundeshaushalt deshalb nicht vollständig ablesen.",
   },
 
   en: {
@@ -510,6 +522,18 @@ const TEXTE = {
     "suche.anlage": "not in the core budget",
     "suche.markiert": "Your search result: {name}: {betrag} (2026 budget)",
     "suche.hinweis.en": "Item and chapter names are in German. Common English terms such as Ukraine, pension or housing benefit also work.",
+
+    "ua.titel": "Aid to Ukraine in the budget",
+    "ua.einleitung": "The 2026 core budget contains {n} items related to Ukraine, totalling {summe} (Soll). In 2025 it was {summe25}. Almost all of it is military aid.",
+    "ua.posten": "Item",
+    "ua.summe": "Total",
+    "ua.hinweis.programm": "The list contains the military aid item and all items with “Ukraine” in their name. The item on KfW guarantees concerns a joint programme for Ukraine, Belarus and Russia.",
+    "ua.aufschluesselung.titel": "Why the military aid is not broken down",
+    "ua.aufschluesselung.text": "In the budget plan, military aid is a single item. It does not name Ukraine but applies to “states attacked in violation of international law”. The plan does not say exactly what the money is spent on. Among other things, it pays for deliveries from industry. Until April 2025 the federal government published a list of the weapons and equipment delivered. Since May 2025 it no longer does so. Chancellor Merz said the reason was that Russia should not gain any advantage from the information.",
+    "ua.fehlt.titel": "What cannot be identified as Ukraine items",
+    "ua.fehlt.1": "Costs for refugees from Ukraine, for example in basic income support. The budget does not show them separately by country of origin.",
+    "ua.fehlt.2": "Humanitarian aid abroad, which the budget does not split by country.",
+    "ua.fazit": "The full extent of German support for Ukraine therefore cannot be read completely from the federal budget.",
   },
 };
 

@@ -203,6 +203,39 @@ function fuelleVerlaufTabelle() {
   }
 }
 
+// ---------- Ukraine-Hilfe ----------
+
+function zeigeUkraine() {
+  const ua = hg.ukraine;
+  const summe = (jahr) => ua.posten.reduce((s, p) => s + p[jahr], 0);
+  const im2026 = ua.posten.filter((p) => p["2026"] > 0).length;
+  el("ua-einleitung").textContent = t("ua.einleitung", {
+    n: im2026, summe: milliarden(summe("2026")), summe25: milliarden(summe("2025")),
+  });
+
+  const tbody = el("ua-tabelle").querySelector("tbody");
+  tbody.replaceChildren();
+  for (const p of ua.posten) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td><span></span><br><small></small></td><td></td><td></td>";
+    const zellen = tr.querySelectorAll("td");
+    zellen[0].querySelector("span").textContent = SPRACHE === "en" ? p.en : p.de;
+    zellen[0].querySelector("small").textContent = `${t("suche.kapitel", { nr: p.kapitel })} · ${t("suche.titel", { nr: `${p.titel.slice(0, 3)} ${p.titel.slice(3)}` })}`;
+    zellen[1].textContent = euro(p["2026"]);
+    zellen[2].textContent = euro(p["2025"]);
+    tbody.appendChild(tr);
+  }
+  const tfoot = el("ua-tabelle").querySelector("tfoot");
+  tfoot.innerHTML = "<tr><th scope=\"row\"></th><td></td><td></td></tr>";
+  tfoot.querySelector("th").textContent = t("ua.summe");
+  tfoot.querySelectorAll("td")[0].textContent = euro(summe("2026"));
+  tfoot.querySelectorAll("td")[1].textContent = euro(summe("2025"));
+
+  const q = el("ua-quellen");
+  q.textContent = `${t("erkl.quellen")}:`;
+  ua.quellen.forEach((quelle, i) => { if (i) q.append(";"); link(q, quelle, false); });
+}
+
 // ---------- Debatten ----------
 
 function zeigeDebatten() {
@@ -283,6 +316,7 @@ async function start() {
   zeigeHoehe();
   zeichneVerlauf();
   fuelleVerlaufTabelle();
+  zeigeUkraine();
   zeigeDebatten();
   zeigeQuellen();
 
