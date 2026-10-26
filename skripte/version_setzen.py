@@ -16,7 +16,7 @@ PROJEKT = Path(__file__).resolve().parent.parent
 
 
 def main():
-    version = datetime.now().strftime("%Y%m%d%H%M")
+    version = datetime.now().strftime("%Y%m%d%H%M%S")
     for seite in sorted(PROJEKT.glob("*.html")):
         text = seite.read_text(encoding="utf-8")
         # Lokale CSS- und JS-Dateien: ?v=... setzen oder ersetzen

@@ -452,6 +452,123 @@
    "en": "COVID-19 pandemic and energy crisis"
   }
  ],
+ "verteidigung": {
+  "haushalt": [
+   {
+    "jahr": 2025,
+    "art": "Soll",
+    "ep14_mrd": 62.3,
+    "sondervermoegen_mrd": 24.1
+   },
+   {
+    "jahr": 2026,
+    "art": "Soll",
+    "ep14_mrd": 82.7,
+    "sondervermoegen_mrd": 25.5
+   },
+   {
+    "jahr": 2027,
+    "art": "Entwurf",
+    "ep14_mrd": 109.7,
+    "sondervermoegen_mrd": 30.0
+   },
+   {
+    "jahr": 2028,
+    "art": "Finanzplan",
+    "ep14_mrd": 153.92,
+    "sondervermoegen_mrd": null
+   },
+   {
+    "jahr": 2029,
+    "art": "Finanzplan",
+    "ep14_mrd": 162.94,
+    "sondervermoegen_mrd": null
+   },
+   {
+    "jahr": 2030,
+    "art": "Finanzplan",
+    "ep14_mrd": 183.66,
+    "sondervermoegen_mrd": null
+   }
+  ],
+  "nato": [
+   {
+    "jahr": 2014,
+    "mrd": 34.7,
+    "anteil_bip": 1.16,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2019,
+    "mrd": 46.9,
+    "anteil_bip": 1.33,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2020,
+    "mrd": 51.4,
+    "anteil_bip": 1.49,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2021,
+    "mrd": 52.4,
+    "anteil_bip": 1.43,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2022,
+    "mrd": 58.3,
+    "anteil_bip": 1.48,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2023,
+    "mrd": 67.6,
+    "anteil_bip": 1.61,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2024,
+    "mrd": 86.6,
+    "anteil_bip": 2.0,
+    "art": "Schätzung"
+   }
+  ],
+  "quote_2026": {
+   "kern": 2.7,
+   "sicherheit": 1.5,
+   "art": "Schätzung",
+   "quelle": {
+    "titel": "BMF: Finanzbericht 2027, Abschnitt 1.4.3.5 Verteidigung einschließlich NATO-Quote",
+    "url": "https://www.bundesfinanzministerium.de/Content/DE/Downloads/Broschueren_Bestellservice/finanzbericht-2027.pdf?__blob=publicationFile&v=3"
+   }
+  },
+  "ziel": {
+   "kern": 3.5,
+   "sicherheit": 1.5,
+   "deutschland_bis": 2029
+  },
+  "quellen": [
+   {
+    "titel": "NATO: Defence Expenditure of NATO Countries (2014-2025), Juni 2025, Tabellen 1 und 3 (daten/roh/def-exp-2025-en.pdf)",
+    "url": "https://www.nato.int/cps/en/natohq/topics_49198.htm"
+   },
+   {
+    "titel": "BMF: Finanzbericht 2027, Abschnitt 1.4.3.5 Verteidigung einschließlich NATO-Quote",
+    "url": "https://www.bundesfinanzministerium.de/Content/DE/Downloads/Broschueren_Bestellservice/finanzbericht-2027.pdf?__blob=publicationFile&v=3"
+   },
+   {
+    "titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann",
+    "url": "https://www.bundeshaushalt.de/"
+   },
+   {
+    "titel": "Regierungsentwurf zum Bundeshaushalt 2027 (noch nicht beschlossen)",
+    "url": "https://www.bundeshaushalt.de/"
+   }
+  ],
+  "pruefung": "stimmt mit dem PDF überein"
+ },
  "ukraine": {
   "hinweis": "Soll in Tausend Euro. Titel 6002/687 06 plus alle Titel mit 'Ukraine' im Namen.",
   "posten": [

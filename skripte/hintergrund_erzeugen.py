@@ -114,6 +114,73 @@ def ukraine_posten():
     return sorted(posten, key=lambda p: -p["2026"])
 
 
+# ---------------------------------------------------------------------------
+# Verteidigung: Bundeshaushalt und NATO-Definition
+# ---------------------------------------------------------------------------
+
+QUELLE_NATO = {"titel": "NATO: Defence Expenditure of NATO Countries (2014-2025), Juni 2025, Tabellen 1 und 3 (daten/roh/def-exp-2025-en.pdf)",
+               "url": "https://www.nato.int/cps/en/natohq/topics_49198.htm"}
+QUELLE_FINANZBERICHT = {"titel": "BMF: Finanzbericht 2027, Abschnitt 1.4.3.5 Verteidigung einschließlich NATO-Quote",
+                        "url": "https://www.bundesfinanzministerium.de/Content/DE/Downloads/Broschueren_Bestellservice/finanzbericht-2027.pdf?__blob=publicationFile&v=3"}
+
+# Deutschland nach NATO-Definition: Jahr -> (Mio. Euro, laufende Preise; Anteil am realen BIP in %; Art)
+NATO_DEUTSCHLAND = {
+    2014: (34_749, 1.16, "Ist"),
+    2019: (46_936, 1.33, "Ist"),
+    2020: (51_392, 1.49, "Ist"),
+    2021: (52_431, 1.43, "Ist"),
+    2022: (58_266, 1.48, "Ist"),
+    2023: (67_621, 1.61, "Ist"),
+    2024: (86_638, 2.00, "Schätzung"),
+}
+
+# Finanzplan des Bundes: Einzelplan 14 in Mrd. Euro (Finanzbericht 2027)
+FINANZPLAN_EP14 = {2028: 153.92, 2029: 162.94, 2030: 183.66}
+
+
+def pruefe_nato_pdf():
+    """Vergleicht die Werte oben mit dem NATO-PDF, falls pdftotext verfügbar ist."""
+    import shutil
+    import subprocess
+    if not shutil.which("pdftotext"):
+        return "nicht geprüft (pdftotext fehlt)"
+    text = subprocess.run(["pdftotext", "-raw", str(ROH / "def-exp-2025-en.pdf"), "-"],
+                          capture_output=True).stdout.decode("latin-1")
+    zeile = next((z for z in text.splitlines() if z.startswith("Germany* (Euros)")), "")
+    werte = [int(w.replace(",", "")) for w in zeile.split()[2:] if w.replace(",", "").isdigit()]
+    jahre = list(range(2014, 2014 + len(werte)))
+    abweichung = [j for j, w in zip(jahre, werte) if j in NATO_DEUTSCHLAND and NATO_DEUTSCHLAND[j][0] != w]
+    return "stimmt mit dem PDF überein" if werte and not abweichung else f"ABWEICHUNG bei {abweichung or 'Lesen'}"
+
+
+def verteidigung():
+    haushalt = []
+    for jahr in ("2025", "2026", "2027"):
+        ep14 = sv = 0
+        with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
+            for z in csv.DictReader(f, delimiter=";"):
+                z = {k.strip(): (v or "").strip() for k, v in z.items() if k is not None}
+                if z["einahmen-ausgaben"] != "A":
+                    continue
+                if z["einzelplan"] == "14" and not z["kapitel-text"].startswith("Anlage"):
+                    ep14 += int(z["soll"] or 0)
+                if z["kapitel"] == "1491":
+                    sv += int(z["soll"] or 0)
+        haushalt.append({"jahr": int(jahr), "art": "Entwurf" if jahr == "2027" else "Soll",
+                         "ep14_mrd": round(ep14 / 1e6, 1), "sondervermoegen_mrd": round(sv / 1e6, 1)})
+    for jahr, wert in FINANZPLAN_EP14.items():
+        haushalt.append({"jahr": jahr, "art": "Finanzplan", "ep14_mrd": wert, "sondervermoegen_mrd": None})
+    return {
+        "haushalt": haushalt,
+        "nato": [{"jahr": j, "mrd": round(m / 1000, 1), "anteil_bip": a, "art": art}
+                 for j, (m, a, art) in sorted(NATO_DEUTSCHLAND.items())],
+        "quote_2026": {"kern": 2.7, "sicherheit": 1.5, "art": "Schätzung", "quelle": QUELLE_FINANZBERICHT},
+        "ziel": {"kern": 3.5, "sicherheit": 1.5, "deutschland_bis": 2029},
+        "quellen": [QUELLE_NATO, QUELLE_FINANZBERICHT, QUELLE_PLAN, QUELLE_ENTWURF],
+        "pruefung": pruefe_nato_pdf(),
+    }
+
+
 def lese_einnahmen(jahr):
     zeilen = []
     with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
@@ -185,6 +252,7 @@ def main():
         },
         "zeitreihe": zeitreihe,
         "ereignisse": EREIGNISSE,
+        "verteidigung": verteidigung(),
         "ukraine": {
             "hinweis": "Soll in Tausend Euro. Titel 6002/687 06 plus alle Titel mit 'Ukraine' im Namen.",
             "posten": ukraine_posten(),

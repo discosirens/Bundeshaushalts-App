@@ -823,7 +823,9 @@ td button {
   .fakt-wert { font-size: 1.375rem; }
   .fakt-quelle { grid-column: 1 / -1; }
   .treemap { height: 440px; }
-  th:nth-child(3), td:nth-child(3) { display: none; }
+  /* Auf dem Handy die Spalte "Soll 2025" ausblenden (nur in diesen Tabellen) */
+  #tabelle th:nth-child(3), #tabelle td:nth-child(3),
+  #ua-tabelle th:nth-child(3), #ua-tabelle td:nth-child(3) { display: none; }
   #tabelle th:nth-child(5), #tabelle td:nth-child(5) { display: none; }
   table { font-size: 0.875rem; }
   td:last-child { min-width: 5.5rem; }

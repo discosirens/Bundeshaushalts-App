@@ -209,6 +209,46 @@ function fuelleVerlaufTabelle() {
   }
 }
 
+// ---------- Verteidigung und NATO ----------
+
+function zeigeVerteidigung() {
+  const v = hg.verteidigung;
+  const mrd = (n) => (n == null ? "" : mrdAusMrd(n));
+  const tbody = el("nato-haushalt").querySelector("tbody");
+  tbody.replaceChildren();
+  for (const z of v.haushalt) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td></td><td></td><td></td>";
+    const zellen = tr.querySelectorAll("td");
+    zellen[0].textContent = `${z.jahr} (${artName(z.art)})`;
+    zellen[1].textContent = mrd(z.ep14_mrd);
+    zellen[2].textContent = z.sondervermoegen_mrd == null ? t("nato.keine.angabe") : mrd(z.sondervermoegen_mrd);
+    tbody.appendChild(tr);
+  }
+  const reihe = el("nato-reihe").querySelector("tbody");
+  reihe.replaceChildren();
+  for (const z of v.nato) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td></td><td></td><td></td>";
+    const zellen = tr.querySelectorAll("td");
+    zellen[0].textContent = `${z.jahr} (${artName(z.art)})`;
+    zellen[1].textContent = mrd(z.mrd);
+    // zwei Nachkommastellen wie im NATO-Bericht
+    zellen[2].textContent = SPRACHE === "en" ? `${zahl(z.anteil_bip, 2)}%` : `${zahl(z.anteil_bip, 2)} %`;
+    reihe.appendChild(tr);
+  }
+  const q = v.quote_2026;
+  const p = el("nato-quote");
+  p.textContent = t("nato.quote", {
+    ziel_kern: prozent(v.ziel.kern / 100), ziel_sicherheit: prozent(v.ziel.sicherheit / 100),
+    kern: prozent(q.kern / 100), sicherheit: prozent(q.sicherheit / 100), bis: v.ziel.deutschland_bis,
+  });
+  link(p, q.quelle);
+  const quellen = el("nato-quellen");
+  quellen.textContent = `${t("erkl.quellen")}:`;
+  v.quellen.forEach((quelle, i) => { if (i) quellen.append(";"); link(quellen, quelle, false); });
+}
+
 // ---------- Ukraine-Hilfe ----------
 
 function zeigeUkraine() {
@@ -324,6 +364,7 @@ async function start() {
   zeigeHoehe();
   zeichneVerlauf();
   fuelleVerlaufTabelle();
+  zeigeVerteidigung();
   zeigeUkraine();
   zeigeDebatten();
   zeigeQuellen();
