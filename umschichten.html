@@ -5,33 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Haushalt umschichten</title>
   <meta name="description" content="Wie würden Sie den Bundeshaushalt 2026 verteilen? Geld zwischen 14 Bereichen verschieben.">
+  <meta name="theme-color" content="#0f1630">
   <link rel="stylesheet" href="css/stil.css">
 </head>
 <body>
-  <main class="seite mit-bilanz">
-    <nav class="pfad" aria-label="Navigation"><a href="index.html">← Zur Startseite</a></nav>
+  <header class="topbar">
+    <a class="marke" href="index.html">Bundeshaushalt <span>verständlich</span></a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <a href="index.html">Überblick</a>
+      <a href="umschichten.html" aria-current="page">Selbst verteilen</a>
+    </nav>
+  </header>
 
-    <header class="kopf">
-      <p class="dachzeile">Bundeshaushalt 2026</p>
+  <section class="hero seiten-kopf">
+    <div class="hero-inhalt">
+      <p class="dachzeile">Mitmachen · Bundeshaushalt 2026</p>
       <h1>Wie würden Sie das Geld verteilen?</h1>
       <p>Ausgangspunkt sind die Ausgaben des Bundes 2026 in 14 Bereichen (Soll, Kernhaushalt ohne Sondervermögen).
         Verschieben Sie Geld zwischen den Bereichen. Bei gebundenen Ausgaben sehen Sie, was eine Änderung voraussetzen würde.</p>
-    </header>
+    </div>
+  </section>
 
+  <main class="seite mit-bilanz">
     <section class="bereich" aria-labelledby="szenario-titel">
-      <h2 id="szenario-titel">1. Aufgabe wählen</h2>
+      <h2 id="szenario-titel"><span class="schritt">1</span>Aufgabe wählen</h2>
       <div class="szenarien" id="szenarien" role="radiogroup" aria-label="Aufgabe"></div>
       <p class="szenario-text" id="szenario-text"></p>
     </section>
 
     <section class="bereich" aria-labelledby="regler-titel">
-      <h2 id="regler-titel">2. Geld verschieben</h2>
+      <h2 id="regler-titel"><span class="schritt">2</span>Geld verschieben</h2>
       <p class="hinweis">Mit − und + ändern Sie einen Bereich um 1 Mrd. €, mit dem Regler in Schritten von 0,1 Mrd. €.</p>
       <div id="bereiche" class="bereich-liste"></div>
     </section>
 
     <section class="bereich" aria-labelledby="ergebnis-titel">
-      <h2 id="ergebnis-titel">3. Ihr Ergebnis</h2>
+      <h2 id="ergebnis-titel"><span class="schritt">3</span>Ihr Ergebnis</h2>
       <div id="ergebnis" aria-live="polite"></div>
     </section>
 

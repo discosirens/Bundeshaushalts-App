@@ -3,6 +3,19 @@
 
 const EINWOHNER = 83_500_000; // 31.12.2025, Statistisches Bundesamt, PM Nr. 203 vom 16.06.2026
 
+// Feste Farbe je Einzelplan (nur zur Unterscheidung). Kleinere Einzelpläne teilen sich eine neutrale Farbe.
+// "dunkel" = dunkle Schrift auf heller Farbe für ausreichenden Kontrast.
+const EP_FARBEN = {
+  "11": { farbe: "var(--ep-a)", dunkel: false },
+  "14": { farbe: "var(--ep-b)", dunkel: false },
+  "60": { farbe: "var(--ep-c)", dunkel: true },
+  "32": { farbe: "var(--ep-d)", dunkel: true },
+  "12": { farbe: "var(--ep-e)", dunkel: true },
+  "30": { farbe: "var(--ep-f)", dunkel: true },
+  "15": { farbe: "var(--ep-g)", dunkel: false },
+};
+const EP_REST = { farbe: "var(--ep-rest)", dunkel: true };
+
 let daten = null;
 let gesamt2026 = 0;
 let aktuellerEp = null;   // null = Übersicht aller Einzelpläne
@@ -111,8 +124,13 @@ function zeichneTreemap() {
     const knopf = document.createElement("button");
     knopf.type = "button";
     knopf.className = "feld";
+    if (w > 200 && h > 120) knopf.classList.add("gross");
     if (w < 90 || h < 44) knopf.classList.add("klein");
     if (w < 36 || h < 22) knopf.classList.add("winzig");
+    // In der Kapitel-Ansicht behalten alle Felder die Farbe ihres Einzelplans.
+    const stil = EP_FARBEN[aktuellerEp ? aktuellerEp.nr : e.nr] || EP_REST;
+    knopf.style.background = stil.farbe;
+    if (stil.dunkel) knopf.classList.add("dunkel");
     if (e.id === ausgewaehlt) knopf.classList.add("aktiv");
     Object.assign(knopf.style, { left: `${blatt.x0}px`, top: `${blatt.y0}px`, width: `${w}px`, height: `${h}px` });
     knopf.setAttribute("aria-label", `${e.name}: ${euro(e.s26)}, Soll 2026`);
@@ -155,10 +173,10 @@ function zeigeDetails(e, kennung) {
   kasten.innerHTML = `
     <h2></h2>
     <dl>
-      <dt>Soll 2026</dt><dd>${euro(e.s26)}</dd>
-      <dt>Soll 2025</dt><dd>${e.s25 === null ? "nicht vorhanden" : euro(e.s25)}</dd>
-      <dt>Veränderung</dt><dd class="${v.klasse}">${v.text}</dd>
-      <dt>Anteil am Kernhaushalt 2026</dt><dd>${prozent(e.s26 / gesamt2026)}</dd>
+      <div><dt>Soll 2026</dt><dd>${euro(e.s26)}</dd></div>
+      <div><dt>Soll 2025</dt><dd>${e.s25 === null ? "nicht vorhanden" : euro(e.s25)}</dd></div>
+      <div><dt>Veränderung</dt><dd class="${v.klasse}">${v.text}</dd></div>
+      <div><dt>Anteil am Kernhaushalt 2026</dt><dd>${prozent(e.s26 / gesamt2026)}</dd></div>
     </dl>`;
   kasten.querySelector("h2").textContent = `${kennung}: ${e.name}`;
   kasten.hidden = false;
@@ -229,6 +247,30 @@ function fuelleTabelle() {
     : "";
 }
 
+// Drei Zahlen zum Mitnehmen, alle aus dem Soll 2026 berechnet.
+function zeigeFakten() {
+  const euroGesamt = gesamt2026 * 1000;
+  const proKopf = Math.round(euroGesamt / EINWOHNER / 10) * 10;
+  const proSekunde = Math.round(euroGesamt / (365 * 24 * 60 * 60) / 100) * 100;
+  const groesster = einzelplanEintraege().sort((a, b) => b.s26 - a.s26)[0];
+  const fakten = [
+    { wert: `${proKopf.toLocaleString("de-DE")} €`, text: "pro Einwohnerin und Einwohner", quelle: "Soll 2026 geteilt durch 83,5 Mio. Einwohner" },
+    { wert: `${proSekunde.toLocaleString("de-DE")} €`, text: "gibt der Bund im Schnitt pro Sekunde aus", quelle: "Soll 2026 geteilt durch die Sekunden eines Jahres" },
+    { wert: prozent(groesster.s26 / gesamt2026), text: `gehen an ${groesster.kurz}`, quelle: `Einzelplan ${groesster.nr}, Soll 2026` },
+  ];
+  const liste = el("fakten");
+  liste.replaceChildren();
+  for (const f of fakten) {
+    const li = document.createElement("li");
+    li.className = "fakt";
+    li.innerHTML = `<span class="fakt-wert"></span><span class="fakt-text"></span><span class="fakt-quelle"></span>`;
+    li.querySelector(".fakt-wert").textContent = f.wert;
+    li.querySelector(".fakt-text").textContent = f.text;
+    li.querySelector(".fakt-quelle").textContent = f.quelle;
+    liste.appendChild(li);
+  }
+}
+
 // ---------- Start ----------
 
 async function start() {
@@ -240,12 +282,8 @@ async function start() {
     return;
   }
   gesamt2026 = daten.summen["2026"].kernhaushalt;
-  const proKopf = (gesamt2026 * 1000) / EINWOHNER;
-
   el("gesamt").textContent = euro(gesamt2026);
-  el("gesamt-text").textContent = "So viel darf der Bund 2026 ausgeben (Soll, Kernhaushalt).";
-  el("pro-kopf").textContent =
-    `Das sind rund ${(Math.round(proKopf / 10) * 10).toLocaleString("de-DE")} Euro pro Einwohnerin und Einwohner in Deutschland.`;
+  zeigeFakten();
 
   zeigeEbene();
 

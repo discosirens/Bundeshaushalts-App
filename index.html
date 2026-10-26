@@ -5,27 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bundeshaushalt verständlich</title>
   <meta name="description" content="Wofür gibt der Bund sein Geld aus? Der Bundeshaushalt 2026 einfach erklärt.">
+  <meta name="theme-color" content="#0f1630">
   <link rel="stylesheet" href="css/stil.css">
 </head>
 <body>
-  <main class="seite">
-    <header class="kopf">
-      <p class="dachzeile">Bundeshaushalt 2026</p>
-      <p class="grosse-zahl" id="gesamt">…</p>
-      <p class="unterzeile" id="gesamt-text">Daten werden geladen.</p>
-      <p class="pro-kopf" id="pro-kopf"></p>
-      <a class="verweis" href="umschichten.html">
-        <strong>Selbst ausprobieren: Wie würden Sie das Geld verteilen? →</strong>
-        Verschieben Sie Geld zwischen 14 Bereichen und sehen Sie, was gesetzlich festgelegt ist.
-      </a>
-    </header>
+  <header class="topbar">
+    <a class="marke" href="index.html">Bundeshaushalt <span>verständlich</span></a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <a href="index.html" aria-current="page">Überblick</a>
+      <a href="umschichten.html">Selbst verteilen</a>
+    </nav>
+  </header>
 
+  <section class="hero">
+    <div class="hero-inhalt">
+      <p class="dachzeile">Bundeshaushalt 2026</p>
+      <h1 class="hero-titel">
+        <span class="hero-vorsatz">Der Bund darf 2026</span>
+        <span class="grosse-zahl" id="gesamt">524,5 Mrd. €</span>
+        <span class="hero-vorsatz">ausgeben.</span>
+      </h1>
+      <p class="unterzeile" id="gesamt-text">Soll laut Haushaltsplan, Kernhaushalt. Wofür? Das zeigt diese Seite.</p>
+
+      <ul class="fakten" id="fakten" aria-label="Zahlen zum Haushalt 2026"></ul>
+
+      <div class="hero-knoepfe">
+        <a class="knopf" href="#treemap-titel">Ausgaben ansehen ↓</a>
+        <a class="knopf knopf-hell" href="umschichten.html">Selbst verteilen →</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="seite">
     <section class="bereich" aria-labelledby="treemap-titel">
       <nav class="pfad" id="pfad" aria-label="Ebene"></nav>
-      <h1 id="treemap-titel">Wofür gibt der Bund Geld aus?</h1>
+      <h2 class="abschnitt-titel" id="treemap-titel">Wofür gibt der Bund Geld aus?</h2>
       <p class="hinweis" id="treemap-hinweis">Jede Fläche ist so groß wie die Ausgaben. Tippen Sie auf ein Feld, um Details und die Kapitel zu sehen.</p>
 
       <div class="treemap" id="treemap" role="group" aria-label="Ausgaben als Flächen"></div>
+      <p class="treemap-legende">Soll 2026 in Mrd. €. Farben unterscheiden die Einzelpläne, sie bewerten nichts.</p>
 
       <div class="details" id="details" aria-live="polite" hidden></div>
 
@@ -45,11 +63,19 @@
       </details>
     </section>
 
+    <a class="aufruf" href="umschichten.html">
+      <span class="aufruf-etikett">Mitmachen</span>
+      <strong>Wie würden Sie das Geld verteilen?</strong>
+      <span>Schieben Sie Milliarden zwischen 14 Bereichen hin und her und finden Sie heraus, was gesetzlich festgelegt ist.</span>
+      <span class="knopf">Jetzt ausprobieren →</span>
+    </a>
+
     <footer class="quellen">
       <h2>Quellen</h2>
       <ul>
         <li>Ausgaben: Bundeshaushaltsplan 2025 und 2026, Soll-Werte (vom Bundestag beschlossene Beträge), Bundesministerium der Finanzen, <a href="https://www.bundeshaushalt.de/">bundeshaushalt.de</a>.</li>
         <li>Einwohnerzahl: 83,5 Millionen zum 31.12.2025, Statistisches Bundesamt, <a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html">Pressemitteilung Nr. 203 vom 16. Juni 2026</a>.</li>
+        <li>Beträge pro Kopf, pro Tag und pro Sekunde: eigene Berechnung aus diesen Quellen.</li>
         <li>Alle Beträge betreffen den Kernhaushalt. Sondervermögen und andere Anlagen zum Haushaltsplan sind nicht enthalten und werden gesondert gezeigt.</li>
       </ul>
     </footer>
