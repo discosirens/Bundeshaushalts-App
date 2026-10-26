@@ -13,6 +13,10 @@
 - Sondervermögen werden immer getrennt vom Kernhaushalt dargestellt und nie einfach addiert.
   Bei Themen wie Verteidigung wird die Summe aus Kernhaushalt und zugehörigem Sondervermögen
   zusätzlich ausgewiesen, mit Hinweis auf mögliche Doppelzählung.
+- Bereichsausnahme der Schuldenbremse (Art. 115 Abs. 2 GG): Welche Ausgaben dazugehören, richtet sich
+  nach dem Vorspann zum Bundeshaushaltsplan 2026 (Gesamtplan Teil II A, `daten/roh/Vorspann_2026.pdf`).
+  Ausgenommen ist nur der Teil über 1 % des BIP. 2026: 100,9 Mrd. € Ausgaben der Bereichsausnahme,
+  davon 57,6 Mrd. € ausgenommen (Schwelle 43,3 Mrd. €). Nie den Gesamtbetrag als „ausgenommen“ darstellen.
 
 ## Technik
 - Statische Web-App ohne Server (HTML, CSS, JavaScript).
