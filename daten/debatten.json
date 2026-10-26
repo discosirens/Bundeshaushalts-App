@@ -1,0 +1,110 @@
+{
+  "hinweis": "Von Hand gepflegt. Positionen werden zugeschrieben, nicht bewertet. Jede Zahl mit Jahr, Art und Quelle.",
+  "debatten": [
+    {
+      "id": "grundsicherung",
+      "titel": {"de": "Grundsicherung statt Bürgergeld", "en": "Basic income support replaces citizen's income"},
+      "stand": {
+        "de": "Seit dem 1. Juli 2026 heißt das Bürgergeld „Grundsicherungsgeld“. Der Bundestag hat das Gesetz am 5. März 2026 beschlossen, der Bundesrat hat es am 27. März 2026 gebilligt.",
+        "en": "Since 1 July 2026, citizen's income (Bürgergeld) has been called basic income support (Grundsicherungsgeld). The Bundestag passed the law on 5 March 2026, and the Bundesrat approved it on 27 March 2026."
+      },
+      "abschnitte": [
+        {
+          "titel": {"de": "Was sich ändert", "en": "What changes"},
+          "punkte": [
+            {"de": "Vermittlung in Arbeit hat wieder Vorrang. Erst wenn das nicht möglich ist, kommen Weiterbildung und Qualifizierung in Frage, besonders für unter 30-Jährige.", "en": "Placement into work again takes priority. Only if that is not possible are further training and qualification considered, especially for people under 30."},
+            {"de": "Wer eine Maßnahme abbricht oder sich nicht bewirbt, dem kann die Leistung für drei Monate um 30 % gekürzt werden.", "en": "Anyone who drops out of a measure or does not apply for jobs can have the benefit cut by 30% for three months."},
+            {"de": "Wer dreimal in Folge Termine im Jobcenter versäumt, kann den Anspruch ganz verlieren, auch für die Miete.", "en": "Anyone who misses three job centre appointments in a row can lose the entitlement completely, including for rent."},
+            {"de": "Eltern können schon ab dem 14. Lebensmonat ihres Kindes zur Arbeit oder zu Maßnahmen verpflichtet werden, bisher ab dem dritten Lebensjahr.", "en": "Parents can be required to work or take part in measures from their child's 14th month, previously from the age of three."},
+            {"de": "Das erlaubte Vermögen richtet sich nach dem Alter, die Schonfrist im ersten Jahr entfällt.", "en": "The assets people may keep depend on age; the one-year grace period is abolished."}
+          ],
+          "quelle": {"titel": "Bundesregierung: Neue Grundsicherung löst Bürgergeld ab (1. Juli 2026)", "url": "https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562"}
+        },
+        {
+          "titel": {"de": "Die Zahlen", "en": "The figures"},
+          "punkte": [
+            {"de": "Im Haushaltsplan 2026 stehen 28,1 Mrd. € für die Leistung selbst (dort noch „Bürgergeld“ genannt) und 13,0 Mrd. € für die Beteiligung an Miete und Heizung (Soll).", "en": "The 2026 budget plan contains €28.1bn for the benefit itself (still called Bürgergeld there) and €13.0bn for the federal share of rent and heating (Soll)."},
+            {"de": "Die Bundesregierung erwartet durch die Reform Einsparungen von 86 Mio. € im Jahr 2026 und 70 Mio. € im Jahr 2027, für Bund, Länder, Kommunen und Bundesagentur zusammen. Für 2028 und 2029 rechnet sie mit geringen Mehrausgaben.", "en": "The federal government expects the reform to save €86m in 2026 and €70m in 2027, for federal, state and local government and the Federal Employment Agency combined. For 2028 and 2029 it expects slightly higher spending."},
+            {"de": "Zum Vergleich laut Gesetzentwurf: Gäbe es 100.000 Leistungsberechtigte weniger, sänken die Ausgaben um rund 850 Mio. € pro Jahr.", "en": "For comparison, according to the draft law: 100,000 fewer recipients would reduce spending by around €850m a year."}
+          ],
+          "quelle": {"titel": "Gesetzentwurf der Bundesregierung, Drucksache 21/3541, S. 2 bis 4 (PDF)", "url": "https://dserver.bundestag.de/btd/21/035/2103541.pdf"}
+        },
+        {
+          "titel": {"de": "Was Befürworter sagen", "en": "What supporters say"},
+          "punkte": [
+            {"de": "Bundesregierung und CDU/CSU: Wer arbeiten kann, soll schneller in Arbeit kommen. Rechte und Pflichten sollen verbindlicher werden („Fördern und Fordern“).", "en": "The federal government and CDU/CSU: people who can work should get into work faster. Rights and duties should become more binding (“support and demand”)."},
+            {"de": "Arbeitsministerin Bärbel Bas (SPD) verweist auf zusätzlich 4 Mrd. € für Qualifizierung und die Betreuung Jugendlicher.", "en": "Labour minister Bärbel Bas (SPD) points to an additional €4bn for qualification and support for young people."},
+            {"de": "Der AfD geht die Reform nicht weit genug.", "en": "For the AfD, the reform does not go far enough."}
+          ],
+          "quelle": {"titel": "Deutscher Bundestag, Textarchiv: Debatte zur Grundsicherung", "url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw10-de-grundsicherung-1150460"}
+        },
+        {
+          "titel": {"de": "Was Kritiker sagen", "en": "What critics say"},
+          "punkte": [
+            {"de": "Grüne und Linke: Die Reform erhöhe den Druck auf Menschen in Armut und auf Beschäftigte, die Einsparungen seien gering.", "en": "The Greens and the Left: the reform increases pressure on people in poverty and on workers, and the savings are small."},
+            {"de": "Die Linke verweist darauf, dass unter den Beziehenden rund 1,8 Mio. Kinder und rund 800.000 Erwerbstätige sind, deren Lohn nicht reicht.", "en": "The Left points out that recipients include around 1.8 million children and around 800,000 people in work whose wages are not enough."},
+            {"de": "Auch in der SPD gab es Widerstand, bis hin zu einem Mitgliederbegehren.", "en": "There was also resistance within the SPD, including a members' petition."}
+          ],
+          "quelle": {"titel": "Deutscher Bundestag, Textarchiv: Debatte zur Grundsicherung", "url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw10-de-grundsicherung-1150460"}
+        }
+      ],
+      "gut_zu_wissen": {
+        "de": "Gemeint ist die Grundsicherung für Arbeitsuchende (Sozialgesetzbuch II). Nicht verwechseln mit der Grundsicherung im Alter (Sozialgesetzbuch XII), die zum Bereich Rente gehört.",
+        "en": "This is basic income support for jobseekers (Social Code Book II). Not to be confused with basic income support in old age (Social Code Book XII), which belongs to the pensions area."
+      }
+    },
+    {
+      "id": "vermoegensteuer",
+      "titel": {"de": "Vermögensteuer", "en": "Wealth tax"},
+      "stand": {
+        "de": "Die Vermögensteuer wird seit 1997 nicht mehr erhoben. Das Bundesverfassungsgericht hatte 1995 entschieden, dass die damalige Ausgestaltung gegen das Grundgesetz verstößt. Das Gesetz wurde danach weder angepasst noch abgeschafft. Im Koalitionsvertrag von CDU/CSU und SPD von 2025 kommt sie nicht vor.",
+        "en": "Germany has not levied a wealth tax since 1997. In 1995 the Federal Constitutional Court ruled that its design at the time violated the Basic Law. The law was neither amended nor repealed afterwards. The 2025 coalition agreement of CDU/CSU and SPD does not mention it."
+      },
+      "abschnitte": [
+        {
+          "titel": {"de": "Wichtig für den Haushalt", "en": "Why it matters for the budget"},
+          "punkte": [
+            {"de": "Die Einnahmen stünden laut Grundgesetz den Ländern zu, nicht dem Bund. Im Bundeshaushalt würden sie also nicht direkt auftauchen.", "en": "Under the Basic Law, the revenue would go to the states, not the federal government. It would therefore not appear directly in the federal budget."}
+          ],
+          "quelle": {"titel": "Art. 106 Abs. 2 Grundgesetz", "url": "https://www.gesetze-im-internet.de/gg/art_106.html"}
+        },
+        {
+          "titel": {"de": "Die Zahlen", "en": "The figures"},
+          "punkte": [
+            {"de": "Schätzungen für das Aufkommen reichen je nach Vorschlag meist von etwa 4 bis 20 Mrd. € pro Jahr. Der Vorschlag der Linken liegt mit über 100 Mrd. € deutlich darüber.", "en": "Revenue estimates mostly range from about €4bn to €20bn a year, depending on the proposal. The Left's proposal is well above that at over €100bn."},
+            {"de": "Die Kosten der Erhebung werden meist auf 7 bis 12 % des Aufkommens geschätzt.", "en": "Collection costs are mostly estimated at 7% to 12% of the revenue."},
+            {"de": "Zum Vergleich: Bund, Länder und Gemeinden nahmen 2025 zusammen rund 991 Mrd. € Steuern ein (Schätzung vom Oktober 2025).", "en": "For comparison: federal, state and local government together collected around €991bn in taxes in 2025 (estimate from October 2025)."}
+          ],
+          "quelle": {"titel": "Beck/Prinz: Für und Wider der Wiederbelebung der Vermögensteuer, Wirtschaftsdienst 1/2026", "url": "https://www.wirtschaftsdienst.eu/inhalt/jahr/2026/heft/1/beitrag/fuer-und-wider-der-wiederbelebung-der-vermoegensteuer.html"}
+        },
+        {
+          "titel": {"de": "Was Befürworter sagen", "en": "What supporters say"},
+          "punkte": [
+            {"de": "Die Linke, die Grünen, Teile der SPD und Gewerkschaften verweisen auf die ungleiche Verteilung von Vermögen und auf zusätzliche Einnahmen für die Länder.", "en": "The Left, the Greens, parts of the SPD and trade unions point to the unequal distribution of wealth and to additional revenue for the states."},
+            {"de": "Die Grünen schlagen eine Steuer nur auf sehr große Vermögen ab 500 Mio. € vor, mit 2 bis 4 %.", "en": "The Greens propose a tax only on very large fortunes above €500m, at 2% to 4%."},
+            {"de": "Die Linke will einen Steuersatz von 1 bis 12 % ab einem Freibetrag von 1 Mio. €.", "en": "The Left wants a rate of 1% to 12% above an allowance of €1m."}
+          ],
+          "quelle": {"titel": "Handelsblatt: Grüne schlagen neue Steuer für „Extremvermögen“ vor; DIW, Politikberatung kompakt 211 (2026)", "url": "https://www.handelsblatt.com/politik/deutschland/vermoegenssteuer-gruene-schlagen-neue-steuer-fuer-extremvermoegen-vor/100258276.html"}
+        },
+        {
+          "titel": {"de": "Was Kritiker sagen", "en": "What critics say"},
+          "punkte": [
+            {"de": "CDU/CSU, AfD, FDP und viele Wirtschaftsverbände lehnen die Steuer ab. Sie treffe auch Betriebsvermögen, könne Investitionen kosten und Vermögen ins Ausland treiben. Die Bewertung von Vermögen sei aufwendig.", "en": "CDU/CSU, AfD, FDP and many business associations reject the tax. They argue it would also hit business assets, could cost investment and drive wealth abroad, and that valuing assets is costly."},
+            {"de": "Eine Studie des ifo-Instituts (2018) kommt zu dem Ergebnis, dass wegen geringeren Wachstums insgesamt sogar weniger Steuern eingenommen würden.", "en": "A study by the ifo Institute (2018) concludes that overall tax revenue would even fall because of lower growth."},
+            {"de": "In Europa erheben nur noch Norwegen, Spanien und die Schweiz eine allgemeine Vermögensteuer.", "en": "In Europe, only Norway, Spain and Switzerland still levy a general wealth tax."}
+          ],
+          "quelle": {"titel": "Beck/Prinz: Für und Wider der Wiederbelebung der Vermögensteuer, Wirtschaftsdienst 1/2026", "url": "https://www.wirtschaftsdienst.eu/inhalt/jahr/2026/heft/1/beitrag/fuer-und-wider-der-wiederbelebung-der-vermoegensteuer.html"}
+        }
+      ],
+      "gut_zu_wissen": {
+        "de": "Vermögensteuer und Erbschaftsteuer sind verschiedene Steuern. Die Erbschaftsteuer wird erhoben, ihre Einnahmen gehen ebenfalls an die Länder.",
+        "en": "Wealth tax and inheritance tax are different taxes. Inheritance tax is levied, and its revenue also goes to the states."
+      },
+      "weitere_quellen": [
+        {"titel": "beck-aktuell: Ein Evergreen des Wahlkampfs (Vermögensteuer und Bundesverfassungsgericht)", "url": "https://www.beck-aktuell.de/heute-im-recht/rechtspolitik-gesetzgebung/wiedereinfuehrung-vermoegensteuer-bverfg-wahlkampf-2025-02-14"},
+        {"titel": "Börsen-Zeitung: Vermögensteuer wird neues Schlachtfeld für die Koalition", "url": "https://www.boersen-zeitung.de/meinung-analyse/vermoegensteuer-wird-neues-schlachtfeld-fuer-die-koalition"},
+        {"titel": "DIW: Politikberatung kompakt 211, Vermögensteuer Die Linke (PDF)", "url": "https://www.diw.de/documents/publikationen/73/diw_01.c.998454.de/diwkompakt_2026-211.pdf"}
+      ]
+    }
+  ]
+}

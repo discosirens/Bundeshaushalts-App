@@ -172,25 +172,27 @@ BEREICHE = [
         },
     },
     {
-        "id": "arbeit", "name": "Arbeitsmarkt und Bürgergeld",
+        "id": "arbeit", "name": "Arbeitsmarkt und Grundsicherungsgeld",
         "bindung": "gesetzlich gebunden",
-        "begruendung": "Bürgergeld und Beteiligung an Unterkunft und Heizung sind Rechtsansprüche nach dem SGB II "
-                       "(rund drei Viertel des Bereichs). Eingliederungsleistungen und Verwaltungskosten werden als "
-                       "Budget festgelegt und sind politisch gestaltbar.",
+        "begruendung": "Grundsicherungsgeld und Beteiligung an Unterkunft und Heizung sind Rechtsansprüche nach dem "
+                       "SGB II (rund drei Viertel des Bereichs). Eingliederungsleistungen und Verwaltungskosten werden "
+                       "als Budget festgelegt und sind politisch gestaltbar.",
         "quelle": [gesetz("§ 46 SGB II: Finanzierung aus Bundesmitteln", "sgb_2/__46.html")],
         "erklaerung": {
-            "was_ist_das": "Bürgergeld für Menschen, die arbeiten können, aber nicht genug zum Leben haben. Dazu kommen "
-                           "Hilfen bei der Arbeitssuche, Weiterbildung und die Kosten der Jobcenter.",
-            "wer_bekommt_das_geld": "Jobcenter zahlen das Bürgergeld an die Berechtigten. Miete und Heizung zahlen die "
-                                    "Kommunen, der Bund erstattet ihnen einen Teil.",
+            "was_ist_das": "Grundsicherungsgeld für Menschen, die arbeiten können, aber nicht genug zum Leben haben. "
+                           "Dazu kommen Hilfen bei der Arbeitssuche, Weiterbildung und die Kosten der Jobcenter.",
+            "wer_bekommt_das_geld": "Jobcenter zahlen das Grundsicherungsgeld an die Berechtigten. Miete und Heizung "
+                                    "zahlen die Kommunen, der Bund erstattet ihnen einen Teil.",
             "warum_so_viel": "Wer die Voraussetzungen erfüllt, hat einen Rechtsanspruch. Die Höhe hängt von der Zahl "
                              "der Berechtigten, den Regelsätzen und den Mieten ab.",
             "gut_zu_wissen": [
+                {"text": "Bis Juni 2026 hieß die Leistung Bürgergeld, so steht sie auch noch im Haushaltsplan 2026. "
+                         "Seit Juli gelten strengere Pflichten und höhere Kürzungen.",
+                 "quelle": {"titel": "Bundesregierung: Neue Grundsicherung löst Bürgergeld ab",
+                            "url": "https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562"}},
                 {"text": "Arbeitslosengeld zahlt die Bundesagentur für Arbeit aus Beiträgen. Der Bund leiht ihr 2026 "
                          "aber 3,97 Mrd. € (Soll).",
                  "quelle": {"titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 856 22", "url": "https://www.bundeshaushalt.de/"}},
-                {"text": "Bei Miete und Heizung trägt der Bund höchstens 74 % der Kosten.",
-                 "quelle": gesetz("§ 46 Abs. 5 SGB II", "sgb_2/__46.html")},
             ],
         },
     },
@@ -470,19 +472,20 @@ BEREICHE_EN = {
                 "to the Health Fund (budget). Loans have to be repaid."],
     },
     "arbeit": {
-        "name": "Labour market and citizen's income",
-        "begruendung": "Citizen's income and the federal share of housing and heating costs are legal "
-                       "entitlements under Social Code Book II (about three quarters of this area). Job support "
-                       "and administrative costs are set as a budget and can be shaped politically.",
-        "was": "Citizen's income (Bürgergeld) for people who can work but do not have enough to live on. It also "
-               "covers help with job seeking, further training and the costs of job centres.",
-        "wer": "Job centres pay citizen's income to those entitled. Local authorities pay rent and heating; the "
+        "name": "Labour market and basic income support",
+        "begruendung": "Basic income support (Grundsicherungsgeld) and the federal share of housing and heating "
+                       "costs are legal entitlements under Social Code Book II (about three quarters of this area). "
+                       "Job support and administrative costs are set as a budget and can be shaped politically.",
+        "was": "Basic income support (Grundsicherungsgeld) for people who can work but do not have enough to live "
+               "on. It also covers help with job seeking, further training and the costs of job centres.",
+        "wer": "Job centres pay basic income support to those entitled. Local authorities pay rent and heating; the "
                "federal government reimburses part of it.",
         "warum": "Anyone who meets the conditions has a legal entitlement. The amount depends on the number of "
                  "recipients, the standard rates and rents.",
-        "gut": ["Unemployment benefit is paid by the Federal Employment Agency from contributions. In 2026, "
-                "however, the federal government lends it €3.97 billion (budget).",
-                "For rent and heating, the federal government pays at most 74% of the costs."],
+        "gut": ["Until June 2026 the benefit was called citizen's income (Bürgergeld), as in the 2026 budget plan. "
+                "Stricter duties and larger cuts now apply.",
+                "Unemployment benefit is paid by the Federal Employment Agency from contributions. In 2026, "
+                "however, the federal government lends it €3.97 billion (budget)."],
     },
     "familie": {
         "name": "Families and other social benefits",
@@ -638,6 +641,11 @@ BEREICHE_EN = {
     },
 }
 
+# Deutsche Titelnamen, die seit Aufstellung des Haushaltsplans überholt sind
+TITEL_DE = {
+    ("1101", "68112"): "Bürgergeld (seit Juli 2026 Grundsicherungsgeld)",
+}
+
 # Englische Namen der derzeit größten Titel. Fehlt ein Titel, bleibt der deutsche Name stehen.
 TITEL_EN = {
     ("1102", "63681"): "Federal grant to the general pension insurance",
@@ -646,7 +654,7 @@ TITEL_EN = {
     ("1501", "63606"): "Lump-sum payment to health insurers for tasks in the public interest (Health Fund)",
     ("1502", "85602"): "Multi-year loan to the long-term care insurance compensation fund",
     ("1501", "85601"): "Multi-year loan to the Health Fund",
-    ("1101", "68112"): "Citizen's income (Bürgergeld)",
+    ("1101", "68112"): "Basic income support (until June 2026 Bürgergeld)",
     ("1101", "63211"): "Federal share of housing and heating costs",
     ("1101", "63613"): "Administrative costs of basic income support for jobseekers",
     ("1701", "68102"): "Parental allowance (Elterngeld)",
@@ -782,7 +790,7 @@ def main():
     for d in BEREICHE:
         b = d["id"]
         top = sorted(titel26[b], key=lambda z: -z["soll"])[:3]
-        namen = [sauber(z["titel-text"]) for z in top]
+        namen = [TITEL_DE.get((z["kapitel"], z["titel"]), sauber(z["titel-text"])) for z in top]
         posten = []
         for z, name in zip(top, namen):
             # Gleichnamige Titel (z. B. Beamtenbezüge) durch das Kapitel unterscheidbar machen

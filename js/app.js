@@ -16,10 +16,15 @@ const EP_FARBEN = {
 };
 const EP_REST = { farbe: "var(--ep-rest)", dunkel: true };
 
+// Kleine Einträge werden zu einer Kachel "Weitere" gebündelt, damit nichts unlesbar klein wird.
+const MIN_ANTEIL = 0.025;   // Einträge unter 2,5 % der angezeigten Summe kommen in "Weitere"
+const MAX_KACHELN = 12;
+
 let daten = null;
 let gesamt2026 = 0;
 let aktuellerEp = null;   // null = Übersicht aller Einzelpläne
 let ausgewaehlt = null;   // id des angetippten Feldes
+let weitereStapel = [];   // geöffnete "Weitere"-Kacheln (jeweils Liste ihrer Einträge)
 
 const el = (id) => document.getElementById(id);
 
@@ -87,8 +92,24 @@ function kapitelEintraege(ep) {
 }
 
 function aktuelleEintraege() {
+  if (weitereStapel.length) return weitereStapel[weitereStapel.length - 1];
   if (!aktuellerEp) return einzelplanEintraege();
   return kapitelEintraege(aktuellerEp);
+}
+
+// Große Einträge einzeln, kleine als eine Kachel "Weitere (n)". Antippen öffnet sie als eigene Treemap.
+function buendle(eintraege) {
+  const positiv = eintraege.filter((e) => e.s26 > 0).sort((a, b) => b.s26 - a.s26);
+  const summe = positiv.reduce((s, e) => s + e.s26, 0);
+  const gross = [];
+  const klein = [];
+  for (const e of positiv) {
+    (gross.length < MAX_KACHELN && e.s26 / summe >= MIN_ANTEIL ? gross : klein).push(e);
+  }
+  if (klein.length < 2) return positiv;
+  const s25 = klein.every((e) => e.s25 === null) ? null : klein.reduce((s, e) => s + (e.s25 || 0), 0);
+  const name = t(aktuellerEp ? "treemap.weitere.kapitel" : "treemap.weitere.ep", { n: klein.length });
+  return [...gross, { id: `weitere-${weitereStapel.length}`, typ: "gruppe", name, kurz: name, s26: summe - gross.reduce((s, e) => s + e.s26, 0), s25, kinder: klein }];
 }
 
 // ---------- Treemap ----------
@@ -97,11 +118,12 @@ function zeichneTreemap() {
   const behaelter = el("treemap");
   const breite = behaelter.clientWidth;
   const hoehe = behaelter.clientHeight;
-  const eintraege = aktuelleEintraege().filter((e) => e.s26 > 0);
+  const eintraege = buendle(aktuelleEintraege());
 
   const wurzel = d3.hierarchy({ children: eintraege })
     .sum((d) => d.s26 || 0)
-    .sort((a, b) => b.value - a.value);
+    // "Weitere" immer zuletzt (unten rechts), sonst nach Größe
+    .sort((a, b) => (a.data.typ === "gruppe") - (b.data.typ === "gruppe") || b.value - a.value);
   d3.treemap().size([breite, hoehe]).paddingInner(2).round(true)(wurzel);
 
   behaelter.replaceChildren();
@@ -119,6 +141,7 @@ function zeichneTreemap() {
     const stil = EP_FARBEN[aktuellerEp ? aktuellerEp.nr : e.nr] || EP_REST;
     knopf.style.background = stil.farbe;
     if (stil.dunkel) knopf.classList.add("dunkel");
+    if (e.typ === "gruppe") knopf.classList.add("gruppe");
     if (e.id === ausgewaehlt) knopf.classList.add("aktiv");
     Object.assign(knopf.style, { left: `${blatt.x0}px`, top: `${blatt.y0}px`, width: `${w}px`, height: `${h}px` });
     knopf.setAttribute("aria-label", t("treemap.feld.label", { name: e.name, betrag: euro(e.s26) }));
@@ -134,8 +157,15 @@ function zeichneTreemap() {
 // ---------- Interaktion ----------
 
 function waehle(e) {
-  if (e.typ === "ep") {
+  if (e.typ === "gruppe") {
+    weitereStapel.push(e.kinder);
+    ausgewaehlt = null;
+    el("details").hidden = true;
+    zeigeEbene();
+    el("treemap-titel").scrollIntoView({ behavior: "smooth", block: "start" });
+  } else if (e.typ === "ep") {
     aktuellerEp = daten.einzelplaene.find((ep) => ep.nr === e.nr);
+    weitereStapel = [];
     ausgewaehlt = null;
     zeigeEbene();
     zeigeDetails(e, t("details.einzelplan", { nr: e.nr }));
@@ -150,6 +180,14 @@ function waehle(e) {
 
 function zurUebersicht() {
   aktuellerEp = null;
+  weitereStapel = [];
+  ausgewaehlt = null;
+  el("details").hidden = true;
+  zeigeEbene();
+}
+
+function zurueckAusWeitere() {
+  weitereStapel.pop();
   ausgewaehlt = null;
   el("details").hidden = true;
   zeigeEbene();
@@ -173,16 +211,21 @@ function zeigeDetails(e, kennung) {
 function zeigeEbene() {
   const pfad = el("pfad");
   pfad.replaceChildren();
+  const knopf = (text, aktion) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = text;
+    b.addEventListener("click", aktion);
+    pfad.appendChild(b);
+  };
+  if (aktuellerEp) knopf(t("treemap.zurueck"), zurUebersicht);
+  if (weitereStapel.length) knopf(t("treemap.zurueck.weitere"), zurueckAusWeitere);
+
   if (aktuellerEp) {
-    const zurueck = document.createElement("button");
-    zurueck.type = "button";
-    zurueck.textContent = t("treemap.zurueck");
-    zurueck.addEventListener("click", zurUebersicht);
-    pfad.appendChild(zurueck);
     el("treemap-titel").textContent = epName(aktuellerEp);
     el("treemap-hinweis").textContent = t("treemap.hinweis.ep");
   } else {
-    el("treemap-titel").textContent = t("treemap.titel");
+    el("treemap-titel").textContent = weitereStapel.length ? t("treemap.titel.weitere") : t("treemap.titel");
     el("treemap-hinweis").textContent = t("treemap.hinweis");
   }
   zeichneTreemap();

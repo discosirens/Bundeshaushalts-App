@@ -853,7 +853,7 @@
   },
   {
    "id": "arbeit",
-   "name": "Arbeitsmarkt und Bürgergeld",
+   "name": "Arbeitsmarkt und Grundsicherungsgeld",
    "betrag_2026": 55448626,
    "betrag_2025": 54770170,
    "anteil_2026": 0.1057,
@@ -916,7 +916,7 @@
     }
    ],
    "bindung": "gesetzlich gebunden",
-   "begruendung": "Bürgergeld und Beteiligung an Unterkunft und Heizung sind Rechtsansprüche nach dem SGB II (rund drei Viertel des Bereichs). Eingliederungsleistungen und Verwaltungskosten werden als Budget festgelegt und sind politisch gestaltbar.",
+   "begruendung": "Grundsicherungsgeld und Beteiligung an Unterkunft und Heizung sind Rechtsansprüche nach dem SGB II (rund drei Viertel des Bereichs). Eingliederungsleistungen und Verwaltungskosten werden als Budget festgelegt und sind politisch gestaltbar.",
    "quelle": [
     {
      "titel": "§ 46 SGB II: Finanzierung aus Bundesmitteln",
@@ -929,15 +929,15 @@
     "kategorien": {}
    },
    "erklaerung": {
-    "was_ist_das": "Bürgergeld für Menschen, die arbeiten können, aber nicht genug zum Leben haben. Dazu kommen Hilfen bei der Arbeitssuche, Weiterbildung und die Kosten der Jobcenter.",
-    "wer_bekommt_das_geld": "Jobcenter zahlen das Bürgergeld an die Berechtigten. Miete und Heizung zahlen die Kommunen, der Bund erstattet ihnen einen Teil.",
+    "was_ist_das": "Grundsicherungsgeld für Menschen, die arbeiten können, aber nicht genug zum Leben haben. Dazu kommen Hilfen bei der Arbeitssuche, Weiterbildung und die Kosten der Jobcenter.",
+    "wer_bekommt_das_geld": "Jobcenter zahlen das Grundsicherungsgeld an die Berechtigten. Miete und Heizung zahlen die Kommunen, der Bund erstattet ihnen einen Teil.",
     "groesste_posten": [
      {
       "kapitel": "1101",
       "titel": "68112",
-      "name": "Bürgergeld",
+      "name": "Bürgergeld (seit Juli 2026 Grundsicherungsgeld)",
       "betrag_2026": 28050000,
-      "text": "Bürgergeld: 28,1 Mrd. €"
+      "text": "Bürgergeld (seit Juli 2026 Grundsicherungsgeld): 28,1 Mrd. €"
      },
      {
       "kapitel": "1101",
@@ -957,17 +957,17 @@
     "warum_so_viel": "Wer die Voraussetzungen erfüllt, hat einen Rechtsanspruch. Die Höhe hängt von der Zahl der Berechtigten, den Regelsätzen und den Mieten ab.",
     "gut_zu_wissen": [
      {
+      "text": "Bis Juni 2026 hieß die Leistung Bürgergeld, so steht sie auch noch im Haushaltsplan 2026. Seit Juli gelten strengere Pflichten und höhere Kürzungen.",
+      "quelle": {
+       "titel": "Bundesregierung: Neue Grundsicherung löst Bürgergeld ab",
+       "url": "https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562"
+      }
+     },
+     {
       "text": "Arbeitslosengeld zahlt die Bundesagentur für Arbeit aus Beiträgen. Der Bund leiht ihr 2026 aber 3,97 Mrd. € (Soll).",
       "quelle": {
        "titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 856 22",
        "url": "https://www.bundeshaushalt.de/"
-      }
-     },
-     {
-      "text": "Bei Miete und Heizung trägt der Bund höchstens 74 % der Kosten.",
-      "quelle": {
-       "titel": "§ 46 Abs. 5 SGB II",
-       "url": "https://www.gesetze-im-internet.de/sgb_2/__46.html"
       }
      }
     ],
@@ -977,26 +977,26 @@
       "url": "https://www.bundeshaushalt.de/"
      },
      {
-      "titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 856 22",
-      "url": "https://www.bundeshaushalt.de/"
+      "titel": "Bundesregierung: Neue Grundsicherung löst Bürgergeld ab",
+      "url": "https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562"
      },
      {
-      "titel": "§ 46 Abs. 5 SGB II",
-      "url": "https://www.gesetze-im-internet.de/sgb_2/__46.html"
+      "titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 856 22",
+      "url": "https://www.bundeshaushalt.de/"
      }
     ],
-    "woerter": 122
+    "woerter": 137
    },
    "en": {
-    "name": "Labour market and citizen's income",
-    "begruendung": "Citizen's income and the federal share of housing and heating costs are legal entitlements under Social Code Book II (about three quarters of this area). Job support and administrative costs are set as a budget and can be shaped politically.",
+    "name": "Labour market and basic income support",
+    "begruendung": "Basic income support (Grundsicherungsgeld) and the federal share of housing and heating costs are legal entitlements under Social Code Book II (about three quarters of this area). Job support and administrative costs are set as a budget and can be shaped politically.",
     "erklaerung": {
-     "was_ist_das": "Citizen's income (Bürgergeld) for people who can work but do not have enough to live on. It also covers help with job seeking, further training and the costs of job centres.",
-     "wer_bekommt_das_geld": "Job centres pay citizen's income to those entitled. Local authorities pay rent and heating; the federal government reimburses part of it.",
+     "was_ist_das": "Basic income support (Grundsicherungsgeld) for people who can work but do not have enough to live on. It also covers help with job seeking, further training and the costs of job centres.",
+     "wer_bekommt_das_geld": "Job centres pay basic income support to those entitled. Local authorities pay rent and heating; the federal government reimburses part of it.",
      "groesste_posten": [
       {
-       "name": "Citizen's income (Bürgergeld)",
-       "text": "Citizen's income (Bürgergeld): €28.1bn"
+       "name": "Basic income support (until June 2026 Bürgergeld)",
+       "text": "Basic income support (until June 2026 Bürgergeld): €28.1bn"
       },
       {
        "name": "Federal share of housing and heating costs",
@@ -1010,21 +1010,21 @@
      "warum_so_viel": "Anyone who meets the conditions has a legal entitlement. The amount depends on the number of recipients, the standard rates and rents.",
      "gut_zu_wissen": [
       {
+       "text": "Until June 2026 the benefit was called citizen's income (Bürgergeld), as in the 2026 budget plan. Stricter duties and larger cuts now apply.",
+       "quelle": {
+        "titel": "Bundesregierung: Neue Grundsicherung löst Bürgergeld ab",
+        "url": "https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562"
+       }
+      },
+      {
        "text": "Unemployment benefit is paid by the Federal Employment Agency from contributions. In 2026, however, the federal government lends it €3.97 billion (budget).",
        "quelle": {
         "titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 856 22",
         "url": "https://www.bundeshaushalt.de/"
        }
-      },
-      {
-       "text": "For rent and heating, the federal government pays at most 74% of the costs.",
-       "quelle": {
-        "titel": "§ 46 Abs. 5 SGB II",
-        "url": "https://www.gesetze-im-internet.de/sgb_2/__46.html"
-       }
       }
      ],
-     "woerter": 131
+     "woerter": 146
     }
    }
   },

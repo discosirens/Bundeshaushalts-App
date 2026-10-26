@@ -274,6 +274,12 @@ h2 { font-size: 1.25rem; margin: 0 0 0.5rem; }
 .feld.gross .name { font-size: 1.125rem; }
 .feld.gross .betrag { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
 .feld.klein { padding: 0.25rem 0.375rem; font-size: 0.75rem; border-radius: 6px; }
+.feld.gruppe {
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0 8px, transparent 8px 16px);
+  outline: 2px dashed rgba(255, 255, 255, 0.7);
+  outline-offset: -5px;
+}
+.feld.gruppe .name::after { content: " →"; }
 .feld.winzig { border-radius: 4px; }
 .feld.winzig .name, .feld.winzig .betrag { display: none; }
 .treemap-legende { margin: 0.5rem 0 0; font-size: 0.8125rem; color: var(--text-leise); }
@@ -606,15 +612,129 @@ td button {
   white-space: nowrap;
 }
 
+/* ==========================================================================
+   Hintergrund
+   ========================================================================== */
+
+.karte-block {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--karte);
+  box-shadow: var(--schatten);
+}
+.karte-block h3 { margin: 0 0 0.75rem; font-size: 1.0625rem; }
+
+.anteilsbalken {
+  display: flex;
+  height: 3rem;
+  margin: 1rem 0 0.75rem;
+  border-radius: 14px;
+  overflow: hidden;
+  gap: 3px;
+  background: var(--hintergrund);
+}
+.teil {
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  min-width: 4px;
+}
+.teil-steuern { background: var(--ep-a); }
+.teil-kredite { background: var(--ep-e); color: #10131c; }
+.teil-sonstige { background: var(--ep-rest); color: #10131c; }
+.anteils-legende { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+.anteils-legende li { display: flex; gap: 0.625rem; align-items: flex-start; }
+.anteils-legende .wert { font-variant-numeric: tabular-nums; }
+.anteils-legende small { color: var(--text-leise); }
+.punkt { flex: none; width: 0.875rem; height: 0.875rem; margin-top: 0.3rem; border-radius: 4px; display: inline-block; }
+
+.rangliste { margin: 0; padding-left: 1.5rem; }
+.rangliste li { padding: 0.25rem 0; }
+.rangliste li > * { display: inline; }
+.rangliste li { display: list-item; }
+.rangliste li span::after { content: ": "; }
+.rangliste strong { font-variant-numeric: tabular-nums; }
+
+.karten-raster { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.info-karte {
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 3.75rem;
+  border-radius: var(--radius);
+  background: var(--karte);
+  box-shadow: var(--schatten);
+}
+.info-karte h3 { margin: 0 0 0.375rem; font-size: 1.0625rem; }
+.info-karte p { margin: 0; font-size: 0.9375rem; }
+.info-nummer {
+  position: absolute;
+  left: 1.125rem;
+  top: 1.125rem;
+  display: grid;
+  place-items: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  background: var(--akzent-hell);
+  color: var(--akzent);
+  font-weight: 800;
+}
+
+.verlauf { width: 100%; }
+.verlauf svg { display: block; overflow: visible; }
+.verlauf-gitter { stroke: var(--linie); stroke-width: 1; }
+.verlauf-achse { fill: var(--text-leise); font-size: 11px; font-variant-numeric: tabular-nums; }
+.verlauf-wert { fill: var(--text); font-size: 12px; font-weight: 700; }
+.verlauf-nummer { fill: var(--text-leise); font-size: 11px; font-weight: 700; }
+.verlauf-zeitraum { fill: var(--flaeche); }
+.balken-ausgaben { fill: var(--ep-a); }
+.balken-kredite { fill: var(--ep-e); }
+.verlauf-soll .balken-ausgaben { fill-opacity: 0.55; }
+.verlauf-soll .balken-kredite { fill-opacity: 0.7; }
+.verlauf-treffer { fill: transparent; cursor: pointer; }
+.verlauf-jahr:hover .balken-ausgaben, .verlauf-jahr:focus .balken-ausgaben { filter: brightness(1.15); }
+.verlauf-jahr:focus { outline: none; }
+.verlauf-jahr:focus-visible .verlauf-treffer { stroke: var(--text); stroke-width: 2; }
+.punkt-ausgaben { background: var(--ep-a); }
+.punkt-kredite { background: var(--ep-e); }
+.punkt-zeit { background: var(--flaeche); border: 1px solid var(--linie); }
+.verlauf-legende { list-style: none; padding: 0; margin: 0 0 0.75rem; display: flex; flex-wrap: wrap; gap: 0.375rem 1.25rem; font-size: 0.875rem; }
+.verlauf-legende li { display: flex; gap: 0.375rem; align-items: flex-start; }
+.verlauf-info { min-height: 3rem; margin: 0.75rem 0; padding: 0.75rem 1rem; border-radius: 12px; background: var(--flaeche); font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+.ereignisse { margin: 0 0 0.5rem; padding-left: 1.5rem; font-size: 0.875rem; color: var(--text-leise); }
+.liste-innen summary { cursor: pointer; font-weight: 700; padding: 0.5rem 0; }
+
+.debatten { display: grid; gap: 1rem; }
+.debatte {
+  padding: 1.5rem 1.25rem;
+  border-radius: 24px;
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-top: 5px solid var(--akzent);
+}
+.debatte h3 { margin: 0.25rem 0 0.5rem; font-size: clamp(1.25rem, 5vw, 1.625rem); font-weight: 800; }
+.debatte-etikett { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--akzent); }
+.debatte-stand { margin: 0 0 1rem; }
+.debatte-abschnitt { border-top: 1px solid var(--linie); padding: 0.25rem 0; }
+.debatte-abschnitt summary { cursor: pointer; font-weight: 700; padding: 0.625rem 0; }
+.debatte-abschnitt ul { margin: 0 0 0.5rem; padding-left: 1.25rem; }
+.debatte-abschnitt li { margin-bottom: 0.375rem; }
+.debatte-quelle { margin: 0 0 0.5rem; font-size: 0.875rem; color: var(--text-leise); }
+
 /* ---------- Handy ---------- */
 
 @media (max-width: 40rem) {
   body { font-size: 1rem; }
-  .topbar .marke { display: none; }
-  .topbar { justify-content: flex-end; }
-  .topbar-rechts { width: 100%; justify-content: space-between; }
-  .topbar { padding-left: 0.5rem; padding-right: 0.5rem; }
-  .hauptnav { gap: 0; }
+  /* Leiste oben zweizeilig: Name und Sprache, darunter das Menü */
+  html { scroll-padding-top: 6.5rem; }
+  .topbar { flex-wrap: wrap; row-gap: 0.25rem; padding: 0.5rem 0.75rem 0.375rem; }
+  .topbar .marke { font-size: 0.9375rem; }
+  .topbar .marke span { display: none; }
+  .topbar-rechts { display: contents; }
+  .sprachwahl { order: 1; }
+  .hauptnav { order: 2; width: 100%; justify-content: space-between; gap: 0; overflow-x: auto; scrollbar-width: none; }
   .hauptnav a { padding: 0.375rem 0.5rem; font-size: 0.875rem; }
   .sprachwahl a { padding: 0.25rem 0.4rem; }
   .hero-inhalt { padding: 2rem 1rem 2.5rem; }
@@ -628,7 +748,7 @@ td button {
   td:last-child { min-width: 5.5rem; }
   .bilanz { border-radius: 20px; }
   .kennzahlen { grid-template-columns: repeat(2, 1fr); }
-  .spiel-status { top: 3rem; padding: 0.625rem 0.875rem; }
+  .spiel-status { top: 5.5rem; padding: 0.625rem 0.875rem; }
   .spiel-karte { padding: 1.25rem 1rem; }
   .bilanz-text { font-size: 0.9375rem; line-height: 1.35; }
 }

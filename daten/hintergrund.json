@@ -1,0 +1,388 @@
+{
+ "hinweis": "Einnahmen in Tausend Euro (Soll, Kernhaushalt). Zeitreihe in Mrd. Euro, nicht inflationsbereinigt.",
+ "einnahmen": {
+  "2025": {
+   "gesamt": 502546135,
+   "steuern": 386962000,
+   "kredite": 81781749,
+   "sonstige": 33802386,
+   "groesste_steuern": [
+    {
+     "titel": "01501",
+     "de": "Umsatzsteuer",
+     "en": "VAT",
+     "betrag": 116755000
+    },
+    {
+     "titel": "01101",
+     "de": "Lohnsteuer",
+     "en": "Wage tax",
+     "betrag": 110479000
+    },
+    {
+     "titel": "01601",
+     "de": "Einfuhrumsatzsteuer",
+     "en": "Import VAT",
+     "betrag": 36874000
+    },
+    {
+     "titel": "03103",
+     "de": "Energiesteuer",
+     "en": "Energy tax",
+     "betrag": 34649000
+    },
+    {
+     "titel": "01201",
+     "de": "Veranlagte Einkommensteuer",
+     "en": "Assessed income tax",
+     "betrag": 31896000
+    },
+    {
+     "titel": "03602",
+     "de": "Versicherungsteuer",
+     "en": "Insurance tax",
+     "betrag": 19500000
+    },
+    {
+     "titel": "01401",
+     "de": "Körperschaftsteuer",
+     "en": "Corporation tax",
+     "betrag": 17900000
+    },
+    {
+     "titel": "03202",
+     "de": "Tabaksteuer",
+     "en": "Tobacco tax",
+     "betrag": 17350000
+    }
+   ]
+  },
+  "2026": {
+   "gesamt": 524540138,
+   "steuern": 387359018,
+   "kredite": 97964556,
+   "sonstige": 39216564,
+   "groesste_steuern": [
+    {
+     "titel": "01501",
+     "de": "Umsatzsteuer",
+     "en": "VAT",
+     "betrag": 118204000
+    },
+    {
+     "titel": "01101",
+     "de": "Lohnsteuer",
+     "en": "Wage tax",
+     "betrag": 117236000
+    },
+    {
+     "titel": "01601",
+     "de": "Einfuhrumsatzsteuer",
+     "en": "Import VAT",
+     "betrag": 37312000
+    },
+    {
+     "titel": "01201",
+     "de": "Veranlagte Einkommensteuer",
+     "en": "Assessed income tax",
+     "betrag": 34829000
+    },
+    {
+     "titel": "03103",
+     "de": "Energiesteuer",
+     "en": "Energy tax",
+     "betrag": 33101000
+    },
+    {
+     "titel": "01401",
+     "de": "Körperschaftsteuer",
+     "en": "Corporation tax",
+     "betrag": 20375000
+    },
+    {
+     "titel": "03602",
+     "de": "Versicherungsteuer",
+     "en": "Insurance tax",
+     "betrag": 20180000
+    },
+    {
+     "titel": "03202",
+     "de": "Tabaksteuer",
+     "en": "Tobacco tax",
+     "betrag": 17110000
+    }
+   ]
+  }
+ },
+ "steuern_alle_ebenen_2025": {
+  "gesamt_mrd": 990.7,
+  "art": "Schätzung",
+  "quelle": {
+   "titel": "BMF, Ergebnisse der 169. Steuerschätzung, Oktober 2025",
+   "url": "https://www.bundesfinanzministerium.de/Content/DE/Pressemitteilungen/Finanzpolitik/2025/10/2025-10-23-ergebnisse-der-169-steuerschaetzung.html"
+  },
+  "bund_mrd": 388.6,
+  "bund_art": "Ist",
+  "bund_quelle": {
+   "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+   "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+  }
+ },
+ "schuldenbremse_2026": {
+  "zulaessig_mrd": 40.392,
+  "nettokredit_mrd": 97.965,
+  "abzug_bereichsausnahme_mrd": 57.573,
+  "quelle": {
+   "titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann",
+   "url": "https://www.bundeshaushalt.de/"
+  }
+ },
+ "zeitreihe": [
+  {
+   "jahr": 1969,
+   "art": "Ist",
+   "ausgaben": 42.1,
+   "steuern": 40.2,
+   "nettokredit": 0.0,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 1975,
+   "art": "Ist",
+   "ausgaben": 80.2,
+   "steuern": 61.0,
+   "nettokredit": 15.3,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 1980,
+   "art": "Ist",
+   "ausgaben": 110.3,
+   "steuern": 90.1,
+   "nettokredit": 13.9,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 1985,
+   "art": "Ist",
+   "ausgaben": 131.5,
+   "steuern": 105.5,
+   "nettokredit": 11.4,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 1990,
+   "art": "Ist",
+   "ausgaben": 194.4,
+   "steuern": 132.3,
+   "nettokredit": 23.9,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 1995,
+   "art": "Ist",
+   "ausgaben": 237.6,
+   "steuern": 187.2,
+   "nettokredit": 25.6,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2000,
+   "art": "Ist",
+   "ausgaben": 244.4,
+   "steuern": 198.8,
+   "nettokredit": 23.8,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2005,
+   "art": "Ist",
+   "ausgaben": 259.8,
+   "steuern": 190.1,
+   "nettokredit": 31.2,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2010,
+   "art": "Ist",
+   "ausgaben": 303.7,
+   "steuern": 226.2,
+   "nettokredit": 44.0,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2015,
+   "art": "Ist",
+   "ausgaben": 299.3,
+   "steuern": 281.7,
+   "nettokredit": 0.0,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2016,
+   "art": "Ist",
+   "ausgaben": 310.6,
+   "steuern": 289.0,
+   "nettokredit": 0.0,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2017,
+   "art": "Ist",
+   "ausgaben": 325.4,
+   "steuern": 309.4,
+   "nettokredit": 0.0,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2018,
+   "art": "Ist",
+   "ausgaben": 336.7,
+   "steuern": 322.4,
+   "nettokredit": 0.0,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/2019/08/Inhalte/Kapitel-6-Statistiken/6-1-08-gesamtuebersicht-entwicklung-bundeshaushalt.html"
+   }
+  },
+  {
+   "jahr": 2020,
+   "art": "Ist",
+   "ausgaben": 441.8,
+   "steuern": 283.3,
+   "nettokredit": 130.5,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+   }
+  },
+  {
+   "jahr": 2021,
+   "art": "Ist",
+   "ausgaben": 556.6,
+   "steuern": 313.5,
+   "nettokredit": 215.4,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+   }
+  },
+  {
+   "jahr": 2022,
+   "art": "Ist",
+   "ausgaben": 480.7,
+   "steuern": 337.2,
+   "nettokredit": 115.4,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+   }
+  },
+  {
+   "jahr": 2023,
+   "art": "Ist",
+   "ausgaben": 457.1,
+   "steuern": 356.1,
+   "nettokredit": 27.2,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+   }
+  },
+  {
+   "jahr": 2024,
+   "art": "Ist",
+   "ausgaben": 465.7,
+   "steuern": 375.0,
+   "nettokredit": 33.3,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+   }
+  },
+  {
+   "jahr": 2025,
+   "art": "Ist",
+   "ausgaben": 493.3,
+   "steuern": 388.6,
+   "nettokredit": 66.9,
+   "quelle": {
+    "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
+    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
+   }
+  },
+  {
+   "jahr": 2026,
+   "art": "Soll",
+   "ausgaben": 524.5,
+   "steuern": 387.4,
+   "nettokredit": 98.0,
+   "quelle": {
+    "titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann",
+    "url": "https://www.bundeshaushalt.de/"
+   }
+  }
+ ],
+ "ereignisse": [
+  {
+   "von": 1990,
+   "bis": 1995,
+   "de": "Deutsche Einheit",
+   "en": "German reunification"
+  },
+  {
+   "von": 2009,
+   "bis": 2010,
+   "de": "Finanz- und Wirtschaftskrise",
+   "en": "Financial and economic crisis"
+  },
+  {
+   "von": 2015,
+   "bis": 2018,
+   "de": "Keine neuen Schulden",
+   "en": "No new borrowing"
+  },
+  {
+   "von": 2020,
+   "bis": 2022,
+   "de": "Corona-Pandemie und Energiekrise",
+   "en": "COVID-19 pandemic and energy crisis"
+  }
+ ]
+}

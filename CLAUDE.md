@@ -36,6 +36,11 @@
   aufgehen (Mehrausgaben minus Kürzungen minus Kredite = Ziel der Runde; das Spiel prüft das beim Laden).
   Über alle Runden hinweg stehen Kürzungen in verschiedenen politischen Richtungen zur Wahl.
   Rückmeldungen nur aus belegten Daten, keine erfundenen Wirtschaftseffekte.
+- `daten/hintergrund.json` wird mit `py skripte/hintergrund_erzeugen.py` erzeugt (Einnahmen aus den Rohdaten,
+  Zeitreihe aus BMF-Tabellen mit Quelle je Jahr).
+- `daten/debatten.json` (aktuelle Debatten) wird von Hand gepflegt: Positionen immer zuschreiben, nie bewerten,
+  jede Zahl mit Quelle, Stand-Datum mitführen. Bei neuen Entwicklungen (Gesetze, Zahlen) aktualisieren.
+- Das Bürgergeld heißt seit 1. Juli 2026 Grundsicherungsgeld; im Haushaltsplan 2026 steht noch „Bürgergeld“.
 
 ## Zusammenarbeit
 - Maßgeblich ist das GitHub-Repository https://github.com/discosirens/Bundeshaushalts-App.

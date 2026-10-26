@@ -30,8 +30,8 @@
         },
         {
           "id": "b",
-          "titel": {"de": "Beim Bürgergeld kürzen", "en": "Cut citizen's income"},
-          "text": {"de": "Arbeitsmarkt und Bürgergeld −5 Mrd. €", "en": "Labour market and citizen's income −€5bn"},
+          "titel": {"de": "Bei der Grundsicherung kürzen", "en": "Cut basic income support"},
+          "text": {"de": "Arbeitsmarkt und Grundsicherungsgeld −5 Mrd. €", "en": "Labour market and basic income support −€5bn"},
           "aenderungen": {"arbeit": -5},
           "kredit": 0
         },
@@ -70,8 +70,8 @@
         },
         {
           "id": "b",
-          "titel": {"de": "Bei Rente und Bürgergeld kürzen", "en": "Cut pensions and citizen's income"},
-          "text": {"de": "Rente −5, Arbeitsmarkt und Bürgergeld −5 Mrd. €", "en": "Pensions −5, labour market and citizen's income −5 (€bn)"},
+          "titel": {"de": "Bei Rente und Grundsicherung kürzen", "en": "Cut pensions and basic income support"},
+          "text": {"de": "Rente −5, Arbeitsmarkt und Grundsicherungsgeld −5 Mrd. €", "en": "Pensions −5, labour market and basic income support −5 (€bn)"},
           "aenderungen": {"rente": -5, "arbeit": -5},
           "kredit": 0
         },

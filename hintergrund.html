@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hintergrund zum Bundeshaushalt</title>
+  <meta name="description" content="Woher kommt das Geld des Bundes, wovon hängt die Höhe des Haushalts ab, und wie hat er sich entwickelt?">
+  <meta name="theme-color" content="#0f1630">
+  <link rel="stylesheet" href="css/stil.css">
+</head>
+<body data-seite="hg">
+  <header class="topbar">
+    <a class="marke" href="index.html" data-intern data-t-html="marke">Bundeshaushalt <span>verständlich</span></a>
+    <div class="topbar-rechts">
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <a href="index.html" data-intern data-t="nav.ueberblick">Überblick</a>
+        <a href="hintergrund.html" data-intern aria-current="page" data-t="nav.hintergrund">Hintergrund</a>
+        <a href="spiel.html" data-intern data-t="nav.spielen">Spielen</a>
+        <a href="umschichten.html" data-intern data-t="nav.verteilen">Verteilen</a>
+      </nav>
+      <nav class="sprachwahl" data-t-label="nav.sprache" aria-label="Sprache">
+        <a data-lang="de" hreflang="de" lang="de">DE</a>
+        <a data-lang="en" hreflang="en" lang="en">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero seiten-kopf">
+    <div class="hero-inhalt">
+      <p class="dachzeile" data-t="hg.dachzeile">Hintergrund · Bundeshaushalt</p>
+      <h1 data-t="hg.ueberschrift">Wie funktioniert der Bundeshaushalt?</h1>
+      <p data-t="hg.einleitung"></p>
+    </div>
+  </section>
+
+  <main class="seite">
+    <section class="bereich" aria-labelledby="einnahmen-titel">
+      <h2 class="abschnitt-titel" id="einnahmen-titel" data-t="hg.einnahmen.titel">Woher kommt das Geld?</h2>
+      <p id="einnahmen-text"></p>
+      <div class="anteilsbalken" id="einnahmen-balken" role="img"></div>
+      <ul class="anteils-legende" id="einnahmen-legende"></ul>
+      <div class="karte-block">
+        <h3 data-t="hg.steuern.titel">Die größten Steuereinnahmen des Bundes (Soll 2026)</h3>
+        <ol class="rangliste" id="steuern"></ol>
+        <p class="ergebnis-hinweis" id="steuer-verteilung"></p>
+      </div>
+    </section>
+
+    <section class="bereich" aria-labelledby="hoehe-titel">
+      <h2 class="abschnitt-titel" id="hoehe-titel" data-t="hg.hoehe.titel">Wovon hängt die Höhe ab?</h2>
+      <div class="karten-raster" id="hoehe"></div>
+    </section>
+
+    <section class="bereich" aria-labelledby="verlauf-titel">
+      <h2 class="abschnitt-titel" id="verlauf-titel" data-t="hg.geschichte.titel">So hat sich der Haushalt entwickelt</h2>
+      <p class="hinweis" data-t="hg.geschichte.text"></p>
+      <div class="karte-block">
+        <ul class="verlauf-legende">
+          <li><span class="punkt punkt-ausgaben"></span><span data-t="hg.geschichte.ausgaben"></span></li>
+          <li><span class="punkt punkt-kredite"></span><span data-t="hg.geschichte.kredite"></span></li>
+          <li><span class="punkt punkt-zeit"></span><span data-t="hg.geschichte.ereignis"></span></li>
+        </ul>
+        <div class="verlauf" id="verlauf"></div>
+        <p class="verlauf-info" id="verlauf-info" aria-live="polite" data-t="hg.geschichte.tipp"></p>
+        <ol class="ereignisse" id="ereignisse"></ol>
+        <details class="liste-innen">
+          <summary data-t="hg.geschichte.tabelle">Alle Werte als Tabelle</summary>
+          <div class="tabelle-rahmen">
+            <table id="verlauf-tabelle">
+              <thead><tr>
+                <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
+                <th scope="col" data-t="hg.geschichte.ausgaben">Ausgaben</th>
+                <th scope="col" data-t="hg.geschichte.kredite.kurz">Neue Kredite</th>
+                <th scope="col" data-t="hg.geschichte.steuern">Steuern</th>
+              </tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="hinweis" data-t="hg.geschichte.luecke"></p>
+        </details>
+      </div>
+    </section>
+
+    <section class="bereich" aria-labelledby="debatten-titel">
+      <h2 class="abschnitt-titel" id="debatten-titel" data-t="hg.debatten.titel">Aktuelle Debatten</h2>
+      <p class="hinweis" data-t="hg.debatten.text"></p>
+      <div id="debatten" class="debatten"></div>
+    </section>
+
+    <footer class="quellen">
+      <h2 data-t="quellen.titel">Quellen</h2>
+      <ul id="hg-quellen"></ul>
+    </footer>
+  </main>
+
+  <script src="js/sprache.js"></script>
+  <script src="js/hintergrund.js"></script>
+</body>
+</html>

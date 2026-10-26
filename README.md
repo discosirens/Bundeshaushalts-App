@@ -11,19 +11,24 @@ Bundeshaushalt für Laien verständlich darstellt. Online: https://discosirens.g
 index.html          Startseite: Gesamtsumme, Treemap nach Einzelplan und Kapitel
 umschichten.html    Umschicht-Modus: Geld zwischen 14 Bereichen verschieben
 spiel.html          Haushaltsspiel: sechs Runden als Finanzministerin oder Finanzminister
+hintergrund.html    Hintergrund: Einnahmen, Höhe des Haushalts, Verlauf seit 1969, aktuelle Debatten
 css/stil.css        Gestaltung beider Seiten (hell und dunkel)
 js/sprache.js       alle Oberflächentexte Deutsch/Englisch, Zahlenformate, Sprachwahl
 js/app.js           Logik der Startseite
 js/umschichten.js   Logik des Umschicht-Modus
 js/spiel.js         Logik des Haushaltsspiels
+js/hintergrund.js   Logik der Hintergrund-Seite (Verlaufsgrafik als SVG)
 daten/
   roh/              Rohdaten, unverändert (CSV, PDF, Excel)
   haushalt.json     aufbereitete Ausgaben 2025 und 2026 (wird vom Skript erzeugt)
   bereiche.json     14 Bereiche mit Erklärungen auf Deutsch und Englisch (wird vom Skript erzeugt)
   runden.json       Situationen und Optionen des Haushaltsspiels (von Hand gepflegt)
+  hintergrund.json  Einnahmen 2025/2026 und Zeitreihe seit 1969 (wird vom Skript erzeugt)
+  debatten.json     aktuelle Debatten mit Positionen und Quellen (von Hand gepflegt)
 skripte/
   haushalt_zu_json.py
   bereiche_erzeugen.py
+  hintergrund_erzeugen.py
 ```
 
 ## Die CSV-Dateien `HH_2025_ALL.csv` und `HH_2026_ALL.csv`
@@ -64,7 +69,7 @@ Die Datei für 2027 (`HH_2027_RegE_ALL.csv`, Regierungsentwurf) hat zusätzlich 
 |---|---|
 | 4 | Personalausgaben |
 | 5 | Sächliche Verwaltungsausgaben, Militärische Beschaffungen, Schuldendienst (Zinsen) |
-| 6 | Zuweisungen und Zuschüsse (ohne Investitionen), z. B. Rentenzuschuss, Bürgergeld |
+| 6 | Zuweisungen und Zuschüsse (ohne Investitionen), z. B. Rentenzuschuss, Grundsicherungsgeld (bis Juni 2026 Bürgergeld) |
 | 7 | Baumaßnahmen |
 | 8 | Sonstige Investitionen |
 | 9 | Besondere Finanzierungsausgaben (u. a. globale Minderausgaben) |
