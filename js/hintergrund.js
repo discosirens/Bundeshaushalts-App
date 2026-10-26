@@ -279,9 +279,33 @@ function zeigeUkraine() {
   tfoot.querySelectorAll("td")[1].textContent = euro(summe("2025"));
   tfoot.querySelectorAll("td")[2].textContent = euro(summe("2027"));
 
+  zeigeTracker(ua.tracker);
+
   const q = el("ua-quellen");
   q.textContent = `${t("erkl.quellen")}:`;
   ua.quellen.forEach((quelle, i) => { if (i) q.append(";"); link(q, quelle, false); });
+}
+
+// Gesamte deutsche Hilfe laut Kiel Institut (aufsummiert seit Kriegsbeginn, nicht mit Haushaltsjahren vergleichbar)
+function zeigeTracker(tr) {
+  el("ua-tracker-text").textContent = t("ua.tracker.text", { stand: tr.stand });
+  const tbody = el("ua-tracker").querySelector("tbody");
+  tbody.replaceChildren();
+  const zeilen = [["militaer", "ua.tracker.militaer"], ["humanitaer", "ua.tracker.humanitaer"],
+    ["finanziell", "ua.tracker.finanziell"], ["gesamt", "ua.tracker.gesamt"], ["eu_anteil", "ua.tracker.eu"]];
+  for (const [feld, text] of zeilen) {
+    const zeile = document.createElement("tr");
+    if (feld === "gesamt") zeile.className = "summenzeile";
+    zeile.innerHTML = "<td></td><td></td><td></td>";
+    const zellen = zeile.querySelectorAll("td");
+    zellen[0].textContent = t(text);
+    zellen[1].textContent = mrdAusMrd(tr.zugewiesen[feld]);
+    zellen[2].textContent = mrdAusMrd(tr.zugesagt[feld]);
+    tbody.appendChild(zeile);
+  }
+  const q = el("ua-tracker-quellen");
+  q.textContent = `${t("erkl.quellen")}:`;
+  tr.quellen.forEach((quelle, i) => { if (i) q.append(";"); link(q, quelle, false); });
 }
 
 // ---------- Debatten ----------

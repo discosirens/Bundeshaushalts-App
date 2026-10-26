@@ -181,6 +181,48 @@ def verteidigung():
     }
 
 
+# ---------------------------------------------------------------------------
+# Ukraine Support Tracker (Kiel Institut): gesamte deutsche Hilfe seit Kriegsbeginn
+# ---------------------------------------------------------------------------
+
+TRACKER = "bc5059ba-ef38-4f08-988a-746a03905a6c-Ukraine_Support_Tracker__Release_31.xlsx"
+QUELLE_TRACKER = {"titel": "Kiel Institut für Weltwirtschaft: Ukraine Support Tracker, Release 31, Stand 31. August 2026 (Blatt Country Summary (€))",
+                  "url": "https://www.kielinstitut.de/research/topics/war-against-ukraine/ukraine-support-tracker/"}
+QUELLE_TRACKER_DEF = {"titel": "Kiel Institut: Dataset Documentation, Definitionen von Zusage und Zuweisung (PDF)",
+                      "url": "https://www.kielinstitut.de/fileadmin/Dateiverwaltung/Subject_Dossiers_Topics/Ukraine/Ukraine_Support_Tracker/Dataset_Documentation.pdf"}
+
+
+def tracker_deutschland():
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import xlsx_lesen
+    z, texte, blaetter = xlsx_lesen.oeffne(ROH / TRACKER)
+    alle = list(xlsx_lesen.zeilen(z, texte, blaetter["Country Summary (€)"]))
+    kopf = next(r for r in alle if r.get("B") == "Country")
+    # Manche Überschriften kommen doppelt vor (Mrd. Euro und % BIP): jeweils die erste Spalte (Mrd. Euro) nehmen
+    spalte = {}
+    for buchstabe, name in kopf.items():
+        spalte.setdefault(name, buchstabe)
+    zeile = next(r for r in alle if r.get("B") == "Germany")
+    wert = lambda name: round(float(zeile[spalte[name]]), 2)
+    # Plausibilität: Summe der drei Arten muss die Gesamtsumme ergeben
+    for art in ("allocations", "commitments"):
+        teile = sum(wert(f"{x} {art}") for x in ("Military", "Humanitarian", "Financial"))
+        if abs(teile - wert(f"Total bilateral {art}")) > 0.05:
+            raise ValueError(f"Tracker: {art} passen nicht zusammen")
+    return {
+        "zugewiesen": {"militaer": wert("Military allocations"), "humanitaer": wert("Humanitarian allocations"),
+                       "finanziell": wert("Financial allocations"), "gesamt": wert("Total bilateral allocations"),
+                       "eu_anteil": wert("Share in total EU allocations")},
+        "zugesagt": {"militaer": wert("Military commitments"), "humanitaer": wert("Humanitarian commitments"),
+                     "finanziell": wert("Financial commitments"), "gesamt": wert("Total bilateral commitments"),
+                     "eu_anteil": wert("Share in total EU commitments")},
+        "einheit": "Mrd. Euro, aufsummiert seit Kriegsbeginn",
+        "stand": "31. August 2026",
+        "quellen": [QUELLE_TRACKER, QUELLE_TRACKER_DEF],
+    }
+
+
 def lese_einnahmen(jahr):
     zeilen = []
     with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
@@ -256,6 +298,7 @@ def main():
         "ukraine": {
             "hinweis": "Soll in Tausend Euro. Titel 6002/687 06 plus alle Titel mit 'Ukraine' im Namen.",
             "posten": ukraine_posten(),
+            "tracker": tracker_deutschland(),
             "quellen": [
                 {"titel": "Bundesregierung: Militärische Unterstützungsleistungen für die Ukraine, Stand 17. April 2025 (PDF)",
                  "url": "https://www.bundesregierung.de/breg-de/bundesregierung/2054526-2054526.pdf"},

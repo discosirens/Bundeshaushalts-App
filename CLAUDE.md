@@ -46,6 +46,9 @@
   Die App zeigt sie nur bei `"freigegeben": true`; Freigabe erst nach Prüfung durch mich.
 - Suche: Posten mit unklaren amtlichen Namen bekommen in `js/suche.js` zusätzliche Suchwörter (Deutsch und
   Englisch), z. B. „Ukraine“ für die Ertüchtigungshilfe (Kap. 6002 Tit. 687 06).
+- Externe Daten (NATO, Kiel Institut) sind andere Zahlenarten als das Haushalts-Soll: immer getrennt zeigen,
+  mit Stand und Quelle, nie mit Haushaltszahlen addieren. Neue Tracker-Version: Dateiname in
+  `skripte/hintergrund_erzeugen.py` (TRACKER) anpassen und das Skript ausführen.
 - Das Bürgergeld heißt seit 1. Juli 2026 Grundsicherungsgeld; im Haushaltsplan 2026 steht noch „Bürgergeld“.
 
 ## Zusammenarbeit

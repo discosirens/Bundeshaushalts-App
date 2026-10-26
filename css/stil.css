@@ -802,6 +802,7 @@ td button {
 #ua-tabelle td small { color: var(--text-leise); }
 #ua-tabelle tfoot th, #ua-tabelle tfoot td { font-weight: 800; border-bottom: 0; border-top: 2px solid var(--linie); }
 #ua-tabelle tfoot th { text-align: left; }
+#ua-tracker .summenzeile td { font-weight: 800; border-top: 2px solid var(--linie); }
 
 /* ---------- Handy ---------- */
 

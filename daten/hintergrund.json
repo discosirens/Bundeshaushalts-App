@@ -663,6 +663,34 @@
     "2027": 58600
    }
   ],
+  "tracker": {
+   "zugewiesen": {
+    "militaer": 25.0,
+    "humanitaer": 4.17,
+    "finanziell": 1.66,
+    "gesamt": 30.84,
+    "eu_anteil": 22.7
+   },
+   "zugesagt": {
+    "militaer": 48.41,
+    "humanitaer": 4.17,
+    "finanziell": 1.66,
+    "gesamt": 54.25,
+    "eu_anteil": 43.98
+   },
+   "einheit": "Mrd. Euro, aufsummiert seit Kriegsbeginn",
+   "stand": "31. August 2026",
+   "quellen": [
+    {
+     "titel": "Kiel Institut für Weltwirtschaft: Ukraine Support Tracker, Release 31, Stand 31. August 2026 (Blatt Country Summary (€))",
+     "url": "https://www.kielinstitut.de/research/topics/war-against-ukraine/ukraine-support-tracker/"
+    },
+    {
+     "titel": "Kiel Institut: Dataset Documentation, Definitionen von Zusage und Zuweisung (PDF)",
+     "url": "https://www.kielinstitut.de/fileadmin/Dateiverwaltung/Subject_Dossiers_Topics/Ukraine/Ukraine_Support_Tracker/Dataset_Documentation.pdf"
+    }
+   ]
+  },
   "quellen": [
    {
     "titel": "Bundesregierung: Militärische Unterstützungsleistungen für die Ukraine, Stand 17. April 2025 (PDF)",
