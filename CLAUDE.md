@@ -10,6 +10,9 @@
 
 ## Zahlen
 - Jede Zahl in der App braucht Jahr, Art (Soll, Ist, Schätzung) und Quelle.
+- Sondervermögen werden immer getrennt vom Kernhaushalt dargestellt und nie einfach addiert.
+  Bei Themen wie Verteidigung wird die Summe aus Kernhaushalt und zugehörigem Sondervermögen
+  zusätzlich ausgewiesen, mit Hinweis auf mögliche Doppelzählung.
 
 ## Technik
 - Statische Web-App ohne Server (HTML, CSS, JavaScript).
