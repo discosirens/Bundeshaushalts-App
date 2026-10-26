@@ -1,0 +1,127 @@
+{
+  "hinweis": "Von Hand gepflegte Erklärungen für die 30 größten Kapitel (Soll 2026, zusammen 87 % der Ausgaben). Grundlage sind die Titel des Bundeshaushaltsplans 2026. Die App zeigt die Texte nur, wenn 'freigegeben' true ist.",
+  "freigegeben": false,
+  "stand": "Oktober 2026",
+  "texte": {
+    "1102": {
+      "de": "Zuschüsse des Bundes an die gesetzliche Rentenversicherung und Beiträge für Zeiten der Kindererziehung. Dazu kommt die Grundsicherung im Alter und bei Erwerbsminderung, die der Bund den Ländern erstattet. Das Geld geht an die Rentenversicherung und die Länder, nicht direkt an Rentnerinnen und Rentner.",
+      "en": "Federal grants to the statutory pension insurance and contributions for child-raising periods. Also basic income support in old age and for reduced earning capacity, which the federal government reimburses to the states. The money goes to the pension insurance and the states, not directly to pensioners."
+    },
+    "1101": {
+      "de": "Grundsicherungsgeld (bis Juni 2026 Bürgergeld) für Menschen, die arbeiten können, aber nicht genug zum Leben haben, und der Anteil des Bundes an Miete und Heizung. Dazu kommen Geld für die Jobcenter, Hilfen zur Eingliederung in Arbeit und ein Darlehen an die Bundesagentur für Arbeit.",
+      "en": "Basic income support (until June 2026 citizen's income) for people who can work but do not have enough to live on, and the federal share of rent and heating. Also money for job centres, help with getting into work and a loan to the Federal Employment Agency."
+    },
+    "6002": {
+      "de": "Posten, die keinem Ministerium zugeordnet sind. Die größten sind der Ausgleich für die Förderung von Ökostrom, die Militärhilfe für die Ukraine und der Zuschuss für Pensionen früherer Postbeamter. Hier steht auch eine pauschale Sparvorgabe von 8 Mrd. € (Soll 2026).",
+      "en": "Items not assigned to any ministry. The largest are balancing the renewable energy support account, military aid for Ukraine and the grant for pensions of former postal civil servants. This chapter also contains a lump-sum savings target of €8bn (2026 budget)."
+    },
+    "3205": {
+      "de": "Zinsen, die der Bund für seine Schulden zahlt, vor allem für Bundesanleihen. Das Geld geht an alle, die Wertpapiere des Bundes besitzen, etwa Banken, Versicherungen und Fonds.",
+      "en": "Interest the federal government pays on its debt, mainly on federal bonds. The money goes to everyone who holds federal securities, such as banks, insurers and funds."
+    },
+    "1403": {
+      "de": "Gehälter der Soldatinnen und Soldaten, ihre Sozialversicherungsbeiträge und Beihilfen sowie Pensionen und Übergangsleistungen für frühere Soldatinnen und Soldaten.",
+      "en": "Pay for soldiers, their social insurance contributions and health allowances, as well as pensions and transitional payments for former soldiers."
+    },
+    "1405": {
+      "de": "Kauf von Ausrüstung für die Bundeswehr. Der größte Posten ist Munition, dazu kommen Fahrzeuge, Funk- und Fernmeldetechnik, Schiffe und weiteres Material.",
+      "en": "Purchase of equipment for the armed forces. The largest item is ammunition, followed by vehicles, radio and communications equipment, ships and other materiel."
+    },
+    "1501": {
+      "de": "Der gesetzlich festgelegte Zuschuss von 14,5 Mrd. € an den Gesundheitsfonds, aus dem die gesetzlichen Krankenkassen bezahlt werden, und ein Darlehen an diesen Fonds.",
+      "en": "The grant of €14.5bn set by law to the Health Fund, from which the statutory health insurers are paid, and a loan to this fund."
+    },
+    "1701": {
+      "de": "Elterngeld, Kinderzuschlag für Familien mit kleinem Einkommen und der Bundesanteil am Unterhaltsvorschuss für Kinder, deren anderer Elternteil keinen oder zu wenig Unterhalt zahlt.",
+      "en": "Parental allowance, child supplement for low-income families and the federal share of the child maintenance advance for children whose other parent pays no or too little maintenance."
+    },
+    "1408": {
+      "de": "Gebäude und Grundstücke der Bundeswehr: Mieten, Betrieb und Bewachung der Liegenschaften sowie Neu-, Um- und Erweiterungsbauten.",
+      "en": "Buildings and land of the armed forces: rent, operation and security of sites, as well as new buildings, conversions and extensions."
+    },
+    "1201": {
+      "de": "Bau, Erhalt und Betrieb von Autobahnen und Bundesstraßen. Die Autobahnen betreibt die Autobahn GmbH des Bundes. Hier stehen auch die Kosten für den Einzug der Lkw-Maut.",
+      "en": "Building, maintaining and running motorways and federal roads. The motorways are run by the federally owned Autobahn GmbH. This chapter also covers the cost of collecting the truck toll."
+    },
+    "1413": {
+      "de": "Die zivile Verwaltung der Bundeswehr, ihre Universitäten und die Militärseelsorge. Große Posten sind Gehälter und Ausgaben für Informationstechnik.",
+      "en": "The civilian administration of the armed forces, its universities and military chaplaincy. Large items are salaries and spending on information technology."
+    },
+    "3004": {
+      "de": "Forschungsförderung, vor allem der Betrieb der Helmholtz-Zentren und der Fraunhofer-Institute sowie Programme für neue Technologien und große Forschungsanlagen.",
+      "en": "Research funding, mainly the operation of the Helmholtz centres and Fraunhofer institutes, plus programmes for new technologies and large research facilities."
+    },
+    "3003": {
+      "de": "Grundfinanzierung der Wissenschaft: Deutsche Forschungsgemeinschaft, Max-Planck-Gesellschaft, die Exzellenzstrategie für Universitäten und der Zukunftsvertrag mit den Ländern für Studium und Lehre.",
+      "en": "Core funding for science: the German Research Foundation, the Max Planck Society, the Excellence Strategy for universities and the Future Contract with the states for study and teaching."
+    },
+    "1406": {
+      "de": "Wartung und Reparatur der Ausrüstung der Bundeswehr, vor allem von Flugzeugen, Fahrzeugen, Schiffen und Funktechnik.",
+      "en": "Maintenance and repair of the armed forces' equipment, mainly aircraft, vehicles, ships and radio equipment."
+    },
+    "1407": {
+      "de": "Laufender Betrieb der Bundeswehr, etwa Bekleidung und persönliche Ausrüstung, Instandsetzung von Heeresgerät, Fahrzeugflotte und Treibstoff.",
+      "en": "Day-to-day operation of the armed forces, for example clothing and personal equipment, repair of army equipment, the vehicle fleet and fuel."
+    },
+    "2501": {
+      "de": "Förderung des sozialen Wohnungsbaus über die Länder, der Bundesanteil am Wohngeld und Zuschüsse für den Kauf von Wohneigentum.",
+      "en": "Support for social housing via the states, the federal share of housing benefit and grants for buying a home."
+    },
+    "1216": {
+      "de": "Das Bundeseisenbahnvermögen betreut die Beamtinnen und Beamten der früheren Bundesbahn, auch im Ruhestand. Der Bund erstattet seine Ausgaben.",
+      "en": "The Federal Railway Fund looks after the civil servants of the former Federal Railways, including in retirement. The federal government reimburses its expenditure."
+    },
+    "0625": {
+      "de": "Gehälter und Ausstattung der Bundespolizei. Dazu gehören Erstattungen an Firmen, die an Flughäfen Fluggäste und Gepäck kontrollieren.",
+      "en": "Pay and equipment for the Federal Police. This includes reimbursing companies that screen passengers and baggage at airports."
+    },
+    "2301": {
+      "de": "Entwicklungsprojekte mit einzelnen Partnerländern: finanzielle und technische Zusammenarbeit sowie Hilfe bei Krisen und beim Wiederaufbau.",
+      "en": "Development projects with individual partner countries: financial and technical cooperation, plus help in crises and with reconstruction."
+    },
+    "1001": {
+      "de": "Zuschüsse zur eigenen Alters-, Kranken- und Unfallversicherung der Landwirtinnen und Landwirte.",
+      "en": "Grants to farmers' own old-age, health and accident insurance schemes."
+    },
+    "0813": {
+      "de": "Gehälter und Ausstattung des Zolls. Der Zoll erhebt unter anderem Steuern auf Einfuhren, kontrolliert Waren und geht gegen Schwarzarbeit vor.",
+      "en": "Pay and equipment for customs. Among other things, customs collects taxes on imports, inspects goods and acts against undeclared work."
+    },
+    "3208": {
+      "de": "Kosten, wenn Bürgschaften und Garantien des Bundes fällig werden, vor allem für Geschäfte mit dem Ausland. Zahlt ein Schuldner nicht, muss der Bund einspringen.",
+      "en": "Costs when federal guarantees fall due, mainly for business abroad. If a debtor does not pay, the federal government has to step in."
+    },
+    "1502": {
+      "de": "Vor allem ein Darlehen an die soziale Pflegeversicherung. Kleinere Posten sind die Förderung privater Pflegevorsorge und Hilfen für Menschen, die durch Blutprodukte mit HIV infiziert wurden.",
+      "en": "Mainly a loan to the statutory long-term care insurance. Smaller items are support for private care provision and help for people infected with HIV through blood products."
+    },
+    "1202": {
+      "de": "Investitionen in das Schienennetz des Bundes, etwa Neu- und Ausbau, Lärmschutz und barrierefreie Bahnhöfe. Weitere Milliarden für die Schiene kommen 2026 aus dem Sondervermögen Infrastruktur.",
+      "en": "Investment in the federal rail network, for example new lines and upgrades, noise protection and accessible stations. More billions for rail come from the infrastructure special fund in 2026."
+    },
+    "6067": {
+      "de": "Der Bund erstattet der Rentenversicherung Renten aus Versorgungssystemen der DDR, etwa für frühere Angehörige der Nationalen Volksarmee, der Volkspolizei und der Staatssicherheit.",
+      "en": "The federal government reimburses the pension insurance for pensions from East German (GDR) schemes, for example for former members of the National People's Army, the People's Police and the Stasi."
+    },
+    "3002": {
+      "de": "BAföG für Studierende sowie Schülerinnen und Schüler, Stipendien der Begabtenförderungswerke und internationaler Austausch von Studierenden und Forschenden.",
+      "en": "BAföG grants for students and pupils, scholarships from the gifted-student foundations and international exchange of students and researchers."
+    },
+    "0501": {
+      "de": "Humanitäre Hilfe im Ausland, Beiträge an die Vereinten Nationen und andere internationale Organisationen sowie Krisenprävention und Friedensförderung.",
+      "en": "Humanitarian aid abroad, contributions to the United Nations and other international organisations, and crisis prevention and peacebuilding."
+    },
+    "3009": {
+      "de": "Deutsche Beiträge zur Europäischen Weltraumorganisation ESA, das Deutsche Zentrum für Luft- und Raumfahrt und das nationale Raumfahrtprogramm. Auch die Förderung der Computerspielentwicklung steht hier.",
+      "en": "German contributions to the European Space Agency (ESA), the German Aerospace Center and the national space programme. Support for video game development is also in this chapter."
+    },
+    "0452": {
+      "de": "Kultur und Medien des Bundes: der Auslandssender Deutsche Welle, Kultureinrichtungen, die Förderung von Film- und Serienproduktion und die Stiftung Preußischer Kulturbesitz.",
+      "en": "Federal culture and media: the international broadcaster Deutsche Welle, cultural institutions, support for film and series production and the Prussian Cultural Heritage Foundation."
+    },
+    "0512": {
+      "de": "Personal- und Sachkosten des Auswärtigen Amts, darunter Gehälter, Informationstechnik und Gebäude.",
+      "en": "Staff and running costs of the Federal Foreign Office, including salaries, information technology and buildings."
+    }
+  }
+}

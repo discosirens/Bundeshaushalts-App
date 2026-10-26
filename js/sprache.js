@@ -237,6 +237,18 @@ const TEXTE = {
     "hg.debatte.gut": "Gut zu wissen",
     "hg.debatte.weitere": "Weitere Quellen",
     "hg.quellen.hinweis": "Einnahmen 2025 und 2026: Bundeshaushaltsplan, Soll. Die Quellen der Debatten stehen direkt bei den Abschnitten.",
+
+    "kapitel.posten": "Größte Posten (Soll 2026)",
+    "kapitel.arten": "Wofür das Geld ausgegeben wird",
+    "kapitel.hinweis": "Das Kapitel hat {n} Posten (Titel). Die Anteile beziehen sich auf alle positiven Beträge 2026. Postennamen wie im Haushaltsplan.",
+    "art.personal": "Personal (Gehälter, Pensionen)",
+    "art.sach": "Sachausgaben, Beschaffung und Zinsen",
+    "art.zuschuesse": "Zuschüsse und Zahlungen an andere",
+    "art.bau": "Bauprojekte",
+    "art.investitionen": "Investitionen, Darlehen und Beteiligungen",
+    "art.besondere": "Sonstige Finanzierungsposten",
+    "art.sonstige": "Sonstiges",
+    "titel.buergergeld": "(seit Juli 2026 Grundsicherungsgeld)",
   },
 
   en: {
@@ -458,6 +470,18 @@ const TEXTE = {
     "hg.debatte.gut": "Good to know",
     "hg.debatte.weitere": "More sources",
     "hg.quellen.hinweis": "Revenue 2025 and 2026: federal budget plan, Soll. The sources for the debates are given directly with each section.",
+
+    "kapitel.posten": "Largest items (2026 budget)",
+    "kapitel.arten": "What the money is spent on",
+    "kapitel.hinweis": "This chapter has {n} items (titles). Shares refer to all positive amounts in 2026. Item names in the official German wording.",
+    "art.personal": "Staff (salaries, pensions)",
+    "art.sach": "Running costs, procurement and interest",
+    "art.zuschuesse": "Grants and payments to others",
+    "art.bau": "Construction",
+    "art.investitionen": "Investment, loans and holdings",
+    "art.besondere": "Other financing items",
+    "art.sonstige": "Other",
+    "titel.buergergeld": "(basic income support since July 2026)",
   },
 };
 

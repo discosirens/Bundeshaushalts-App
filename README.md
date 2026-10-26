@@ -25,6 +25,7 @@ daten/
   runden.json       Situationen und Optionen des Haushaltsspiels (von Hand gepflegt)
   hintergrund.json  Einnahmen 2025/2026 und Zeitreihe seit 1969 (wird vom Skript erzeugt)
   debatten.json     aktuelle Debatten mit Positionen und Quellen (von Hand gepflegt)
+  kapitel_texte.json Erklärungen der 30 größten Kapitel (von Hand gepflegt, mit Freigabe-Schalter)
 skripte/
   haushalt_zu_json.py
   bereiche_erzeugen.py

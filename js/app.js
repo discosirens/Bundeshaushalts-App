@@ -20,7 +20,21 @@ const EP_REST = { farbe: "var(--ep-rest)", dunkel: true };
 const MIN_ANTEIL = 0.025;   // Einträge unter 2,5 % der angezeigten Summe kommen in "Weitere"
 const MAX_KACHELN = 12;
 
+// Laienverständliche Namen der Ausgabearten (Hauptgruppen des Gruppierungsplans, Feld "art" in haushalt.json)
+const ARTEN = {
+  "Personalausgaben": "art.personal",
+  "Sächliche Verwaltungsausgaben und Schuldendienst": "art.sach",
+  "Zuweisungen und Zuschüsse (ohne Investitionen)": "art.zuschuesse",
+  "Baumaßnahmen": "art.bau",
+  "Sonstige Ausgaben für Investitionen": "art.investitionen",
+  "Besondere Finanzierungsausgaben": "art.besondere",
+};
+
+// Titelnamen, die seit Aufstellung des Haushaltsplans überholt sind
+const TITEL_HINWEIS = { "1101/68112": "titel.buergergeld" };
+
 let daten = null;
+let kapitelTexte = { freigegeben: false, texte: {} };
 let gesamt2026 = 0;
 let aktuellerEp = null;   // null = Übersicht aller Einzelpläne
 let ausgewaehlt = null;   // id des angetippten Feldes
@@ -87,6 +101,7 @@ function kapitelEintraege(ep) {
         kurz: anzeigename(k.name),
         s26: k.soll["2026"],
         s25: gab2025 ? k.soll["2025"] : null,
+        kapitel: k,
       };
     });
 }
@@ -205,7 +220,68 @@ function zeigeDetails(e, kennung) {
       <div><dt>${t("details.anteil")}</dt><dd>${prozent(e.s26 / gesamt2026)}</dd></div>
     </dl>`;
   kasten.querySelector("h2").textContent = `${kennung}: ${e.name}`;
+  if (e.kapitel) zeigeKapitelInfo(kasten, e.kapitel);
   kasten.hidden = false;
+}
+
+function titelName(kap, ti) {
+  const hinweis = TITEL_HINWEIS[`${kap.nr}/${ti.nr}`];
+  const name = anzeigename(ti.name.replace(/"/g, "").replace(" der Die ", " der "));
+  return hinweis ? `${name} ${t(hinweis)}` : name;
+}
+
+// Kurzinfo zu einem Kapitel: eigener Text (falls freigegeben), größte Posten, Ausgabearten.
+function zeigeKapitelInfo(kasten, kap) {
+  const text = kapitelTexte.freigegeben && kapitelTexte.texte[kap.nr];
+  if (text) {
+    const p = document.createElement("p");
+    p.className = "kapitel-text";
+    p.textContent = text[SPRACHE] ?? text.de;
+    kasten.querySelector("h2").after(p);
+  }
+
+  const titel = kap.titel.filter((ti) => (ti.soll["2026"] || 0) > 0);
+  if (titel.length === 0) return;
+  const block = document.createElement("div");
+  block.className = "kapitel-info";
+
+  const h1 = document.createElement("h3");
+  h1.textContent = t("kapitel.posten");
+  const ol = document.createElement("ol");
+  ol.className = "rangliste";
+  for (const ti of [...titel].sort((a, b) => b.soll["2026"] - a.soll["2026"]).slice(0, 3)) {
+    const li = document.createElement("li");
+    li.innerHTML = "<span></span><strong></strong>";
+    li.querySelector("span").textContent = titelName(kap, ti);
+    li.querySelector("strong").textContent = euro(ti.soll["2026"]);
+    ol.appendChild(li);
+  }
+  block.append(h1, ol);
+
+  // Anteile der Ausgabearten an den positiven Beträgen
+  const summe = titel.reduce((s, ti) => s + ti.soll["2026"], 0);
+  const arten = {};
+  for (const ti of titel) arten[ti.art] = (arten[ti.art] || 0) + ti.soll["2026"];
+  const h2 = document.createElement("h3");
+  h2.textContent = t("kapitel.arten");
+  const balken = document.createElement("div");
+  balken.className = "arten-liste";
+  for (const [art, wert] of Object.entries(arten).sort((a, b) => b[1] - a[1]).slice(0, 4)) {
+    const zeile = document.createElement("div");
+    zeile.className = "art-zeile";
+    zeile.innerHTML = `<span class="art-name"></span><span class="art-balken"><span></span></span><span class="art-wert"></span>`;
+    zeile.querySelector(".art-name").textContent = t(ARTEN[art] || "art.sonstige");
+    zeile.querySelector(".art-balken span").style.width = `${(wert / summe) * 100}%`;
+    zeile.querySelector(".art-wert").textContent = prozent(wert / summe);
+    balken.appendChild(zeile);
+  }
+  block.append(h2, balken);
+
+  const hinweis = document.createElement("p");
+  hinweis.className = "hinweis";
+  hinweis.textContent = t("kapitel.hinweis", { n: kap.titel.length });
+  block.appendChild(hinweis);
+  kasten.appendChild(block);
 }
 
 function zeigeEbene() {
@@ -311,6 +387,8 @@ async function start() {
   try {
     const antwort = await fetch("daten/haushalt.json");
     daten = await antwort.json();
+    // Kapiteltexte sind optional: fehlen sie, bleibt es bei der automatischen Kurzinfo
+    kapitelTexte = await fetch("daten/kapitel_texte.json").then((a) => a.json()).catch(() => kapitelTexte);
   } catch (fehler) {
     el("gesamt-text").textContent = t("fehler.laden");
     return;

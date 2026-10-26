@@ -40,6 +40,8 @@
   Zeitreihe aus BMF-Tabellen mit Quelle je Jahr).
 - `daten/debatten.json` (aktuelle Debatten) wird von Hand gepflegt: Positionen immer zuschreiben, nie bewerten,
   jede Zahl mit Quelle, Stand-Datum mitführen. Bei neuen Entwicklungen (Gesetze, Zahlen) aktualisieren.
+- `daten/kapitel_texte.json`: handgeschriebene Erklärungen der 30 größten Kapitel (Deutsch und Englisch).
+  Die App zeigt sie nur bei `"freigegeben": true`; Freigabe erst nach Prüfung durch mich.
 - Das Bürgergeld heißt seit 1. Juli 2026 Grundsicherungsgeld; im Haushaltsplan 2026 steht noch „Bürgergeld“.
 
 ## Zusammenarbeit
