@@ -23,6 +23,9 @@ const SUCHWORTE = {
   "1405/55408": "ammunition",
   "3205/57501": "Zinsen Schulden interest debt",
   "6002/97201": "Sparvorgabe Kürzung Minderausgabe savings cut",
+  "0501/68732": "humanitäre Hilfe Nothilfe Katastrophenhilfe humanitarian aid",
+  "2301/89611": "Entwicklungshilfe Entwicklungszusammenarbeit KfW development aid",
+  "2301/89603": "Entwicklungshilfe Entwicklungszusammenarbeit GIZ development aid",
 };
 
 // Suchwörter für Einzelpläne (Nummer) und Kapitel (Nummer)
