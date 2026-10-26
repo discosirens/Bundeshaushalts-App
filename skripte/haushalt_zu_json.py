@@ -2,8 +2,8 @@
 
 Aufruf (im Projektordner):  py skripte/haushalt_zu_json.py
 
-Ergebnis: Ausgaben nach Einzelplan -> Kapitel -> Titel, jeweils für 2025 und 2026,
-alle Beträge in Tausend Euro (wie in den Rohdaten).
+Ergebnis: Ausgaben nach Einzelplan -> Kapitel -> Titel für 2025 und 2026 (Soll) und
+2027 (Regierungsentwurf, noch nicht beschlossen), alle Beträge in Tausend Euro (wie in den Rohdaten).
 """
 
 import csv
@@ -19,10 +19,14 @@ ZIEL = PROJEKT / "daten" / "haushalt.json"
 JAHRE = {
     "2025": ROH / "HH_2025_ALL.csv",
     "2026": ROH / "HH_2026_ALL.csv",
+    "2027": ROH / "HH_2027_RegE_ALL.csv",   # Regierungsentwurf, noch nicht beschlossen
 }
+ENTWURF = "2027"
 
-# Summe der Ausgaben laut Gesamtplan 2026 (Tausend Euro), zum Abgleich.
+# Summen zum Abgleich (Tausend Euro): Gesamtplan 2026 und Regierungsentwurf 2027
+# (555,4 Mrd. Euro laut Bundesfinanzministerium und Bundestag)
 GESAMTPLAN_2026 = 524_540_138
+ENTWURF_2027 = 555_435_744
 
 # Hauptgruppen des Gruppierungsplans: erste Ziffer der Titelnummer.
 HAUPTGRUPPEN = {
@@ -67,7 +71,8 @@ def main():
                 "name": z["einzelplan-text"],
                 "kapitel": {},
             })
-            ep["name"] = z["einzelplan-text"]  # neuester Name gewinnt (2026 wird zuletzt gelesen)
+            if jahr != ENTWURF:
+                ep["name"] = z["einzelplan-text"]  # Namen laut beschlossenem Haushalt 2026
 
             kap_name = kapitelname(z["kapitel-text"])
             kap = ep["kapitel"].setdefault(z["kapitel"], {
@@ -76,7 +81,8 @@ def main():
                 "anlage": ist_anlage(kap_name),
                 "titel": {},
             })
-            kap["name"] = kap_name
+            if jahr != ENTWURF:
+                kap["name"] = kap_name
 
             titel = kap["titel"].setdefault(z["titel"], {
                 "nr": z["titel"],
@@ -86,11 +92,15 @@ def main():
                 "titelgruppe": None,
                 "soll": {j: None for j in JAHRE},
             })
-            titel["name"] = z["titel-text"]
-            titel["funktion"] = z["funktion"]
-            if z["titelgruppe"]:
-                titel["titelgruppe"] = {"nr": z["titelgruppe"], "name": z["tgr-text"]}
+            if jahr != ENTWURF or titel["soll"]["2026"] is None:
+                titel["name"] = z["titel-text"]
+                titel["funktion"] = z["funktion"]
+                if z["titelgruppe"]:
+                    titel["titelgruppe"] = {"nr": z["titelgruppe"], "name": z["tgr-text"]}
             titel["soll"][jahr] = betrag
+            # Nur der Entwurf 2027 markiert jeden Titel mit der Bereichsausnahme der Schuldenbremse
+            if jahr == ENTWURF and z.get("bereichsausnahme") == "ja":
+                titel["bereichsausnahme_2027"] = True
 
     # Summen bilden. Einzelplan-Summen enthalten nur den Kernhaushalt (ohne Anlage-Kapitel).
     def summe(eintraege, jahr):
@@ -113,7 +123,9 @@ def main():
     daten = {
         "einheit": "Tausend Euro",
         "hinweis": "Einzelplan-Summen und 'summen.kernhaushalt' ohne Kapitel mit anlage=true. "
-                   "soll=null bedeutet: Titel gab es in diesem Jahr nicht.",
+                   "soll=null bedeutet: Titel gab es in diesem Jahr nicht. 2027 ist der Regierungsentwurf "
+                   "(Kabinett 6. Juli 2026), vom Bundestag noch nicht beschlossen.",
+        "entwurf": ENTWURF,
         "summen": summen,
         "einzelplaene": ergebnis,
     }
@@ -125,11 +137,15 @@ def main():
         print(f"{j}: Kernhaushalt {s['kernhaushalt']:>13,} | Anlagen {s['anlagen']:>13,} | "
               f"alles {s['kernhaushalt'] + s['anlagen']:>13,}  (Tsd. Euro)".replace(",", "."))
 
-    abweichung = summen["2026"]["kernhaushalt"] - GESAMTPLAN_2026
-    if abweichung == 0:
-        print("Prüfung 2026: Kernhaushalt stimmt exakt mit dem Gesamtplan überein.")
-    else:
-        print(f"Prüfung 2026: ABWEICHUNG von {abweichung:,} Tsd. Euro zum Gesamtplan!".replace(",", "."))
+    fehler = False
+    for jahr, soll in (("2026", GESAMTPLAN_2026), (ENTWURF, ENTWURF_2027)):
+        abweichung = summen[jahr]["kernhaushalt"] - soll
+        if abweichung == 0:
+            print(f"Prüfung {jahr}: Kernhaushalt stimmt exakt mit dem Referenzwert überein.")
+        else:
+            print(f"Prüfung {jahr}: ABWEICHUNG von {abweichung:,} Tsd. Euro!".replace(",", "."))
+            fehler = True
+    if fehler:
         sys.exit(1)
 
 

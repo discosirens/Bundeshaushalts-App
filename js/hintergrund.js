@@ -108,9 +108,13 @@ function svgEl(name, attrs, eltern) {
   return knoten;
 }
 
+function artName(art) {
+  return t(`hg.art.${art}`);
+}
+
 function infoText(z) {
   return t("hg.geschichte.info", {
-    jahr: z.jahr, art: z.art, ausgaben: mrdAusMrd(z.ausgaben), kredite: mrdAusMrd(z.nettokredit),
+    jahr: z.jahr, art: artName(z.art), ausgaben: mrdAusMrd(z.ausgaben), kredite: mrdAusMrd(z.nettokredit),
     anteil: prozent(z.nettokredit / z.ausgaben), steuern: mrdAusMrd(z.steuern),
   });
 }
@@ -127,7 +131,7 @@ function zeichneVerlauf() {
   const hoehe = breite < 500 ? 240 : 300;
   const rand = { l: 36, r: 6, o: 22, u: 24 };
   const von = 1968;
-  const bis = 2027;
+  const bis = 2028;
   const max = 650;
   const x = (jahr) => rand.l + ((jahr - von) / (bis - von)) * (breite - rand.l - rand.r);
   const y = (wert) => rand.o + (1 - wert / max) * (hoehe - rand.o - rand.u);
@@ -158,7 +162,7 @@ function zeichneVerlauf() {
 
   // Balken: Ausgaben, darin der mit neuen Krediten bezahlte Teil
   for (const z of hg.zeitreihe) {
-    const g = svgEl("g", { class: `verlauf-jahr${z.art === "Soll" ? " verlauf-soll" : ""}`, tabindex: "0" }, svg);
+    const g = svgEl("g", { class: `verlauf-jahr${z.art !== "Ist" ? " verlauf-soll" : ""}`, tabindex: "0" }, svg);
     svgEl("rect", { x: x(z.jahr) - bw / 2, y: y(z.ausgaben), width: bw, height: y(0) - y(z.ausgaben), rx: Math.min(3, bw / 3), class: "balken-ausgaben" }, g);
     if (z.nettokredit > 0) {
       svgEl("rect", { x: x(z.jahr) - bw / 2, y: y(z.nettokredit), width: bw, height: y(0) - y(z.nettokredit), class: "balken-kredite" }, g);
@@ -175,9 +179,11 @@ function zeichneVerlauf() {
   // Direkte Beschriftung (nur bei genug Platz): höchster Wert und Soll 2026
   if (breite < 560) return;
   const spitze = hg.zeitreihe.reduce((a, b) => (b.ausgaben > a.ausgaben ? b : a));
-  for (const z of [spitze, hg.zeitreihe[hg.zeitreihe.length - 1]]) {
+  const letzter = hg.zeitreihe[hg.zeitreihe.length - 1];
+  // Spitze nur beschriften, wenn sie weit genug vom letzten Balken entfernt ist (sonst überlappen die Texte)
+  for (const z of spitze.jahr < letzter.jahr - 8 ? [spitze, letzter] : [letzter]) {
     const beschr = svgEl("text", { x: x(z.jahr), y: y(z.ausgaben) - 5, class: "verlauf-wert", "text-anchor": z.jahr > 2024 ? "end" : "middle" }, svg);
-    beschr.textContent = z.art === "Soll" ? `${z.jahr} ${t("hg.geschichte.soll")}: ${Math.round(z.ausgaben)}` : `${z.jahr}: ${Math.round(z.ausgaben)}`;
+    beschr.textContent = z.art !== "Ist" ? `${z.jahr} ${artName(z.art)}: ${Math.round(z.ausgaben)}` : `${z.jahr}: ${Math.round(z.ausgaben)}`;
   }
 }
 
@@ -188,7 +194,7 @@ function fuelleVerlaufTabelle() {
     const tr = document.createElement("tr");
     tr.innerHTML = "<td></td><td></td><td></td><td></td>";
     const zellen = tr.querySelectorAll("td");
-    zellen[0].textContent = `${z.jahr} (${z.art})`;
+    zellen[0].textContent = `${z.jahr} (${artName(z.art)})`;
     zellen[1].textContent = mrdAusMrd(z.ausgaben);
     zellen[2].textContent = mrdAusMrd(z.nettokredit);
     zellen[3].textContent = mrdAusMrd(z.steuern);
@@ -210,26 +216,28 @@ function zeigeUkraine() {
   const summe = (jahr) => ua.posten.reduce((s, p) => s + p[jahr], 0);
   const im2026 = ua.posten.filter((p) => p["2026"] > 0).length;
   el("ua-einleitung").textContent = t("ua.einleitung", {
-    n: im2026, summe: milliarden(summe("2026")), summe25: milliarden(summe("2025")),
+    n: im2026, summe: milliarden(summe("2026")), summe25: milliarden(summe("2025")), summe27: milliarden(summe("2027")),
   });
 
   const tbody = el("ua-tabelle").querySelector("tbody");
   tbody.replaceChildren();
   for (const p of ua.posten) {
     const tr = document.createElement("tr");
-    tr.innerHTML = "<td><span></span><br><small></small></td><td></td><td></td>";
+    tr.innerHTML = "<td><span></span><br><small></small></td><td></td><td></td><td></td>";
     const zellen = tr.querySelectorAll("td");
     zellen[0].querySelector("span").textContent = SPRACHE === "en" ? p.en : p.de;
     zellen[0].querySelector("small").textContent = `${t("suche.kapitel", { nr: p.kapitel })} · ${t("suche.titel", { nr: `${p.titel.slice(0, 3)} ${p.titel.slice(3)}` })}`;
     zellen[1].textContent = euro(p["2026"]);
     zellen[2].textContent = euro(p["2025"]);
+    zellen[3].textContent = euro(p["2027"]);
     tbody.appendChild(tr);
   }
   const tfoot = el("ua-tabelle").querySelector("tfoot");
-  tfoot.innerHTML = "<tr><th scope=\"row\"></th><td></td><td></td></tr>";
+  tfoot.innerHTML = "<tr><th scope=\"row\"></th><td></td><td></td><td></td></tr>";
   tfoot.querySelector("th").textContent = t("ua.summe");
   tfoot.querySelectorAll("td")[0].textContent = euro(summe("2026"));
   tfoot.querySelectorAll("td")[1].textContent = euro(summe("2025"));
+  tfoot.querySelectorAll("td")[2].textContent = euro(summe("2027"));
 
   const q = el("ua-quellen");
   q.textContent = `${t("erkl.quellen")}:`;

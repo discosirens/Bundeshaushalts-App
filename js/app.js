@@ -84,6 +84,7 @@ function einzelplanEintraege() {
     kurz: epKurz(ep),
     s26: ep.soll["2026"],
     s25: ep.soll["2025"],
+    s27: ep.soll["2027"],
   }));
 }
 
@@ -93,6 +94,7 @@ function kapitelEintraege(ep) {
     .map((k) => {
       // Kapitel, das es 2025 noch nicht gab: alle Titel haben für 2025 keinen Wert.
       const gab2025 = k.titel.some((ti) => ti.soll["2025"] !== null);
+      const gibt2027 = k.titel.some((ti) => ti.soll["2027"] != null);
       return {
         id: k.nr,
         typ: "kapitel",
@@ -101,6 +103,7 @@ function kapitelEintraege(ep) {
         kurz: anzeigename(k.name),
         s26: k.soll["2026"],
         s25: gab2025 ? k.soll["2025"] : null,
+        s27: gibt2027 ? k.soll["2027"] : null,
         kapitel: k,
       };
     });
@@ -275,10 +278,20 @@ function zeigeDetails(e, kennung) {
       <div><dt>${t("details.soll25")}</dt><dd>${e.s25 === null ? t("details.fehlt") : euro(e.s25)}</dd></div>
       <div><dt>${t("details.veraenderung")}</dt><dd class="${v.klasse}">${v.text}</dd></div>
       <div><dt>${t("details.anteil")}</dt><dd>${prozent(e.s26 / gesamt2026)}</dd></div>
+      ${e.s27 === undefined ? "" : `<div class="entwurf"><dt>${t("details.entwurf27")}</dt><dd>${entwurfText(e)}</dd></div>`}
     </dl>`;
   kasten.querySelector("h2").textContent = `${kennung}: ${e.name}`;
   if (e.kapitel) zeigeKapitelInfo(kasten, e.kapitel);
   kasten.hidden = false;
+}
+
+// Entwurf 2027 mit Veränderung gegenüber dem Soll 2026
+function entwurfText(e) {
+  if (e.s27 === null) return t("details.entwurf.fehlt");
+  const diff = e.s27 - e.s26;
+  if (diff === 0 || e.s26 <= 0) return euro(e.s27);
+  const klasse = diff > 0 ? "plus" : "minus";
+  return `${euro(e.s27)} <small class="${klasse}">${euro(diff, true)} (${prozent(diff / e.s26, true)})</small>`;
 }
 
 function titelName(kap, ti) {
@@ -333,6 +346,15 @@ function zeigeKapitelInfo(kasten, kap) {
     balken.appendChild(zeile);
   }
   block.append(h2, balken);
+
+  // Bereichsausnahme der Schuldenbremse je Posten gibt es nur im Entwurf 2027
+  const ba27 = kap.titel.filter((ti) => ti.bereichsausnahme_2027).reduce((s, ti) => s + (ti.soll["2027"] || 0), 0);
+  if (ba27 > 0) {
+    const p = document.createElement("p");
+    p.className = "ergebnis-hinweis";
+    p.textContent = t("kapitel.ba27", { betrag: euro(ba27), gesamt: euro(kap.soll["2027"]) });
+    block.appendChild(p);
+  }
 
   const hinweis = document.createElement("p");
   hinweis.className = "hinweis";
@@ -400,7 +422,7 @@ function fuelleTabelle() {
   for (const e of eintraege) {
     const v = veraenderung(e);
     const zeile = document.createElement("tr");
-    zeile.innerHTML = `<td><button type="button"></button></td><td>${euro(e.s26)}</td><td>${e.s25 === null ? t("tabelle.neu") : euro(e.s25)}</td><td class="${v.klasse}">${v.text}</td>`;
+    zeile.innerHTML = `<td><button type="button"></button></td><td>${euro(e.s26)}</td><td>${e.s25 === null ? t("tabelle.neu") : euro(e.s25)}</td><td class="${v.klasse}">${v.text}</td><td>${e.s27 == null ? "" : euro(e.s27)}</td>`;
     const knopf = zeile.querySelector("button");
     knopf.textContent = e.typ === "ep" ? `${e.nr} ${e.kurz}` : `${e.nr} ${e.name}`;
     knopf.addEventListener("click", () => waehle(e));
@@ -452,6 +474,7 @@ async function start() {
   }
   gesamt2026 = daten.summen["2026"].kernhaushalt;
   el("gesamt").textContent = euro(gesamt2026);
+  el("entwurf27").textContent = t("hero.entwurf", { betrag: euro(daten.summen["2027"].kernhaushalt) });
   zeigeFakten();
 
   zeigeEbene();

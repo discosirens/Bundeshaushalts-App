@@ -12,7 +12,9 @@
   (`BEREICHE_EN`, `TITEL_EN`). Amtliche Kapitelnamen bleiben auf Deutsch, mit Hinweis.
 
 ## Zahlen
-- Jede Zahl in der App braucht Jahr, Art (Soll, Ist, Schätzung) und Quelle.
+- Jede Zahl in der App braucht Jahr, Art (Soll, Ist, Schätzung, Entwurf) und Quelle.
+- Der Regierungsentwurf 2027 (`HH_2027_RegE_ALL.csv`) ist noch nicht beschlossen: immer als „Entwurf 2027“
+  kennzeichnen, nie als Soll. Die Treemap und alle Anteile beziehen sich weiter auf das Soll 2026.
 - Sondervermögen werden immer getrennt vom Kernhaushalt dargestellt und nie einfach addiert.
   Bei Themen wie Verteidigung wird die Summe aus Kernhaushalt und zugehörigem Sondervermögen
   zusätzlich ausgewiesen, mit Hinweis auf mögliche Doppelzählung.

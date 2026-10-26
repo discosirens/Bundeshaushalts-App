@@ -16,7 +16,8 @@ PROJEKT = Path(__file__).resolve().parent.parent
 ROH = PROJEKT / "daten" / "roh"
 ZIEL = PROJEKT / "daten" / "hintergrund.json"
 
-SUMME_SOLL = {"2025": 502_546_135, "2026": 524_540_138}
+SUMME_SOLL = {"2025": 502_546_135, "2026": 524_540_138, "2027": 555_435_744}  # 2027: Regierungsentwurf
+DATEIEN = {"2025": "HH_2025_ALL.csv", "2026": "HH_2026_ALL.csv", "2027": "HH_2027_RegE_ALL.csv"}
 
 QUELLE_BMF_2019 = {
     "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
@@ -27,6 +28,7 @@ QUELLE_BMF_2026 = {
     "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html",
 }
 QUELLE_PLAN = {"titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann", "url": "https://www.bundeshaushalt.de/"}
+QUELLE_ENTWURF = {"titel": "Regierungsentwurf zum Bundeshaushalt 2027 (noch nicht beschlossen)", "url": "https://www.bundeshaushalt.de/"}
 
 # Jahr: (Ausgaben, Steuereinnahmen, Nettokreditaufnahme) in Mrd. Euro, Ist-Ergebnisse.
 # Bis 2001 von D-Mark in Euro umgerechnet (wie in der Quelle). Für 2019 liegt in diesen Quellen kein Ist vor.
@@ -78,6 +80,7 @@ UKRAINE_EN = {
     ("6002", "68706"): "Capacity building for states attacked in violation of international law (military aid)",
     ("6002", "68721"): "German share of the interest subsidy for EU macro-financial assistance to Ukraine",
     ("0904", "68711"): "Energy and economic policy cooperation with Ukraine",
+    ("0903", "68701"): "Energy and economic policy cooperation with Ukraine (new chapter from 2027)",
     ("6002", "67106"): "Losses from guarantees for the KfW special programme Ukraine, Belarus, Russia",
     ("2310", "89602"): "Obligations from an untied energy loan to Ukraine",
     ("6002", "67111"): "KfW expenses related to support for Ukraine",
@@ -91,8 +94,8 @@ UKRAINE_EN = {
 
 def ukraine_posten():
     werte = {}
-    for jahr in ("2025", "2026"):
-        with open(ROH / f"HH_{jahr}_ALL.csv", encoding="utf-8-sig", newline="") as f:
+    for jahr in ("2025", "2026", "2027"):
+        with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
             for z in csv.DictReader(f, delimiter=";"):
                 z = {k.strip(): (v or "").strip() for k, v in z.items() if k is not None}
                 schluessel = (z["kapitel"], z["titel"])
@@ -102,17 +105,18 @@ def ukraine_posten():
                     eintrag = werte.setdefault(schluessel, {
                         "kapitel": z["kapitel"], "titel": z["titel"], "einzelplan": z["einzelplan"],
                         "de": z["titel-text"].replace('"', ""), "en": UKRAINE_EN.get(schluessel, z["titel-text"]),
-                        "2025": 0, "2026": 0,
+                        "2025": 0, "2026": 0, "2027": 0,
                     })
                     eintrag[jahr] = int(z["soll"] or 0)
-                    eintrag["de"] = z["titel-text"].replace('"', "")  # 2026 wird zuletzt gelesen: aktueller Name
-    posten = [p for p in werte.values() if p["2025"] or p["2026"]]
+                    if jahr != "2027":
+                        eintrag["de"] = z["titel-text"].replace('"', "")  # Name laut Haushalt 2026
+    posten = [p for p in werte.values() if p["2025"] or p["2026"] or p["2027"]]
     return sorted(posten, key=lambda p: -p["2026"])
 
 
 def lese_einnahmen(jahr):
     zeilen = []
-    with open(ROH / f"HH_{jahr}_ALL.csv", encoding="utf-8-sig", newline="") as f:
+    with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
         for z in csv.DictReader(f, delimiter=";"):
             z = {k.strip(): (v or "").strip() for k, v in z.items() if k is not None}
             if z["einahmen-ausgaben"] == "E" and not z["kapitel-text"].startswith("Anlage"):
@@ -124,7 +128,7 @@ def lese_einnahmen(jahr):
 def main():
     fehler = []
     einnahmen = {}
-    for jahr in ("2025", "2026"):
+    for jahr in ("2025", "2026", "2027"):
         zeilen = lese_einnahmen(jahr)
         gesamt = sum(z["soll"] for z in zeilen)
         if gesamt != SUMME_SOLL[jahr]:
@@ -156,6 +160,14 @@ def main():
         "steuern": round(e26["steuern"] / 1e6, 1),
         "nettokredit": round(e26["kredite"] / 1e6, 1),
         "quelle": QUELLE_PLAN,
+    })
+    e27 = einnahmen["2027"]
+    zeitreihe.append({
+        "jahr": 2027, "art": "Entwurf",
+        "ausgaben": round(SUMME_SOLL["2027"] / 1e6, 1),
+        "steuern": round(e27["steuern"] / 1e6, 1),
+        "nettokredit": round(e27["kredite"] / 1e6, 1),
+        "quelle": QUELLE_ENTWURF,
     })
 
     daten = {

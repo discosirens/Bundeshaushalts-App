@@ -21,7 +21,7 @@ js/spiel.js         Logik des Haushaltsspiels
 js/hintergrund.js   Logik der Hintergrund-Seite (Verlaufsgrafik als SVG)
 daten/
   roh/              Rohdaten, unverändert (CSV, PDF, Excel)
-  haushalt.json     aufbereitete Ausgaben 2025 und 2026 (wird vom Skript erzeugt)
+  haushalt.json     aufbereitete Ausgaben 2025, 2026 (Soll) und 2027 (Entwurf) (wird vom Skript erzeugt)
   bereiche.json     14 Bereiche mit Erklärungen auf Deutsch und Englisch (wird vom Skript erzeugt)
   runden.json       Situationen und Optionen des Haushaltsspiels (von Hand gepflegt)
   hintergrund.json  Einnahmen 2025/2026 und Zeitreihe seit 1969 (wird vom Skript erzeugt)

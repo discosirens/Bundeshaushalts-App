@@ -112,6 +112,62 @@
      "betrag": 17110000
     }
    ]
+  },
+  "2027": {
+   "gesamt": 555435744,
+   "steuern": 394785012,
+   "kredite": 118727000,
+   "sonstige": 41923732,
+   "groesste_steuern": [
+    {
+     "titel": "01101",
+     "de": "Lohnsteuer",
+     "en": "Wage tax",
+     "betrag": 123250000
+    },
+    {
+     "titel": "01501",
+     "de": "Umsatzsteuer",
+     "en": "VAT",
+     "betrag": 122624000
+    },
+    {
+     "titel": "01601",
+     "de": "Einfuhrumsatzsteuer",
+     "en": "Import VAT",
+     "betrag": 37677000
+    },
+    {
+     "titel": "01201",
+     "de": "Veranlagte Einkommensteuer",
+     "en": "Assessed income tax",
+     "betrag": 33851000
+    },
+    {
+     "titel": "03103",
+     "de": "Energiesteuer",
+     "en": "Energy tax",
+     "betrag": 32307000
+    },
+    {
+     "titel": "03602",
+     "de": "Versicherungsteuer",
+     "en": "Insurance tax",
+     "betrag": 21330000
+    },
+    {
+     "titel": "01401",
+     "de": "Körperschaftsteuer",
+     "en": "Corporation tax",
+     "betrag": 18225000
+    },
+    {
+     "titel": "03202",
+     "de": "Tabaksteuer",
+     "en": "Tobacco tax",
+     "betrag": 17030000
+    }
+   ]
   }
  },
  "steuern_alle_ebenen_2025": {
@@ -357,6 +413,17 @@
     "titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann",
     "url": "https://www.bundeshaushalt.de/"
    }
+  },
+  {
+   "jahr": 2027,
+   "art": "Entwurf",
+   "ausgaben": 555.4,
+   "steuern": 394.8,
+   "nettokredit": 118.7,
+   "quelle": {
+    "titel": "Regierungsentwurf zum Bundeshaushalt 2027 (noch nicht beschlossen)",
+    "url": "https://www.bundeshaushalt.de/"
+   }
   }
  ],
  "ereignisse": [
@@ -395,7 +462,8 @@
     "de": "Ertüchtigung von völkerrechtswidrig angegriffenen Staaten im Bereich Sicherheit, Verteidigung und Stabilisierung",
     "en": "Capacity building for states attacked in violation of international law (military aid)",
     "2025": 8258821,
-    "2026": 11546799
+    "2026": 11546799,
+    "2027": 11612000
    },
    {
     "kapitel": "6002",
@@ -404,7 +472,8 @@
     "de": "Deutscher Anteil am Zinszuschuss im Rahmen der Makrofinanzhilfe+ zugunsten der Ukraine",
     "en": "German share of the interest subsidy for EU macro-financial assistance to Ukraine",
     "2025": 142233,
-    "2026": 177377
+    "2026": 177377,
+    "2027": 177377
    },
    {
     "kapitel": "0904",
@@ -413,7 +482,8 @@
     "de": "Energie- und wirtschaftspolitische Zusammenarbeit mit der Ukraine",
     "en": "Energy and economic policy cooperation with Ukraine",
     "2025": 120000,
-    "2026": 99318
+    "2026": 99318,
+    "2027": 0
    },
    {
     "kapitel": "6002",
@@ -422,7 +492,8 @@
     "de": "Erstattung von Ausfällen aus der Garantie für das KfW-Sonderprogramm Ukraine-Belarus-Russland",
     "en": "Losses from guarantees for the KfW special programme Ukraine, Belarus, Russia",
     "2025": 5000,
-    "2026": 14000
+    "2026": 14000,
+    "2027": 5400
    },
    {
     "kapitel": "2310",
@@ -431,7 +502,8 @@
     "de": "Übernahme von Verpflichtungen aus dem ungebundenen Finanzkredit Energie an die Ukraine",
     "en": "Obligations from an untied energy loan to Ukraine",
     "2025": 18000,
-    "2026": 12500
+    "2026": 12500,
+    "2027": 9500
    },
    {
     "kapitel": "6002",
@@ -440,7 +512,8 @@
     "de": "Aufwendungen der KfW im Zusammenhang mit der Unterstützung der Ukraine",
     "en": "KfW expenses related to support for Ukraine",
     "2025": 2000,
-    "2026": 1000
+    "2026": 1000,
+    "2027": 1000
    },
    {
     "kapitel": "1010",
@@ -449,7 +522,8 @@
     "de": "Hilfen zur Abmilderung der Folgen des Krieges in der Ukraine",
     "en": "Aid to mitigate the consequences of the war in Ukraine (agriculture)",
     "2025": 800,
-    "2026": 500
+    "2026": 500,
+    "2027": 350
    },
    {
     "kapitel": "0502",
@@ -458,7 +532,18 @@
     "de": "Ausgaben im Zusammenhang mit der Ukraine Recovery Conference 2024",
     "en": "Expenses related to the Ukraine Recovery Conference 2024",
     "2025": 1000,
-    "2026": 0
+    "2026": 0,
+    "2027": 0
+   },
+   {
+    "kapitel": "0903",
+    "titel": "68701",
+    "einzelplan": "09",
+    "de": "Energie- und wirtschaftspolitische Zusammenarbeit mit der Ukraine",
+    "en": "Energy and economic policy cooperation with Ukraine (new chapter from 2027)",
+    "2025": 0,
+    "2026": 0,
+    "2027": 58600
    }
   ],
   "quellen": [
