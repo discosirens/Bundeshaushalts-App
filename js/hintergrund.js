@@ -4,6 +4,7 @@
 let hg = null;
 let debatten = null;
 let laender = null;
+let verfahren = null;
 
 const el = (id) => document.getElementById(id);
 const tx = (o) => o[SPRACHE] ?? o.de;
@@ -98,6 +99,56 @@ function zeigeHoehe() {
     raster.appendChild(karte);
   });
 }
+
+// ---------- Wie entsteht der Haushalt? ----------
+
+// Heutiges Datum als "JJJJ-MM-TT" (Ortszeit), zum Vergleich mit den Terminen in verfahren.json
+function heuteIso() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function schrittStatus(s, heute) {
+  if (s.bis && heute > s.bis) return "erledigt";
+  if (!s.von || heute >= s.von) return "aktuell";
+  return "geplant";
+}
+
+function zeigeVerfahren() {
+  const heute = heuteIso();
+  el("verfahren-text").textContent = t("verf.text", { jahr: verfahren.haushaltsjahr });
+  const liste = el("zeitstrahl");
+  liste.replaceChildren();
+  let aktuell = null;
+  let naechster = null;
+  for (const s of verfahren.schritte) {
+    const status = schrittStatus(s, heute);
+    const text = tx(s);
+    if (status === "aktuell" && !aktuell) aktuell = text;
+    if (status === "geplant" && !naechster) naechster = text;
+    const li = document.createElement("li");
+    li.className = status;
+    if (status === "aktuell") li.setAttribute("aria-current", "step");
+    li.innerHTML = `<div class="zeitstrahl-inhalt"><p class="zeitstrahl-kopf"><span class="zeitstrahl-datum"></span><span class="zeitstrahl-status"></span></p><h3></h3><p></p></div>`;
+    li.querySelector(".zeitstrahl-datum").textContent = text.datum;
+    li.querySelector(".zeitstrahl-status").textContent = t(`verf.${status}`);
+    li.querySelector("h3").textContent = text.titel;
+    li.querySelector("h3 + p").textContent = text.text;
+    liste.appendChild(li);
+  }
+  const stand = el("verfahren-stand");
+  if (aktuell) stand.textContent = t("verf.jetzt", { titel: aktuell.titel, datum: aktuell.datum });
+  else if (naechster) stand.textContent = t("verf.naechstes", { titel: naechster.titel, datum: naechster.datum });
+  else stand.hidden = true;
+
+  const q = el("verfahren-quellen");
+  q.textContent = `${t("erkl.quelle")}:`;
+  verfahren.quellen.forEach((quelle, i) => {
+    if (i > 0) q.append(";");
+    link(q, { titel: SPRACHE === "en" ? quelle.en : quelle.titel, url: quelle.url }, false);
+  });
+}
+
 
 // ---------- Verlauf seit 1969 ----------
 
@@ -472,12 +523,14 @@ async function start() {
       fetch(datei("daten/debatten.json")).then((a) => a.json()),
       fetch(datei("daten/laender.json")).then((a) => a.json()),
     ]);
+    verfahren = await fetch(datei("daten/verfahren.json")).then((a) => a.json()).catch(() => null);
   } catch (fehler) {
     el("einnahmen-text").textContent = t("fehler.laden");
     return;
   }
   zeigeEinnahmen();
   zeigeHoehe();
+  if (verfahren) zeigeVerfahren();
   zeichneVerlauf();
   fuelleVerlaufTabelle();
   zeigeVerteidigung();
@@ -485,6 +538,10 @@ async function start() {
   zeigeLaender();
   zeigeDebatten();
   zeigeQuellen();
+
+  // Sprungziel (z. B. #verfahren) erst nach dem Aufbau der Inhalte ansteuern
+  const ziel = location.hash && !new URLSearchParams(location.search).has("land") && document.getElementById(location.hash.slice(1));
+  if (ziel) setTimeout(() => ziel.scrollIntoView({ block: "start" }), 50);
 
   let letzteBreite = el("verlauf").clientWidth;
   new ResizeObserver(() => {

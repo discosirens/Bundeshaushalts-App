@@ -19,6 +19,7 @@ js/suche.js         Suche auf der Startseite (mit Suchwörtern für unklare Post
 js/umschichten.js   Logik des Umschicht-Modus
 js/spiel.js         Logik des Haushaltsspiels
 js/hintergrund.js   Logik der Hintergrund-Seite (Verlaufsgrafik als SVG)
+js/glossar.js       Fachbegriffe im Text anklickbar machen, Erklärung einblenden (alle Seiten)
 daten/
   roh/              Rohdaten, unverändert (CSV, PDF, Excel)
   haushalt.json     aufbereitete Ausgaben 2025, 2026 (Soll) und 2027 (Entwurf) (wird vom Skript erzeugt)
@@ -28,6 +29,8 @@ daten/
   laender.json      deutsche Entwicklungsleistungen nach Empfängerland 2020 bis 2024 (OECD, Ist, Mio. US-Dollar; vom Skript erzeugt)
   debatten.json     aktuelle Debatten mit Positionen und Quellen (von Hand gepflegt)
   kapitel_texte.json Erklärungen der 30 größten Kapitel (von Hand gepflegt, mit Freigabe-Schalter)
+  verfahren.json    Zeitstrahl „Wie entsteht der Haushalt?“ mit Terminen (von Hand gepflegt)
+  glossar.json      Begriffe mit kurzen Erklärungen auf Deutsch und Englisch (von Hand gepflegt)
 skripte/
   haushalt_zu_json.py
   bereiche_erzeugen.py

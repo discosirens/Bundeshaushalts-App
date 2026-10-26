@@ -462,6 +462,56 @@ function zeigeFakten() {
 
 // ---------- Start ----------
 
+// ---------- Wohin gehen 100 Euro? ----------
+
+// Cent-Betrag als "27,73 €" bzw. "€27.73"
+const cent = (c) => (SPRACHE === "en" ? `€${zahl(c / 100, 2)}` : `${zahl(c / 100, 2)} €`);
+
+// Teilt 100 Euro (10.000 Cent) nach Anteilen auf, sodass die Summe genau 100 Euro ergibt
+function aufHundert(werte) {
+  const summe = werte.reduce((s, w) => s + w, 0);
+  const roh = werte.map((w) => (w / summe) * 10000);
+  const cents = roh.map(Math.floor);
+  let rest = 10000 - cents.reduce((s, c) => s + c, 0);
+  const reihenfolge = roh.map((r, i) => [r - Math.floor(r), i]).sort((a, b) => b[0] - a[0]);
+  for (const [, i] of reihenfolge) {
+    if (rest-- <= 0) break;
+    cents[i] += 1;
+  }
+  return cents;
+}
+
+async function zeigeHundert() {
+  let bereiche;
+  let hintergrund;
+  try {
+    [bereiche, hintergrund] = await Promise.all([
+      fetch(datei("daten/bereiche.json")).then((a) => a.json()),
+      fetch(datei("daten/hintergrund.json")).then((a) => a.json()),
+    ]);
+  } catch (fehler) {
+    return;   // Abschnitt bleibt ausgeblendet
+  }
+  const liste = [...bereiche.bereiche].sort((a, b) => b.betrag_2026 - a.betrag_2026);
+  const cents = aufHundert(liste.map((b) => b.betrag_2026));
+  const ol = el("hundert-liste");
+  ol.replaceChildren();
+  liste.forEach((b, i) => {
+    const li = document.createElement("li");
+    li.className = "hundert-zeile";
+    li.innerHTML = `<span class="hundert-name"></span><span class="art-balken"><span></span></span><span class="hundert-wert"></span>`;
+    li.querySelector(".hundert-name").textContent = SPRACHE === "en" ? b.en.name : b.name;
+    li.querySelector(".art-balken span").style.width = `${(cents[i] / cents[0]) * 100}%`;
+    li.querySelector(".hundert-wert").textContent = cent(cents[i]);
+    ol.appendChild(li);
+  });
+
+  const e = hintergrund.einnahmen["2026"];
+  const [steuern, kredite, sonstige] = aufHundert([e.steuern, e.kredite, e.sonstige]);
+  el("hundert-bezahlt").textContent = t("hundert.bezahlt", { steuern: cent(steuern), kredite: cent(kredite), sonstige: cent(sonstige) });
+  el("hundert").hidden = false;
+}
+
 async function start() {
   try {
     const antwort = await fetch(datei("daten/haushalt.json"));
@@ -475,6 +525,11 @@ async function start() {
   gesamt2026 = daten.summen["2026"].kernhaushalt;
   el("gesamt").textContent = euro(gesamt2026);
   el("entwurf27").textContent = t("hero.entwurf", { betrag: euro(daten.summen["2027"].kernhaushalt) });
+  const weiter = document.createElement("a");
+  weiter.href = `${mitSprache("hintergrund.html")}#verfahren`;
+  weiter.textContent = `${t("hero.verfahren")} →`;
+  el("entwurf27").append(" ", weiter);
+  zeigeHundert();
   zeigeFakten();
 
   zeigeEbene();

@@ -52,6 +52,15 @@
 - `daten/laender.json` wird mit `py skripte/laender_erzeugen.py` aus OECD-Daten (DAC2A) erzeugt: Ist-Auszahlungen
   in Mio. US-Dollar, alle staatlichen Quellen, nicht das Haushalts-Soll. Immer getrennt vom Haushalt zeigen,
   nie in Euro umrechnen oder addieren. Neue OECD-Daten: als neue Rohdatei ablegen, Dateinamen im Skript anpassen.
+- `daten/verfahren.json` (Zeitstrahl) wird von Hand gepflegt: Termine aus dem Zeitplan des Bundestages. Ob ein
+  Schritt erledigt ist, berechnet die App aus dem heutigen Datum; verschobene Termine hier anpassen. Für ein neues
+  Haushaltsjahr die Schritte mit den neuen Terminen ersetzen.
+- `daten/glossar.json` (Begriffe) wird von Hand gepflegt: neutral, höchstens drei kurze Sätze, Quelle bei
+  Rechtsbegriffen. `muster` sind die Wortformen, die im Text anklickbar werden; sehr häufige Wörter mit `"auto": false`.
+- Sicherheit: Jede Seite hat eine Content Security Policy (meta-Tag). Neue externe Quellen für Skripte oder Daten
+  müssen dort eingetragen werden, sonst blockiert der Browser sie. Die D3-Bibliothek hat eine Prüfsumme
+  (`integrity`); bei einer neuen D3-Version die Prüfsumme neu berechnen und mit der Angabe von cdnjs vergleichen.
+  Keine Inline-Skripte und keine style-Attribute im HTML (die CSP erlaubt sie nicht; Stil per CSS oder element.style).
 - Das Bürgergeld heißt seit 1. Juli 2026 Grundsicherungsgeld; im Haushaltsplan 2026 steht noch „Bürgergeld“.
 
 ## Zusammenarbeit

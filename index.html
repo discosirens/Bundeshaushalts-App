@@ -2,12 +2,13 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bundeshaushalt verständlich</title>
   <meta name="description" content="Wofür gibt der Bund sein Geld aus? Der Bundeshaushalt 2026 einfach erklärt.">
-  <meta name="app-version" content="20261026211332">
+  <meta name="app-version" content="20261026230834">
   <meta name="theme-color" content="#0f1630">
-  <link rel="stylesheet" href="css/stil.css?v=20261026211332">
+  <link rel="stylesheet" href="css/stil.css?v=20261026230834">
 </head>
 <body data-seite="index">
   <header class="topbar">
@@ -86,6 +87,14 @@
       </details>
     </section>
 
+    <section class="bereich" id="hundert" aria-labelledby="hundert-titel" hidden>
+      <h2 class="abschnitt-titel" id="hundert-titel" data-t="hundert.titel">Wohin gehen 100 Euro?</h2>
+      <p class="hinweis" data-t="hundert.text"></p>
+      <ol class="hundert-liste" id="hundert-liste"></ol>
+      <p class="ergebnis-hinweis" id="hundert-bezahlt"></p>
+      <p class="hinweis"><span data-t="hundert.quelle"></span> <a href="umschichten.html" data-intern data-t="hundert.verteilen"></a></p>
+    </section>
+
     <div class="aufruf">
       <span class="aufruf-etikett" data-t="aufruf.etikett">Mitmachen</span>
       <strong data-t="aufruf.titel">Was würdest du entscheiden?</strong>
@@ -108,9 +117,10 @@
     </footer>
   </main>
 
-  <script src="js/sprache.js?v=20261026211332"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-  <script src="js/app.js?v=20261026211332"></script>
-  <script src="js/suche.js?v=20261026211332"></script>
+  <script src="js/sprache.js?v=20261026230834"></script>
+  <script src="js/glossar.js?v=20261026230834"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/app.js?v=20261026230834"></script>
+  <script src="js/suche.js?v=20261026230834"></script>
 </body>
 </html>

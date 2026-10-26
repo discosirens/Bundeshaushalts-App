@@ -2,12 +2,13 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hintergrund zum Bundeshaushalt</title>
   <meta name="description" content="Woher kommt das Geld des Bundes, wovon hängt die Höhe des Haushalts ab, und wie hat er sich entwickelt?">
-  <meta name="app-version" content="20261026211332">
+  <meta name="app-version" content="20261026230834">
   <meta name="theme-color" content="#0f1630">
-  <link rel="stylesheet" href="css/stil.css?v=20261026211332">
+  <link rel="stylesheet" href="css/stil.css?v=20261026230834">
 </head>
 <body data-seite="hg">
   <header class="topbar">
@@ -50,6 +51,15 @@
     <section class="bereich" aria-labelledby="hoehe-titel">
       <h2 class="abschnitt-titel" id="hoehe-titel" data-t="hg.hoehe.titel">Wovon hängt die Höhe ab?</h2>
       <div class="karten-raster" id="hoehe"></div>
+    </section>
+
+    <section class="bereich" id="verfahren" aria-labelledby="verfahren-titel">
+      <h2 class="abschnitt-titel" id="verfahren-titel" data-t="verf.titel">Wie entsteht der Haushalt?</h2>
+      <p class="hinweis" id="verfahren-text"></p>
+      <p class="ergebnis-hinweis" id="verfahren-stand" aria-live="polite"></p>
+      <ol class="zeitstrahl" id="zeitstrahl"></ol>
+      <p class="hinweis" data-t="verf.hinweis"></p>
+      <p class="debatte-quelle" id="verfahren-quellen"></p>
     </section>
 
     <section class="bereich" aria-labelledby="verlauf-titel">
@@ -190,13 +200,20 @@
       <div id="debatten" class="debatten"></div>
     </section>
 
+    <section class="bereich" id="glossar" aria-labelledby="glossar-titel">
+      <h2 class="abschnitt-titel" id="glossar-titel" data-t="glossar.titel">Begriffe einfach erklärt</h2>
+      <p class="hinweis" data-t="glossar.text"></p>
+      <dl class="glossar-liste" id="glossar-liste" data-kein-glossar></dl>
+    </section>
+
     <footer class="quellen">
       <h2 data-t="quellen.titel">Quellen</h2>
       <ul id="hg-quellen"></ul>
     </footer>
   </main>
 
-  <script src="js/sprache.js?v=20261026211332"></script>
-  <script src="js/hintergrund.js?v=20261026211332"></script>
+  <script src="js/sprache.js?v=20261026230834"></script>
+  <script src="js/glossar.js?v=20261026230834"></script>
+  <script src="js/hintergrund.js?v=20261026230834"></script>
 </body>
 </html>

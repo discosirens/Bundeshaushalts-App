@@ -1,0 +1,157 @@
+{
+  "hinweis": "Von Hand gepflegt. 'muster' sind die Wortformen, die die App im Text anklickbar macht (bis zu zwei Buchstaben Endung werden mitgenommen, z. B. Sondervermögens). 'auto': false bedeutet: nur in der Begriffsliste, nicht automatisch im Text (für sehr häufige Wörter wie Kapitel oder Soll).",
+  "begriffe": [
+    {
+      "id": "haushaltsgesetz", "auto": true,
+      "de": {"wort": "Haushaltsgesetz", "muster": ["Haushaltsgesetz"],
+             "text": "Das Gesetz, mit dem der Bundestag den Haushaltsplan für ein Jahr beschließt. Erst damit dürfen die Ministerien das Geld ausgeben."},
+      "en": {"wort": "Budget act", "muster": ["budget act"],
+             "text": "The law with which the Bundestag adopts the budget plan for one year. Only then may the ministries spend the money."},
+      "quelle": {"titel": "Grundgesetz, Artikel 110", "url": "https://www.gesetze-im-internet.de/gg/art_110.html"}
+    },
+    {
+      "id": "kernhaushalt", "auto": true,
+      "de": {"wort": "Kernhaushalt", "muster": ["Kernhaushalt"],
+             "text": "Der eigentliche Bundeshaushalt mit allen Einzelplänen. Sondervermögen gehören nicht dazu, sie sind eigene Geldtöpfe."},
+      "en": {"wort": "Core budget", "muster": ["core budget"],
+             "text": "The actual federal budget with all budget sections. Special funds are not part of it; they are separate pots of money."}
+    },
+    {
+      "id": "einzelplan", "auto": true,
+      "de": {"wort": "Einzelplan", "muster": ["Einzelplan", "Einzelpläne"],
+             "text": "Der Haushalt ist in Einzelpläne gegliedert, meist einer pro Ministerium, zum Beispiel Einzelplan 14 für Verteidigung. Es gibt auch Einzelpläne für den Bundestag, für Zinsen (Bundesschuld) oder für die Allgemeine Finanzverwaltung."},
+      "en": {"wort": "Budget section (Einzelplan)", "muster": ["budget section"],
+             "text": "The budget is divided into budget sections, usually one per ministry, for example section 14 for defence. There are also sections for the Bundestag, for interest (federal debt) or for general financial administration."}
+    },
+    {
+      "id": "kapitel", "auto": false,
+      "de": {"wort": "Kapitel", "muster": ["Kapitel"],
+             "text": "Ein Einzelplan ist in Kapitel unterteilt, zum Beispiel nach Behörden oder Aufgaben. Die Nummer beginnt mit der Nummer des Einzelplans: Kapitel 1101 gehört zu Einzelplan 11."},
+      "en": {"wort": "Chapter", "muster": ["chapter"],
+             "text": "A budget section is divided into chapters, for example by authority or task. The number starts with the number of the section: chapter 1101 belongs to section 11."}
+    },
+    {
+      "id": "titel", "auto": false,
+      "de": {"wort": "Titel", "muster": ["Titel"],
+             "text": "Die kleinste Einheit des Haushalts: ein einzelner Posten wie „Elterngeld“. Die Nummer verrät die Art der Ausgabe, zum Beispiel stehen Titel, die mit 4 beginnen, für Personal."},
+      "en": {"wort": "Title (item)", "muster": ["title"],
+             "text": "The smallest unit of the budget: a single item such as parental allowance. The number shows the type of spending; for example, titles starting with 4 are for staff."}
+    },
+    {
+      "id": "soll", "auto": false,
+      "de": {"wort": "Soll", "muster": ["Soll"],
+             "text": "Der Betrag, den der Haushaltsplan für ein Jahr vorsieht. Das ist eine Obergrenze und ein Plan, keine Abrechnung."},
+      "en": {"wort": "Budget (planned amount)", "muster": ["planned amount"],
+             "text": "The amount the budget plan provides for a year. It is a ceiling and a plan, not an account of what was spent."}
+    },
+    {
+      "id": "ist", "auto": false,
+      "de": {"wort": "Ist", "muster": ["Ist"],
+             "text": "Der Betrag, der am Ende eines Jahres tatsächlich ausgegeben oder eingenommen wurde. Er kann vom Soll abweichen."},
+      "en": {"wort": "Outturn", "muster": ["outturn"],
+             "text": "The amount actually spent or received at the end of a year. It can differ from the planned amount."}
+    },
+    {
+      "id": "regierungsentwurf", "auto": true,
+      "de": {"wort": "Regierungsentwurf", "muster": ["Regierungsentwurf"],
+             "text": "Der Haushaltsplan, wie ihn die Bundesregierung vorschlägt. Der Bundestag berät ihn und verändert ihn oft noch, bevor er ihn beschließt."},
+      "en": {"wort": "Government draft", "muster": ["government draft"],
+             "text": "The budget plan as proposed by the federal government. The Bundestag deliberates on it and often still changes it before adopting it."}
+    },
+    {
+      "id": "haushaltsausschuss", "auto": true,
+      "de": {"wort": "Haushaltsausschuss", "muster": ["Haushaltsausschuss"],
+             "text": "Eine Gruppe von Abgeordneten aller Fraktionen im Bundestag, die den Haushalt im Detail prüft. Sie schlägt dem Bundestag Änderungen vor."},
+      "en": {"wort": "Budget committee", "muster": ["budget committee"],
+             "text": "A group of members of the Bundestag from all parliamentary groups who examine the budget in detail. It proposes changes to the Bundestag."}
+    },
+    {
+      "id": "bereinigungssitzung", "auto": true,
+      "de": {"wort": "Bereinigungssitzung", "muster": ["Bereinigungssitzung"],
+             "text": "Die letzte Sitzung des Haushaltsausschusses vor dem Beschluss. Dort werden die strittigsten Fragen geklärt."},
+      "en": {"wort": "Final committee session", "muster": ["final committee session"],
+             "text": "The last session of the budget committee before the vote. The most contested questions are settled there."}
+    },
+    {
+      "id": "finanzplan", "auto": true,
+      "de": {"wort": "Finanzplan", "muster": ["Finanzplan", "Finanzplanung"],
+             "text": "Eine Planung der Bundesregierung für die nächsten fünf Jahre. Sie zeigt, wie sich Einnahmen und Ausgaben entwickeln sollen, ist aber noch nicht beschlossen."},
+      "en": {"wort": "Medium-term financial plan", "muster": ["medium-term financial plan", "financial plan"],
+             "text": "The federal government's planning for the next five years. It shows how revenue and spending are expected to develop but has not been adopted."}
+    },
+    {
+      "id": "sondervermoegen", "auto": true,
+      "de": {"wort": "Sondervermögen", "muster": ["Sondervermögen"],
+             "text": "Ein eigener Geldtopf des Bundes neben dem Kernhaushalt, für einen bestimmten Zweck, zum Beispiel für die Bundeswehr oder für Infrastruktur. Sondervermögen dürfen oft eigene Kredite aufnehmen."},
+      "en": {"wort": "Special fund", "muster": ["special fund"],
+             "text": "A separate federal pot of money alongside the core budget, for a specific purpose, for example for the armed forces or for infrastructure. Special funds are often allowed to borrow on their own."}
+    },
+    {
+      "id": "schuldenbremse", "auto": true,
+      "de": {"wort": "Schuldenbremse", "muster": ["Schuldenbremse"],
+             "text": "Eine Regel im Grundgesetz: Der Bund darf in normalen Zeiten nur wenig neue Schulden machen, höchstens 0,35 % der Wirtschaftsleistung (BIP) plus einen Anteil, der von der Konjunktur abhängt. In Notlagen kann der Bundestag Ausnahmen beschließen."},
+      "en": {"wort": "Debt brake", "muster": ["debt brake"],
+             "text": "A rule in the Basic Law: in normal times the federal government may only take on a little new debt, at most 0.35% of economic output (GDP) plus a share that depends on the economic cycle. In emergencies the Bundestag can decide on exceptions."},
+      "quelle": {"titel": "Grundgesetz, Artikel 115", "url": "https://www.gesetze-im-internet.de/gg/art_115.html"}
+    },
+    {
+      "id": "bereichsausnahme", "auto": true,
+      "de": {"wort": "Bereichsausnahme", "muster": ["Bereichsausnahme"],
+             "text": "Seit 2025 zählen Ausgaben für Verteidigung, Zivilschutz, Nachrichtendienste, IT-Sicherheit und Hilfe für völkerrechtswidrig angegriffene Staaten nur teilweise zur Schuldenbremse: Der Teil über 1 % der Wirtschaftsleistung darf mit Krediten bezahlt werden."},
+      "en": {"wort": "Debt brake exemption", "muster": ["debt brake exemption", "exemption"],
+             "text": "Since 2025, spending on defence, civil protection, intelligence services, IT security and aid for states attacked in breach of international law only partly counts towards the debt brake: the part above 1% of economic output may be paid for with loans."},
+      "quelle": {"titel": "Grundgesetz, Artikel 115 Absatz 2", "url": "https://www.gesetze-im-internet.de/gg/art_115.html"}
+    },
+    {
+      "id": "nettokreditaufnahme", "auto": true,
+      "de": {"wort": "Nettokreditaufnahme", "muster": ["Nettokreditaufnahme"],
+             "text": "Wie viele neue Schulden der Bund in einem Jahr macht: neue Kredite minus das, was er an alten Krediten tilgt."},
+      "en": {"wort": "Net borrowing", "muster": ["net borrowing"],
+             "text": "How much new debt the federal government takes on in a year: new loans minus the old loans it repays."}
+    },
+    {
+      "id": "bip", "auto": true,
+      "de": {"wort": "BIP (Bruttoinlandsprodukt)", "muster": ["BIP", "Bruttoinlandsprodukt", "Wirtschaftsleistung"],
+             "text": "Der Wert aller Waren und Dienstleistungen, die in einem Jahr in Deutschland hergestellt werden. Viele Regeln, etwa die Schuldenbremse oder NATO-Ziele, rechnen in Prozent des BIP."},
+      "en": {"wort": "GDP (gross domestic product)", "muster": ["GDP", "economic output"],
+             "text": "The value of all goods and services produced in Germany in a year. Many rules, such as the debt brake or NATO targets, are expressed as a percentage of GDP."}
+    },
+    {
+      "id": "minderausgabe", "auto": true,
+      "de": {"wort": "Globale Minderausgabe", "muster": ["Globale Minderausgabe", "globale Minderausgabe", "Minderausgabe"],
+             "text": "Eine Sparvorgabe ohne festgelegten Posten: Im Haushalt steht ein negativer Betrag, und im Laufe des Jahres muss irgendwo entsprechend weniger ausgegeben werden. Oft gelingt das, weil nicht alles geplante Geld abfließt."},
+      "en": {"wort": "Lump-sum savings target", "muster": ["lump-sum savings target"],
+             "text": "A savings requirement without a specific item: the budget contains a negative amount, and less has to be spent somewhere during the year. This often works because not all planned money is actually paid out."}
+    },
+    {
+      "id": "verpflichtungsermaechtigung", "auto": true,
+      "de": {"wort": "Verpflichtungsermächtigung", "muster": ["Verpflichtungsermächtigung"],
+             "text": "Die Erlaubnis, schon heute Verträge abzuschließen, die erst in späteren Jahren bezahlt werden, zum Beispiel für Bauprojekte oder Waffensysteme. Sie bindet künftige Haushalte."},
+      "en": {"wort": "Commitment appropriation", "muster": ["commitment appropriation"],
+             "text": "Permission to sign contracts today that will only be paid in later years, for example for construction projects or weapons systems. It ties up future budgets."}
+    },
+    {
+      "id": "vorlaeufig", "auto": true,
+      "de": {"wort": "Vorläufige Haushaltsführung", "muster": ["vorläufige Haushaltsführung", "Vorläufige Haushaltsführung"],
+             "text": "Gilt, wenn zu Jahresbeginn noch kein Haushalt beschlossen ist. Der Bund darf dann nur Ausgaben leisten, die nötig sind, etwa für gesetzliche Pflichten und laufende Projekte."},
+      "en": {"wort": "Provisional budget management", "muster": ["provisional budget management"],
+             "text": "Applies if no budget has been adopted by the start of the year. The federal government may then only make payments that are necessary, for example for legal obligations and ongoing projects."},
+      "quelle": {"titel": "Grundgesetz, Artikel 111", "url": "https://www.gesetze-im-internet.de/gg/art_111.html"}
+    },
+    {
+      "id": "rechnungshof", "auto": true,
+      "de": {"wort": "Bundesrechnungshof", "muster": ["Bundesrechnungshof"],
+             "text": "Eine unabhängige Behörde, die prüft, ob der Bund sein Geld ordnungsgemäß und wirtschaftlich ausgegeben hat. Seine Berichte gehen an Bundestag, Bundesrat und Regierung."},
+      "en": {"wort": "Federal Court of Audit", "muster": ["Federal Court of Audit"],
+             "text": "An independent authority that checks whether the federal government has spent its money properly and economically. Its reports go to the Bundestag, the Bundesrat and the government."},
+      "quelle": {"titel": "Grundgesetz, Artikel 114", "url": "https://www.gesetze-im-internet.de/gg/art_114.html"}
+    },
+    {
+      "id": "oda", "auto": true,
+      "de": {"wort": "Entwicklungsleistungen (ODA)", "muster": ["Entwicklungsleistungen", "ODA"],
+             "text": "Staatliches Geld für die Entwicklung ärmerer Länder, nach Regeln der OECD gezählt (englisch: Official Development Assistance). Dazu gehören Zuschüsse, günstige Kredite und humanitäre Hilfe."},
+      "en": {"wort": "Development assistance (ODA)", "muster": ["development assistance", "ODA"],
+             "text": "Public money for the development of poorer countries, counted according to OECD rules (Official Development Assistance). It includes grants, concessional loans and humanitarian aid."}
+    }
+  ]
+}

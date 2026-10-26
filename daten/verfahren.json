@@ -1,0 +1,83 @@
+{
+  "haushaltsjahr": 2027,
+  "stand": "2026-10-26",
+  "hinweis": "Von Hand gepflegt. Termine laut Zeitplan des Bundestages vom 20.08.2026. Ob ein Schritt erledigt ist, berechnet die App aus dem heutigen Datum. Verschiebt sich ein Termin, hier anpassen.",
+  "quellen": [
+    {"titel": "Deutscher Bundestag: Der Weg zum Bundeshaushalt 2027 vom Entwurf zum Beschluss (20.08.2026)", "en": "German Bundestag: The path to the 2027 federal budget, from draft to adoption (20 Aug 2026, in German)", "url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw34-haushalt-2027-ablauf-1187766"},
+    {"titel": "Grundgesetz, Artikel 110 bis 115 (Haushaltswesen)", "en": "Basic Law, Articles 110 to 115 (public finance, in German)", "url": "https://www.gesetze-im-internet.de/gg/art_110.html"},
+    {"titel": "Grundgesetz, Artikel 111 (vorläufige Haushaltsführung)", "en": "Basic Law, Article 111 (provisional budget management, in German)", "url": "https://www.gesetze-im-internet.de/gg/art_111.html"},
+    {"titel": "Grundgesetz, Artikel 114 (Rechnungslegung, Bundesrechnungshof)", "en": "Basic Law, Article 114 (accounts, Federal Court of Audit, in German)", "url": "https://www.gesetze-im-internet.de/gg/art_114.html"}
+  ],
+  "schritte": [
+    {
+      "von": null, "bis": "2026-07-05",
+      "de": {"datum": "Bis Sommer 2026", "titel": "Die Regierung stellt den Entwurf auf",
+             "text": "Die Ministerien melden, wie viel Geld sie im nächsten Jahr brauchen. Das Finanzministerium verhandelt mit ihnen und hält den Rahmen der Finanzplanung ein. Bis zur Jahresmitte muss der Entwurf fertig sein."},
+      "en": {"datum": "Until summer 2026", "titel": "The government prepares the draft",
+             "text": "The ministries report how much money they need next year. The Finance Ministry negotiates with them and keeps to the framework of the medium-term financial plan. The draft has to be ready by the middle of the year."}
+    },
+    {
+      "von": "2026-07-06", "bis": "2026-07-06",
+      "de": {"datum": "6. Juli 2026", "titel": "Das Kabinett beschließt den Regierungsentwurf",
+             "text": "Die Bundesregierung beschließt den Entwurf: 555,44 Mrd. Euro Ausgaben und 118,73 Mrd. Euro neue Kredite (Nettokreditaufnahme). Beschlossen ist der Haushalt damit noch nicht."},
+      "en": {"datum": "6 July 2026", "titel": "The cabinet adopts the government draft",
+             "text": "The federal government adopts the draft: €555.44bn in spending and €118.73bn in new borrowing (net borrowing). This does not mean the budget has been passed yet."}
+    },
+    {
+      "von": "2026-08-14", "bis": "2026-08-14",
+      "de": {"datum": "14. August 2026", "titel": "Der Entwurf geht an Bundestag und Bundesrat",
+             "text": "Das Zahlenwerk mit 3.561 Seiten erreicht den Bundestag (Drucksache 21/7300). Der Bundesrat, also die Vertretung der Bundesländer, darf dazu Stellung nehmen."},
+      "en": {"datum": "14 August 2026", "titel": "The draft goes to the Bundestag and Bundesrat",
+             "text": "The 3,561-page document reaches the Bundestag (printed paper 21/7300). The Bundesrat, which represents the federal states, may comment on it."}
+    },
+    {
+      "von": "2026-09-08", "bis": "2026-09-11",
+      "de": {"datum": "8. bis 11. September 2026", "titel": "Erste Lesung im Bundestag",
+             "text": "Der Finanzminister stellt den Entwurf vor. Vier Tage lang debattiert der Bundestag über die Pläne der einzelnen Ministerien. Höhepunkt ist die Generaldebatte über den Etat des Kanzleramts. Danach geht der Entwurf an den Haushaltsausschuss."},
+      "en": {"datum": "8 to 11 September 2026", "titel": "First reading in the Bundestag",
+             "text": "The Finance Minister presents the draft. For four days, the Bundestag debates the plans of the individual ministries. The highlight is the general debate on the Chancellery budget. Afterwards the draft goes to the budget committee."}
+    },
+    {
+      "von": "2026-09-23", "bis": "2026-11-11",
+      "de": {"datum": "23. September bis 11. November 2026", "titel": "Der Haushaltsausschuss berät",
+             "text": "Die 42 Mitglieder des Haushaltsausschusses gehen in zehn Sitzungen alle Einzelpläne durch. Die Fachausschüsse können Stellungnahmen schicken. In dieser Phase wird der Entwurf oft noch verändert."},
+      "en": {"datum": "23 September to 11 November 2026", "titel": "The budget committee deliberates",
+             "text": "In ten sessions, the 42 members of the budget committee go through all budget sections. The specialist committees may send their opinions. The draft is often changed during this phase."}
+    },
+    {
+      "von": "2026-11-12", "bis": "2026-11-12",
+      "de": {"datum": "12. November 2026", "titel": "Bereinigungssitzung",
+             "text": "In der letzten Sitzung klärt der Haushaltsausschuss die strittigsten Fragen. Sie dauert oft bis in die Nacht. Am Ende steht die Fassung, die der Ausschuss dem Bundestag empfiehlt."},
+      "en": {"datum": "12 November 2026", "titel": "Final committee session (Bereinigungssitzung)",
+             "text": "In its last session, the budget committee settles the most contested questions. It often lasts into the night. At the end, the committee has the version it recommends to the Bundestag."}
+    },
+    {
+      "von": "2026-11-24", "bis": "2026-11-27",
+      "de": {"datum": "24. bis 27. November 2026", "titel": "Zweite und dritte Lesung, Abstimmung",
+             "text": "Der Bundestag berät den Haushalt noch einmal und stimmt über Änderungsanträge der Fraktionen ab. Am 27. November ist die namentliche Schlussabstimmung geplant: Jede Abgeordnete und jeder Abgeordnete stimmt mit Namen ab."},
+      "en": {"datum": "24 to 27 November 2026", "titel": "Second and third reading, final vote",
+             "text": "The Bundestag debates the budget again and votes on amendments from the parliamentary groups. The final roll-call vote is planned for 27 November: each member votes by name."}
+    },
+    {
+      "von": "2026-11-28", "bis": "2026-12-31",
+      "de": {"datum": "Danach", "titel": "Bundesrat, Unterschrift, Verkündung",
+             "text": "Der Bundesrat berät den beschlossenen Haushalt. Er kann den Vermittlungsausschuss anrufen, den Haushalt aber nicht endgültig verhindern. Dann unterschreibt der Bundespräsident das Haushaltsgesetz und es wird verkündet."},
+      "en": {"datum": "Afterwards", "titel": "Bundesrat, signature, promulgation",
+             "text": "The Bundesrat deliberates on the adopted budget. It can call the mediation committee but cannot ultimately block the budget. The Federal President then signs the budget act and it is promulgated."}
+    },
+    {
+      "von": "2027-01-01", "bis": "2027-12-31",
+      "de": {"datum": "1. Januar bis 31. Dezember 2027", "titel": "Das Haushaltsjahr läuft",
+             "text": "Die Ministerien dürfen das Geld ausgeben. Sie müssen es aber nicht vollständig ausgeben. Ist der Haushalt bis Jahresbeginn nicht beschlossen, gilt eine vorläufige Haushaltsführung: Dann darf der Bund nur zahlen, was nötig ist, etwa für gesetzliche Pflichten und schon begonnene Projekte."},
+      "en": {"datum": "1 January to 31 December 2027", "titel": "The budget year runs",
+             "text": "The ministries may spend the money. They do not have to spend all of it, though. If the budget has not been passed by the start of the year, provisional budget management applies: the federal government may then only pay what is necessary, for example for legal obligations and projects already under way."}
+    },
+    {
+      "von": "2028-01-01", "bis": null,
+      "de": {"datum": "Ab 2028", "titel": "Kontrolle",
+             "text": "Das Finanzministerium legt Rechnung über die tatsächlichen Einnahmen und Ausgaben (Ist). Der Bundesrechnungshof prüft sie. Bundestag und Bundesrat entscheiden dann, ob sie die Regierung entlasten."},
+      "en": {"datum": "From 2028", "titel": "Scrutiny",
+             "text": "The Finance Ministry accounts for the actual revenue and spending (outturn). The Federal Court of Audit examines the accounts. The Bundestag and Bundesrat then decide whether to grant the government discharge."}
+    }
+  ]
+}
