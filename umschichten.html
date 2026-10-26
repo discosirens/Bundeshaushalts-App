@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haushalt umschichten</title>
+  <meta name="description" content="Wie würden Sie den Bundeshaushalt 2026 verteilen? Geld zwischen 14 Bereichen verschieben.">
+  <link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+  <main class="seite mit-bilanz">
+    <nav class="pfad" aria-label="Navigation"><a href="index.html">← Zur Startseite</a></nav>
+
+    <header class="kopf">
+      <p class="dachzeile">Bundeshaushalt 2026</p>
+      <h1>Wie würden Sie das Geld verteilen?</h1>
+      <p>Ausgangspunkt sind die Ausgaben des Bundes 2026 in 14 Bereichen (Soll, Kernhaushalt ohne Sondervermögen).
+        Verschieben Sie Geld zwischen den Bereichen. Bei gebundenen Ausgaben sehen Sie, was eine Änderung voraussetzen würde.</p>
+    </header>
+
+    <section class="bereich" aria-labelledby="szenario-titel">
+      <h2 id="szenario-titel">1. Aufgabe wählen</h2>
+      <div class="szenarien" id="szenarien" role="radiogroup" aria-label="Aufgabe"></div>
+      <p class="szenario-text" id="szenario-text"></p>
+    </section>
+
+    <section class="bereich" aria-labelledby="regler-titel">
+      <h2 id="regler-titel">2. Geld verschieben</h2>
+      <p class="hinweis">Mit − und + ändern Sie einen Bereich um 1 Mrd. €, mit dem Regler in Schritten von 0,1 Mrd. €.</p>
+      <div id="bereiche" class="bereich-liste"></div>
+    </section>
+
+    <section class="bereich" aria-labelledby="ergebnis-titel">
+      <h2 id="ergebnis-titel">3. Ihr Ergebnis</h2>
+      <div id="ergebnis" aria-live="polite"></div>
+    </section>
+
+    <footer class="quellen">
+      <h2>Quellen und Hinweise</h2>
+      <ul>
+        <li>Ausgangswerte: Bundeshaushaltsplan 2026, Soll-Werte, Bundesministerium der Finanzen, <a href="https://www.bundeshaushalt.de/">bundeshaushalt.de</a>.
+          Zuordnung zu Bereichen nach dem Funktionenplan des Bundes.</li>
+        <li>Einstufung der Bindung: eigene Bewertung auf Grundlage der genannten Gesetze, siehe „Mehr erfahren“ bei jedem Bereich.</li>
+        <li>Vereinfachung: Dieses Modell verschiebt nur Ausgaben. Einnahmen, Kredite und Sondervermögen bleiben unverändert.</li>
+      </ul>
+    </footer>
+  </main>
+
+  <div class="bilanz" id="bilanz" aria-live="polite">
+    <p class="bilanz-text" id="bilanz-text"></p>
+    <button type="button" class="knopf-leise" id="zuruecksetzen">Zurücksetzen</button>
+  </div>
+
+  <script src="js/umschichten.js"></script>
+</body>
+</html>
