@@ -16,9 +16,9 @@ const EP_FARBEN = {
 };
 const EP_REST = { farbe: "var(--ep-rest)", dunkel: true };
 
-// Kleine Einträge werden zu einer Kachel "Weitere" gebündelt, damit nichts unlesbar klein wird.
-const MIN_ANTEIL = 0.025;   // Einträge unter 2,5 % der angezeigten Summe kommen in "Weitere"
-const MAX_KACHELN = 12;
+// Jede Kachel muss groß genug für eine Beschriftung sein (in Pixeln). Zu kleine Einträge kommen in "Weitere".
+const MIN_BREITE = 80;
+const MIN_HOEHE = 48;
 
 // Laienverständliche Namen der Ausgabearten (Hauptgruppen des Gruppierungsplans, Feld "art" in haushalt.json)
 const ARTEN = {
@@ -112,19 +112,49 @@ function aktuelleEintraege() {
   return kapitelEintraege(aktuellerEp);
 }
 
-// Große Einträge einzeln, kleine als eine Kachel "Weitere (n)". Antippen öffnet sie als eigene Treemap.
-function buendle(eintraege) {
-  const positiv = eintraege.filter((e) => e.s26 > 0).sort((a, b) => b.s26 - a.s26);
-  const summe = positiv.reduce((s, e) => s + e.s26, 0);
-  const gross = [];
-  const klein = [];
-  for (const e of positiv) {
-    (gross.length < MAX_KACHELN && e.s26 / summe >= MIN_ANTEIL ? gross : klein).push(e);
+// Sammelkachel "Weitere (n)" für zu kleine Einträge. Antippen öffnet sie als eigene Treemap.
+function gruppeAus(klein) {
+  const kinder = [...klein].sort((a, b) => b.s26 - a.s26);
+  const s25 = kinder.every((e) => e.s25 === null) ? null : kinder.reduce((s, e) => s + (e.s25 || 0), 0);
+  const name = t(aktuellerEp ? "treemap.weitere.kapitel" : "treemap.weitere.ep", { n: kinder.length });
+  return { id: `weitere-${weitereStapel.length}`, typ: "gruppe", name, kurz: name,
+    s26: kinder.reduce((s, e) => s + e.s26, 0), s25, kinder };
+}
+
+function rechneTreemap(liste, breite, hoehe) {
+  const wurzel = d3.hierarchy({ children: liste })
+    .sum((d) => d.s26 || 0)
+    // "Weitere" immer zuletzt (unten rechts), sonst nach Größe
+    .sort((a, b) => (a.data.typ === "gruppe") - (b.data.typ === "gruppe") || b.value - a.value);
+  d3.treemap().size([breite, hoehe]).paddingInner(2).round(true)(wurzel);
+  return wurzel.leaves();
+}
+
+// Layout so lange neu berechnen, bis jede Kachel groß genug für ihre Beschriftung ist.
+// Ist am Ende auch "Weitere" zu klein, wird es als Knopf unter der Treemap gezeigt.
+function berechneLayout(eintraege, breite, hoehe) {
+  const zuKlein = (b) => b.x1 - b.x0 < MIN_BREITE || b.y1 - b.y0 < MIN_HOEHE;
+  let sichtbar = eintraege.filter((e) => e.s26 > 0).sort((a, b) => b.s26 - a.s26);
+  let weitere = [];
+  let gruppeAlsKachel = true;
+  for (let runde = 0; runde < 15; runde++) {
+    const liste = weitere.length && gruppeAlsKachel ? [...sichtbar, gruppeAus(weitere)] : sichtbar;
+    const blaetter = rechneTreemap(liste, breite, hoehe);
+    const klein = blaetter.filter((b) => b.data.typ !== "gruppe" && zuKlein(b)).map((b) => b.data);
+    if (klein.length && klein.length < sichtbar.length) {
+      weitere = [...weitere, ...klein];
+      sichtbar = sichtbar.filter((e) => !klein.includes(e));
+      continue;
+    }
+    const gruppe = blaetter.find((b) => b.data.typ === "gruppe");
+    if (gruppe && zuKlein(gruppe)) {
+      // "Weitere" wird zum Knopf; das Layout ohne diese Kachel wird erneut geprüft
+      gruppeAlsKachel = false;
+      continue;
+    }
+    return { blaetter, knopf: weitere.length && !gruppeAlsKachel ? gruppeAus(weitere) : null };
   }
-  if (klein.length < 2) return positiv;
-  const s25 = klein.every((e) => e.s25 === null) ? null : klein.reduce((s, e) => s + (e.s25 || 0), 0);
-  const name = t(aktuellerEp ? "treemap.weitere.kapitel" : "treemap.weitere.ep", { n: klein.length });
-  return [...gross, { id: `weitere-${weitereStapel.length}`, typ: "gruppe", name, kurz: name, s26: summe - gross.reduce((s, e) => s + e.s26, 0), s25, kinder: klein }];
+  return { blaetter: rechneTreemap(sichtbar, breite, hoehe), knopf: weitere.length ? gruppeAus(weitere) : null };
 }
 
 // ---------- Treemap ----------
@@ -133,16 +163,22 @@ function zeichneTreemap() {
   const behaelter = el("treemap");
   const breite = behaelter.clientWidth;
   const hoehe = behaelter.clientHeight;
-  const eintraege = buendle(aktuelleEintraege());
+  const { blaetter, knopf: weitereKnopf } = berechneLayout(aktuelleEintraege(), breite, hoehe);
 
-  const wurzel = d3.hierarchy({ children: eintraege })
-    .sum((d) => d.s26 || 0)
-    // "Weitere" immer zuletzt (unten rechts), sonst nach Größe
-    .sort((a, b) => (a.data.typ === "gruppe") - (b.data.typ === "gruppe") || b.value - a.value);
-  d3.treemap().size([breite, hoehe]).paddingInner(2).round(true)(wurzel);
+  const mehr = el("treemap-mehr");
+  mehr.replaceChildren();
+  mehr.hidden = !weitereKnopf;
+  if (weitereKnopf) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "weitere-knopf";
+    b.textContent = t("treemap.weitere.knopf", { name: weitereKnopf.name, betrag: euro(weitereKnopf.s26) });
+    b.addEventListener("click", () => waehle(weitereKnopf));
+    mehr.appendChild(b);
+  }
 
   behaelter.replaceChildren();
-  for (const blatt of wurzel.leaves()) {
+  for (const blatt of blaetter) {
     const e = blatt.data;
     const w = blatt.x1 - blatt.x0;
     const h = blatt.y1 - blatt.y0;
@@ -166,7 +202,28 @@ function zeichneTreemap() {
     knopf.querySelector(".betrag").textContent = euro(e.s26);
     knopf.addEventListener("click", () => waehle(e));
     behaelter.appendChild(knopf);
+    passeTextAn(knopf);
   }
+}
+
+// Langer Name passt nicht in die Kachel: erst kleinere Schrift, dann Name nach n Zeilen mit "…" kürzen.
+// Der Betrag bleibt immer sichtbar, der volle Name steht im Detailkasten und im Tooltip.
+function passeTextAn(knopf) {
+  const passt = () => knopf.scrollHeight <= knopf.clientHeight + 1;
+  if (passt()) return;
+  knopf.classList.remove("gross");
+  if (passt()) return;
+  knopf.classList.add("klein");
+  if (passt()) return;
+  const name = knopf.querySelector(".name");
+  const betrag = knopf.querySelector(".betrag");
+  const stil = getComputedStyle(knopf);
+  const innen = knopf.clientHeight - parseFloat(stil.paddingTop) - parseFloat(stil.paddingBottom) - betrag.offsetHeight;
+  const zeile = parseFloat(getComputedStyle(name).lineHeight) || 15;
+  const zeilen = Math.max(1, Math.floor(innen / zeile));
+  name.classList.add("gekuerzt");
+  name.style.webkitLineClamp = String(zeilen);
+  name.style.lineClamp = String(zeilen);
 }
 
 // ---------- Interaktion ----------

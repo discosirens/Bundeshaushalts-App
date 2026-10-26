@@ -1,6 +1,6 @@
 {
   "hinweis": "Von Hand gepflegte Erklärungen für die 30 größten Kapitel (Soll 2026, zusammen 87 % der Ausgaben). Grundlage sind die Titel des Bundeshaushaltsplans 2026. Die App zeigt die Texte nur, wenn 'freigegeben' true ist.",
-  "freigegeben": false,
+  "freigegeben": true,
   "stand": "Oktober 2026",
   "texte": {
     "1102": {
