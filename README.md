@@ -25,12 +25,14 @@ daten/
   bereiche.json     14 Bereiche mit Erklärungen auf Deutsch und Englisch (wird vom Skript erzeugt)
   runden.json       Situationen und Optionen des Haushaltsspiels (von Hand gepflegt)
   hintergrund.json  Einnahmen 2025/2026 und Zeitreihe seit 1969 (wird vom Skript erzeugt)
+  laender.json      deutsche Entwicklungsleistungen nach Empfängerland 2020 bis 2024 (OECD, Ist, Mio. US-Dollar; vom Skript erzeugt)
   debatten.json     aktuelle Debatten mit Positionen und Quellen (von Hand gepflegt)
   kapitel_texte.json Erklärungen der 30 größten Kapitel (von Hand gepflegt, mit Freigabe-Schalter)
 skripte/
   haushalt_zu_json.py
   bereiche_erzeugen.py
   hintergrund_erzeugen.py
+  laender_erzeugen.py liest daten/roh/oecd_dac2a_deutschland_2020-2024.csv und schreibt laender.json
   version_setzen.py   neue Versionsnummer für alle Dateien (vor jedem Hochladen ausführen)
   xlsx_lesen.py       liest Excel-Dateien ohne Zusatzpakete (z. B. den Ukraine Support Tracker)
 ```

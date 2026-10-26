@@ -44,6 +44,40 @@ const SUCHWORTE_GRUPPE = {
 
 const MAX_TREFFER = 15;
 let suchIndex = null;
+let laenderDaten = null;   // OECD-Länderdaten, für Länder-Treffer (andere Zahlenart als der Haushalt)
+
+async function ladeLaender() {
+  if (laenderDaten) return;
+  try {
+    laenderDaten = await fetch(datei("daten/laender.json")).then((a) => a.json());
+  } catch (fehler) {
+    laenderDaten = { laender: [] };
+  }
+}
+
+function landTreffer(anfrage) {
+  if (!laenderDaten) return [];
+  const woerter = norm(anfrage).split(/\s+/).filter((w) => w.length >= 2);
+  if (woerter.length === 0) return [];
+  return laenderDaten.laender.filter((l) => {
+    const name = norm(`${l.de} ${l.en}`);
+    return woerter.every((w) => name.includes(w));
+  }).slice(0, 3);
+}
+
+function landKarte(l) {
+  const jahr = laenderDaten.letztes_jahr;
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.className = "treffer treffer-land";
+  a.href = `${mitSprache("hintergrund.html")}&land=${l.code}#laender`;
+  a.innerHTML = `<span class="treffer-text"><strong></strong><small></small></span><span class="treffer-betrag"></span>`;
+  a.querySelector("strong").textContent = SPRACHE === "en" ? l.en : l.de;
+  a.querySelector("small").textContent = t("suche.land.titel", { jahr });
+  a.querySelector(".treffer-betrag").textContent = usd(l.jahre[jahr]?.netto || 0);
+  li.appendChild(a);
+  return li;
+}
 
 function norm(text) {
   return text.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss");
@@ -97,8 +131,10 @@ function zeigeTreffer(anfrage) {
     info.textContent = SPRACHE === "en" ? t("suche.hinweis.en") : "";
     return;
   }
+  const laenderTreffer = landTreffer(anfrage);
+  for (const l of laenderTreffer) liste.appendChild(landKarte(l));
   if (treffer.length === 0) {
-    info.textContent = t("suche.keine");
+    info.textContent = laenderTreffer.length ? t("suche.land.info") : t("suche.keine");
     return;
   }
   info.textContent = treffer.length > MAX_TREFFER
@@ -163,4 +199,5 @@ function starteSuche() {
     }
   });
   if (SPRACHE === "en") el("suche-info").textContent = t("suche.hinweis.en");
+  ladeLaender();
 }

@@ -271,6 +271,7 @@ h2 { font-size: 1.25rem; margin: 0 0 0.5rem; }
   cursor: pointer;
 }
 .treffer:hover, .treffer:focus-visible { border-color: var(--akzent); }
+.treffer-land { text-decoration: none; border: 2px dashed var(--akzent); background: var(--akzent-hell); }
 .treffer-text { display: grid; gap: 0.125rem; min-width: 0; }
 .treffer-text strong { font-size: 0.9375rem; overflow-wrap: anywhere; }
 .treffer-text small { color: var(--text-leise); font-size: 0.8125rem; }
@@ -803,6 +804,31 @@ td button {
 #ua-tabelle tfoot th, #ua-tabelle tfoot td { font-weight: 800; border-bottom: 0; border-top: 2px solid var(--linie); }
 #ua-tabelle tfoot th { text-align: left; }
 #ua-tracker .summenzeile td { font-weight: 800; border-top: 2px solid var(--linie); }
+
+.oda-land { margin: 1rem 0; padding: 1rem; border-radius: 14px; background: var(--flaeche); }
+.oda-land h3 { margin: 0 0 0.25rem; font-size: 1.0625rem; }
+.oda-land .kennzahlen-ende > div { background: var(--karte); }
+.oda-jahre { margin-top: 0.5rem; font-size: 0.875rem; }
+.oda-jahre th, .oda-jahre td { text-align: right; white-space: nowrap; }
+.oda-rangliste { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+.oda-zeile {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(4rem, 1fr) auto;
+  gap: 0.625rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.375rem 0.5rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+  text-align: left;
+  cursor: pointer;
+}
+.oda-zeile:hover { background: var(--flaeche); }
+.oda-wert { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
 
 /* ---------- Handy ---------- */
 

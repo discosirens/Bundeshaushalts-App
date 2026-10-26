@@ -3,6 +3,7 @@
 
 let hg = null;
 let debatten = null;
+let laender = null;
 
 const el = (id) => document.getElementById(id);
 const tx = (o) => o[SPRACHE] ?? o.de;
@@ -308,6 +309,96 @@ function zeigeTracker(tr) {
   tr.quellen.forEach((quelle, i) => { if (i) q.append(";"); link(q, quelle, false); });
 }
 
+// ---------- Entwicklungsgelder nach Ländern (OECD) ----------
+
+const landName = (l) => (SPRACHE === "en" ? l.en : l.de);
+
+function zeigeLaender() {
+  const j = laender.letztes_jahr;
+  const alle = laender.summen.alle_empfaenger[j].netto;
+  const zugeordnet = laender.laender.reduce((s, l) => s + (l.jahre[j]?.netto || 0), 0);
+  el("oda-einleitung").textContent = t("oda.einleitung", {
+    jahr: j, alle: usd(alle), zugeordnet: usd(zugeordnet), anteil: prozent(zugeordnet / alle),
+  });
+
+  const liste = el("oda-liste");
+  liste.replaceChildren();
+  for (const l of [...laender.laender].sort((a, b) => landName(a).localeCompare(landName(b), LOCALE))) {
+    const o = document.createElement("option");
+    o.value = landName(l);
+    liste.appendChild(o);
+  }
+  const feld = el("oda-feld");
+  const waehleLand = () => {
+    const wert = norm(feld.value.trim());
+    const treffer = laender.laender.find((l) => norm(l.de) === wert || norm(l.en) === wert)
+      || (wert.length >= 3 && laender.laender.find((l) => norm(l.de).startsWith(wert) || norm(l.en).startsWith(wert)));
+    if (treffer) zeigeLand(treffer);
+  };
+  feld.addEventListener("change", waehleLand);
+  feld.addEventListener("keydown", (e) => { if (e.key === "Enter") waehleLand(); });
+
+  el("oda-top-titel").textContent = t("oda.top", { jahr: j });
+  const top = el("oda-top");
+  top.replaceChildren();
+  const groesster = laender.laender[0].jahre[j].netto;
+  for (const l of laender.laender.slice(0, 15)) {
+    const li = document.createElement("li");
+    li.innerHTML = `<button type="button" class="oda-zeile"><span class="oda-name"></span><span class="art-balken"><span></span></span><span class="oda-wert"></span></button>`;
+    li.querySelector(".oda-name").textContent = landName(l);
+    li.querySelector(".art-balken span").style.width = `${Math.max(0, l.jahre[j].netto / groesster) * 100}%`;
+    li.querySelector(".oda-wert").textContent = usd(l.jahre[j].netto);
+    li.querySelector("button").addEventListener("click", () => { feld.value = landName(l); zeigeLand(l); });
+    top.appendChild(li);
+  }
+
+  const q = el("oda-quelle");
+  q.textContent = `${t("erkl.quelle")}:`;
+  link(q, laender.quelle, false);
+
+  // Direktlink: hintergrund.html?land=LKA#laender
+  const code = new URLSearchParams(location.search).get("land");
+  const land = code && laender.laender.find((l) => l.code === code);
+  if (land) {
+    feld.value = landName(land);
+    zeigeLand(land);
+    setTimeout(() => el("laender").scrollIntoView({ block: "start" }), 50);
+  }
+}
+
+function norm(text) {
+  return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+}
+
+function zeigeLand(l) {
+  const j = laender.letztes_jahr;
+  const box = el("oda-land");
+  const w = l.jahre[j] || {};
+  box.innerHTML = `<h3></h3><dl class="kennzahlen kennzahlen-ende"></dl><div class="tabelle-rahmen"><table class="oda-jahre"><caption></caption><thead><tr></tr></thead><tbody><tr></tr></tbody></table></div><p class="hinweis"></p>`;
+  box.querySelector("caption").textContent = t("oda.tabelle.einheit");
+  box.querySelector("h3").textContent = t("oda.land.titel", { land: landName(l), jahr: j });
+  const dl = box.querySelector("dl");
+  for (const [schluessel, wert] of [["oda.netto", w.netto], ["oda.zuschuesse", w.zuschuesse], ["oda.technisch", w.technisch], ["oda.humanitaer", w.humanitaer]]) {
+    const div = document.createElement("div");
+    div.innerHTML = "<dt></dt><dd></dd>";
+    div.querySelector("dt").textContent = t(schluessel);
+    div.querySelector("dd").textContent = wert == null ? t("oda.keine") : usd(wert);
+    dl.appendChild(div);
+  }
+  const kopf = box.querySelector("thead tr");
+  const zeile = box.querySelector("tbody tr");
+  for (const jahr of laender.jahre) {
+    const th = document.createElement("th");
+    th.textContent = jahr;
+    kopf.appendChild(th);
+    const td = document.createElement("td");
+    td.textContent = l.jahre[jahr]?.netto == null ? "" : zahl(l.jahre[jahr].netto, 1);
+    zeile.appendChild(td);
+  }
+  box.querySelector(".hinweis").textContent = t("oda.land.hinweis", { rang: l.rang, anzahl: laender.laender.length, jahr: j });
+  box.hidden = false;
+}
+
 // ---------- Debatten ----------
 
 function zeigeDebatten() {
@@ -376,9 +467,10 @@ function zeigeQuellen() {
 
 async function start() {
   try {
-    [hg, debatten] = await Promise.all([
+    [hg, debatten, laender] = await Promise.all([
       fetch(datei("daten/hintergrund.json")).then((a) => a.json()),
       fetch(datei("daten/debatten.json")).then((a) => a.json()),
+      fetch(datei("daten/laender.json")).then((a) => a.json()),
     ]);
   } catch (fehler) {
     el("einnahmen-text").textContent = t("fehler.laden");
@@ -390,6 +482,7 @@ async function start() {
   fuelleVerlaufTabelle();
   zeigeVerteidigung();
   zeigeUkraine();
+  zeigeLaender();
   zeigeDebatten();
   zeigeQuellen();
 

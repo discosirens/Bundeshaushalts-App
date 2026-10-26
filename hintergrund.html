@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hintergrund zum Bundeshaushalt</title>
   <meta name="description" content="Woher kommt das Geld des Bundes, wovon hängt die Höhe des Haushalts ab, und wie hat er sich entwickelt?">
-  <meta name="app-version" content="20261026165226">
+  <meta name="app-version" content="20261026211332">
   <meta name="theme-color" content="#0f1630">
-  <link rel="stylesheet" href="css/stil.css?v=20261026165226">
+  <link rel="stylesheet" href="css/stil.css?v=20261026211332">
 </head>
 <body data-seite="hg">
   <header class="topbar">
@@ -164,6 +164,26 @@
       </article>
     </section>
 
+    <section class="bereich" id="laender" aria-labelledby="laender-titel">
+      <h2 class="abschnitt-titel" id="laender-titel" data-t="oda.titel">Entwicklungsgelder nach Ländern</h2>
+      <article class="debatte">
+        <p id="oda-einleitung"></p>
+        <label class="suche-label" for="oda-feld" data-t="oda.suche">Land suchen</label>
+        <input type="search" id="oda-feld" class="suchfeld" list="oda-liste" autocomplete="off" data-t-placeholder="oda.platzhalter">
+        <datalist id="oda-liste"></datalist>
+        <div id="oda-land" class="oda-land" aria-live="polite" hidden></div>
+        <h3 class="ua-unterzeile" id="oda-top-titel"></h3>
+        <ol class="oda-rangliste" id="oda-top"></ol>
+        <h3 class="ua-unterzeile" data-t="oda.wichtig.titel">Gut zu wissen</h3>
+        <ul>
+          <li data-t="oda.wichtig.1"></li>
+          <li data-t="oda.wichtig.2"></li>
+          <li data-t="oda.wichtig.3"></li>
+        </ul>
+        <p class="debatte-quelle" id="oda-quelle"></p>
+      </article>
+    </section>
+
     <section class="bereich" aria-labelledby="debatten-titel">
       <h2 class="abschnitt-titel" id="debatten-titel" data-t="hg.debatten.titel">Aktuelle Debatten</h2>
       <p class="hinweis" data-t="hg.debatten.text"></p>
@@ -176,7 +196,7 @@
     </footer>
   </main>
 
-  <script src="js/sprache.js?v=20261026165226"></script>
-  <script src="js/hintergrund.js?v=20261026165226"></script>
+  <script src="js/sprache.js?v=20261026211332"></script>
+  <script src="js/hintergrund.js?v=20261026211332"></script>
 </body>
 </html>

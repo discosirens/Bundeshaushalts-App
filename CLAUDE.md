@@ -49,6 +49,9 @@
 - Externe Daten (NATO, Kiel Institut) sind andere Zahlenarten als das Haushalts-Soll: immer getrennt zeigen,
   mit Stand und Quelle, nie mit Haushaltszahlen addieren. Neue Tracker-Version: Dateiname in
   `skripte/hintergrund_erzeugen.py` (TRACKER) anpassen und das Skript ausführen.
+- `daten/laender.json` wird mit `py skripte/laender_erzeugen.py` aus OECD-Daten (DAC2A) erzeugt: Ist-Auszahlungen
+  in Mio. US-Dollar, alle staatlichen Quellen, nicht das Haushalts-Soll. Immer getrennt vom Haushalt zeigen,
+  nie in Euro umrechnen oder addieren. Neue OECD-Daten: als neue Rohdatei ablegen, Dateinamen im Skript anpassen.
 - Das Bürgergeld heißt seit 1. Juli 2026 Grundsicherungsgeld; im Haushaltsplan 2026 steht noch „Bürgergeld“.
 
 ## Zusammenarbeit

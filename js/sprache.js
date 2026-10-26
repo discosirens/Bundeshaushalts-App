@@ -316,6 +316,25 @@ const TEXTE = {
     "ua.tracker.gesamt": "Zusammen (direkt von Deutschland)",
     "ua.tracker.eu": "Zusätzlich: deutscher Anteil an Hilfen der EU",
     "ua.tracker.erklaerung": "Zugesagt heißt: politisch versprochen, teils über mehrere Jahre. Zugewiesen heißt: bereits geliefert oder konkret für eine baldige Lieferung festgelegt, etwa durch Verträge. Die Beträge sind seit Kriegsbeginn aufsummiert und enthalten auch Waffen und Ausrüstung aus Beständen der Bundeswehr. Sie lassen sich deshalb nicht mit einzelnen Haushaltsjahren vergleichen oder zu ihnen addieren.",
+    "oda.titel": "Entwicklungsgelder nach Ländern",
+    "oda.einleitung": "Im Bundeshaushalt sind Entwicklungsgelder nicht nach Ländern aufgeteilt. Die OECD veröffentlicht aber, wie viel Deutschland tatsächlich an welches Land ausgezahlt hat. {jahr} meldete Deutschland Entwicklungsleistungen von {alle}. Davon waren {zugeordnet} ({anteil}) einzelnen Ländern zugeordnet.",
+    "oda.suche": "Land suchen",
+    "oda.platzhalter": "z. B. Sri Lanka, Indien, Kenia",
+    "oda.top": "Die 15 größten Empfängerländer {jahr} (netto)",
+    "oda.land.titel": "{land}: deutsche Entwicklungsleistungen {jahr} (Ist)",
+    "oda.netto": "Netto insgesamt",
+    "oda.keine": "keine",
+    "oda.tabelle.einheit": "Netto in Mio. US-Dollar",
+    "suche.land.titel": "Entwicklungsleistungen {jahr} (OECD, Ist)",
+    "suche.land.info": "Im Haushaltsplan gibt es keinen eigenen Posten für dieses Land. Die OECD-Daten zeigen, wie viel Deutschland tatsächlich dorthin gezahlt hat:",
+    "oda.zuschuesse": "Zuschüsse",
+    "oda.technisch": "Technische Zusammenarbeit",
+    "oda.humanitaer": "Humanitäre Hilfe",
+    "oda.land.hinweis": "Platz {rang} von {anzahl} Ländern mit deutschen Entwicklungsleistungen {jahr} (netto). Die Tabelle zeigt die Nettobeträge der letzten Jahre.",
+    "oda.wichtig.titel": "Gut zu wissen",
+    "oda.wichtig.1": "Das sind Ist-Werte, also tatsächlich ausgezahltes Geld, in US-Dollar. Es stammt nicht nur aus dem Bundeshaushalt, sondern von allen staatlichen Stellen, zum Beispiel auch von den Bundesländern. Mit Haushaltszahlen darf man es deshalb nicht addieren.",
+    "oda.wichtig.2": "Netto heißt: Auszahlungen minus Rückzahlungen früherer Kredite. Zahlt ein Land mehr Kredite zurück, als es neu bekommt, kann der Wert negativ sein.",
+    "oda.wichtig.3": "Ein großer Teil fließt nicht an einzelne Länder, sondern zum Beispiel an internationale Organisationen wie die Vereinten Nationen, die EU oder die Weltbank und an regionale Programme.",
     "ua.fazit": "Den gesamten Umfang der deutschen Unterstützung für die Ukraine kann man aus dem Bundeshaushalt deshalb nicht vollständig ablesen.",
   },
 
@@ -612,6 +631,25 @@ const TEXTE = {
     "ua.tracker.gesamt": "Total (directly from Germany)",
     "ua.tracker.eu": "In addition: Germany's share of EU aid",
     "ua.tracker.erklaerung": "Committed means politically promised, partly over several years. Allocated means already delivered or specifically earmarked for delivery soon, for example through contracts. The amounts are added up since the start of the war and also include weapons and equipment from Bundeswehr stocks. They therefore cannot be compared with or added to individual budget years.",
+    "oda.titel": "Development aid by country",
+    "oda.einleitung": "The federal budget does not split development aid by country. However, the OECD publishes how much Germany actually disbursed to each country. In {jahr}, Germany reported official development assistance of {alle}. Of this, {zugeordnet} ({anteil}) was allocated to individual countries.",
+    "oda.suche": "Search for a country",
+    "oda.platzhalter": "e.g. Sri Lanka, India, Kenya",
+    "oda.top": "The 15 largest recipient countries in {jahr} (net)",
+    "oda.land.titel": "{land}: German development assistance {jahr} (outturn)",
+    "oda.netto": "Net total",
+    "oda.keine": "none",
+    "oda.tabelle.einheit": "Net, in US$ million",
+    "suche.land.titel": "Development assistance {jahr} (OECD, outturn)",
+    "suche.land.info": "The budget plan has no separate item for this country. OECD data shows how much Germany actually paid there:",
+    "oda.zuschuesse": "Grants",
+    "oda.technisch": "Technical cooperation",
+    "oda.humanitaer": "Humanitarian aid",
+    "oda.land.hinweis": "Rank {rang} of {anzahl} countries receiving German development assistance in {jahr} (net). The table shows net amounts for recent years.",
+    "oda.wichtig.titel": "Good to know",
+    "oda.wichtig.1": "These are outturn figures, i.e. money actually disbursed, in US dollars. They do not come only from the federal budget but from all public bodies, for example the federal states too. They must therefore not be added to budget figures.",
+    "oda.wichtig.2": "Net means disbursements minus repayments of earlier loans. If a country repays more than it newly receives, the figure can be negative.",
+    "oda.wichtig.3": "A large share does not go to individual countries but, for example, to international organisations such as the United Nations, the EU or the World Bank, and to regional programmes.",
     "ua.fazit": "The full extent of German support for Ukraine therefore cannot be read completely from the federal budget.",
   },
 };
@@ -712,6 +750,14 @@ function prozent(anteil, mitVorzeichen = false) {
 
 function geldbetrag(euroGanz) {
   return SPRACHE === "en" ? `€${zahl(euroGanz, 0)}` : `${zahl(euroGanz, 0)} €`;
+}
+
+// Mio. US-Dollar: "24,3 Mio. US-Dollar" bzw. "US$24.3m"
+function usd(mio) {
+  const a = Math.abs(mio);
+  const zeichen = mio < 0 ? "−" : "";
+  if (SPRACHE === "en") return a >= 1000 ? `${zeichen}US$${zahl(a / 1000, 1)}bn` : `${zeichen}US$${zahl(a, 1)}m`;
+  return a >= 1000 ? `${zeichen}${zahl(a / 1000, 1)} Mrd. US-Dollar` : `${zeichen}${zahl(a, 1)} Mio. US-Dollar`;
 }
 
 // ---------- Seite einrichten ----------
