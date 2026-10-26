@@ -9,3 +9,6 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Heruntergeladene Dokumente im Hauptordner (Quellen gehören nicht ins Projekt)
+/*.pdf
