@@ -1,4 +1,5 @@
-// Glossar: macht Fachbegriffe im Text anklickbar und zeigt eine kurze Erklärung (daten/glossar.json).
+// Glossar: markiert Fachbegriffe im Text und zeigt eine kurze Erklärung (daten/glossar.json),
+// mit der Maus beim Überfahren, auf dem Handy beim Antippen.
 // Läuft auf allen Seiten. Pro Hauptabschnitt der Seite wird nur das erste Vorkommen eines Begriffs markiert,
 // damit der Text lesbar bleibt. Inhalte, die später per JavaScript entstehen, werden ebenfalls erfasst.
 
@@ -95,13 +96,21 @@
     const zu = box.querySelector(".glossar-zu");
     zu.setAttribute("aria-label", t("glossar.schliessen"));
     zu.textContent = "×";
-    zu.addEventListener("click", schliesse);
+    zu.addEventListener("click", () => schliesse());
     document.body.appendChild(box);
   }
 
-  function oeffne(b, knopf) {
-    if (!box) baueBox();
-    ausloeser = knopf;
+  // Mit Maus: Erklärung erscheint beim Überfahren direkt am Begriff. Auf dem Handy: beim Antippen, unten am Rand.
+  const MIT_MAUS = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let angeheftet = false;   // per Klick oder Enter geöffnet: bleibt offen, bis man schließt
+  let zeitOeffnen = null;
+  let zeitSchliessen = null;
+
+  function begriffVon(knopf) {
+    return begriffe.find((x) => x.id === knopf.dataset.begriff);
+  }
+
+  function fuelleBox(b) {
     const teil = sprachTeil(b);
     box.querySelector("strong").textContent = teil.wort;
     box.querySelector(".glossar-box-text").textContent = teil.text;
@@ -116,27 +125,110 @@
     const alle = document.createElement("a");
     alle.href = document.body.dataset.seite === "hg" ? "#glossar" : `${mitSprache("hintergrund.html")}#glossar`;
     alle.textContent = t("glossar.alle");
-    alle.addEventListener("click", schliesse);
+    alle.addEventListener("click", () => schliesse(false));
     fuss.append(alle);
-    box.hidden = false;
-    box.querySelector(".glossar-zu").focus();
   }
 
-  function schliesse() {
+  // Fenster unter (oder, wenn kein Platz ist, über) dem Begriff platzieren
+  function platziere() {
+    if (!box || box.hidden || !ausloeser || !box.classList.contains("am-begriff")) return;
+    const zeile = ausloeser.getClientRects()[0] || ausloeser.getBoundingClientRect();
+    const ganz = ausloeser.getBoundingClientRect();
+    const breite = box.offsetWidth;
+    const hoehe = box.offsetHeight;
+    let oben = ganz.bottom + 8;
+    if (oben + hoehe > window.innerHeight - 8 && ganz.top - hoehe - 8 > 8) oben = ganz.top - hoehe - 8;
+    const links = Math.min(Math.max(zeile.left, 16), window.innerWidth - breite - 16);
+    box.style.top = `${Math.round(oben)}px`;
+    box.style.left = `${Math.round(links)}px`;
+  }
+
+  function oeffne(b, knopf, { anheften }) {
+    if (!box) baueBox();
+    clearTimeout(zeitSchliessen);
+    ausloeser = knopf;
+    angeheftet = anheften;
+    fuelleBox(b);
+    const amBegriff = MIT_MAUS.matches || !anheften;
+    box.classList.toggle("am-begriff", amBegriff);
+    if (!amBegriff) {
+      box.style.top = "";
+      box.style.left = "";
+    }
+    box.hidden = false;
+    platziere();
+    if (anheften) box.querySelector(".glossar-zu").focus();
+  }
+
+  function schliesse(fokusZurueck = true) {
+    clearTimeout(zeitOeffnen);
+    clearTimeout(zeitSchliessen);
     if (!box || box.hidden) return;
     box.hidden = true;
-    if (ausloeser && document.contains(ausloeser)) ausloeser.focus();
+    if (fokusZurueck && angeheftet && ausloeser && document.contains(ausloeser)) ausloeser.focus();
+    angeheftet = false;
     ausloeser = null;
   }
+
+  function spaeterSchliessen() {
+    clearTimeout(zeitOeffnen);
+    if (angeheftet) return;
+    clearTimeout(zeitSchliessen);
+    zeitSchliessen = setTimeout(() => schliesse(false), 250);
+  }
+
+  // Maus: kurz verweilen öffnet, Verlassen schließt (mit kleiner Pause, damit man ins Fenster fahren kann)
+  document.addEventListener("pointerover", (ereignis) => {
+    if (ereignis.pointerType !== "mouse") return;
+    if (box && box.contains(ereignis.target)) {
+      clearTimeout(zeitSchliessen);
+      return;
+    }
+    const knopf = ereignis.target.closest(".begriff");
+    if (!knopf || (knopf === ausloeser && !box.hidden)) return;
+    if (angeheftet && !box.hidden) return;
+    clearTimeout(zeitOeffnen);
+    clearTimeout(zeitSchliessen);
+    zeitOeffnen = setTimeout(() => {
+      const b = begriffVon(knopf);
+      if (b) oeffne(b, knopf, { anheften: false });
+    }, 150);
+  });
+  document.addEventListener("pointerout", (ereignis) => {
+    if (ereignis.pointerType !== "mouse") return;
+    const von = ereignis.target.closest(".begriff, .glossar-box");
+    if (!von) return;
+    const nach = ereignis.relatedTarget instanceof Element ? ereignis.relatedTarget.closest(".begriff, .glossar-box") : null;
+    if (nach === von) return;
+    if (nach && nach === box) {
+      clearTimeout(zeitSchliessen);
+      return;
+    }
+    spaeterSchliessen();
+  });
+
+  // Tastatur: Begriff ansteuern zeigt die Erklärung, Enter heftet sie an (Fokus ins Fenster)
+  document.addEventListener("focusin", (ereignis) => {
+    const knopf = ereignis.target.closest?.(".begriff");
+    if (knopf && !(angeheftet && box && !box.hidden)) {
+      const b = begriffVon(knopf);
+      if (b) oeffne(b, knopf, { anheften: false });
+    }
+  });
+  document.addEventListener("focusout", (ereignis) => {
+    if (!ereignis.target.closest?.(".begriff, .glossar-box")) return;
+    const nach = ereignis.relatedTarget instanceof Element ? ereignis.relatedTarget.closest(".begriff, .glossar-box") : null;
+    if (!nach) spaeterSchliessen();
+  });
 
   document.addEventListener("click", (ereignis) => {
     const knopf = ereignis.target.closest(".begriff");
     if (knopf) {
-      const b = begriffe.find((x) => x.id === knopf.dataset.begriff);
-      if (b) oeffne(b, knopf);
+      const b = begriffVon(knopf);
+      if (b) oeffne(b, knopf, { anheften: true });
       return;
     }
-    if (box && !box.hidden && !box.contains(ereignis.target)) schliesse();
+    if (box && !box.hidden && !box.contains(ereignis.target)) schliesse(false);
   });
   document.addEventListener("keydown", (ereignis) => {
     if (ereignis.key === "Escape") schliesse();
@@ -146,6 +238,8 @@
       knopf.click();
     }
   });
+  window.addEventListener("scroll", platziere, { passive: true });
+  window.addEventListener("resize", platziere);
 
   // ---------- Liste aller Begriffe (Hintergrund-Seite) ----------
 

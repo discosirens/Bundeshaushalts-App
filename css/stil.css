@@ -912,6 +912,7 @@ td button {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
 }
 .glossar-box[hidden] { display: none; }
+.glossar-box.am-begriff { bottom: auto; transform: none; width: min(24rem, calc(100% - 2rem)); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22); }
 .glossar-box-kopf { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
 .glossar-box-kopf strong { font-size: 1.0625rem; }
 .glossar-zu {
