@@ -455,6 +455,7 @@ async function start() {
   zeigeFakten();
 
   zeigeEbene();
+  if (typeof starteSuche === "function") starteSuche();
 
   let letzteBreite = el("treemap").clientWidth;
   new ResizeObserver(() => {

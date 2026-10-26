@@ -226,6 +226,43 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 h2 { font-size: 1.25rem; margin: 0 0 0.5rem; }
 .hinweis { margin: 0 0 1rem; color: var(--text-leise); font-size: 0.9375rem; }
 
+.suche { margin: 0 0 1.5rem; }
+.suche-label { display: block; font-weight: 700; margin-bottom: 0.375rem; }
+.suchfeld {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  border: 2px solid var(--linie);
+  border-radius: 999px;
+  background: var(--karte) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 1rem center;
+  color: var(--text);
+  font: inherit;
+  box-shadow: var(--schatten);
+}
+.suchfeld:focus { outline: none; border-color: var(--akzent); }
+.suche-info { margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--text-leise); min-height: 0; }
+.suche-info:empty { display: none; }
+.suche-ergebnisse { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.375rem; }
+.treffer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--linie);
+  border-radius: 12px;
+  background: var(--karte);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.treffer:hover, .treffer:focus-visible { border-color: var(--akzent); }
+.treffer-text { display: grid; gap: 0.125rem; min-width: 0; }
+.treffer-text strong { font-size: 0.9375rem; overflow-wrap: anywhere; }
+.treffer-text small { color: var(--text-leise); font-size: 0.8125rem; }
+.treffer-betrag { flex: none; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.suchtreffer { margin: 0 0 0.75rem; padding: 0.625rem 0.875rem; border-radius: 10px; background: var(--akzent-hell); color: var(--text); font-weight: 600; }
 .pfad { min-height: 1.75rem; font-size: 0.9375rem; }
 .pfad button, .pfad a {
   font: inherit;

@@ -15,6 +15,7 @@ hintergrund.html    Hintergrund: Einnahmen, Höhe des Haushalts, Verlauf seit 19
 css/stil.css        Gestaltung beider Seiten (hell und dunkel)
 js/sprache.js       alle Oberflächentexte Deutsch/Englisch, Zahlenformate, Sprachwahl
 js/app.js           Logik der Startseite
+js/suche.js         Suche auf der Startseite (mit Suchwörtern für unklare Postennamen)
 js/umschichten.js   Logik des Umschicht-Modus
 js/spiel.js         Logik des Haushaltsspiels
 js/hintergrund.js   Logik der Hintergrund-Seite (Verlaufsgrafik als SVG)

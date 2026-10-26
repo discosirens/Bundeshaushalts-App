@@ -46,6 +46,12 @@
 
   <main class="seite">
     <section class="bereich" aria-labelledby="treemap-titel">
+      <div class="suche" role="search">
+        <label class="suche-label" for="suchfeld" data-t="suche.label">Im Haushalt suchen</label>
+        <input type="search" id="suchfeld" class="suchfeld" autocomplete="off" enterkeyhint="search" data-t-placeholder="suche.platzhalter">
+        <p class="suche-info" id="suche-info" aria-live="polite"></p>
+        <ul class="suche-ergebnisse" id="suche-ergebnisse"></ul>
+      </div>
       <nav class="pfad" id="pfad"></nav>
       <h2 class="abschnitt-titel" id="treemap-titel" data-t="treemap.titel">Wofür gibt der Bund Geld aus?</h2>
       <p class="hinweis" id="treemap-hinweis" data-t="treemap.hinweis"></p>
@@ -101,5 +107,6 @@
   <script src="js/sprache.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/suche.js"></script>
 </body>
 </html>

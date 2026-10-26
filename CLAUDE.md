@@ -42,6 +42,8 @@
   jede Zahl mit Quelle, Stand-Datum mitführen. Bei neuen Entwicklungen (Gesetze, Zahlen) aktualisieren.
 - `daten/kapitel_texte.json`: handgeschriebene Erklärungen der 30 größten Kapitel (Deutsch und Englisch).
   Die App zeigt sie nur bei `"freigegeben": true`; Freigabe erst nach Prüfung durch mich.
+- Suche: Posten mit unklaren amtlichen Namen bekommen in `js/suche.js` zusätzliche Suchwörter (Deutsch und
+  Englisch), z. B. „Ukraine“ für die Ertüchtigungshilfe (Kap. 6002 Tit. 687 06).
 - Das Bürgergeld heißt seit 1. Juli 2026 Grundsicherungsgeld; im Haushaltsplan 2026 steht noch „Bürgergeld“.
 
 ## Zusammenarbeit

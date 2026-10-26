@@ -250,6 +250,19 @@ const TEXTE = {
     "art.besondere": "Sonstige Finanzierungsposten",
     "art.sonstige": "Sonstiges",
     "titel.buergergeld": "(seit Juli 2026 Grundsicherungsgeld)",
+
+    "suche.label": "Im Haushalt suchen",
+    "suche.platzhalter": "z. B. Elterngeld, Bundeswehr, Ukraine",
+    "suche.anzahl": "{n} Treffer",
+    "suche.anzahl.eins": "1 Treffer",
+    "suche.mehr": "{n} Treffer, die {m} wichtigsten werden gezeigt. Gib weitere Wörter ein, um einzugrenzen.",
+    "suche.keine": "Keine Treffer. Probier ein anderes Wort.",
+    "suche.ep": "Einzelplan {nr}",
+    "suche.kapitel": "Kapitel {nr}",
+    "suche.titel": "Posten {nr}",
+    "suche.anlage": "nicht im Kernhaushalt",
+    "suche.markiert": "Dein Suchtreffer: {name}: {betrag} (Soll 2026)",
+    "suche.hinweis.en": "",
   },
 
   en: {
@@ -484,6 +497,19 @@ const TEXTE = {
     "art.besondere": "Other financing items",
     "art.sonstige": "Other",
     "titel.buergergeld": "(basic income support since July 2026)",
+
+    "suche.label": "Search the budget",
+    "suche.platzhalter": "e.g. Ukraine, pension, Bundeswehr",
+    "suche.anzahl": "{n} results",
+    "suche.anzahl.eins": "1 result",
+    "suche.mehr": "{n} results; the {m} most important are shown. Add more words to narrow it down.",
+    "suche.keine": "No results. Try another word.",
+    "suche.ep": "Budget section {nr}",
+    "suche.kapitel": "Chapter {nr}",
+    "suche.titel": "Item {nr}",
+    "suche.anlage": "not in the core budget",
+    "suche.markiert": "Your search result: {name}: {betrag} (2026 budget)",
+    "suche.hinweis.en": "Item and chapter names are in German. Common English terms such as Ukraine, pension or housing benefit also work.",
   },
 };
 
@@ -594,6 +620,7 @@ function wendeTexteAn() {
   for (const knoten of document.querySelectorAll("[data-t]")) knoten.textContent = t(knoten.dataset.t);
   for (const knoten of document.querySelectorAll("[data-t-html]")) knoten.innerHTML = t(knoten.dataset.tHtml);
   for (const knoten of document.querySelectorAll("[data-t-label]")) knoten.setAttribute("aria-label", t(knoten.dataset.tLabel));
+  for (const knoten of document.querySelectorAll("[data-t-placeholder]")) knoten.setAttribute("placeholder", t(knoten.dataset.tPlaceholder));
   const seite = document.body.dataset.seite;
   document.title = t(`${seite}.titel`);
   document.querySelector('meta[name="description"]')?.setAttribute("content", t(`${seite}.beschreibung`));
