@@ -5,8 +5,11 @@
 - Neutral darstellen, keine Wertungen.
 
 ## Sprache der App
-- Deutsch, einfach, konkret.
-- Keine Gedankenstriche als Satzzeichen, keine Floskeln.
+- Deutsch, einfach, konkret. Die App duzt (Zielgruppe auch Jugendliche).
+- Keine Gedankenstriche als Satzzeichen, keine Floskeln. Gilt auch für die englische Fassung.
+- Die App ist zweisprachig (Deutsch und Englisch, Umschalter oben, `?lang=en`). Jeder neue Text braucht
+  beide Sprachen: Oberflächentexte in `js/sprache.js`, Bereichstexte in `skripte/bereiche_erzeugen.py`
+  (`BEREICHE_EN`, `TITEL_EN`). Amtliche Kapitelnamen bleiben auf Deutsch, mit Hinweis.
 
 ## Zahlen
 - Jede Zahl in der App braucht Jahr, Art (Soll, Ist, Schätzung) und Quelle.

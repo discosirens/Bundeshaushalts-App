@@ -436,6 +436,253 @@ BEREICHE = [
 
 
 # ---------------------------------------------------------------------------
+# Englische Fassung. "gut" in derselben Reihenfolge wie gut_zu_wissen (Quellen werden übernommen).
+# Quellen bleiben deutschsprachige Dokumente.
+# ---------------------------------------------------------------------------
+
+BEREICHE_EN = {
+    "rente": {
+        "name": "Pensions and basic income in old age",
+        "begruendung": "The amount of federal grants and of contributions for child-raising periods is set in "
+                       "Social Code Book VI. The federal government fully reimburses the states for basic income "
+                       "support in old age (Section 46a Social Code Book XII).",
+        "was": "Federal grants to the statutory pension insurance and money for basic income support in old age. "
+               "Older people get basic income support if their pension and savings are not enough to live on.",
+        "wer": "The federal government pays the money to the pension insurance, not directly to pensioners. "
+               "Local authorities pay out basic income support; the federal government reimburses the costs.",
+        "warum": "The grants are set by law and rise with wages and the contribution rate. For every child, the "
+                 "federal government pays pension contributions for the time spent raising it.",
+        "gut": ["Pensions are mainly paid from contributions. About three quarters of the pension insurance's "
+                "income comes from contributions (estimate for 2025)."],
+    },
+    "gesundheit": {
+        "name": "Health and long-term care",
+        "begruendung": "The grant to health insurance is fixed by law at €14.5 billion a year (Section 221 Social "
+                       "Code Book V). Loans to the Health Fund and long-term care insurance are based on laws; "
+                       "smaller items (health protection) can be shaped politically.",
+        "was": "Federal grants and loans to statutory health and long-term care insurance, plus health "
+               "protection, for example pandemic preparedness.",
+        "wer": "The money goes to the Health Fund, the joint pot of the health insurers, and to long-term care "
+               "insurance. Doctors, hospitals and insured people do not receive it directly.",
+        "warum": "The law sets the grant at €14.5 billion a year. It compensates for services the insurers "
+                 "provide for society as a whole.",
+        "gut": ["In 2026 the federal government lends €3.2 billion to long-term care insurance and €2.3 billion "
+                "to the Health Fund (budget). Loans have to be repaid."],
+    },
+    "arbeit": {
+        "name": "Labour market and citizen's income",
+        "begruendung": "Citizen's income and the federal share of housing and heating costs are legal "
+                       "entitlements under Social Code Book II (about three quarters of this area). Job support "
+                       "and administrative costs are set as a budget and can be shaped politically.",
+        "was": "Citizen's income (Bürgergeld) for people who can work but do not have enough to live on. It also "
+               "covers help with job seeking, further training and the costs of job centres.",
+        "wer": "Job centres pay citizen's income to those entitled. Local authorities pay rent and heating; the "
+               "federal government reimburses part of it.",
+        "warum": "Anyone who meets the conditions has a legal entitlement. The amount depends on the number of "
+                 "recipients, the standard rates and rents.",
+        "gut": ["Unemployment benefit is paid by the Federal Employment Agency from contributions. In 2026, "
+                "however, the federal government lends it €3.97 billion (budget).",
+                "For rent and heating, the federal government pays at most 74% of the costs."],
+    },
+    "familie": {
+        "name": "Families and other social benefits",
+        "begruendung": "Parental allowance, child supplement, housing benefit and child maintenance advance are "
+                       "legal entitlements (more than two thirds). Integration courses, volunteer services and "
+                       "hardship payments can partly be shaped politically.",
+        "was": "Benefits for families such as parental allowance, child supplement and child maintenance advance. "
+               "Also housing benefit, integration courses and compensation, for example for victims of war and "
+               "injustice.",
+        "wer": "Families and households, paid out by local benefit offices and family benefit offices. Housing "
+               "benefit is shared half and half by federal and state governments; the federal government pays "
+               "40% of the child maintenance advance.",
+        "warum": "Most benefits are legal entitlements. The amount depends on the number of births, family "
+                 "incomes and rents.",
+        "gut": ["Child benefit (Kindergeld) hardly appears in this area. It is handled through income tax and "
+                "reduces tax revenue instead."],
+    },
+    "verteidigung": {
+        "name": "Defence",
+        "begruendung": "The amount is a political decision. Staff costs and ongoing procurement contracts, "
+                       "however, tie up a large share for years.",
+        "was": "Spending on the German armed forces (Bundeswehr): staff, equipment, ammunition, operations and "
+               "buildings.",
+        "wer": "A large share goes as pay to soldiers and civilian staff. The rest goes to companies that supply "
+               "weapons, vehicles, ammunition and services.",
+        "warum": "The size of the armed forces, ongoing procurement contracts and political decisions about "
+                 "equipment determine the amount.",
+        "gut": ["On top of this comes the Bundeswehr special fund, a separate pot with its own borrowing: "
+                "€25.5 billion (budget 2026), not included here.",
+                "Defence spending above 1% of economic output does not count towards the debt brake, the rule "
+                "that limits new borrowing."],
+    },
+    "ukraine": {
+        "name": "Military aid for Ukraine",
+        "begruendung": "No law sets the amount; the government and the Bundestag decide it every year. Supply "
+                       "contracts already signed may tie up part of it.",
+        "was": "Money for weapons, ammunition and equipment for states attacked in violation of international "
+               "law. In 2026 it is earmarked for Ukraine, with a focus on air defence.",
+        "wer": "Ukraine mainly receives equipment. The money itself mostly goes to the companies from which the "
+               "equipment is ordered.",
+        "warum": "The amount is a political decision about supporting Ukraine.",
+        "gut": ["Humanitarian aid and costs for refugees from Ukraine are in other areas.",
+                "The federal government states around €11.5 billion in military aid for Ukraine for 2026."],
+    },
+    "zinsen": {
+        "name": "Interest on debt",
+        "begruendung": "Interest is contractually agreed and cannot be changed in the short term, not even by "
+                       "law. 'Fixed by law' is the closest of the three levels.",
+        "was": "Interest the federal government pays on its debt. It borrows money by selling securities, for "
+               "example federal bonds (Bundesanleihen).",
+        "wer": "Everyone who holds federal securities: banks, insurers, funds, investors abroad and private "
+               "individuals.",
+        "warum": "The amount depends on how much debt there is and on interest rates at the time the securities "
+                 "were issued.",
+        "gut": ["Repayments of loans are not shown as spending in the budget. Loans that fall due are usually "
+                "replaced by new loans.",
+                "This area also includes interest for special funds, separate pots with their own borrowing. In "
+                "2026, for example, €0.67 billion for the infrastructure special fund (budget)."],
+    },
+    "bildung": {
+        "name": "Education, research and culture",
+        "begruendung": "Student and upgrading grants (BAföG, Aufstiegs-BAföG) are legal entitlements. Large parts "
+                       "are fixed in multi-year federal-state agreements (universities, research organisations). "
+                       "Project funding can be shaped politically.",
+        "was": "Money for research institutions, universities, student grants such as BAföG, and culture and "
+               "media.",
+        "wer": "Research organisations such as Helmholtz and Max Planck, the German Research Foundation, and via "
+               "programmes the states and their universities. BAföG goes to pupils and students.",
+        "warum": "Many amounts are fixed in multi-year agreements between federal and state governments. For "
+                 "BAföG, the number of eligible students determines the amount.",
+        "gut": ["Schools are paid for by the states and municipalities, not the federal government. Under the "
+                "Basic Law, education is mainly a matter for the states."],
+    },
+    "verkehr": {
+        "name": "Transport",
+        "begruendung": "Which roads and railways are built can be shaped politically. Maintenance, operation of "
+                       "Autobahn GmbH and ongoing construction contracts tie up a large share.",
+        "was": "Building, maintaining and running motorways, federal roads, railways and waterways, and support "
+               "for local public transport.",
+        "wer": "Mainly federally owned companies: Autobahn GmbH and Deutsche Bahn for its rail network. Also "
+               "construction firms and the states for local public transport.",
+        "warum": "Construction programmes such as the Federal Transport Infrastructure Plan and the condition of "
+                 "roads, bridges and tracks determine the amount.",
+        "gut": ["More billions come in 2026 from the infrastructure special fund, a separate pot with its own "
+                "borrowing. €16.3 billion alone goes to maintaining the rail network (budget). This is not "
+                "included here."],
+    },
+    "wirtschaft": {
+        "name": "Economy, energy and agriculture",
+        "begruendung": "The largest item, balancing the renewable energy (EEG) account, is a legal claim of the "
+                       "grid operators (Section 6 Energy Financing Act). Payments under guarantees are "
+                       "contractual. Business and farm support programmes can be shaped politically.",
+        "was": "Support for businesses, regions and agriculture, and spending on energy. The largest item pays "
+               "for support for electricity from wind, sun and other renewable sources.",
+        "wer": "The largest amount goes to the operators of the big power grids, who use it to pay out renewable "
+               "energy support. Other recipients: businesses, states and farms.",
+        "warum": "Renewable energy support rises when the wholesale electricity price falls or more plants are "
+                 "supported. Guarantees cost money when debtors do not pay.",
+        "gut": ["Since 2023, renewable energy support has no longer been paid through a levy on electricity "
+                "bills. If the support account runs short, the federal government balances it."],
+    },
+    "staat": {
+        "name": "Administration, security and justice",
+        "begruendung": "Pensions and civil servants' pay are set by law; the number of posts and running costs "
+                       "can be shaped politically.",
+        "was": "Spending on ministries, the Bundestag, the Federal Police, customs, tax administration, courts "
+               "and intelligence services. Also pensions of former civil servants.",
+        "wer": "A large share goes as pay to federal employees and as pensions to former civil servants.",
+        "warum": "The number of employees and the salaries and pensions set by law determine most of the "
+                 "amount.",
+        "gut": ["€10.3 billion (budget 2026) goes to the postal civil servants' pension fund. It pays pensions of "
+                "former civil servants of the Federal Post Office, Telekom and Postbank."],
+    },
+    "aussen": {
+        "name": "Foreign policy and development",
+        "begruendung": "The amount is mostly a political decision. Contributions to international organisations "
+                       "and multi-year project commitments tie up part of it.",
+        "was": "Spending on embassies and foreign policy, humanitarian aid and development cooperation, that is "
+               "support for poorer countries.",
+        "wer": "Mainly organisations that carry out projects: the state development bank KfW, the German Agency "
+               "for International Cooperation (GIZ), the World Bank and aid organisations.",
+        "warum": "The amount is mostly a political decision. International commitments and multi-year projects "
+                 "tie up part of it.",
+        "gut": ["The largest items are projects agreed with partner countries, not free payments to their "
+                "governments."],
+    },
+    "umwelt": {
+        "name": "Environment, housing and sport",
+        "begruendung": "Final disposal and radiation protection follow from legal obligations. Housing and urban "
+                       "development rest on agreements with the states (Article 104d Basic Law). Nature "
+                       "conservation and sport can be shaped politically.",
+        "was": "Social housing, urban development, nature conservation, radiation protection, the search for a "
+               "final repository for nuclear waste, and support for sport.",
+        "wer": "For housing and urban development, the states receive money and pass it on. For final disposal, "
+               "the federal government pays its own companies.",
+        "warum": "Federal and state governments agree on housing and urban development funding. The costs of "
+                 "final disposal follow from legal obligations.",
+        "gut": ["Most climate protection spending is not here but in the Climate and Transformation Fund, a "
+                "separate pot: €34.8 billion (budget 2026)."],
+    },
+    "finanzen": {
+        "name": "General financial management",
+        "begruendung": "The Federal Railway Fund and aid for coal regions are based on laws. Lump-sum savings "
+                       "targets and reserve items can be shaped politically.",
+        "was": "Items without a specific policy field: money for special funds (separate federal pots), aid for "
+               "coal regions, costs of the Federal Railway Fund and lump-sum savings targets.",
+        "wer": "Special funds, states and the Federal Railway Fund, which among other things provides for former "
+               "railway civil servants.",
+        "warum": "The amount is small because negative items are also listed here, above all a lump-sum "
+                 "spending cut of €8 billion (budget 2026).",
+        "gut": ["A lump-sum spending cut (globale Minderausgabe) is a savings target without a specified item. "
+                "It has to be achieved during the year."],
+    },
+}
+
+# Englische Namen der derzeit größten Titel. Fehlt ein Titel, bleibt der deutsche Name stehen.
+TITEL_EN = {
+    ("1102", "63681"): "Federal grant to the general pension insurance",
+    ("1102", "63683"): "Additional federal grant to the general pension insurance",
+    ("1102", "63684"): "Contributions for child-raising periods to the general pension insurance",
+    ("1501", "63606"): "Lump-sum payment to health insurers for tasks in the public interest (Health Fund)",
+    ("1502", "85602"): "Multi-year loan to the long-term care insurance compensation fund",
+    ("1501", "85601"): "Multi-year loan to the Health Fund",
+    ("1101", "68112"): "Citizen's income (Bürgergeld)",
+    ("1101", "63211"): "Federal share of housing and heating costs",
+    ("1101", "63613"): "Administrative costs of basic income support for jobseekers",
+    ("1701", "68102"): "Parental allowance (Elterngeld)",
+    ("1701", "68113"): "Child supplement (Kinderzuschlag)",
+    ("2501", "63201"): "Housing benefit (Wohngeld)",
+    ("1403", "42301"): "Pay of career and fixed-term soldiers",
+    ("1405", "55408"): "Procurement of ammunition",
+    ("1407", "55319"): "Clothing supply for the armed forces",
+    ("6002", "68706"): "Capacity building for states attacked in violation of international law (security, "
+                       "defence, stabilisation)",
+    ("3205", "57501"): "Interest on federal bonds (Bundesanleihen)",
+    ("3205", "57503"): "Interest on federal notes (Bundesobligationen)",
+    ("3205", "57505"): "Interest on federal treasury notes (Bundesschatzanweisungen)",
+    ("3004", "68570"): "Helmholtz centres (operations)",
+    ("3003", "68530"): "German Research Foundation (DFG): running costs",
+    ("3003", "63205"): "Future Contract for strengthening study and teaching",
+    ("1201", "89111"): "Investments of Autobahn GmbH",
+    ("1201", "68212"): "Autobahn GmbH: operations, planning and administration",
+    ("1202", "89101"): "Construction grants for rail investments in the federal requirements plan",
+    ("6002", "68307"): "Grants to relieve electricity prices",
+    ("3208", "87601"): "Compensation and costs from foreign-related guarantees and debt rescheduling",
+    ("6002", "67104"): "Reimbursement of losses from the guarantee for the KfW special programme 2020",
+    ("6002", "68501"): "Grant to the postal civil servants' pension fund",
+    ("0625", "42201"): "Pay of civil servants (Federal Police)",
+    ("0813", "42201"): "Pay of civil servants (Customs)",
+    ("2301", "89611"): "Bilateral financial cooperation (grants)",
+    ("2301", "89603"): "Bilateral technical cooperation",
+    ("0501", "68732"): "Humanitarian aid abroad",
+    ("2501", "88206"): "Social housing",
+    ("1603", "89101"): "Final disposal and site selection procedure",
+    ("2501", "89305"): "Grants for buying a home (Baukindergeld)",
+    ("1216", "63401"): "Reimbursement of administrative expenses of the Federal Railway Fund",
+    ("6002", "46171"): "Reinforcement of personnel expenditure",
+    ("6002", "63401"): "Allocation to the special fund Reconstruction Aid 2021",
+}
+
 
 def lese(jahr):
     zeilen = []
@@ -462,6 +709,13 @@ def mrd(tausend):
     if abs(e) >= 1:
         return f"{e:.1f}".replace(".", ",") + " Mrd. €"
     return f"{tausend / 1e3:.0f}".replace(".", ",") + " Mio. €"
+
+
+def mrd_en(tausend):
+    e = tausend / 1e6
+    if abs(e) >= 1:
+        return f"€{e:.1f}bn"
+    return f"€{tausend / 1e3:.0f}m"
 
 
 PRAEFIX = {p: b for b, liste in FUNKTIONEN.items() for p in liste}
@@ -542,6 +796,30 @@ def main():
         if anzahl > 150:
             fehler.append(f"Bereich {b}: {anzahl} Wörter (maximal 150)")
 
+        en = BEREICHE_EN[b]
+        if len(en["gut"]) != len(e["gut_zu_wissen"]):
+            fehler.append(f"Bereich {b}: Anzahl 'Gut zu wissen' Deutsch und Englisch verschieden")
+        posten_en = []
+        for p in posten:
+            name_en = TITEL_EN.get((p["kapitel"], p["titel"]), p["name"])
+            posten_en.append({"name": name_en, "text": f"{name_en}: {mrd_en(p['betrag_2026'])}"})
+        anzahl_en = sum(woerter(en[t]) for t in ("was", "wer", "warum"))
+        anzahl_en += sum(woerter(p["text"]) for p in posten_en) + sum(woerter(g) for g in en["gut"])
+        if anzahl_en > 150:
+            fehler.append(f"Bereich {b}: {anzahl_en} Wörter Englisch (maximal 150)")
+        englisch = {
+            "name": en["name"],
+            "begruendung": en["begruendung"],
+            "erklaerung": {
+                "was_ist_das": en["was"],
+                "wer_bekommt_das_geld": en["wer"],
+                "groesste_posten": posten_en,
+                "warum_so_viel": en["warum"],
+                "gut_zu_wissen": [{"text": t, "quelle": g["quelle"]} for t, g in zip(en["gut"], e["gut_zu_wissen"])],
+                "woerter": anzahl_en,
+            },
+        }
+
         ba_summe = sum(ba[b].values())
         s26, s25 = summe["2026"][b], summe["2025"][b]
         quellen = [QUELLE_HAUSHALT] + d.get("zusatzquellen", [])
@@ -578,6 +856,7 @@ def main():
                 "quellen": quellen,
                 "woerter": anzahl,
             },
+            "en": englisch,
         })
 
     daten = {
@@ -617,7 +896,8 @@ def main():
     print(f"Geschrieben: {ZIEL.relative_to(PROJEKT)}")
     for x in bereiche:
         print(f"{x['name']:<40} {x['betrag_2026'] / 1e6:7.1f} Mrd. €  {x['anteil_2026'] * 100:5.1f} %  "
-              f"BA: {x['bereichsausnahme']['betroffen']:<9}  {x['erklaerung']['woerter']} Wörter")
+              f"BA: {x['bereichsausnahme']['betroffen']:<9}  {x['erklaerung']['woerter']} / "
+              f"{x['en']['erklaerung']['woerter']} Wörter (DE/EN)")
     print(f"Summe 2026: {gesamt26:,}".replace(",", "."))
     if fehler:
         print("FEHLER:\n  " + "\n  ".join(fehler))

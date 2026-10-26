@@ -1,5 +1,5 @@
 // Startseite: große Zahl, Treemap nach Einzelplan und Kapitel, Detailkasten.
-// Beträge in haushalt.json sind in Tausend Euro.
+// Beträge in haushalt.json sind in Tausend Euro. Texte und Zahlenformate kommen aus sprache.js.
 
 const EINWOHNER = 83_500_000; // 31.12.2025, Statistisches Bundesamt, PM Nr. 203 vom 16.06.2026
 
@@ -23,31 +23,11 @@ let ausgewaehlt = null;   // id des angetippten Feldes
 
 const el = (id) => document.getElementById(id);
 
-// ---------- Zahlen formatieren ----------
-
-const zahl1 = (n) => n.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-
-function euro(tausend, mitVorzeichen = false) {
-  const e = tausend * 1000;
-  const a = Math.abs(e);
-  const zeichen = mitVorzeichen && e > 0 ? "+" : e < 0 ? "−" : "";
-  if (a >= 1e9) return `${zeichen}${zahl1(a / 1e9)} Mrd. €`;
-  if (a >= 1e6) return `${zeichen}${zahl1(a / 1e6)} Mio. €`;
-  return `${zeichen}${Math.round(a).toLocaleString("de-DE")} €`;
-}
-
-function prozent(anteil, mitVorzeichen = false) {
-  const p = anteil * 100;
-  const zeichen = mitVorzeichen && p > 0 ? "+" : p < 0 ? "−" : "";
-  const stellen = Math.abs(p) < 1 ? 2 : 1;
-  return `${zeichen}${Math.abs(p).toLocaleString("de-DE", { minimumFractionDigits: stellen, maximumFractionDigits: stellen })} %`;
-}
-
 // Veränderung 2025 zu 2026 als Text, mit Sonderfällen für neue und entfallene Posten.
 function veraenderung(e) {
-  if (e.s25 === null) return { text: "neu in 2026", klasse: "" };
+  if (e.s25 === null) return { text: t("veraenderung.neu"), klasse: "" };
   const diff = e.s26 - e.s25;
-  if (diff === 0) return { text: "unverändert", klasse: "" };
+  if (diff === 0) return { text: t("veraenderung.gleich"), klasse: "" };
   const klasse = diff > 0 ? "plus" : "minus";
   if (e.s25 <= 0) return { text: euro(diff, true), klasse };
   return { text: `${euro(diff, true)} (${prozent(diff / e.s25, true)})`, klasse };
@@ -66,6 +46,14 @@ function kurzname(name) {
   return kurz.charAt(0).toUpperCase() + kurz.slice(1);
 }
 
+// Einzelplan-Namen in der gewählten Sprache. Kapitelnamen bleiben amtlich deutsch.
+function epName(ep) {
+  return SPRACHE === "en" && EP_NAMEN_EN[ep.nr] ? EP_NAMEN_EN[ep.nr][0] : ep.name;
+}
+function epKurz(ep) {
+  return SPRACHE === "en" && EP_NAMEN_EN[ep.nr] ? EP_NAMEN_EN[ep.nr][1] : kurzname(ep.name);
+}
+
 // ---------- Daten aufbereiten ----------
 
 function einzelplanEintraege() {
@@ -73,8 +61,8 @@ function einzelplanEintraege() {
     id: ep.nr,
     typ: "ep",
     nr: ep.nr,
-    name: ep.name,
-    kurz: kurzname(ep.name),
+    name: epName(ep),
+    kurz: epKurz(ep),
     s26: ep.soll["2026"],
     s25: ep.soll["2025"],
   }));
@@ -85,7 +73,7 @@ function kapitelEintraege(ep) {
     .filter((k) => !k.anlage)
     .map((k) => {
       // Kapitel, das es 2025 noch nicht gab: alle Titel haben für 2025 keinen Wert.
-      const gab2025 = k.titel.some((t) => t.soll["2025"] !== null);
+      const gab2025 = k.titel.some((ti) => ti.soll["2025"] !== null);
       return {
         id: k.nr,
         typ: "kapitel",
@@ -133,7 +121,7 @@ function zeichneTreemap() {
     if (stil.dunkel) knopf.classList.add("dunkel");
     if (e.id === ausgewaehlt) knopf.classList.add("aktiv");
     Object.assign(knopf.style, { left: `${blatt.x0}px`, top: `${blatt.y0}px`, width: `${w}px`, height: `${h}px` });
-    knopf.setAttribute("aria-label", `${e.name}: ${euro(e.s26)}, Soll 2026`);
+    knopf.setAttribute("aria-label", t("treemap.feld.label", { name: e.name, betrag: euro(e.s26) }));
     knopf.title = `${e.name}: ${euro(e.s26)}`;
     knopf.innerHTML = `<span class="name"></span><span class="betrag"></span>`;
     knopf.querySelector(".name").textContent = e.kurz;
@@ -150,12 +138,12 @@ function waehle(e) {
     aktuellerEp = daten.einzelplaene.find((ep) => ep.nr === e.nr);
     ausgewaehlt = null;
     zeigeEbene();
-    zeigeDetails(e, `Einzelplan ${e.nr}`);
+    zeigeDetails(e, t("details.einzelplan", { nr: e.nr }));
     el("treemap-titel").scrollIntoView({ behavior: "smooth", block: "start" });
   } else {
     ausgewaehlt = e.id;
     zeichneTreemap();
-    zeigeDetails(e, `Kapitel ${e.nr}`);
+    zeigeDetails(e, t("details.kapitel", { nr: e.nr }));
     el("details").scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 }
@@ -173,10 +161,10 @@ function zeigeDetails(e, kennung) {
   kasten.innerHTML = `
     <h2></h2>
     <dl>
-      <div><dt>Soll 2026</dt><dd>${euro(e.s26)}</dd></div>
-      <div><dt>Soll 2025</dt><dd>${e.s25 === null ? "nicht vorhanden" : euro(e.s25)}</dd></div>
-      <div><dt>Veränderung</dt><dd class="${v.klasse}">${v.text}</dd></div>
-      <div><dt>Anteil am Kernhaushalt 2026</dt><dd>${prozent(e.s26 / gesamt2026)}</dd></div>
+      <div><dt>${t("details.soll26")}</dt><dd>${euro(e.s26)}</dd></div>
+      <div><dt>${t("details.soll25")}</dt><dd>${e.s25 === null ? t("details.fehlt") : euro(e.s25)}</dd></div>
+      <div><dt>${t("details.veraenderung")}</dt><dd class="${v.klasse}">${v.text}</dd></div>
+      <div><dt>${t("details.anteil")}</dt><dd>${prozent(e.s26 / gesamt2026)}</dd></div>
     </dl>`;
   kasten.querySelector("h2").textContent = `${kennung}: ${e.name}`;
   kasten.hidden = false;
@@ -188,14 +176,14 @@ function zeigeEbene() {
   if (aktuellerEp) {
     const zurueck = document.createElement("button");
     zurueck.type = "button";
-    zurueck.textContent = "← Alle Einzelpläne";
+    zurueck.textContent = t("treemap.zurueck");
     zurueck.addEventListener("click", zurUebersicht);
     pfad.appendChild(zurueck);
-    el("treemap-titel").textContent = aktuellerEp.name;
-    el("treemap-hinweis").textContent = "Die Flächen zeigen die Kapitel dieses Einzelplans. Tippen Sie auf ein Kapitel für Details.";
+    el("treemap-titel").textContent = epName(aktuellerEp);
+    el("treemap-hinweis").textContent = t("treemap.hinweis.ep");
   } else {
-    el("treemap-titel").textContent = "Wofür gibt der Bund Geld aus?";
-    el("treemap-hinweis").textContent = "Jede Fläche ist so groß wie die Ausgaben eines Einzelplans (meist ein Ministerium). Tippen Sie auf ein Feld für Details und Kapitel.";
+    el("treemap-titel").textContent = t("treemap.titel");
+    el("treemap-hinweis").textContent = t("treemap.hinweis");
   }
   zeichneTreemap();
   zeigeAnlagen();
@@ -213,15 +201,16 @@ function zeigeAnlagen() {
   const summeAnlagen = anlagen.reduce((s, k) => s + k.soll["2026"], 0);
   const kern = aktuellerEp.soll["2026"];
   kasten.innerHTML = `
-    <h2>Nicht im Kernhaushalt enthalten</h2>
-    <p>Zu diesem Einzelplan gehören Anlagen mit eigenem Wirtschaftsplan, zum Beispiel Sondervermögen. Sie werden getrennt geführt (Soll 2026):</p>
+    <h2>${t("anlagen.titel")}</h2>
+    <p>${t("anlagen.text")}</p>
     <ul></ul>
-    <p>Kernhaushalt dieses Einzelplans und Anlagen zusammen: <strong>${euro(kern + summeAnlagen)}</strong> (Soll 2026).
-    Achtung: Fließt Geld aus dem Kernhaushalt in eine Anlage, ist dieser Betrag in der Summe doppelt enthalten.</p>`;
+    <p>${t("anlagen.summe", { betrag: euro(kern + summeAnlagen) })}</p>`;
   const liste = kasten.querySelector("ul");
   for (const k of anlagen) {
     const li = document.createElement("li");
-    const name = anzeigename(k.name.replace(/^Anlage \d+ /, ""));
+    const name = SPRACHE === "en" && ANLAGEN_EN[k.nr]
+      ? ANLAGEN_EN[k.nr]
+      : anzeigename(k.name.replace(/^Anlage \d+ /, ""));
     li.textContent = `${name}: ${euro(k.soll["2026"])}`;
     liste.appendChild(li);
   }
@@ -235,16 +224,14 @@ function fuelleTabelle() {
   for (const e of eintraege) {
     const v = veraenderung(e);
     const zeile = document.createElement("tr");
-    zeile.innerHTML = `<td><button type="button"></button></td><td>${euro(e.s26)}</td><td>${e.s25 === null ? "neu" : euro(e.s25)}</td><td class="${v.klasse}">${v.text}</td>`;
+    zeile.innerHTML = `<td><button type="button"></button></td><td>${euro(e.s26)}</td><td>${e.s25 === null ? t("tabelle.neu") : euro(e.s25)}</td><td class="${v.klasse}">${v.text}</td>`;
     const knopf = zeile.querySelector("button");
     knopf.textContent = e.typ === "ep" ? `${e.nr} ${e.kurz}` : `${e.nr} ${e.name}`;
     knopf.addEventListener("click", () => waehle(e));
     tbody.appendChild(zeile);
   }
   const ohneFlaeche = eintraege.filter((e) => e.s26 <= 0).length;
-  el("tabelle-hinweis").textContent = ohneFlaeche
-    ? `${ohneFlaeche} Einträge haben 2026 einen Betrag von null oder darunter und erscheinen deshalb nicht als Fläche. Negative Beträge sind meist pauschale Einsparvorgaben.`
-    : "";
+  el("tabelle-hinweis").textContent = ohneFlaeche ? t("tabelle.hinweis", { n: ohneFlaeche }) : "";
 }
 
 // Drei Zahlen zum Mitnehmen, alle aus dem Soll 2026 berechnet.
@@ -254,9 +241,13 @@ function zeigeFakten() {
   const proSekunde = Math.round(euroGesamt / (365 * 24 * 60 * 60) / 100) * 100;
   const groesster = einzelplanEintraege().sort((a, b) => b.s26 - a.s26)[0];
   const fakten = [
-    { wert: `${proKopf.toLocaleString("de-DE")} €`, text: "pro Einwohnerin und Einwohner", quelle: "Soll 2026 geteilt durch 83,5 Mio. Einwohner" },
-    { wert: `${proSekunde.toLocaleString("de-DE")} €`, text: "gibt der Bund im Schnitt pro Sekunde aus", quelle: "Soll 2026 geteilt durch die Sekunden eines Jahres" },
-    { wert: prozent(groesster.s26 / gesamt2026), text: `gehen an ${groesster.kurz}`, quelle: `Einzelplan ${groesster.nr}, Soll 2026` },
+    { wert: geldbetrag(proKopf), text: t("fakt.kopf.text"), quelle: t("fakt.kopf.quelle") },
+    { wert: geldbetrag(proSekunde), text: t("fakt.sekunde.text"), quelle: t("fakt.sekunde.quelle") },
+    {
+      wert: prozent(groesster.s26 / gesamt2026),
+      text: t("fakt.anteil.text", { name: groesster.kurz }),
+      quelle: t("fakt.anteil.quelle", { nr: groesster.nr }),
+    },
   ];
   const liste = el("fakten");
   liste.replaceChildren();
@@ -278,7 +269,7 @@ async function start() {
     const antwort = await fetch("daten/haushalt.json");
     daten = await antwort.json();
   } catch (fehler) {
-    el("gesamt-text").textContent = "Die Daten konnten nicht geladen werden.";
+    el("gesamt-text").textContent = t("fehler.laden");
     return;
   }
   gesamt2026 = daten.summen["2026"].kernhaushalt;

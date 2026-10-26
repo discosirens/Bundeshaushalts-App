@@ -1,54 +1,19 @@
 // Umschicht-Modus: Geld zwischen den 14 Bereichen aus daten/bereiche.json verschieben.
-// Alle Beträge intern in Tausend Euro, wie in den Daten.
+// Alle Beträge intern in Tausend Euro, wie in den Daten. Texte und Zahlenformate kommen aus sprache.js.
 
 const MRD = 1_000_000;          // 1 Mrd. € in Tausend Euro
 const SCHRITT = 100_000;        // Reglerschritt: 0,1 Mrd. €
 const TOLERANZ = 50_000;        // unter 0,05 Mrd. € gilt als ausgeglichen
 
 // Aufgaben geben nur eine Annahme vor. Wie sie gelöst wird, entscheidet die Nutzerin oder der Nutzer.
+// Titel und Text stehen in sprache.js unter "sz.<id>.titel" und "sz.<id>.text".
 const SZENARIEN = [
-  {
-    id: "frei",
-    titel: "Frei umschichten",
-    text: "Verteilen Sie die Ausgaben 2026 neu. Die Gesamtsumme bleibt gleich: Was ein Bereich mehr bekommt, muss ein anderer weniger bekommen.",
-    fest: {},
-    zielaenderung: 0,
-  },
-  {
-    id: "verteidigung",
-    titel: "Verteidigung plus 10 Mrd. €",
-    text: "Angenommen, für Verteidigung sollen 10 Mrd. € mehr bereitstehen und die Gesamtsumme bleibt gleich. Wo würden Sie 10 Mrd. € einsparen?",
-    fest: { verteidigung: 10 * MRD },
-    zielaenderung: 0,
-  },
-  {
-    id: "bildung",
-    titel: "Bildung und Forschung plus 5 Mrd. €",
-    text: "Angenommen, für Bildung, Forschung und Kultur sollen 5 Mrd. € mehr bereitstehen und die Gesamtsumme bleibt gleich. Wo würden Sie 5 Mrd. € einsparen?",
-    fest: { bildung: 5 * MRD },
-    zielaenderung: 0,
-  },
-  {
-    id: "zinsen",
-    titel: "Zinsen steigen um 5 Mrd. €",
-    text: "Angenommen, die Zinsen für die Schulden des Bundes steigen um 5 Mrd. €. Dieses Geld muss gezahlt werden. Wo würden Sie 5 Mrd. € einsparen?",
-    fest: { zinsen: 5 * MRD },
-    zielaenderung: 0,
-  },
-  {
-    id: "sparen",
-    titel: "10 Mrd. € weniger ausgeben",
-    text: "Angenommen, der Bund soll 2026 insgesamt 10 Mrd. € weniger ausgeben als geplant. In welchen Bereichen würden Sie kürzen?",
-    fest: {},
-    zielaenderung: -10 * MRD,
-  },
+  { id: "frei", fest: {}, zielaenderung: 0 },
+  { id: "verteidigung", fest: { verteidigung: 10 * MRD }, zielaenderung: 0 },
+  { id: "bildung", fest: { bildung: 5 * MRD }, zielaenderung: 0 },
+  { id: "zinsen", fest: { zinsen: 5 * MRD }, zielaenderung: 0 },
+  { id: "sparen", fest: {}, zielaenderung: -10 * MRD },
 ];
-
-const BINDUNG_HINWEIS = {
-  "gesetzlich gebunden": "Gesetzlich gebunden: Eine Änderung wäre nur mit einer Gesetzesänderung möglich.",
-  "teilweise gebunden": "Teilweise gebunden: Ein Teil ist gesetzlich oder vertraglich festgelegt.",
-  "politisch frei gestaltbar": "Politisch frei gestaltbar: Die Höhe legen Regierung und Bundestag im Haushalt fest.",
-};
 
 let daten = null;
 let szenario = SZENARIEN[0];
@@ -56,20 +21,12 @@ const werte = {};     // aktueller Plan je Bereich (Tausend Euro)
 const karten = {};    // DOM-Elemente je Bereich
 
 const el = (id) => document.getElementById(id);
+const mrd = milliarden;
 
-// ---------- Formatierung ----------
-
-function mrd(tausend, mitVorzeichen = false) {
-  const n = tausend / MRD;
-  const zeichen = mitVorzeichen && n > 0.0001 ? "+" : n < -0.0001 ? "−" : "";
-  return `${zeichen}${Math.abs(n).toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} Mrd. €`;
-}
-
-function prozent(anteil, mitVorzeichen = false) {
-  const p = anteil * 100;
-  const zeichen = mitVorzeichen && p > 0.05 ? "+" : p < -0.05 ? "−" : "";
-  return `${zeichen}${Math.abs(p).toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} %`;
-}
+// Texte eines Bereichs in der gewählten Sprache
+const bName = (b) => (SPRACHE === "en" ? b.en.name : b.name);
+const bBegruendung = (b) => (SPRACHE === "en" ? b.en.begruendung : b.begruendung);
+const bErklaerung = (b) => (SPRACHE === "en" ? b.en.erklaerung : b.erklaerung);
 
 // ---------- Berechnung ----------
 
@@ -94,7 +51,7 @@ function baueSzenarien() {
     knopf.className = "szenario";
     knopf.setAttribute("role", "radio");
     knopf.dataset.id = s.id;
-    knopf.textContent = s.titel;
+    knopf.textContent = t(`sz.${s.id}.titel`);
     knopf.addEventListener("click", () => waehleSzenario(s));
     box.appendChild(knopf);
   }
@@ -115,24 +72,27 @@ function baueBereiche() {
         <span class="plan"></span>
       </p>
       <div class="regler">
-        <button type="button" class="knopf-rund minus" aria-label="1 Mrd. € weniger">−</button>
+        <button type="button" class="knopf-rund minus">−</button>
         <input type="range" step="${SCHRITT}">
-        <button type="button" class="knopf-rund plus" aria-label="1 Mrd. € mehr">+</button>
+        <button type="button" class="knopf-rund plus">+</button>
       </div>
       <p class="karte-hinweis" hidden></p>
       <details class="mehr">
-        <summary>Mehr erfahren</summary>
+        <summary></summary>
         <div class="mehr-inhalt"></div>
       </details>`;
-    karte.querySelector("h3").textContent = b.name;
-    karte.querySelector(".bindung").textContent = b.bindung;
-    karte.querySelector(".soll").textContent = `Soll 2026: ${mrd(basis(b))} (${prozent(b.anteil_2026)})`;
+    karte.querySelector("h3").textContent = bName(b);
+    karte.querySelector(".bindung").textContent = t(`bindung.${b.bindung}`);
+    karte.querySelector(".soll").textContent = t("karte.soll", { betrag: mrd(basis(b)), anteil: prozent(b.anteil_2026) });
+    karte.querySelector("summary").textContent = t("karte.mehr");
+    karte.querySelector(".minus").setAttribute("aria-label", t("karte.minus"));
+    karte.querySelector(".plus").setAttribute("aria-label", t("karte.plus"));
 
     const regler = karte.querySelector("input");
     // Der Regler bildet die Änderung ab, damit die Schritte genau 0,1 Mrd. € sind.
     regler.min = -basis(b);
     regler.max = basis(b);
-    regler.setAttribute("aria-label", `${b.name}: Änderung gegenüber Soll 2026`);
+    regler.setAttribute("aria-label", t("karte.regler", { name: bName(b) }));
     regler.addEventListener("input", () => setzeWert(b, basis(b) + Number(regler.value)));
     karte.querySelector(".minus").addEventListener("click", () => setzeWert(b, werte[b.id] - MRD));
     karte.querySelector(".plus").addEventListener("click", () => setzeWert(b, werte[b.id] + MRD));
@@ -165,12 +125,12 @@ function linkListe(eltern, quellen) {
 }
 
 function fuelleErklaerung(box, b) {
-  const e = b.erklaerung;
-  absatz(box, "Was ist das?", e.was_ist_das);
-  absatz(box, "Wer bekommt das Geld?", e.wer_bekommt_das_geld);
+  const e = bErklaerung(b);
+  absatz(box, t("erkl.was"), e.was_ist_das);
+  absatz(box, t("erkl.wer"), e.wer_bekommt_das_geld);
 
   const h = document.createElement("h4");
-  h.textContent = "Größte Posten (Soll 2026)";
+  h.textContent = t("erkl.posten");
   const ul = document.createElement("ul");
   for (const p of e.groesste_posten) {
     const li = document.createElement("li");
@@ -179,33 +139,32 @@ function fuelleErklaerung(box, b) {
   }
   box.append(h, ul);
 
-  absatz(box, "Warum so viel?", e.warum_so_viel);
+  absatz(box, t("erkl.warum"), e.warum_so_viel);
 
   const hg = document.createElement("h4");
-  hg.textContent = "Gut zu wissen";
+  hg.textContent = t("erkl.gut");
   const ug = document.createElement("ul");
   for (const g of e.gut_zu_wissen) {
     const li = document.createElement("li");
     li.textContent = `${g.text} `;
     const a = document.createElement("a");
     a.href = g.quelle.url;
-    a.textContent = `(Quelle: ${g.quelle.titel})`;
+    a.textContent = `(${t("erkl.quelle")}: ${g.quelle.titel})`;
     li.appendChild(a);
     ug.appendChild(li);
   }
   box.append(hg, ug);
 
-  absatz(box, "Bindung", `${b.bindung}. ${b.begruendung}`);
+  absatz(box, t("erkl.bindung"), `${t(`bindung.${b.bindung}`)}. ${bBegruendung(b)}`);
   if (b.bereichsausnahme.betroffen !== "nein") {
-    absatz(box, "Schuldenbremse",
-      `${mrd(b.bereichsausnahme.betrag_2026)} dieses Bereichs zählen 2026 zur Bereichsausnahme der Schuldenbremse. ` +
-      "Von der Schuldenbremse ausgenommen ist aber nur der Teil dieser Ausgaben, der insgesamt über 1 % der Wirtschaftsleistung liegt.");
+    absatz(box, t("erkl.schuldenbremse"), t("erkl.schuldenbremse.text", { betrag: mrd(b.bereichsausnahme.betrag_2026) }));
   }
 
   const hq = document.createElement("h4");
-  hq.textContent = "Quellen";
+  hq.textContent = t("erkl.quellen");
   box.appendChild(hq);
-  linkListe(box, [...e.quellen, ...b.quelle.filter((q) => !e.quellen.some((x) => x.url === q.url && x.titel === q.titel))]);
+  const quellen = b.erklaerung.quellen;
+  linkListe(box, [...quellen, ...b.quelle.filter((q) => !quellen.some((x) => x.url === q.url && x.titel === q.titel))]);
 }
 
 // ---------- Anzeige ----------
@@ -218,7 +177,7 @@ function waehleSzenario(s) {
     knopf.classList.toggle("aktiv", aktiv);
     knopf.setAttribute("aria-checked", String(aktiv));
   }
-  el("szenario-text").textContent = s.text;
+  el("szenario-text").textContent = t(`sz.${s.id}.text`);
   aktualisiere();
 }
 
@@ -236,15 +195,15 @@ function aktualisiere() {
 
     const plan = karte.querySelector(".plan");
     plan.textContent = Math.abs(diff) < TOLERANZ
-      ? "unverändert"
-      : `Ihr Plan: ${mrd(werte[b.id])} (${mrd(diff, true)}, ${prozent(diff / basis(b), true)})`;
+      ? t("karte.unveraendert")
+      : t("karte.plan", { wert: mrd(werte[b.id]), diff: mrd(diff, true), prozent: prozent(diff / basis(b), true) });
 
     const hinweis = karte.querySelector(".karte-hinweis");
     if (fest) {
-      hinweis.textContent = `Durch die Aufgabe festgelegt: ${mrd(diff, true)}.`;
+      hinweis.textContent = t("karte.fest", { diff: mrd(diff, true) });
       hinweis.hidden = false;
     } else if (Math.abs(diff) >= TOLERANZ) {
-      hinweis.textContent = BINDUNG_HINWEIS[b.bindung];
+      hinweis.textContent = t(`bindung.hinweis.${b.bindung}`);
       hinweis.hidden = false;
     } else {
       hinweis.hidden = true;
@@ -261,15 +220,15 @@ function zeigeBilanz() {
   leiste.classList.remove("ausgeglichen", "zu-viel", "zu-wenig");
   const nichtsVerschoben = daten.bereiche.every((b) => Math.abs(aenderung(b)) < TOLERANZ);
   if (nichtsVerschoben && Math.abs(offen) < TOLERANZ) {
-    text.textContent = `Noch nichts verschoben. Gesamtsumme: ${mrd(planSumme())}`;
+    text.textContent = t("bilanz.nichts", { summe: mrd(planSumme()) });
   } else if (Math.abs(offen) < TOLERANZ) {
-    text.textContent = "Ausgeglichen: Ihr Plan erfüllt die Aufgabe.";
+    text.textContent = t("bilanz.aus");
     leiste.classList.add("ausgeglichen");
   } else if (offen > 0) {
-    text.textContent = `Noch ${mrd(offen)} einsparen`;
+    text.textContent = t("bilanz.zuviel", { betrag: mrd(offen) });
     leiste.classList.add("zu-viel");
   } else {
-    text.textContent = `Noch ${mrd(-offen)} übrig zum Verteilen`;
+    text.textContent = t("bilanz.zuwenig", { betrag: mrd(-offen) });
     leiste.classList.add("zu-wenig");
   }
 }
@@ -282,13 +241,13 @@ function zeigeErgebnis() {
     .sort((a, b) => aenderung(b) - aenderung(a));
 
   const summe = document.createElement("p");
-  summe.textContent = `Ausgaben laut Ihrem Plan: ${mrd(planSumme())}. Soll 2026: ${mrd(daten.summe_2026)}.`;
+  summe.textContent = t("ergebnis.summe", { plan: mrd(planSumme()), soll: mrd(daten.summe_2026) });
   box.appendChild(summe);
 
   if (geaendert.length === 0) {
     const p = document.createElement("p");
     p.className = "hinweis";
-    p.textContent = "Sie haben noch nichts verändert.";
+    p.textContent = t("ergebnis.leer");
     box.appendChild(p);
     return;
   }
@@ -299,7 +258,7 @@ function zeigeErgebnis() {
     const li = document.createElement("li");
     const diff = aenderung(b);
     li.innerHTML = `<span></span><strong class="${diff > 0 ? "plus" : "minus"}"></strong>`;
-    li.querySelector("span").textContent = b.name;
+    li.querySelector("span").textContent = bName(b);
     li.querySelector("strong").textContent = mrd(diff, true);
     ul.appendChild(li);
   }
@@ -309,13 +268,16 @@ function zeigeErgebnis() {
   if (gesetzlich.length) {
     const p = document.createElement("p");
     p.className = "ergebnis-hinweis";
-    p.textContent = `Sie haben ${gesetzlich.length === 1 ? "einen gesetzlich gebundenen Bereich" : `${gesetzlich.length} gesetzlich gebundene Bereiche`} verändert (${gesetzlich.map((b) => b.name).join(", ")}). Dafür wären Gesetzesänderungen nötig.`;
+    const namen = gesetzlich.map(bName).join(", ");
+    p.textContent = gesetzlich.length === 1
+      ? t("ergebnis.gesetzlich.eins", { namen })
+      : t("ergebnis.gesetzlich.mehr", { n: gesetzlich.length, namen });
     box.appendChild(p);
   }
   if (geaendert.some((b) => b.bereichsausnahme.betroffen !== "nein" && ["verteidigung", "ukraine"].includes(b.id))) {
     const p = document.createElement("p");
     p.className = "ergebnis-hinweis";
-    p.textContent = "Für Verteidigung und Militärhilfe gilt die Bereichsausnahme der Schuldenbremse: Ausgaben über 1 % der Wirtschaftsleistung dürfen mit Krediten bezahlt werden. Dieses Modell verschiebt trotzdem nur Ausgaben innerhalb der Gesamtsumme.";
+    p.textContent = t("ergebnis.ausnahme");
     box.appendChild(p);
   }
 }
@@ -327,7 +289,7 @@ async function start() {
     const antwort = await fetch("daten/bereiche.json");
     daten = await antwort.json();
   } catch (fehler) {
-    el("bereiche").textContent = "Die Daten konnten nicht geladen werden.";
+    el("bereiche").textContent = t("fehler.laden");
     return;
   }
   baueSzenarien();

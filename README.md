@@ -2,16 +2,25 @@
 Den Bundeshaushalt verständlich machen
 
 Ziel: eine statische Web-App (HTML, CSS, JavaScript, kein Server), die den deutschen
-Bundeshaushalt für Laien verständlich darstellt.
+Bundeshaushalt für Laien verständlich darstellt. Online: https://discosirens.github.io/Bundeshaushalts-App/
+(Deutsch und Englisch, Umschalter oben).
 
 ## Ordnerstruktur
 
 ```
+index.html          Startseite: Gesamtsumme, Treemap nach Einzelplan und Kapitel
+umschichten.html    Umschicht-Modus: Geld zwischen 14 Bereichen verschieben
+css/stil.css        Gestaltung beider Seiten (hell und dunkel)
+js/sprache.js       alle Oberflächentexte Deutsch/Englisch, Zahlenformate, Sprachwahl
+js/app.js           Logik der Startseite
+js/umschichten.js   Logik des Umschicht-Modus
 daten/
   roh/              Rohdaten, unverändert (CSV, PDF, Excel)
   haushalt.json     aufbereitete Ausgaben 2025 und 2026 (wird vom Skript erzeugt)
+  bereiche.json     14 Bereiche mit Erklärungen auf Deutsch und Englisch (wird vom Skript erzeugt)
 skripte/
   haushalt_zu_json.py
+  bereiche_erzeugen.py
 ```
 
 ## Die CSV-Dateien `HH_2025_ALL.csv` und `HH_2026_ALL.csv`

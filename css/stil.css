@@ -114,6 +114,22 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
   white-space: nowrap;
 }
 .marke span { color: #8fe3c4; }
+.topbar-rechts { display: flex; align-items: center; gap: 0.5rem; }
+.sprachwahl {
+  display: flex;
+  padding: 0.125rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+.sprachwahl a {
+  color: var(--hero-leise);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+.sprachwahl a[aria-current="true"] { background: #8fe3c4; color: #0f1630; }
 .hauptnav { display: flex; gap: 0.25rem; }
 .hauptnav a {
   color: var(--hero-leise);
@@ -509,7 +525,10 @@ td button {
 
 @media (max-width: 40rem) {
   body { font-size: 1rem; }
-  .topbar .marke span { display: none; }
+  .topbar .marke { display: none; }
+  .topbar { justify-content: flex-end; }
+  .topbar-rechts { width: 100%; justify-content: space-between; }
+  .hauptnav a { padding: 0.375rem 0.625rem; }
   .hero-inhalt { padding: 2rem 1rem 2.5rem; }
   .fakten { grid-template-columns: 1fr; }
   .fakt { display: grid; grid-template-columns: auto 1fr; column-gap: 0.75rem; align-items: baseline; }
@@ -520,6 +539,7 @@ td button {
   table { font-size: 0.875rem; }
   td:last-child { min-width: 5.5rem; }
   .bilanz { border-radius: 20px; }
+  .bilanz-text { font-size: 0.9375rem; line-height: 1.35; }
 }
 
 @media (prefers-reduced-motion: reduce) {

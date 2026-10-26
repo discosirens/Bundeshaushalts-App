@@ -251,6 +251,39 @@
      }
     ],
     "woerter": 123
+   },
+   "en": {
+    "name": "Pensions and basic income in old age",
+    "begruendung": "The amount of federal grants and of contributions for child-raising periods is set in Social Code Book VI. The federal government fully reimburses the states for basic income support in old age (Section 46a Social Code Book XII).",
+    "erklaerung": {
+     "was_ist_das": "Federal grants to the statutory pension insurance and money for basic income support in old age. Older people get basic income support if their pension and savings are not enough to live on.",
+     "wer_bekommt_das_geld": "The federal government pays the money to the pension insurance, not directly to pensioners. Local authorities pay out basic income support; the federal government reimburses the costs.",
+     "groesste_posten": [
+      {
+       "name": "Federal grant to the general pension insurance",
+       "text": "Federal grant to the general pension insurance: €63.9bn"
+      },
+      {
+       "name": "Additional federal grant to the general pension insurance",
+       "text": "Additional federal grant to the general pension insurance: €33.6bn"
+      },
+      {
+       "name": "Contributions for child-raising periods to the general pension insurance",
+       "text": "Contributions for child-raising periods to the general pension insurance: €19.7bn"
+      }
+     ],
+     "warum_so_viel": "The grants are set by law and rise with wages and the contribution rate. For every child, the federal government pays pension contributions for the time spent raising it.",
+     "gut_zu_wissen": [
+      {
+       "text": "Pensions are mainly paid from contributions. About three quarters of the pension insurance's income comes from contributions (estimate for 2025).",
+       "quelle": {
+        "titel": "Deutsche Rentenversicherung, Pressemitteilung vom 10.12.2025",
+        "url": "https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Pressemitteilungen/Pressemitteilungen-archiv/2025/2025-12-10-bvv-gunkel.html"
+       }
+      }
+     ],
+     "woerter": 136
+    }
    }
   },
   {
@@ -783,6 +816,39 @@
      }
     ],
     "woerter": 116
+   },
+   "en": {
+    "name": "Health and long-term care",
+    "begruendung": "The grant to health insurance is fixed by law at €14.5 billion a year (Section 221 Social Code Book V). Loans to the Health Fund and long-term care insurance are based on laws; smaller items (health protection) can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Federal grants and loans to statutory health and long-term care insurance, plus health protection, for example pandemic preparedness.",
+     "wer_bekommt_das_geld": "The money goes to the Health Fund, the joint pot of the health insurers, and to long-term care insurance. Doctors, hospitals and insured people do not receive it directly.",
+     "groesste_posten": [
+      {
+       "name": "Lump-sum payment to health insurers for tasks in the public interest (Health Fund)",
+       "text": "Lump-sum payment to health insurers for tasks in the public interest (Health Fund): €14.5bn"
+      },
+      {
+       "name": "Multi-year loan to the long-term care insurance compensation fund",
+       "text": "Multi-year loan to the long-term care insurance compensation fund: €3.2bn"
+      },
+      {
+       "name": "Multi-year loan to the Health Fund",
+       "text": "Multi-year loan to the Health Fund: €2.3bn"
+      }
+     ],
+     "warum_so_viel": "The law sets the grant at €14.5 billion a year. It compensates for services the insurers provide for society as a whole.",
+     "gut_zu_wissen": [
+      {
+       "text": "In 2026 the federal government lends €3.2 billion to long-term care insurance and €2.3 billion to the Health Fund (budget). Loans have to be repaid.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 1501 Tit. 856 01 und Kap. 1502 Tit. 856 02",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 125
+    }
    }
   },
   {
@@ -920,6 +986,46 @@
      }
     ],
     "woerter": 122
+   },
+   "en": {
+    "name": "Labour market and citizen's income",
+    "begruendung": "Citizen's income and the federal share of housing and heating costs are legal entitlements under Social Code Book II (about three quarters of this area). Job support and administrative costs are set as a budget and can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Citizen's income (Bürgergeld) for people who can work but do not have enough to live on. It also covers help with job seeking, further training and the costs of job centres.",
+     "wer_bekommt_das_geld": "Job centres pay citizen's income to those entitled. Local authorities pay rent and heating; the federal government reimburses part of it.",
+     "groesste_posten": [
+      {
+       "name": "Citizen's income (Bürgergeld)",
+       "text": "Citizen's income (Bürgergeld): €28.1bn"
+      },
+      {
+       "name": "Federal share of housing and heating costs",
+       "text": "Federal share of housing and heating costs: €13.0bn"
+      },
+      {
+       "name": "Administrative costs of basic income support for jobseekers",
+       "text": "Administrative costs of basic income support for jobseekers: €5.2bn"
+      }
+     ],
+     "warum_so_viel": "Anyone who meets the conditions has a legal entitlement. The amount depends on the number of recipients, the standard rates and rents.",
+     "gut_zu_wissen": [
+      {
+       "text": "Unemployment benefit is paid by the Federal Employment Agency from contributions. In 2026, however, the federal government lends it €3.97 billion (budget).",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 856 22",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      },
+      {
+       "text": "For rent and heating, the federal government pays at most 74% of the costs.",
+       "quelle": {
+        "titel": "§ 46 Abs. 5 SGB II",
+        "url": "https://www.gesetze-im-internet.de/sgb_2/__46.html"
+       }
+      }
+     ],
+     "woerter": 131
+    }
    }
   },
   {
@@ -1233,6 +1339,39 @@
      }
     ],
     "woerter": 107
+   },
+   "en": {
+    "name": "Families and other social benefits",
+    "begruendung": "Parental allowance, child supplement, housing benefit and child maintenance advance are legal entitlements (more than two thirds). Integration courses, volunteer services and hardship payments can partly be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Benefits for families such as parental allowance, child supplement and child maintenance advance. Also housing benefit, integration courses and compensation, for example for victims of war and injustice.",
+     "wer_bekommt_das_geld": "Families and households, paid out by local benefit offices and family benefit offices. Housing benefit is shared half and half by federal and state governments; the federal government pays 40% of the child maintenance advance.",
+     "groesste_posten": [
+      {
+       "name": "Parental allowance (Elterngeld)",
+       "text": "Parental allowance (Elterngeld): €7.5bn"
+      },
+      {
+       "name": "Child supplement (Kinderzuschlag)",
+       "text": "Child supplement (Kinderzuschlag): €3.4bn"
+      },
+      {
+       "name": "Housing benefit (Wohngeld)",
+       "text": "Housing benefit (Wohngeld): €2.4bn"
+      }
+     ],
+     "warum_so_viel": "Most benefits are legal entitlements. The amount depends on the number of births, family incomes and rents.",
+     "gut_zu_wissen": [
+      {
+       "text": "Child benefit (Kindergeld) hardly appears in this area. It is handled through income tax and reduces tax revenue instead.",
+       "quelle": {
+        "titel": "§ 31 EStG: Familienleistungsausgleich",
+        "url": "https://www.gesetze-im-internet.de/estg/__31.html"
+       }
+      }
+     ],
+     "woerter": 111
+    }
    }
   },
   {
@@ -1433,6 +1572,46 @@
      }
     ],
     "woerter": 121
+   },
+   "en": {
+    "name": "Defence",
+    "begruendung": "The amount is a political decision. Staff costs and ongoing procurement contracts, however, tie up a large share for years.",
+    "erklaerung": {
+     "was_ist_das": "Spending on the German armed forces (Bundeswehr): staff, equipment, ammunition, operations and buildings.",
+     "wer_bekommt_das_geld": "A large share goes as pay to soldiers and civilian staff. The rest goes to companies that supply weapons, vehicles, ammunition and services.",
+     "groesste_posten": [
+      {
+       "name": "Pay of career and fixed-term soldiers",
+       "text": "Pay of career and fixed-term soldiers: €9.9bn"
+      },
+      {
+       "name": "Procurement of ammunition",
+       "text": "Procurement of ammunition: €8.9bn"
+      },
+      {
+       "name": "Clothing supply for the armed forces",
+       "text": "Clothing supply for the armed forces: €3.9bn"
+      }
+     ],
+     "warum_so_viel": "The size of the armed forces, ongoing procurement contracts and political decisions about equipment determine the amount.",
+     "gut_zu_wissen": [
+      {
+       "text": "On top of this comes the Bundeswehr special fund, a separate pot with its own borrowing: €25.5 billion (budget 2026), not included here.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 1491",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      },
+      {
+       "text": "Defence spending above 1% of economic output does not count towards the debt brake, the rule that limits new borrowing.",
+       "quelle": {
+        "titel": "Art. 115 Grundgesetz",
+        "url": "https://www.gesetze-im-internet.de/gg/art_115.html"
+       }
+      }
+     ],
+     "woerter": 114
+    }
    }
   },
   {
@@ -1523,6 +1702,38 @@
      }
     ],
     "woerter": 94
+   },
+   "en": {
+    "name": "Military aid for Ukraine",
+    "begruendung": "No law sets the amount; the government and the Bundestag decide it every year. Supply contracts already signed may tie up part of it.",
+    "erklaerung": {
+     "was_ist_das": "Money for weapons, ammunition and equipment for states attacked in violation of international law. In 2026 it is earmarked for Ukraine, with a focus on air defence.",
+     "wer_bekommt_das_geld": "Ukraine mainly receives equipment. The money itself mostly goes to the companies from which the equipment is ordered.",
+     "groesste_posten": [
+      {
+       "name": "Capacity building for states attacked in violation of international law (security, defence, stabilisation)",
+       "text": "Capacity building for states attacked in violation of international law (security, defence, stabilisation): €11.5bn"
+      }
+     ],
+     "warum_so_viel": "The amount is a political decision about supporting Ukraine.",
+     "gut_zu_wissen": [
+      {
+       "text": "Humanitarian aid and costs for refugees from Ukraine are in other areas.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026 (Soll), Bundesministerium der Finanzen",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      },
+      {
+       "text": "The federal government states around €11.5 billion in military aid for Ukraine for 2026.",
+       "quelle": {
+        "titel": "Bundesregierung: Bundeshaushalt 2026",
+        "url": "https://www.bundesregierung.de/breg-de/aktuelles/bundeshaushalt-2026-2374030"
+       }
+      }
+     ],
+     "woerter": 94
+    }
    }
   },
   {
@@ -1625,6 +1836,46 @@
      }
     ],
     "woerter": 113
+   },
+   "en": {
+    "name": "Interest on debt",
+    "begruendung": "Interest is contractually agreed and cannot be changed in the short term, not even by law. 'Fixed by law' is the closest of the three levels.",
+    "erklaerung": {
+     "was_ist_das": "Interest the federal government pays on its debt. It borrows money by selling securities, for example federal bonds (Bundesanleihen).",
+     "wer_bekommt_das_geld": "Everyone who holds federal securities: banks, insurers, funds, investors abroad and private individuals.",
+     "groesste_posten": [
+      {
+       "name": "Interest on federal bonds (Bundesanleihen)",
+       "text": "Interest on federal bonds (Bundesanleihen): €20.1bn"
+      },
+      {
+       "name": "Interest on federal notes (Bundesobligationen)",
+       "text": "Interest on federal notes (Bundesobligationen): €3.2bn"
+      },
+      {
+       "name": "Interest on federal treasury notes (Bundesschatzanweisungen)",
+       "text": "Interest on federal treasury notes (Bundesschatzanweisungen): €2.4bn"
+      }
+     ],
+     "warum_so_viel": "The amount depends on how much debt there is and on interest rates at the time the securities were issued.",
+     "gut_zu_wissen": [
+      {
+       "text": "Repayments of loans are not shown as spending in the budget. Loans that fall due are usually replaced by new loans.",
+       "quelle": {
+        "titel": "§ 15 Abs. 1 Bundeshaushaltsordnung",
+        "url": "https://www.gesetze-im-internet.de/bho/__15.html"
+       }
+      },
+      {
+       "text": "This area also includes interest for special funds, separate pots with their own borrowing. In 2026, for example, €0.67 billion for the infrastructure special fund (budget).",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 3205 Tit. 575 30",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 118
+    }
    }
   },
   {
@@ -2358,6 +2609,39 @@
      }
     ],
     "woerter": 91
+   },
+   "en": {
+    "name": "Education, research and culture",
+    "begruendung": "Student and upgrading grants (BAföG, Aufstiegs-BAföG) are legal entitlements. Large parts are fixed in multi-year federal-state agreements (universities, research organisations). Project funding can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Money for research institutions, universities, student grants such as BAföG, and culture and media.",
+     "wer_bekommt_das_geld": "Research organisations such as Helmholtz and Max Planck, the German Research Foundation, and via programmes the states and their universities. BAföG goes to pupils and students.",
+     "groesste_posten": [
+      {
+       "name": "Helmholtz centres (operations)",
+       "text": "Helmholtz centres (operations): €2.7bn"
+      },
+      {
+       "name": "German Research Foundation (DFG): running costs",
+       "text": "German Research Foundation (DFG): running costs: €2.2bn"
+      },
+      {
+       "name": "Future Contract for strengthening study and teaching",
+       "text": "Future Contract for strengthening study and teaching: €2.1bn"
+      }
+     ],
+     "warum_so_viel": "Many amounts are fixed in multi-year agreements between federal and state governments. For BAföG, the number of eligible students determines the amount.",
+     "gut_zu_wissen": [
+      {
+       "text": "Schools are paid for by the states and municipalities, not the federal government. Under the Basic Law, education is mainly a matter for the states.",
+       "quelle": {
+        "titel": "Art. 30 Grundgesetz",
+        "url": "https://www.gesetze-im-internet.de/gg/art_30.html"
+       }
+      }
+     ],
+     "woerter": 106
+    }
    }
   },
   {
@@ -2625,6 +2909,39 @@
      }
     ],
     "woerter": 114
+   },
+   "en": {
+    "name": "Transport",
+    "begruendung": "Which roads and railways are built can be shaped politically. Maintenance, operation of Autobahn GmbH and ongoing construction contracts tie up a large share.",
+    "erklaerung": {
+     "was_ist_das": "Building, maintaining and running motorways, federal roads, railways and waterways, and support for local public transport.",
+     "wer_bekommt_das_geld": "Mainly federally owned companies: Autobahn GmbH and Deutsche Bahn for its rail network. Also construction firms and the states for local public transport.",
+     "groesste_posten": [
+      {
+       "name": "Investments of Autobahn GmbH",
+       "text": "Investments of Autobahn GmbH: €4.3bn"
+      },
+      {
+       "name": "Autobahn GmbH: operations, planning and administration",
+       "text": "Autobahn GmbH: operations, planning and administration: €2.0bn"
+      },
+      {
+       "name": "Construction grants for rail investments in the federal requirements plan",
+       "text": "Construction grants for rail investments in the federal requirements plan: €1.8bn"
+      }
+     ],
+     "warum_so_viel": "Construction programmes such as the Federal Transport Infrastructure Plan and the condition of roads, bridges and tracks determine the amount.",
+     "gut_zu_wissen": [
+      {
+       "text": "More billions come in 2026 from the infrastructure special fund, a separate pot with its own borrowing. €16.3 billion alone goes to maintaining the rail network (budget). This is not included here.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 6093 Tit. 891 13",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 114
+    }
    }
   },
   {
@@ -3017,6 +3334,39 @@
      }
     ],
     "woerter": 133
+   },
+   "en": {
+    "name": "Economy, energy and agriculture",
+    "begruendung": "The largest item, balancing the renewable energy (EEG) account, is a legal claim of the grid operators (Section 6 Energy Financing Act). Payments under guarantees are contractual. Business and farm support programmes can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Support for businesses, regions and agriculture, and spending on energy. The largest item pays for support for electricity from wind, sun and other renewable sources.",
+     "wer_bekommt_das_geld": "The largest amount goes to the operators of the big power grids, who use it to pay out renewable energy support. Other recipients: businesses, states and farms.",
+     "groesste_posten": [
+      {
+       "name": "Grants to relieve electricity prices",
+       "text": "Grants to relieve electricity prices: €16.2bn"
+      },
+      {
+       "name": "Compensation and costs from foreign-related guarantees and debt rescheduling",
+       "text": "Compensation and costs from foreign-related guarantees and debt rescheduling: €2.9bn"
+      },
+      {
+       "name": "Reimbursement of losses from the guarantee for the KfW special programme 2020",
+       "text": "Reimbursement of losses from the guarantee for the KfW special programme 2020: €790m"
+      }
+     ],
+     "warum_so_viel": "Renewable energy support rises when the wholesale electricity price falls or more plants are supported. Guarantees cost money when debtors do not pay.",
+     "gut_zu_wissen": [
+      {
+       "text": "Since 2023, renewable energy support has no longer been paid through a levy on electricity bills. If the support account runs short, the federal government balances it.",
+       "quelle": {
+        "titel": "§ 6 Energiefinanzierungsgesetz",
+        "url": "https://www.gesetze-im-internet.de/enfg/__6.html"
+       }
+      }
+     ],
+     "woerter": 131
+    }
    }
   },
   {
@@ -4075,6 +4425,39 @@
      }
     ],
     "woerter": 103
+   },
+   "en": {
+    "name": "Administration, security and justice",
+    "begruendung": "Pensions and civil servants' pay are set by law; the number of posts and running costs can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Spending on ministries, the Bundestag, the Federal Police, customs, tax administration, courts and intelligence services. Also pensions of former civil servants.",
+     "wer_bekommt_das_geld": "A large share goes as pay to federal employees and as pensions to former civil servants.",
+     "groesste_posten": [
+      {
+       "name": "Grant to the postal civil servants' pension fund",
+       "text": "Grant to the postal civil servants' pension fund: €10.3bn"
+      },
+      {
+       "name": "Pay of civil servants (Federal Police)",
+       "text": "Pay of civil servants (Federal Police): €2.4bn"
+      },
+      {
+       "name": "Pay of civil servants (Customs)",
+       "text": "Pay of civil servants (Customs): €2.1bn"
+      }
+     ],
+     "warum_so_viel": "The number of employees and the salaries and pensions set by law determine most of the amount.",
+     "gut_zu_wissen": [
+      {
+       "text": "€10.3 billion (budget 2026) goes to the postal civil servants' pension fund. It pays pensions of former civil servants of the Federal Post Office, Telekom and Postbank.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 6002 Tit. 685 01",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 103
+    }
    }
   },
   {
@@ -4370,6 +4753,39 @@
      }
     ],
     "woerter": 85
+   },
+   "en": {
+    "name": "Foreign policy and development",
+    "begruendung": "The amount is mostly a political decision. Contributions to international organisations and multi-year project commitments tie up part of it.",
+    "erklaerung": {
+     "was_ist_das": "Spending on embassies and foreign policy, humanitarian aid and development cooperation, that is support for poorer countries.",
+     "wer_bekommt_das_geld": "Mainly organisations that carry out projects: the state development bank KfW, the German Agency for International Cooperation (GIZ), the World Bank and aid organisations.",
+     "groesste_posten": [
+      {
+       "name": "Bilateral financial cooperation (grants)",
+       "text": "Bilateral financial cooperation (grants): €1.7bn"
+      },
+      {
+       "name": "Bilateral technical cooperation",
+       "text": "Bilateral technical cooperation: €1.7bn"
+      },
+      {
+       "name": "Humanitarian aid abroad",
+       "text": "Humanitarian aid abroad: €1.0bn"
+      }
+     ],
+     "warum_so_viel": "The amount is mostly a political decision. International commitments and multi-year projects tie up part of it.",
+     "gut_zu_wissen": [
+      {
+       "text": "The largest items are projects agreed with partner countries, not free payments to their governments.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 2301 Tit. 896 03 und 896 11",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 86
+    }
    }
   },
   {
@@ -4694,6 +5110,39 @@
      }
     ],
     "woerter": 89
+   },
+   "en": {
+    "name": "Environment, housing and sport",
+    "begruendung": "Final disposal and radiation protection follow from legal obligations. Housing and urban development rest on agreements with the states (Article 104d Basic Law). Nature conservation and sport can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Social housing, urban development, nature conservation, radiation protection, the search for a final repository for nuclear waste, and support for sport.",
+     "wer_bekommt_das_geld": "For housing and urban development, the states receive money and pass it on. For final disposal, the federal government pays its own companies.",
+     "groesste_posten": [
+      {
+       "name": "Social housing",
+       "text": "Social housing: €2.7bn"
+      },
+      {
+       "name": "Final disposal and site selection procedure",
+       "text": "Final disposal and site selection procedure: €970m"
+      },
+      {
+       "name": "Grants for buying a home (Baukindergeld)",
+       "text": "Grants for buying a home (Baukindergeld): €808m"
+      }
+     ],
+     "warum_so_viel": "Federal and state governments agree on housing and urban development funding. The costs of final disposal follow from legal obligations.",
+     "gut_zu_wissen": [
+      {
+       "text": "Most climate protection spending is not here but in the Climate and Transformation Fund, a separate pot: €34.8 billion (budget 2026).",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 6092",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 102
+    }
    }
   },
   {
@@ -5185,6 +5634,39 @@
      }
     ],
     "woerter": 99
+   },
+   "en": {
+    "name": "General financial management",
+    "begruendung": "The Federal Railway Fund and aid for coal regions are based on laws. Lump-sum savings targets and reserve items can be shaped politically.",
+    "erklaerung": {
+     "was_ist_das": "Items without a specific policy field: money for special funds (separate federal pots), aid for coal regions, costs of the Federal Railway Fund and lump-sum savings targets.",
+     "wer_bekommt_das_geld": "Special funds, states and the Federal Railway Fund, which among other things provides for former railway civil servants.",
+     "groesste_posten": [
+      {
+       "name": "Reimbursement of administrative expenses of the Federal Railway Fund",
+       "text": "Reimbursement of administrative expenses of the Federal Railway Fund: €5.6bn"
+      },
+      {
+       "name": "Reinforcement of personnel expenditure",
+       "text": "Reinforcement of personnel expenditure: €3.0bn"
+      },
+      {
+       "name": "Allocation to the special fund Reconstruction Aid 2021",
+       "text": "Allocation to the special fund Reconstruction Aid 2021: €2.5bn"
+      }
+     ],
+     "warum_so_viel": "The amount is small because negative items are also listed here, above all a lump-sum spending cut of €8 billion (budget 2026).",
+     "gut_zu_wissen": [
+      {
+       "text": "A lump-sum spending cut (globale Minderausgabe) is a savings target without a specified item. It has to be achieved during the year.",
+       "quelle": {
+        "titel": "Bundeshaushaltsplan 2026, Kap. 6002 Tit. 972 01",
+        "url": "https://www.bundeshaushalt.de/"
+       }
+      }
+     ],
+     "woerter": 113
+    }
    }
   }
  ]
