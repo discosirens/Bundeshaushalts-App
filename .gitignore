@@ -1,0 +1,11 @@
+# Sperrdateien von Office (entstehen, solange eine Datei geöffnet ist)
+~$*
+
+# Python-Zwischendateien
+__pycache__/
+*.pyc
+
+# Betriebssystem
+Thumbs.db
+desktop.ini
+.DS_Store
