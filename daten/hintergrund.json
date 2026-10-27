@@ -501,7 +501,7 @@
    {
     "jahr": 2019,
     "mrd": 46.9,
-    "anteil_bip": 1.33,
+    "anteil_bip": 1.32,
     "art": "Ist"
    },
    {
@@ -519,19 +519,31 @@
    {
     "jahr": 2022,
     "mrd": 58.3,
-    "anteil_bip": 1.48,
+    "anteil_bip": 1.46,
     "art": "Ist"
    },
    {
     "jahr": 2023,
     "mrd": 67.6,
-    "anteil_bip": 1.61,
+    "anteil_bip": 1.6,
     "art": "Ist"
    },
    {
     "jahr": 2024,
     "mrd": 86.6,
     "anteil_bip": 2.0,
+    "art": "Ist"
+   },
+   {
+    "jahr": 2025,
+    "mrd": 99.3,
+    "anteil_bip": 2.22,
+    "art": "Schätzung"
+   },
+   {
+    "jahr": 2026,
+    "mrd": 124.7,
+    "anteil_bip": 2.69,
     "art": "Schätzung"
    }
   ],
@@ -551,7 +563,7 @@
   },
   "quellen": [
    {
-    "titel": "NATO: Defence Expenditure of NATO Countries (2014-2025), Juni 2025, Tabellen 1 und 3 (daten/roh/def-exp-2025-en.pdf)",
+    "titel": "NATO: Defence Investment of NATO Countries (2014-2026), Juli 2026, Tabellen 1 und 3 (daten/roh/def-exp-2026-en.pdf)",
     "url": "https://www.nato.int/cps/en/natohq/topics_49198.htm"
    },
    {

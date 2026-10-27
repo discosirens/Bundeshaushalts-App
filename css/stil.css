@@ -1073,6 +1073,25 @@ td button {
   .hundert-zeile { grid-template-columns: minmax(0, 1fr) 3.5rem 4.25rem; gap: 0.5rem; font-size: 0.875rem; padding-inline: 0.25rem; }
 }
 
+/* ---------- Drucken ---------- */
+
+@media print {
+  .topbar, .sprachwahl, .inhalt-nav, .mehr-zeilen, .bilanz, .hero-knoepfe, .aufruf, .glossar-box,
+  #glossar-feld, label[for="glossar-feld"], .suche { display: none !important; }
+  body, .thema, .debatte, .karte-block { background: #fff !important; color: #000; box-shadow: none !important; }
+  .hero { background: none !important; color: #000; }
+  .hero * { color: #000 !important; }
+  .thema { border: 1px solid #ccc; break-inside: auto; }
+  .thema > summary::after, .quellen-auf > summary::after { display: none; }
+  /* Gekürzte Listen und Zeitstrahl vollständig */
+  tr[hidden] { display: table-row !important; }
+  .zeitstrahl li.kurz h3 + p { display: block; }
+  .begriff-eintrag { flex-basis: 100%; background: none; }
+  a { color: #000; }
+  /* Balken und Farbpunkte auch drucken, wenn "Hintergrundgrafiken" ausgeschaltet ist */
+  .anteilsbalken, .punkt, .art-balken, .hundert-liste, .zeitstrahl, .treemap { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .knopf, .feld { transition: none; }

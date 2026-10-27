@@ -1,7 +1,8 @@
 # Projektregeln: Bundeshaushalts-App
 
 ## Zweck und Haltung
-- Politische Bildung zum deutschen Bundeshaushalt. Zielgruppe: Laien und Schulen.
+- Politische Bildung zum deutschen Bundeshaushalt. Zielgruppe: junge politisch Interessierte und interessierte
+  Erwachsene, ohne Vorwissen.
 - Neutral darstellen, keine Wertungen.
 
 ## Sprache der App
@@ -41,7 +42,7 @@
 - `daten/hintergrund.json` wird mit `py skripte/hintergrund_erzeugen.py` erzeugt (Einnahmen aus den Rohdaten,
   Zeitreihe aus BMF-Tabellen mit Quelle je Jahr).
 - `daten/debatten.json` (aktuelle Debatten) wird von Hand gepflegt: Positionen immer zuschreiben, nie bewerten,
-  jede Zahl mit Quelle, Stand-Datum mitführen. Bei neuen Entwicklungen (Gesetze, Zahlen) aktualisieren.
+  jede Zahl mit Quelle, Stand-Datum je Debatte in `stand_datum` mitführen. Bei neuen Entwicklungen (Gesetze, Zahlen) aktualisieren.
 - `daten/kapitel_texte.json`: handgeschriebene Erklärungen der 30 größten Kapitel (Deutsch und Englisch).
   Die App zeigt sie nur bei `"freigegeben": true`; Freigabe erst nach Prüfung durch mich.
 - Suche: Posten mit unklaren amtlichen Namen bekommen in `js/suche.js` zusätzliche Suchwörter (Deutsch und

@@ -1,8 +1,9 @@
 {
-  "hinweis": "Von Hand gepflegt. Positionen werden zugeschrieben, nicht bewertet. Jede Zahl mit Jahr, Art und Quelle.",
+  "hinweis": "Von Hand gepflegt. Positionen werden zugeschrieben, nicht bewertet. Jede Zahl mit Jahr, Art und Quelle. stand_datum (JJJJ-MM-TT) bei jeder inhaltlichen Änderung einer Debatte anpassen.",
   "debatten": [
     {
       "id": "grundsicherung",
+      "stand_datum": "2026-10-26",
       "titel": {"de": "Grundsicherung statt Bürgergeld", "en": "Basic income support replaces citizen's income"},
       "stand": {
         "de": "Seit dem 1. Juli 2026 heißt das Bürgergeld „Grundsicherungsgeld“. Der Bundestag hat das Gesetz am 5. März 2026 beschlossen, der Bundesrat hat es am 27. März 2026 gebilligt.",
@@ -55,6 +56,7 @@
     },
     {
       "id": "vermoegensteuer",
+      "stand_datum": "2026-10-26",
       "titel": {"de": "Vermögensteuer", "en": "Wealth tax"},
       "stand": {
         "de": "Die Vermögensteuer wird seit 1997 nicht mehr erhoben. Das Bundesverfassungsgericht hatte 1995 entschieden, dass die damalige Ausgestaltung gegen das Grundgesetz verstößt. Das Gesetz wurde danach weder angepasst noch abgeschafft. Im Koalitionsvertrag von CDU/CSU und SPD von 2025 kommt sie nicht vor.",

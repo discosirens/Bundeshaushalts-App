@@ -515,7 +515,10 @@ function zeigeDebatten() {
     const karte = document.createElement("article");
     karte.className = "debatte";
     karte.innerHTML = `<span class="debatte-etikett"></span><h3></h3><p class="debatte-stand"></p>`;
-    karte.querySelector(".debatte-etikett").textContent = t("hg.debatte.stand");
+    // Stand-Datum je Debatte aus debatten.json, z. B. "Stand: 26. Oktober 2026"
+    const datum = new Date(`${d.stand_datum}T12:00:00`);
+    karte.querySelector(".debatte-etikett").textContent = Number.isNaN(datum.getTime()) ? ""
+      : t("hg.debatte.stand", { datum: datum.toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" }) });
     karte.querySelector("h3").textContent = tx(d.titel);
     karte.querySelector(".debatte-stand").textContent = tx(d.stand);
 

@@ -250,7 +250,7 @@ const TEXTE = {
     "nato.zaehlt.2": "Forschung und Entwicklung für militärische Zwecke.",
     "nato.zaehlt.3": "Friedens- und humanitäre Einsätze sowie andere Kräfte, etwa Teile der Polizei, soweit sie militärisch einsetzbar sind.",
     "nato.zaehlt.4": "Nicht mitgezählt werden zum Beispiel Zivilschutz und Entschädigungen für Kriegsschäden.",
-    "nato.hinweis": "Die Zahlen beruhen auf unterschiedlichen Abgrenzungen und dürfen nicht addiert werden. Die NATO rechnet mit eigenen Wirtschaftsdaten, ihre Anteile am BIP weichen deshalb von nationalen Angaben ab. Die NATO-Reihe endet 2024, weil der verwendete Bericht von Juni 2025 stammt.",
+    "nato.hinweis": "Die Zahlen beruhen auf unterschiedlichen Abgrenzungen und dürfen nicht addiert werden. Die NATO rechnet mit eigenen Wirtschaftsdaten, ihre Anteile am BIP weichen deshalb von nationalen Angaben ab. Die NATO-Reihe stammt aus dem Bericht von Juli 2026, die Werte für 2025 und 2026 sind dort Schätzungen.",
     "hg.art.Finanzplan": "Finanzplan",
     "hg.art.Schätzung": "Schätzung",
     "hg.geschichte.tabelle": "Alle Werte als Tabelle",
@@ -259,7 +259,7 @@ const TEXTE = {
     "hg.bis": "bis",
     "hg.debatten.titel": "Aktuelle Debatten",
     "hg.debatten.text": "Zwei Themen, über die gerade viel gestritten wird. Hier stehen Fakten und die wichtigsten Positionen, ohne Bewertung.",
-    "hg.debatte.stand": "Stand: Oktober 2026",
+    "hg.debatte.stand": "Stand: {datum}",
     "hg.debatte.gut": "Gut zu wissen",
     "hg.debatte.weitere": "Weitere Quellen",
     "hg.quellen.hinweis": "Einnahmen 2025 und 2026: Bundeshaushaltsplan, Soll. Die Quellen der Debatten stehen direkt bei den Abschnitten.",
@@ -610,7 +610,7 @@ const TEXTE = {
     "nato.zaehlt.2": "Research and development for military purposes.",
     "nato.zaehlt.3": "Peacekeeping and humanitarian operations, and other forces such as parts of the police, to the extent that they can be deployed militarily.",
     "nato.zaehlt.4": "Not counted are, for example, civil defence and payments for war damage.",
-    "nato.hinweis": "The figures are based on different definitions and must not be added up. NATO uses its own economic data, so its shares of GDP differ from national figures. The NATO series ends in 2024 because the report used dates from June 2025.",
+    "nato.hinweis": "The figures are based on different definitions and must not be added up. NATO uses its own economic data, so its shares of GDP differ from national figures. The NATO series comes from the July 2026 report, where the figures for 2025 and 2026 are estimates.",
     "hg.art.Finanzplan": "financial plan",
     "hg.art.Schätzung": "estimate",
     "hg.geschichte.tabelle": "All values as a table",
@@ -619,7 +619,7 @@ const TEXTE = {
     "hg.bis": "to",
     "hg.debatten.titel": "Current debates",
     "hg.debatten.text": "Two topics that are hotly debated right now. Here are the facts and the main positions, without judgement.",
-    "hg.debatte.stand": "As of October 2026",
+    "hg.debatte.stand": "As of {datum}",
     "hg.debatte.gut": "Good to know",
     "hg.debatte.weitere": "More sources",
     "hg.quellen.hinweis": "Revenue 2025 and 2026: federal budget plan, Soll. The sources for the debates are given directly with each section.",
@@ -902,3 +902,15 @@ document.addEventListener("click", (ereignis) => {
 });
 // Anker in der Adresse geändert, ohne die Seite neu zu laden (z. B. Zurück-Taste)
 window.addEventListener("hashchange", () => oeffneZiel(decodeURIComponent(location.hash.slice(1))));
+
+// Drucken: alle eingeklappten Abschnitte öffnen, danach den vorherigen Zustand wiederherstellen
+let zuBeimDrucken = [];
+window.addEventListener("beforeprint", () => {
+  if (zuBeimDrucken.length) return;   // schon geöffnet (Druckvorschau mehrfach aufgerufen)
+  zuBeimDrucken = [...document.querySelectorAll("details:not([open])")];
+  for (const d of zuBeimDrucken) d.open = true;
+});
+window.addEventListener("afterprint", () => {
+  for (const d of zuBeimDrucken) d.open = false;
+  zuBeimDrucken = [];
+});

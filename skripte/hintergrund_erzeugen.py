@@ -118,20 +118,25 @@ def ukraine_posten():
 # Verteidigung: Bundeshaushalt und NATO-Definition
 # ---------------------------------------------------------------------------
 
-QUELLE_NATO = {"titel": "NATO: Defence Expenditure of NATO Countries (2014-2025), Juni 2025, Tabellen 1 und 3 (daten/roh/def-exp-2025-en.pdf)",
+QUELLE_NATO = {"titel": "NATO: Defence Investment of NATO Countries (2014-2026), Juli 2026, Tabellen 1 und 3 (daten/roh/def-exp-2026-en.pdf)",
                "url": "https://www.nato.int/cps/en/natohq/topics_49198.htm"}
 QUELLE_FINANZBERICHT = {"titel": "BMF: Finanzbericht 2027, Abschnitt 1.4.3.5 Verteidigung einschließlich NATO-Quote",
                         "url": "https://www.bundesfinanzministerium.de/Content/DE/Downloads/Broschueren_Bestellservice/finanzbericht-2027.pdf?__blob=publicationFile&v=3"}
 
-# Deutschland nach NATO-Definition: Jahr -> (Mio. Euro, laufende Preise; Anteil am realen BIP in %; Art)
+# Deutschland nach NATO-Definition (Kernverteidigung): Jahr -> (Mio. Euro, laufende Preise; Anteil am realen BIP in %; Art)
+# Aus dem NATO-Bericht von Juli 2026 (Stichtag 3. Juli 2026), Tabelle 1 und Tabelle 3. 2025 und 2026 sind Schätzungen.
+# Das PDF enthält nur Bilder, deshalb von Hand abgelesen. Die Euro-Beträge bis 2024 prüft pruefe_nato_pdf()
+# zusätzlich gegen den Bericht von 2025 (mit Text). Die BIP-Anteile 2019, 2022 und 2023 hat die NATO 2026 leicht korrigiert.
 NATO_DEUTSCHLAND = {
     2014: (34_749, 1.16, "Ist"),
-    2019: (46_936, 1.33, "Ist"),
+    2019: (46_936, 1.32, "Ist"),
     2020: (51_392, 1.49, "Ist"),
     2021: (52_431, 1.43, "Ist"),
-    2022: (58_266, 1.48, "Ist"),
-    2023: (67_621, 1.61, "Ist"),
-    2024: (86_638, 2.00, "Schätzung"),
+    2022: (58_266, 1.46, "Ist"),
+    2023: (67_621, 1.60, "Ist"),
+    2024: (86_638, 2.00, "Ist"),
+    2025: (99_298, 2.22, "Schätzung"),
+    2026: (124_660, 2.69, "Schätzung"),
 }
 
 # Finanzplan des Bundes: Einzelplan 14 in Mrd. Euro (Finanzbericht 2027)
@@ -139,7 +144,7 @@ FINANZPLAN_EP14 = {2028: 153.92, 2029: 162.94, 2030: 183.66}
 
 
 def pruefe_nato_pdf():
-    """Vergleicht die Werte oben mit dem NATO-PDF, falls pdftotext verfügbar ist."""
+    """Vergleicht die Euro-Beträge bis 2024 mit dem NATO-Bericht 2025 (Text-PDF), falls pdftotext verfügbar ist."""
     import shutil
     import subprocess
     if not shutil.which("pdftotext"):
