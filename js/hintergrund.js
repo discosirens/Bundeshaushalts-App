@@ -10,6 +10,28 @@ const el = (id) => document.getElementById(id);
 const tx = (o) => o[SPRACHE] ?? o.de;
 const mrdAusMrd = (n) => milliarden(n * 1e6);
 
+// Lange Tabellen kürzen: nur die Zeilen mit zeigen(index) bleiben sichtbar, der Rest per Knopf
+function kuerzeTabelle(tabelle, zeigen) {
+  const zeilen = [...tabelle.tBodies[0].rows];
+  const versteckt = zeilen.filter((_, i) => !zeigen(i, zeilen.length));
+  const rahmen = tabelle.closest(".tabelle-rahmen") || tabelle;
+  rahmen.nextElementSibling?.classList.contains("mehr-zeilen") && rahmen.nextElementSibling.remove();
+  if (versteckt.length === 0) return;
+  for (const z of versteckt) z.hidden = true;
+  const knopf = document.createElement("button");
+  knopf.type = "button";
+  knopf.className = "knopf-klein mehr-zeilen";
+  knopf.textContent = t("tabelle.alle", { n: zeilen.length });
+  knopf.setAttribute("aria-expanded", "false");
+  knopf.addEventListener("click", () => {
+    const auf = knopf.getAttribute("aria-expanded") !== "true";
+    for (const z of versteckt) z.hidden = !auf;
+    knopf.setAttribute("aria-expanded", String(auf));
+    knopf.textContent = auf ? t("tabelle.weniger") : t("tabelle.alle", { n: zeilen.length });
+  });
+  rahmen.after(knopf);
+}
+
 function link(eltern, quelle, mitKlammer = true) {
   const a = document.createElement("a");
   a.href = quelle.url;
@@ -121,13 +143,23 @@ function zeigeVerfahren() {
   liste.replaceChildren();
   let aktuell = null;
   let naechster = null;
+  let kurze = 0;
   for (const s of verfahren.schritte) {
     const status = schrittStatus(s, heute);
     const text = tx(s);
+    // Ausführlich nur der aktuelle und der nächste geplante Schritt, die anderen in einer Zeile
+    let ausfuehrlich = status === "aktuell";
     if (status === "aktuell" && !aktuell) aktuell = text;
-    if (status === "geplant" && !naechster) naechster = text;
+    if (status === "geplant" && !naechster) {
+      naechster = text;
+      ausfuehrlich = true;
+    }
     const li = document.createElement("li");
     li.className = status;
+    if (!ausfuehrlich) {
+      li.classList.add("kurz");
+      kurze += 1;
+    }
     if (status === "aktuell") li.setAttribute("aria-current", "step");
     li.innerHTML = `<div class="zeitstrahl-inhalt"><p class="zeitstrahl-kopf"><span class="zeitstrahl-datum"></span><span class="zeitstrahl-status"></span></p><h3></h3><p></p></div>`;
     li.querySelector(".zeitstrahl-datum").textContent = text.datum;
@@ -136,10 +168,27 @@ function zeigeVerfahren() {
     li.querySelector("h3 + p").textContent = text.text;
     liste.appendChild(li);
   }
+  liste.nextElementSibling?.classList.contains("mehr-zeilen") && liste.nextElementSibling.remove();
+  if (kurze > 0) {
+    const knopf = document.createElement("button");
+    knopf.type = "button";
+    knopf.className = "knopf-klein mehr-zeilen";
+    knopf.textContent = t("verf.alle");
+    knopf.setAttribute("aria-expanded", "false");
+    knopf.addEventListener("click", () => {
+      const auf = liste.classList.toggle("alle-ausfuehrlich");
+      knopf.setAttribute("aria-expanded", String(auf));
+      knopf.textContent = auf ? t("tabelle.weniger") : t("verf.alle");
+    });
+    liste.after(knopf);
+  }
+
   const stand = el("verfahren-stand");
   if (aktuell) stand.textContent = t("verf.jetzt", { titel: aktuell.titel, datum: aktuell.datum });
   else if (naechster) stand.textContent = t("verf.naechstes", { titel: naechster.titel, datum: naechster.datum });
   else stand.hidden = true;
+  // Der aktuelle Stand steht auch in der Kurzfassung des eingeklappten Abschnitts
+  if (!stand.hidden) el("verfahren-kurz").textContent = stand.textContent;
 
   const q = el("verfahren-quellen");
   q.textContent = `${t("erkl.quelle")}:`;
@@ -180,6 +229,7 @@ function zeigeInfo(z) {
 function zeichneVerlauf() {
   const box = el("verlauf");
   const breite = box.clientWidth;
+  if (breite === 0) return;   // Abschnitt eingeklappt; gezeichnet wird beim Aufklappen
   const hoehe = breite < 500 ? 240 : 300;
   const rand = { l: 36, r: 6, o: 22, u: 24 };
   const von = 1968;
@@ -289,6 +339,9 @@ function zeigeVerteidigung() {
     zellen[2].textContent = SPRACHE === "en" ? `${zahl(z.anteil_bip, 2)}%` : `${zahl(z.anteil_bip, 2)} %`;
     reihe.appendChild(tr);
   }
+  // Sichtbar: Soll und Entwurf bis 2027 sowie die letzten drei NATO-Jahre
+  kuerzeTabelle(el("nato-haushalt"), (i) => v.haushalt[i].jahr <= 2027);
+  kuerzeTabelle(el("nato-reihe"), (i, n) => i >= n - 3);
   const q = v.quote_2026;
   const p = el("nato-quote");
   p.textContent = t("nato.quote", {
@@ -313,7 +366,8 @@ function zeigeUkraine() {
 
   const tbody = el("ua-tabelle").querySelector("tbody");
   tbody.replaceChildren();
-  for (const p of ua.posten) {
+  // Größte Posten (Soll 2026) zuerst, damit beim Kürzen die wichtigsten sichtbar bleiben
+  for (const p of [...ua.posten].sort((a, b) => b["2026"] - a["2026"] || b["2027"] - a["2027"])) {
     const tr = document.createElement("tr");
     tr.innerHTML = "<td><span></span><br><small></small></td><td></td><td></td><td></td>";
     const zellen = tr.querySelectorAll("td");
@@ -324,6 +378,7 @@ function zeigeUkraine() {
     zellen[3].textContent = euro(p["2027"]);
     tbody.appendChild(tr);
   }
+  kuerzeTabelle(el("ua-tabelle"), (i) => i < 5);
   const tfoot = el("ua-tabelle").querySelector("tfoot");
   tfoot.innerHTML = "<tr><th scope=\"row\"></th><td></td><td></td><td></td></tr>";
   tfoot.querySelector("th").textContent = t("ua.summe");
@@ -389,11 +444,12 @@ function zeigeLaender() {
   feld.addEventListener("change", waehleLand);
   feld.addEventListener("keydown", (e) => { if (e.key === "Enter") waehleLand(); });
 
-  el("oda-top-titel").textContent = t("oda.top", { jahr: j });
+  const TOP = 10;
+  el("oda-top-titel").textContent = t("oda.top", { n: TOP, jahr: j });
   const top = el("oda-top");
   top.replaceChildren();
   const groesster = laender.laender[0].jahre[j].netto;
-  for (const l of laender.laender.slice(0, 15)) {
+  for (const l of laender.laender.slice(0, TOP)) {
     const li = document.createElement("li");
     li.innerHTML = `<button type="button" class="oda-zeile"><span class="oda-name"></span><span class="art-balken"><span></span></span><span class="oda-wert"></span></button>`;
     li.querySelector(".oda-name").textContent = landName(l);
@@ -413,7 +469,7 @@ function zeigeLaender() {
   if (land) {
     feld.value = landName(land);
     zeigeLand(land);
-    setTimeout(() => el("laender").scrollIntoView({ block: "start" }), 50);
+    setTimeout(() => oeffneZiel("laender"), 50);
   }
 }
 
@@ -514,9 +570,26 @@ function zeigeQuellen() {
   ul.appendChild(li);
 }
 
+// ---------- Alle Themen öffnen oder schließen ----------
+
+function richteThemenEin() {
+  const knopf = el("alle-themen");
+  const themen = [...document.querySelectorAll("details.thema")];
+  const aktualisiere = () => {
+    const alleOffen = themen.every((d) => d.open);
+    knopf.textContent = t(alleOffen ? "hg.alle.schliessen" : "hg.alle.oeffnen");
+  };
+  knopf.addEventListener("click", () => {
+    const oeffnen = !themen.every((d) => d.open);
+    for (const d of themen) d.open = oeffnen;
+  });
+  for (const d of themen) d.addEventListener("toggle", aktualisiere);
+}
+
 // ---------- Start ----------
 
 async function start() {
+  richteThemenEin();
   try {
     [hg, debatten, laender] = await Promise.all([
       fetch(datei("daten/hintergrund.json")).then((a) => a.json()),
@@ -539,9 +612,10 @@ async function start() {
   zeigeDebatten();
   zeigeQuellen();
 
-  // Sprungziel (z. B. #verfahren) erst nach dem Aufbau der Inhalte ansteuern
-  const ziel = location.hash && !new URLSearchParams(location.search).has("land") && document.getElementById(location.hash.slice(1));
-  if (ziel) setTimeout(() => ziel.scrollIntoView({ block: "start" }), 50);
+  // Sprungziel (z. B. #verfahren) erst nach dem Aufbau der Inhalte öffnen und ansteuern
+  if (location.hash && !new URLSearchParams(location.search).has("land")) {
+    setTimeout(() => oeffneZiel(decodeURIComponent(location.hash.slice(1))), 50);
+  }
 
   let letzteBreite = el("verlauf").clientWidth;
   new ResizeObserver(() => {

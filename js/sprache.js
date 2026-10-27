@@ -320,7 +320,7 @@ const TEXTE = {
     "oda.einleitung": "Im Bundeshaushalt sind Entwicklungsgelder nicht nach Ländern aufgeteilt. Die OECD veröffentlicht aber, wie viel Deutschland tatsächlich an welches Land ausgezahlt hat. {jahr} meldete Deutschland Entwicklungsleistungen von {alle}. Davon waren {zugeordnet} ({anteil}) einzelnen Ländern zugeordnet.",
     "oda.suche": "Land suchen",
     "oda.platzhalter": "z. B. Sri Lanka, Indien, Kenia",
-    "oda.top": "Die 15 größten Empfängerländer {jahr} (netto)",
+    "oda.top": "Die {n} größten Empfängerländer {jahr} (netto)",
     "oda.land.titel": "{land}: deutsche Entwicklungsleistungen {jahr} (Ist)",
     "oda.netto": "Netto insgesamt",
     "oda.keine": "keine",
@@ -345,7 +345,7 @@ const TEXTE = {
     "verf.hinweis": "Termine laut Zeitplan des Bundestages. Geplante Termine können sich verschieben.",
     "hero.verfahren": "So geht es weiter",
     "glossar.titel": "Begriffe einfach erklärt",
-    "glossar.text": "Diese Begriffe sind in der ganzen App gepunktet unterstrichen. Fahre mit der Maus darüber oder tippe sie an, dann erscheint die Erklärung.",
+    "glossar.text": "Diese Begriffe sind in der ganzen App gepunktet unterstrichen. Fahre mit der Maus darüber oder tippe sie an, dann erscheint die Erklärung. Hier tippst du auf einen Begriff, um ihn aufzuklappen.",
     "glossar.schliessen": "Erklärung schließen",
     "glossar.alle": "Alle Begriffe",
     "hundert.titel": "Wohin gehen 100 Euro?",
@@ -354,6 +354,33 @@ const TEXTE = {
     "hundert.quelle": "Soll 2026, Kernhaushalt ohne Sondervermögen. Quelle: Bundeshaushaltsplan 2026, eigene Zuordnung zu 14 Bereichen.",
     "hundert.verteilen": "Selbst anders verteilen →",
     "ua.fazit": "Den gesamten Umfang der deutschen Unterstützung für die Ukraine kann man aus dem Bundeshaushalt deshalb nicht vollständig ablesen.",
+    "hg.inhalt": "Themen auf dieser Seite",
+    "hg.nav.einnahmen": "Einnahmen",
+    "hg.nav.hoehe": "Höhe",
+    "hg.nav.verfahren": "Entstehung",
+    "hg.nav.verlauf": "Verlauf",
+    "hg.nav.nato": "Verteidigung",
+    "hg.nav.ukraine": "Ukraine",
+    "hg.nav.laender": "Länder",
+    "hg.nav.debatten": "Debatten",
+    "hg.nav.glossar": "Begriffe",
+    "hg.alle.oeffnen": "Alle öffnen",
+    "hg.alle.schliessen": "Alle schließen",
+    "hg.kurz.einnahmen": "Steuern, neue Kredite und sonstige Einnahmen im Jahr 2026.",
+    "hg.kurz.hoehe": "Fünf Dinge, die bestimmen, wie viel der Bund ausgeben darf.",
+    "hg.kurz.verfahren": "Vom Entwurf der Regierung bis zum Beschluss im Bundestag.",
+    "hg.kurz.verlauf": "Ausgaben, Kredite und Steuern seit 1969 als Grafik.",
+    "hg.kurz.nato": "Was im Haushalt steht und was die NATO als Verteidigungsausgaben zählt.",
+    "hg.kurz.ukraine": "Ukraine-Posten im Haushalt und die gesamte deutsche Hilfe seit Kriegsbeginn.",
+    "hg.kurz.laender": "Wie viel Entwicklungsgeld aus Deutschland in welches Land fließt.",
+    "hg.kurz.debatten": "Fakten und Positionen zu Themen, über die gerade gestritten wird.",
+    "hg.kurz.glossar": "Fachbegriffe kurz und einfach erklärt.",
+    "tabelle.alle": "Alle {n} Zeilen zeigen",
+    "tabelle.weniger": "Weniger zeigen",
+    "verf.alle": "Alle Schritte ausführlich zeigen",
+    "glossar.suche": "Begriff suchen",
+    "glossar.platzhalter": "z. B. Schuldenbremse",
+    "glossar.keiner": "Kein Begriff gefunden.",
   },
 
   en: {
@@ -653,7 +680,7 @@ const TEXTE = {
     "oda.einleitung": "The federal budget does not split development aid by country. However, the OECD publishes how much Germany actually disbursed to each country. In {jahr}, Germany reported official development assistance of {alle}. Of this, {zugeordnet} ({anteil}) was allocated to individual countries.",
     "oda.suche": "Search for a country",
     "oda.platzhalter": "e.g. Sri Lanka, India, Kenya",
-    "oda.top": "The 15 largest recipient countries in {jahr} (net)",
+    "oda.top": "The {n} largest recipient countries in {jahr} (net)",
     "oda.land.titel": "{land}: German development assistance {jahr} (outturn)",
     "oda.netto": "Net total",
     "oda.keine": "none",
@@ -678,7 +705,7 @@ const TEXTE = {
     "verf.hinweis": "Dates according to the Bundestag's schedule. Planned dates may change.",
     "hero.verfahren": "What happens next",
     "glossar.titel": "Key terms explained",
-    "glossar.text": "These terms have a dotted underline throughout the app. Hover over one or tap it to see the explanation.",
+    "glossar.text": "These terms have a dotted underline throughout the app. Hover over one or tap it to see the explanation. Here, tap a term to open it.",
     "glossar.schliessen": "Close explanation",
     "glossar.alle": "All terms",
     "hundert.titel": "Where do 100 euros go?",
@@ -687,6 +714,33 @@ const TEXTE = {
     "hundert.quelle": "Budget 2026, core budget without special funds. Source: Federal budget plan 2026, own assignment to 14 areas.",
     "hundert.verteilen": "Rebalance it yourself →",
     "ua.fazit": "The full extent of German support for Ukraine therefore cannot be read completely from the federal budget.",
+    "hg.inhalt": "Topics on this page",
+    "hg.nav.einnahmen": "Revenue",
+    "hg.nav.hoehe": "Size",
+    "hg.nav.verfahren": "Process",
+    "hg.nav.verlauf": "History",
+    "hg.nav.nato": "Defence",
+    "hg.nav.ukraine": "Ukraine",
+    "hg.nav.laender": "Countries",
+    "hg.nav.debatten": "Debates",
+    "hg.nav.glossar": "Terms",
+    "hg.alle.oeffnen": "Open all",
+    "hg.alle.schliessen": "Close all",
+    "hg.kurz.einnahmen": "Taxes, new borrowing and other revenue in 2026.",
+    "hg.kurz.hoehe": "Five things that determine how much the federal government may spend.",
+    "hg.kurz.verfahren": "From the government's draft to the vote in the Bundestag.",
+    "hg.kurz.verlauf": "Spending, borrowing and taxes since 1969 as a chart.",
+    "hg.kurz.nato": "What is in the budget and what NATO counts as defence spending.",
+    "hg.kurz.ukraine": "Ukraine items in the budget and Germany's total support since the start of the war.",
+    "hg.kurz.laender": "How much German development funding goes to which country.",
+    "hg.kurz.debatten": "Facts and positions on topics that are currently being debated.",
+    "hg.kurz.glossar": "Technical terms explained briefly and simply.",
+    "tabelle.alle": "Show all {n} rows",
+    "tabelle.weniger": "Show less",
+    "verf.alle": "Show all steps in detail",
+    "glossar.suche": "Search for a term",
+    "glossar.platzhalter": "e.g. debt brake",
+    "glossar.keiner": "No term found.",
   },
 };
 
@@ -825,3 +879,26 @@ function wendeTexteAn() {
 }
 
 wendeTexteAn();
+
+// ---------- Aufklappbare Abschnitte ----------
+
+// Öffnet alle geschlossenen <details> um ein Sprungziel (#id), damit Links auf eingeklappte Inhalte funktionieren.
+function oeffneZiel(id, scrollen = true) {
+  const ziel = id && document.getElementById(id);
+  if (!ziel) return false;
+  for (let d = ziel.closest("details"); d; d = d.parentElement.closest("details")) d.open = true;
+  const thema = ziel.querySelector(":scope > details.thema");
+  if (thema) thema.open = true;
+  if (scrollen) ziel.scrollIntoView({ block: "start" });
+  return true;
+}
+
+// Links innerhalb der Seite: vor dem Springen öffnen, das Springen selbst übernimmt der Browser
+document.addEventListener("click", (ereignis) => {
+  const a = ereignis.target.closest?.('a[href*="#"]');
+  if (!a) return;
+  const url = new URL(a.href, location.href);
+  if (url.pathname === location.pathname && url.hash) oeffneZiel(decodeURIComponent(url.hash.slice(1)), false);
+});
+// Anker in der Adresse geändert, ohne die Seite neu zu laden (z. B. Zurück-Taste)
+window.addEventListener("hashchange", () => oeffneZiel(decodeURIComponent(location.hash.slice(1))));

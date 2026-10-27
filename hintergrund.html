@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hintergrund zum Bundeshaushalt</title>
   <meta name="description" content="Woher kommt das Geld des Bundes, wovon hängt die Höhe des Haushalts ab, und wie hat er sich entwickelt?">
-  <meta name="app-version" content="20261026234049">
+  <meta name="app-version" content="20261027131348">
   <meta name="theme-color" content="#0f1630">
-  <link rel="stylesheet" href="css/stil.css?v=20261026234049">
+  <link rel="stylesheet" href="css/stil.css?v=20261027131348">
 </head>
 <body data-seite="hg">
   <header class="topbar">
@@ -36,184 +36,275 @@
   </section>
 
   <main class="seite">
-    <section class="bereich" aria-labelledby="einnahmen-titel">
-      <h2 class="abschnitt-titel" id="einnahmen-titel" data-t="hg.einnahmen.titel">Woher kommt das Geld?</h2>
-      <p id="einnahmen-text"></p>
-      <div class="anteilsbalken" id="einnahmen-balken" role="img"></div>
-      <ul class="anteils-legende" id="einnahmen-legende"></ul>
-      <div class="karte-block">
-        <h3 data-t="hg.steuern.titel">Die größten Steuereinnahmen des Bundes (Soll 2026)</h3>
-        <ol class="rangliste" id="steuern"></ol>
-        <p class="ergebnis-hinweis" id="steuer-verteilung"></p>
-      </div>
+    <nav class="inhalt-nav" data-t-label="hg.inhalt">
+      <ul>
+        <li><a href="#einnahmen" data-t="hg.nav.einnahmen">Einnahmen</a></li>
+        <li><a href="#hoehe-thema" data-t="hg.nav.hoehe">Höhe</a></li>
+        <li><a href="#verfahren" data-t="hg.nav.verfahren">Entstehung</a></li>
+        <li><a href="#verlauf-thema" data-t="hg.nav.verlauf">Verlauf</a></li>
+        <li><a href="#verteidigung" data-t="hg.nav.nato">Verteidigung</a></li>
+        <li><a href="#ukraine" data-t="hg.nav.ukraine">Ukraine</a></li>
+        <li><a href="#laender" data-t="hg.nav.laender">Länder</a></li>
+        <li><a href="#debatten-thema" data-t="hg.nav.debatten">Debatten</a></li>
+        <li><a href="#glossar" data-t="hg.nav.glossar">Begriffe</a></li>
+      </ul>
+      <button type="button" class="knopf-klein" id="alle-themen" data-t="hg.alle.oeffnen">Alle öffnen</button>
+    </nav>
+
+    <section class="bereich" id="einnahmen" aria-labelledby="einnahmen-titel">
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="einnahmen-titel" data-t="hg.einnahmen.titel">Woher kommt das Geld?</h2>
+          <span class="thema-kurz" data-t="hg.kurz.einnahmen"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <p id="einnahmen-text"></p>
+          <div class="anteilsbalken" id="einnahmen-balken" role="img"></div>
+          <ul class="anteils-legende" id="einnahmen-legende"></ul>
+          <div class="karte-block">
+            <h3 data-t="hg.steuern.titel">Die größten Steuereinnahmen des Bundes (Soll 2026)</h3>
+            <ol class="rangliste" id="steuern"></ol>
+            <p class="ergebnis-hinweis" id="steuer-verteilung"></p>
+          </div>
+        </div>
+      </details>
     </section>
 
-    <section class="bereich" aria-labelledby="hoehe-titel">
-      <h2 class="abschnitt-titel" id="hoehe-titel" data-t="hg.hoehe.titel">Wovon hängt die Höhe ab?</h2>
-      <div class="karten-raster" id="hoehe"></div>
+    <section class="bereich" id="hoehe-thema" aria-labelledby="hoehe-titel">
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="hoehe-titel" data-t="hg.hoehe.titel">Wovon hängt die Höhe ab?</h2>
+          <span class="thema-kurz" data-t="hg.kurz.hoehe"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <div class="karten-raster" id="hoehe"></div>
+        </div>
+      </details>
     </section>
 
     <section class="bereich" id="verfahren" aria-labelledby="verfahren-titel">
-      <h2 class="abschnitt-titel" id="verfahren-titel" data-t="verf.titel">Wie entsteht der Haushalt?</h2>
-      <p class="hinweis" id="verfahren-text"></p>
-      <p class="ergebnis-hinweis" id="verfahren-stand" aria-live="polite"></p>
-      <ol class="zeitstrahl" id="zeitstrahl"></ol>
-      <p class="hinweis" data-t="verf.hinweis"></p>
-      <p class="debatte-quelle" id="verfahren-quellen"></p>
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="verfahren-titel" data-t="verf.titel">Wie entsteht der Haushalt?</h2>
+          <span class="thema-kurz" id="verfahren-kurz" data-t="hg.kurz.verfahren"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <p class="hinweis" id="verfahren-text"></p>
+          <p class="ergebnis-hinweis" id="verfahren-stand" aria-live="polite"></p>
+          <ol class="zeitstrahl" id="zeitstrahl"></ol>
+          <p class="hinweis" data-t="verf.hinweis"></p>
+          <p class="debatte-quelle" id="verfahren-quellen"></p>
+        </div>
+      </details>
     </section>
 
-    <section class="bereich" aria-labelledby="verlauf-titel">
-      <h2 class="abschnitt-titel" id="verlauf-titel" data-t="hg.geschichte.titel">So hat sich der Haushalt entwickelt</h2>
-      <p class="hinweis" data-t="hg.geschichte.text"></p>
-      <div class="karte-block">
-        <ul class="verlauf-legende">
-          <li><span class="punkt punkt-ausgaben"></span><span data-t="hg.geschichte.ausgaben"></span></li>
-          <li><span class="punkt punkt-kredite"></span><span data-t="hg.geschichte.kredite"></span></li>
-          <li><span class="punkt punkt-zeit"></span><span data-t="hg.geschichte.ereignis"></span></li>
-        </ul>
-        <div class="verlauf" id="verlauf"></div>
-        <p class="verlauf-info" id="verlauf-info" aria-live="polite" data-t="hg.geschichte.tipp"></p>
-        <ol class="ereignisse" id="ereignisse"></ol>
-        <details class="liste-innen">
-          <summary data-t="hg.geschichte.tabelle">Alle Werte als Tabelle</summary>
-          <div class="tabelle-rahmen">
-            <table id="verlauf-tabelle">
-              <thead><tr>
-                <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
-                <th scope="col" data-t="hg.geschichte.ausgaben">Ausgaben</th>
-                <th scope="col" data-t="hg.geschichte.kredite.kurz">Neue Kredite</th>
-                <th scope="col" data-t="hg.geschichte.steuern">Steuern</th>
-              </tr></thead>
-              <tbody></tbody>
-            </table>
+    <section class="bereich" id="verlauf-thema" aria-labelledby="verlauf-titel">
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="verlauf-titel" data-t="hg.geschichte.titel">So hat sich der Haushalt entwickelt</h2>
+          <span class="thema-kurz" data-t="hg.kurz.verlauf"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <p class="hinweis" data-t="hg.geschichte.text"></p>
+          <div class="karte-block">
+            <ul class="verlauf-legende">
+              <li><span class="punkt punkt-ausgaben"></span><span data-t="hg.geschichte.ausgaben"></span></li>
+              <li><span class="punkt punkt-kredite"></span><span data-t="hg.geschichte.kredite"></span></li>
+              <li><span class="punkt punkt-zeit"></span><span data-t="hg.geschichte.ereignis"></span></li>
+            </ul>
+            <div class="verlauf" id="verlauf"></div>
+            <p class="verlauf-info" id="verlauf-info" aria-live="polite" data-t="hg.geschichte.tipp"></p>
+            <ol class="ereignisse" id="ereignisse"></ol>
+            <details class="liste-innen">
+              <summary data-t="hg.geschichte.tabelle">Alle Werte als Tabelle</summary>
+              <div class="tabelle-rahmen">
+                <table id="verlauf-tabelle">
+                  <thead><tr>
+                    <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
+                    <th scope="col" data-t="hg.geschichte.ausgaben">Ausgaben</th>
+                    <th scope="col" data-t="hg.geschichte.kredite.kurz">Neue Kredite</th>
+                    <th scope="col" data-t="hg.geschichte.steuern">Steuern</th>
+                  </tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <p class="hinweis" data-t="hg.geschichte.luecke"></p>
+            </details>
           </div>
-          <p class="hinweis" data-t="hg.geschichte.luecke"></p>
-        </details>
-      </div>
+        </div>
+      </details>
     </section>
 
-    <section class="bereich" aria-labelledby="nato-titel">
-      <h2 class="abschnitt-titel" id="nato-titel" data-t="nato.titel">Verteidigung: Haushalt und NATO-Zahlen</h2>
-      <article class="debatte">
-        <p data-t="nato.einleitung"></p>
-        <h3 class="ua-unterzeile" data-t="nato.haushalt.titel">Im Bundeshaushalt</h3>
-        <div class="tabelle-rahmen">
-          <table id="nato-haushalt">
-            <thead><tr>
-              <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
-              <th scope="col" data-t="nato.ep14">Einzelplan Verteidigung</th>
-              <th scope="col" data-t="nato.sv">Sondervermögen Bundeswehr</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
+    <section class="bereich" id="verteidigung" aria-labelledby="nato-titel">
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="nato-titel" data-t="nato.titel">Verteidigung: Haushalt und NATO-Zahlen</h2>
+          <span class="thema-kurz" data-t="hg.kurz.nato"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <article class="debatte">
+            <p data-t="nato.einleitung"></p>
+            <h3 class="ua-unterzeile" data-t="nato.haushalt.titel">Im Bundeshaushalt</h3>
+            <div class="tabelle-rahmen">
+              <table id="nato-haushalt">
+                <thead><tr>
+                  <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
+                  <th scope="col" data-t="nato.ep14">Einzelplan Verteidigung</th>
+                  <th scope="col" data-t="nato.sv">Sondervermögen Bundeswehr</th>
+                </tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <h3 class="ua-unterzeile" data-t="nato.nato.titel">Nach NATO-Definition</h3>
+            <div class="tabelle-rahmen">
+              <table id="nato-reihe">
+                <thead><tr>
+                  <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
+                  <th scope="col" data-t="nato.ausgaben">Verteidigungsausgaben</th>
+                  <th scope="col" data-t="nato.anteil">Anteil am BIP</th>
+                </tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <p class="ergebnis-hinweis" id="nato-quote"></p>
+            <details class="unterthema">
+              <summary data-t="nato.zaehlt.titel"></summary>
+              <ul>
+                <li data-t="nato.zaehlt.1"></li>
+                <li data-t="nato.zaehlt.2"></li>
+                <li data-t="nato.zaehlt.3"></li>
+                <li data-t="nato.zaehlt.4"></li>
+              </ul>
+            </details>
+            <p class="hinweis" data-t="nato.hinweis"></p>
+            <p class="debatte-quelle" id="nato-quellen"></p>
+          </article>
         </div>
-        <h3 class="ua-unterzeile" data-t="nato.nato.titel">Nach NATO-Definition</h3>
-        <div class="tabelle-rahmen">
-          <table id="nato-reihe">
-            <thead><tr>
-              <th scope="col" data-t="hg.geschichte.jahr">Jahr</th>
-              <th scope="col" data-t="nato.ausgaben">Verteidigungsausgaben</th>
-              <th scope="col" data-t="nato.anteil">Anteil am BIP</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <p class="ergebnis-hinweis" id="nato-quote"></p>
-        <h3 class="ua-unterzeile" data-t="nato.zaehlt.titel">Was die NATO mitzählt</h3>
-        <ul>
-          <li data-t="nato.zaehlt.1"></li>
-          <li data-t="nato.zaehlt.2"></li>
-          <li data-t="nato.zaehlt.3"></li>
-          <li data-t="nato.zaehlt.4"></li>
-        </ul>
-        <p class="hinweis" data-t="nato.hinweis"></p>
-        <p class="debatte-quelle" id="nato-quellen"></p>
-      </article>
+      </details>
     </section>
 
-    <section class="bereich" aria-labelledby="ukraine-titel">
-      <h2 class="abschnitt-titel" id="ukraine-titel" data-t="ua.titel">Ukraine-Hilfe im Haushalt</h2>
-      <article class="debatte">
-        <p id="ua-einleitung"></p>
-        <div class="tabelle-rahmen">
-          <table id="ua-tabelle">
-            <thead><tr>
-              <th scope="col" data-t="ua.posten">Posten</th>
-              <th scope="col" data-t="details.soll26">Soll 2026</th>
-              <th scope="col" data-t="details.soll25">Soll 2025</th>
-              <th scope="col" data-t="details.entwurf27">Entwurf 2027</th>
-            </tr></thead>
-            <tbody></tbody>
-            <tfoot></tfoot>
-          </table>
+    <section class="bereich" id="ukraine" aria-labelledby="ukraine-titel">
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="ukraine-titel" data-t="ua.titel">Ukraine-Hilfe im Haushalt</h2>
+          <span class="thema-kurz" data-t="hg.kurz.ukraine"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <article class="debatte">
+            <p id="ua-einleitung"></p>
+            <div class="tabelle-rahmen">
+              <table id="ua-tabelle">
+                <thead><tr>
+                  <th scope="col" data-t="ua.posten">Posten</th>
+                  <th scope="col" data-t="details.soll26">Soll 2026</th>
+                  <th scope="col" data-t="details.soll25">Soll 2025</th>
+                  <th scope="col" data-t="details.entwurf27">Entwurf 2027</th>
+                </tr></thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+              </table>
+            </div>
+            <p class="hinweis" data-t="ua.hinweis.programm"></p>
+            <h3 class="ua-unterzeile" data-t="ua.tracker.titel">Die gesamte Hilfe seit Kriegsbeginn</h3>
+            <p id="ua-tracker-text"></p>
+            <div class="tabelle-rahmen">
+              <table id="ua-tracker">
+                <thead><tr>
+                  <th scope="col" data-t="ua.tracker.art">Art</th>
+                  <th scope="col" data-t="ua.tracker.zugewiesen">Zugewiesen</th>
+                  <th scope="col" data-t="ua.tracker.zugesagt">Zugesagt</th>
+                </tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <p class="hinweis" data-t="ua.tracker.erklaerung"></p>
+            <p class="debatte-quelle" id="ua-tracker-quellen"></p>
+            <details class="unterthema">
+              <summary data-t="ua.aufschluesselung.titel"></summary>
+              <p data-t="ua.aufschluesselung.text"></p>
+            </details>
+            <details class="unterthema">
+              <summary data-t="ua.fehlt.titel"></summary>
+              <ul>
+                <li data-t="ua.fehlt.1"></li>
+                <li data-t="ua.fehlt.2"></li>
+              </ul>
+            </details>
+            <p class="ergebnis-hinweis" data-t="ua.fazit"></p>
+            <p class="debatte-quelle" id="ua-quellen"></p>
+          </article>
         </div>
-        <p class="hinweis" data-t="ua.hinweis.programm"></p>
-        <h3 class="ua-unterzeile" data-t="ua.tracker.titel">Die gesamte Hilfe seit Kriegsbeginn</h3>
-        <p id="ua-tracker-text"></p>
-        <div class="tabelle-rahmen">
-          <table id="ua-tracker">
-            <thead><tr>
-              <th scope="col" data-t="ua.tracker.art">Art</th>
-              <th scope="col" data-t="ua.tracker.zugewiesen">Zugewiesen</th>
-              <th scope="col" data-t="ua.tracker.zugesagt">Zugesagt</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <p class="hinweis" data-t="ua.tracker.erklaerung"></p>
-        <p class="debatte-quelle" id="ua-tracker-quellen"></p>
-        <h3 class="ua-unterzeile" data-t="ua.aufschluesselung.titel">Warum die Militärhilfe nicht aufgeschlüsselt ist</h3>
-        <p data-t="ua.aufschluesselung.text"></p>
-        <h3 class="ua-unterzeile" data-t="ua.fehlt.titel">Was nicht als Ukraine-Posten erkennbar ist</h3>
-        <ul>
-          <li data-t="ua.fehlt.1"></li>
-          <li data-t="ua.fehlt.2"></li>
-        </ul>
-        <p class="ergebnis-hinweis" data-t="ua.fazit"></p>
-        <p class="debatte-quelle" id="ua-quellen"></p>
-      </article>
+      </details>
     </section>
 
     <section class="bereich" id="laender" aria-labelledby="laender-titel">
-      <h2 class="abschnitt-titel" id="laender-titel" data-t="oda.titel">Entwicklungsgelder nach Ländern</h2>
-      <article class="debatte">
-        <p id="oda-einleitung"></p>
-        <label class="suche-label" for="oda-feld" data-t="oda.suche">Land suchen</label>
-        <input type="search" id="oda-feld" class="suchfeld" list="oda-liste" autocomplete="off" data-t-placeholder="oda.platzhalter">
-        <datalist id="oda-liste"></datalist>
-        <div id="oda-land" class="oda-land" aria-live="polite" hidden></div>
-        <h3 class="ua-unterzeile" id="oda-top-titel"></h3>
-        <ol class="oda-rangliste" id="oda-top"></ol>
-        <h3 class="ua-unterzeile" data-t="oda.wichtig.titel">Gut zu wissen</h3>
-        <ul>
-          <li data-t="oda.wichtig.1"></li>
-          <li data-t="oda.wichtig.2"></li>
-          <li data-t="oda.wichtig.3"></li>
-        </ul>
-        <p class="debatte-quelle" id="oda-quelle"></p>
-      </article>
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="laender-titel" data-t="oda.titel">Entwicklungsgelder nach Ländern</h2>
+          <span class="thema-kurz" data-t="hg.kurz.laender"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <article class="debatte">
+            <p id="oda-einleitung"></p>
+            <label class="suche-label" for="oda-feld" data-t="oda.suche">Land suchen</label>
+            <input type="search" id="oda-feld" class="suchfeld" list="oda-liste" autocomplete="off" data-t-placeholder="oda.platzhalter">
+            <datalist id="oda-liste"></datalist>
+            <div id="oda-land" class="oda-land" aria-live="polite" hidden></div>
+            <h3 class="ua-unterzeile" id="oda-top-titel"></h3>
+            <ol class="oda-rangliste" id="oda-top"></ol>
+            <details class="unterthema">
+              <summary data-t="oda.wichtig.titel"></summary>
+              <ul>
+                <li data-t="oda.wichtig.1"></li>
+                <li data-t="oda.wichtig.2"></li>
+                <li data-t="oda.wichtig.3"></li>
+              </ul>
+            </details>
+            <p class="debatte-quelle" id="oda-quelle"></p>
+          </article>
+        </div>
+      </details>
     </section>
 
-    <section class="bereich" aria-labelledby="debatten-titel">
-      <h2 class="abschnitt-titel" id="debatten-titel" data-t="hg.debatten.titel">Aktuelle Debatten</h2>
-      <p class="hinweis" data-t="hg.debatten.text"></p>
-      <div id="debatten" class="debatten"></div>
+    <section class="bereich" id="debatten-thema" aria-labelledby="debatten-titel">
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="debatten-titel" data-t="hg.debatten.titel">Aktuelle Debatten</h2>
+          <span class="thema-kurz" data-t="hg.kurz.debatten"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <p class="hinweis" data-t="hg.debatten.text"></p>
+          <div id="debatten" class="debatten"></div>
+        </div>
+      </details>
     </section>
 
     <section class="bereich" id="glossar" aria-labelledby="glossar-titel">
-      <h2 class="abschnitt-titel" id="glossar-titel" data-t="glossar.titel">Begriffe einfach erklärt</h2>
-      <p class="hinweis" data-t="glossar.text"></p>
-      <dl class="glossar-liste" id="glossar-liste" data-kein-glossar></dl>
+      <details class="thema">
+        <summary>
+          <h2 class="abschnitt-titel" id="glossar-titel" data-t="glossar.titel">Begriffe einfach erklärt</h2>
+          <span class="thema-kurz" data-t="hg.kurz.glossar"></span>
+        </summary>
+        <div class="thema-inhalt">
+          <p class="hinweis" data-t="glossar.text"></p>
+          <label class="suche-label" for="glossar-feld" data-t="glossar.suche">Begriff suchen</label>
+          <input type="search" id="glossar-feld" class="suchfeld" autocomplete="off" data-t-placeholder="glossar.platzhalter">
+          <p class="hinweis" id="glossar-keiner" data-t="glossar.keiner" hidden></p>
+          <div class="glossar-liste" id="glossar-liste" data-kein-glossar></div>
+        </div>
+      </details>
     </section>
 
     <footer class="quellen">
-      <h2 data-t="quellen.titel">Quellen</h2>
-      <ul id="hg-quellen"></ul>
+      <details class="quellen-auf">
+        <summary><h2 data-t="quellen.titel">Quellen</h2></summary>
+        <ul id="hg-quellen"></ul>
+      </details>
     </footer>
   </main>
 
-  <script src="js/sprache.js?v=20261026234049"></script>
-  <script src="js/glossar.js?v=20261026234049"></script>
-  <script src="js/hintergrund.js?v=20261026234049"></script>
+  <script src="js/sprache.js?v=20261027131348"></script>
+  <script src="js/glossar.js?v=20261027131348"></script>
+  <script src="js/hintergrund.js?v=20261027131348"></script>
 </body>
 </html>

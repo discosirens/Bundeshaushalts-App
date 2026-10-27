@@ -123,7 +123,7 @@
       fuss.append(q, " · ");
     }
     const alle = document.createElement("a");
-    alle.href = document.body.dataset.seite === "hg" ? "#glossar" : `${mitSprache("hintergrund.html")}#glossar`;
+    alle.href = document.body.dataset.seite === "hg" ? `#begriff-${b.id}` : `${mitSprache("hintergrund.html")}#begriff-${b.id}`;
     alle.textContent = t("glossar.alle");
     alle.addEventListener("click", () => schliesse(false));
     fuss.append(alle);
@@ -243,6 +243,7 @@
 
   // ---------- Liste aller Begriffe (Hintergrund-Seite) ----------
 
+  // Jeder Begriff ist ein kleiner Knopf, der seine Erklärung aufklappt; dazu ein Suchfeld zum Filtern.
   function zeigeListe() {
     const liste = document.getElementById("glossar-liste");
     if (!liste) return;
@@ -250,19 +251,36 @@
     const sortiert = [...begriffe].sort((a, b) => sprachTeil(a).wort.localeCompare(sprachTeil(b).wort, SPRACHE));
     for (const b of sortiert) {
       const teil = sprachTeil(b);
-      const dt = document.createElement("dt");
-      dt.id = `begriff-${b.id}`;
-      dt.textContent = teil.wort;
-      const dd = document.createElement("dd");
-      dd.textContent = teil.text;
+      const eintrag = document.createElement("details");
+      eintrag.className = "begriff-eintrag";
+      eintrag.id = `begriff-${b.id}`;
+      eintrag.innerHTML = "<summary></summary><p></p>";
+      eintrag.querySelector("summary").textContent = teil.wort;
+      const p = eintrag.querySelector("p");
+      p.textContent = teil.text;
       if (b.quelle) {
         const q = document.createElement("a");
         q.href = b.quelle.url;
         q.textContent = `(${t("erkl.quelle")}: ${b.quelle.titel})`;
-        dd.append(" ", q);
+        p.append(" ", q);
       }
-      liste.append(dt, dd);
+      eintrag.dataset.suche = `${teil.wort} ${(teil.muster || []).join(" ")} ${teil.text}`.toLowerCase();
+      liste.appendChild(eintrag);
     }
+
+    const feld = document.getElementById("glossar-feld");
+    const keiner = document.getElementById("glossar-keiner");
+    if (!feld) return;
+    feld.addEventListener("input", () => {
+      const suche = feld.value.trim().toLowerCase();
+      let treffer = 0;
+      for (const eintrag of liste.children) {
+        const passt = !suche || eintrag.dataset.suche.includes(suche);
+        eintrag.hidden = !passt;
+        if (passt) treffer += 1;
+      }
+      if (keiner) keiner.hidden = treffer > 0;
+    });
   }
 
   async function start() {
@@ -273,6 +291,8 @@
       return;   // ohne Glossar funktioniert die Seite wie bisher
     }
     zeigeListe();
+    // Direktlink auf einen Begriff (hintergrund.html#begriff-...): erst jetzt existiert der Eintrag
+    if (location.hash.startsWith("#begriff-")) oeffneZiel(decodeURIComponent(location.hash.slice(1)));
     baueMuster();
     durchsuche(document.body);
 

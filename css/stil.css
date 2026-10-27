@@ -578,10 +578,10 @@ td button {
 .szenario.aktiv { background: var(--akzent); border-color: var(--akzent); color: var(--akzent-text); }
 .szenario-text { margin: 1rem 0 0; padding: 1rem 1.25rem; background: var(--akzent-hell); border-radius: var(--radius); }
 
-.bereich-liste { display: grid; gap: 0.75rem; }
+.bereich-liste { display: grid; gap: 0.5rem; }
 @media (min-width: 52rem) { .bereich-liste { grid-template-columns: 1fr 1fr; } }
 .bereich-karte {
-  padding: 1rem 1.125rem;
+  padding: 0.625rem 0.875rem 0.5rem;
   border: 2px solid transparent;
   border-radius: var(--radius);
   background: var(--karte);
@@ -589,7 +589,7 @@ td button {
 }
 .bereich-karte.geaendert { border-color: var(--akzent); }
 .karte-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
-.karte-kopf h3 { margin: 0; font-size: 1.0625rem; }
+.karte-kopf h3 { margin: 0; font-size: 1rem; }
 .bindung {
   font-size: 0.75rem;
   font-weight: 600;
@@ -599,11 +599,12 @@ td button {
   color: var(--text-leise);
   white-space: nowrap;
 }
-.karte-werte { margin: 0.375rem 0; display: flex; flex-direction: column; font-variant-numeric: tabular-nums; }
-.karte-werte .soll { color: var(--text-leise); font-size: 0.9375rem; }
+/* Soll und Plan in einer Zeile, damit die 14 Karten weniger Platz brauchen */
+.karte-werte { margin: 0.125rem 0 0; display: flex; flex-wrap: wrap; column-gap: 0.75rem; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+.karte-werte .soll { color: var(--text-leise); }
 .karte-werte .plan { font-weight: 700; }
 
-.regler { display: flex; align-items: center; gap: 0.5rem; }
+.regler { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.125rem; }
 .regler input { flex: 1; min-width: 0; accent-color: var(--akzent); height: 2rem; }
 .knopf-rund {
   flex: none;
@@ -623,8 +624,8 @@ td button {
 .knopf-rund:disabled, .regler input:disabled { opacity: 0.4; cursor: not-allowed; }
 .karte-hinweis { margin: 0.5rem 0 0; font-size: 0.9375rem; color: var(--text-leise); }
 
-.mehr { margin-top: 0.5rem; }
-.mehr summary { cursor: pointer; color: var(--akzent); font-weight: 600; font-size: 0.9375rem; padding: 0.25rem 0; }
+.mehr { margin-top: 0.125rem; }
+.mehr summary { cursor: pointer; color: var(--akzent); font-weight: 600; font-size: 0.875rem; padding: 0.125rem 0; }
 .mehr-inhalt { font-size: 0.9375rem; }
 .mehr-inhalt h4 { margin: 0.75rem 0 0.25rem; font-size: 0.9375rem; }
 .mehr-inhalt p { margin: 0; }
@@ -930,10 +931,109 @@ td button {
 }
 .glossar-box-text { margin: 0.375rem 0 0.5rem; }
 .glossar-box-fuss { margin: 0; font-size: 0.875rem; color: var(--text-leise); }
-.glossar-liste { margin: 0; }
-.glossar-liste dt { margin-top: 0.875rem; font-weight: 700; scroll-margin-top: 6rem; }
-.glossar-liste dd { margin: 0.125rem 0 0; }
-.glossar-liste dd a { font-size: 0.875rem; }
+
+/* ==========================================================================
+   Kompakte Darstellung: aufklappbare Themen, Inhaltsverzeichnis, gekürzte Listen
+   ========================================================================== */
+
+.knopf-klein {
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  background: var(--karte);
+  color: var(--akzent);
+  cursor: pointer;
+}
+.knopf-klein:hover { background: var(--akzent-hell); }
+.mehr-zeilen { margin: 0.5rem 0 0.75rem; }
+
+/* Inhaltsverzeichnis der Hintergrund-Seite */
+.inhalt-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+.inhalt-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0; padding: 0; }
+.inhalt-nav a {
+  display: inline-block;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 999px;
+  background: var(--flaeche);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.inhalt-nav a:hover { background: var(--akzent-hell); color: var(--akzent); }
+
+/* Ein Thema: Überschrift und Kurzfassung, Inhalt per Tipp */
+.bereich:has(> .thema) { margin-top: 0.625rem; }
+.thema {
+  border-radius: var(--radius);
+  background: var(--karte);
+  box-shadow: var(--schatten);
+}
+.thema > summary {
+  display: block;
+  position: relative;
+  padding: 0.875rem 3rem 0.875rem 1.125rem;
+  cursor: pointer;
+  list-style: none;
+}
+.thema > summary::-webkit-details-marker { display: none; }
+.thema > summary::after {
+  content: "";
+  position: absolute;
+  right: 1.125rem;
+  top: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-top: -0.4375rem;
+  border-right: 2.5px solid var(--akzent);
+  border-bottom: 2.5px solid var(--akzent);
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.thema[open] > summary::after { transform: rotate(-135deg); margin-top: -0.125rem; }
+.thema > summary .abschnitt-titel { margin: 0; font-size: clamp(1.1875rem, 4.5vw, 1.5rem); }
+.thema-kurz { display: block; margin-top: 0.125rem; color: var(--text-leise); font-size: 0.9375rem; }
+.thema[open] .thema-kurz { display: none; }   /* im geöffneten Thema steht der Inhalt selbst da */
+.thema[open] > summary { border-bottom: 1px solid var(--linie); }
+.thema-inhalt { padding: 1rem 1.125rem 1.25rem; }
+.thema-inhalt > :first-child { margin-top: 0; }
+/* Karten im aufgeklappten Thema nicht noch einmal als Karte zeichnen */
+.thema-inhalt > .debatte { padding: 0; border: 0; box-shadow: none; background: none; }
+.thema-inhalt .debatten .debatte { box-shadow: none; border: 1px solid var(--linie); border-top: 5px solid var(--akzent); }
+
+/* Unterabschnitte in einem Thema */
+.unterthema { border-top: 1px solid var(--linie); margin: 0.75rem 0; }
+.unterthema > summary { cursor: pointer; font-weight: 700; padding: 0.625rem 0; }
+.unterthema[open] > summary { padding-bottom: 0.25rem; }
+
+/* Zeitstrahl: erledigte und spätere Schritte in einer Zeile */
+.zeitstrahl li.kurz { padding-bottom: 0.625rem; }
+.zeitstrahl li.kurz h3 { font-size: 0.9375rem; font-weight: 600; margin: 0; }
+.zeitstrahl li.kurz h3 + p { display: none; }
+.zeitstrahl.alle-ausfuehrlich li.kurz { padding-bottom: 1.25rem; }
+.zeitstrahl.alle-ausfuehrlich li.kurz h3 { font-size: 1.0625rem; font-weight: 700; margin: 0.125rem 0 0.25rem; }
+.zeitstrahl.alle-ausfuehrlich li.kurz h3 + p { display: block; }
+
+/* Glossar: Begriffe als Knöpfe, die ihre Erklärung aufklappen */
+.glossar-liste { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 0.75rem; }
+.begriff-eintrag { border-radius: 12px; background: var(--flaeche); scroll-margin-top: 6rem; }
+.begriff-eintrag > summary { cursor: pointer; list-style: none; padding: 0.375rem 0.75rem; font-weight: 600; font-size: 0.9375rem; }
+.begriff-eintrag > summary::-webkit-details-marker { display: none; }
+.begriff-eintrag[open] { flex-basis: 100%; background: var(--akzent-hell); }
+.begriff-eintrag[open] > summary { color: var(--akzent); }
+.begriff-eintrag > p { margin: 0; padding: 0 0.75rem 0.625rem; }
+.begriff-eintrag a { font-size: 0.875rem; }
+
+/* Quellen: eingeklappt, per Tipp vollständig */
+.quellen-auf > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+.quellen-auf > summary::-webkit-details-marker { display: none; }
+.quellen-auf > summary h2 { margin: 0; font-size: 1.0625rem; }
+.quellen-auf > summary::after { content: "+"; font-weight: 700; font-size: 1.25rem; color: var(--akzent); }
+.quellen-auf[open] > summary::after { content: "−"; }
+.quellen-auf[open] > summary { margin-bottom: 0.5rem; }
 
 /* ---------- Handy ---------- */
 
@@ -950,10 +1050,14 @@ td button {
   .hauptnav a { padding: 0.375rem 0.5rem; font-size: 0.875rem; }
   .sprachwahl a { padding: 0.25rem 0.4rem; }
   .hero-inhalt { padding: 2rem 1rem 2.5rem; }
-  .fakten { grid-template-columns: 1fr; }
-  .fakt { display: grid; grid-template-columns: auto 1fr; column-gap: 0.75rem; align-items: baseline; }
-  .fakt-wert { font-size: 1.375rem; }
-  .fakt-quelle { grid-column: 1 / -1; }
+  /* Kennzahlen nebeneinander, damit die Treemap früher sichtbar ist */
+  .fakten { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.375rem; margin-top: 1.25rem; }
+  .fakt { padding: 0.5rem 0.5rem 0.625rem; border-radius: 12px; }
+  .fakt-wert { font-size: 1.0625rem; }
+  .fakt-text { font-size: 0.75rem; line-height: 1.3; }
+  .fakt-quelle { font-size: 0.6875rem; line-height: 1.25; }
+  .hero-knoepfe { margin-top: 1.25rem; }
+  .knopf-rund { width: 2.5rem; height: 2.5rem; }
   .treemap { height: 440px; }
   /* Auf dem Handy die Spalte "Soll 2025" ausblenden (nur in diesen Tabellen) */
   #tabelle th:nth-child(3), #tabelle td:nth-child(3),
