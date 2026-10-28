@@ -1,12 +1,14 @@
 {
  "einheit": "Tausend Euro",
  "art": "Soll laut Bundeshaushaltsplan 2025 und 2026, Kernhaushalt ohne Sondervermögen",
+ "jahr": "2026",
+ "vorjahr": "2025",
  "quelle": {
   "titel": "Bundeshaushaltsplan 2026 (Soll), Bundesministerium der Finanzen",
   "url": "https://www.bundeshaushalt.de/"
  },
- "summe_2026": 524540138,
- "summe_2025": 502546135,
+ "summe": 524540138,
+ "summe_vorjahr": 502546135,
  "zuordnung": "Jeder Ausgabetitel ist genau einem Bereich zugeordnet, nach seiner Funktionskennziffer (Funktionenplan des Bundes). Längstes passendes Präfix gewinnt; Ausnahmen siehe 'abweichungen'.",
  "abweichungen": [
   {
@@ -15,8 +17,8 @@
    "bereich": "ukraine",
    "funktion_amtlich": "032 (Verteidigung)",
    "begruendung": "Eigener Bereich für die Szenarien: Die Hilfe für völkerrechtswidrig angegriffene Staaten ist eine eigene politische Entscheidung, steht im Einzelplan 60 und nicht im Verteidigungsetat und bildet eine eigene Kategorie der Bereichsausnahme (Art. 115 GG).",
-   "betrag_2026": 11546799,
-   "betrag_2025": 8258821
+   "betrag": 11546799,
+   "betrag_vorjahr": 8258821
   }
  ],
  "gliederungshinweise": [
@@ -31,10 +33,11 @@
  },
  "bereichsausnahme": {
   "erklaerung": "Nach Art. 115 Abs. 2 GG zählen Ausgaben für Verteidigung, Zivil- und Bevölkerungsschutz, Nachrichtendienste, Schutz informationstechnischer Systeme und Hilfe für völkerrechtswidrig angegriffene Staaten nicht für die Schuldenbremse, soweit sie 1 % des Bruttoinlandsprodukts übersteigen. Die Beträge je Bereich zeigen alle Ausgaben dieser Kategorien, nicht nur den Teil über 1 %.",
-  "summe_2026": 100862256,
-  "schwelle_1_prozent_bip_2026": 43290000,
-  "abzug_2026": 57573000,
-  "kategorien_2026": {
+  "jahr": "2026",
+  "summe": 100862256,
+  "schwelle_1_prozent_bip": 43290000,
+  "abzug": 57573000,
+  "kategorien": {
    "Schutz informationstechnischer Systeme": 2797068,
    "Nachrichtendienste": 2201125,
    "Zivil- und Bevölkerungsschutz": 2082074,
@@ -51,15 +54,15 @@
     "url": "https://www.gesetze-im-internet.de/gg/art_115.html"
    }
   ],
-  "hinweis": "Für 2025 nicht berechnet. Schwelle und Abzug laut Vorspann 2026 in Millionen Euro (43.290 und 57.573), hier in Tausend Euro."
+  "hinweis": "Für 2025 nicht berechnet. Schwelle und Abzug laut Vorspann 2026, hier in Tausend Euro."
  },
  "bereiche": [
   {
    "id": "rente",
    "name": "Rente und Grundsicherung im Alter",
-   "betrag_2026": 145435479,
-   "betrag_2025": 139698605,
-   "anteil_2026": 0.2773,
+   "betrag": 145435479,
+   "betrag_vorjahr": 139698605,
+   "anteil": 0.2773,
    "funktionen": [
     "221",
     "222",
@@ -81,106 +84,106 @@
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 140329379,
-     "betrag_2025": 134730298
+     "betrag": 140329379,
+     "betrag_vorjahr": 134730298
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 2640600,
-     "betrag_2025": 2536556
+     "betrag": 2640600,
+     "betrag_vorjahr": 2536556
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": 2462400,
-     "betrag_2025": 2430600
+     "betrag": 2462400,
+     "betrag_vorjahr": 2430600
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 3000,
-     "betrag_2025": 1000
+     "betrag": 3000,
+     "betrag_vorjahr": 1000
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 69,
-     "betrag_2025": 120
+     "betrag": 69,
+     "betrag_vorjahr": 120
     },
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 30,
-     "betrag_2025": 30
+     "betrag": 30,
+     "betrag_vorjahr": 30
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 1,
-     "betrag_2025": 1
+     "betrag": 1,
+     "betrag_vorjahr": 1
     }
    ],
    "kapitel": [
     {
      "nr": "1102",
      "name": "Rentenversicherung und Grundsicherung im Alter und bei Erwerbsminderung",
-     "betrag_2026": 140009634,
-     "betrag_2025": 134422809
+     "betrag": 140009634,
+     "betrag_vorjahr": 134422809
     },
     {
      "nr": "6067",
      "name": "Sonstige Versorgungsausgaben",
-     "betrag_2026": 2586900,
-     "betrag_2025": 2533000
+     "betrag": 2586900,
+     "betrag_vorjahr": 2533000
     },
     {
      "nr": "1001",
      "name": "Landwirtschaftliche Sozialpolitik",
-     "betrag_2026": 2462400,
-     "betrag_2025": 2430600
+     "betrag": 2462400,
+     "betrag_vorjahr": 2430600
     },
     {
      "nr": "1104",
      "name": "Unfallversicherung Bund und Bahn / Künstlersozialkasse",
-     "betrag_2026": 319645,
-     "betrag_2025": 307289
+     "betrag": 319645,
+     "betrag_vorjahr": 307289
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 53700,
-     "betrag_2025": 3556
+     "betrag": 53700,
+     "betrag_vorjahr": 3556
     },
     {
      "nr": "0502",
      "name": "Bilaterale Zusammenarbeit und Pflege der Auslandsbeziehungen",
-     "betrag_2026": 3000,
-     "betrag_2025": 1000
+     "betrag": 3000,
+     "betrag_vorjahr": 1000
     },
     {
      "nr": "1110",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 100,
-     "betrag_2025": 200
+     "betrag": 100,
+     "betrag_vorjahr": 200
     },
     {
      "nr": "0801",
      "name": "Wiedergutmachungen des Bundes",
-     "betrag_2026": 69,
-     "betrag_2025": 120
+     "betrag": 69,
+     "betrag_vorjahr": 120
     },
     {
      "nr": "1221",
      "name": "Luftfahrt-Bundesamt",
-     "betrag_2026": 30,
-     "betrag_2025": 30
+     "betrag": 30,
+     "betrag_vorjahr": 30
     },
     {
      "nr": "0912",
      "name": "Bundesministerium",
-     "betrag_2026": 1,
-     "betrag_2025": 1
+     "betrag": 1,
+     "betrag_vorjahr": 1
     }
    ],
    "bindung": "gesetzlich gebunden",
@@ -201,7 +204,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "nein",
-    "betrag_2026": 0,
+    "betrag": 0,
     "kategorien": {}
    },
    "erklaerung": {
@@ -212,21 +215,21 @@
       "kapitel": "1102",
       "titel": "63681",
       "name": "Zuschuss des Bundes an die allgemeine Rentenversicherung",
-      "betrag_2026": 63935306,
+      "betrag": 63935306,
       "text": "Zuschuss des Bundes an die allgemeine Rentenversicherung: 63,9 Mrd. €"
      },
      {
       "kapitel": "1102",
       "titel": "63683",
       "name": "Zusätzlicher Zuschuss des Bundes an die allgemeine Rentenversicherung",
-      "betrag_2026": 33614856,
+      "betrag": 33614856,
       "text": "Zusätzlicher Zuschuss des Bundes an die allgemeine Rentenversicherung: 33,6 Mrd. €"
      },
      {
       "kapitel": "1102",
       "titel": "63684",
       "name": "Beitragszahlungen für Kindererziehungszeiten an die allgemeine Rentenversicherung",
-      "betrag_2026": 19673087,
+      "betrag": 19673087,
       "text": "Beitragszahlungen für Kindererziehungszeiten an die allgemeine Rentenversicherung: 19,7 Mrd. €"
      }
     ],
@@ -289,9 +292,9 @@
   {
    "id": "gesundheit",
    "name": "Gesundheit und Pflege",
-   "betrag_2026": 23691419,
-   "betrag_2025": 21155007,
-   "anteil_2026": 0.0452,
+   "betrag": 23691419,
+   "betrag_vorjahr": 21155007,
+   "anteil": 0.0452,
    "funktionen": [
     "223",
     "224",
@@ -311,442 +314,442 @@
     {
      "nr": "15",
      "name": "Bundesministerium für Gesundheit",
-     "betrag_2026": 21425204,
-     "betrag_2025": 18942774
+     "betrag": 21425204,
+     "betrag_vorjahr": 18942774
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": 1972091,
-     "betrag_2025": 1920119
+     "betrag": 1972091,
+     "betrag_vorjahr": 1920119
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 238479,
-     "betrag_2025": 237872
+     "betrag": 238479,
+     "betrag_vorjahr": 237872
     },
     {
      "nr": "14",
      "name": "Bundesministerium der Verteidigung",
-     "betrag_2026": 25100,
-     "betrag_2025": 25100
+     "betrag": 25100,
+     "betrag_vorjahr": 25100
     },
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 6846,
-     "betrag_2025": 6853
+     "betrag": 6846,
+     "betrag_vorjahr": 6853
     },
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 6784,
-     "betrag_2025": 5554
+     "betrag": 6784,
+     "betrag_vorjahr": 5554
     },
     {
      "nr": "17",
      "name": "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",
-     "betrag_2026": 5989,
-     "betrag_2025": 5483
+     "betrag": 5989,
+     "betrag_vorjahr": 5483
     },
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": 4821,
-     "betrag_2025": 5521
+     "betrag": 4821,
+     "betrag_vorjahr": 5521
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 2000,
-     "betrag_2025": 1744
+     "betrag": 2000,
+     "betrag_vorjahr": 1744
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 1211,
-     "betrag_2025": 1211
+     "betrag": 1211,
+     "betrag_vorjahr": 1211
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 931,
-     "betrag_2025": 944
+     "betrag": 931,
+     "betrag_vorjahr": 944
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 514,
-     "betrag_2025": 409
+     "betrag": 514,
+     "betrag_vorjahr": 409
     },
     {
      "nr": "02",
      "name": "Deutscher Bundestag",
-     "betrag_2026": 450,
-     "betrag_2025": 450
+     "betrag": 450,
+     "betrag_vorjahr": 450
     },
     {
      "nr": "07",
      "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-     "betrag_2026": 350,
-     "betrag_2025": 350
+     "betrag": 350,
+     "betrag_vorjahr": 350
     },
     {
      "nr": "16",
      "name": "Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",
-     "betrag_2026": 300,
-     "betrag_2025": 300
+     "betrag": 300,
+     "betrag_vorjahr": 300
     },
     {
      "nr": "23",
      "name": "Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung",
-     "betrag_2026": 145,
-     "betrag_2025": 145
+     "betrag": 145,
+     "betrag_vorjahr": 145
     },
     {
      "nr": "19",
      "name": "Bundesverfassungsgericht",
-     "betrag_2026": 75,
-     "betrag_2025": 56
+     "betrag": 75,
+     "betrag_vorjahr": 56
     },
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": 55,
-     "betrag_2025": 60
+     "betrag": 55,
+     "betrag_vorjahr": 60
     },
     {
      "nr": "03",
      "name": "Bundesrat",
-     "betrag_2026": 30,
-     "betrag_2025": 30
+     "betrag": 30,
+     "betrag_vorjahr": 30
     },
     {
      "nr": "24",
      "name": "Bundesministerium für Digitales und Staatsmodernisierung",
-     "betrag_2026": 17,
-     "betrag_2025": 3
+     "betrag": 17,
+     "betrag_vorjahr": 3
     },
     {
      "nr": "01",
      "name": "Bundespräsident und Bundespräsidialamt",
-     "betrag_2026": 14,
-     "betrag_2025": 14
+     "betrag": 14,
+     "betrag_vorjahr": 14
     },
     {
      "nr": "21",
      "name": "Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit",
-     "betrag_2026": 6,
-     "betrag_2025": 6
+     "betrag": 6,
+     "betrag_vorjahr": 6
     },
     {
      "nr": "20",
      "name": "Bundesrechnungshof",
-     "betrag_2026": 5,
-     "betrag_2025": 4
+     "betrag": 5,
+     "betrag_vorjahr": 4
     },
     {
      "nr": "22",
      "name": "Unabhängiger Kontrollrat",
-     "betrag_2026": 2,
-     "betrag_2025": 5
+     "betrag": 2,
+     "betrag_vorjahr": 5
     }
    ],
    "kapitel": [
     {
      "nr": "1501",
      "name": "Gesetzliche Krankenversicherung",
-     "betrag_2026": 16800000,
-     "betrag_2025": 16800000
+     "betrag": 16800000,
+     "betrag_vorjahr": 16800000
     },
     {
      "nr": "1502",
      "name": "Pflegevorsorge und sonstige soziale Sicherung",
-     "betrag_2026": 3270160,
-     "betrag_2025": 569870
+     "betrag": 3270160,
+     "betrag_vorjahr": 569870
     },
     {
      "nr": "1001",
      "name": "Landwirtschaftliche Sozialpolitik",
-     "betrag_2026": 1707500,
-     "betrag_2025": 1660000
+     "betrag": 1707500,
+     "betrag_vorjahr": 1660000
     },
     {
      "nr": "1503",
      "name": "Prävention und Gesundheitsverbände",
-     "betrag_2026": 727788,
-     "betrag_2025": 959311
+     "betrag": 727788,
+     "betrag_vorjahr": 959311
     },
     {
      "nr": "1517",
      "name": "Robert Koch-Institut",
-     "betrag_2026": 209077,
-     "betrag_2025": 192026
+     "betrag": 209077,
+     "betrag_vorjahr": 192026
     },
     {
      "nr": "1002",
      "name": "Gesundheitlicher Verbraucherschutz und Ernährung",
-     "betrag_2026": 164461,
-     "betrag_2025": 162494
+     "betrag": 164461,
+     "betrag_vorjahr": 162494
     },
     {
      "nr": "1516",
      "name": "Bundesinstitut für Arzneimittel und Medizinprodukte",
-     "betrag_2026": 141083,
-     "betrag_2025": 140428
+     "betrag": 141083,
+     "betrag_vorjahr": 140428
     },
     {
      "nr": "1104",
      "name": "Unfallversicherung Bund und Bahn / Künstlersozialkasse",
-     "betrag_2026": 132217,
-     "betrag_2025": 130612
+     "betrag": 132217,
+     "betrag_vorjahr": 130612
     },
     {
      "nr": "1505",
      "name": "Internationales Gesundheitswesen",
-     "betrag_2026": 99887,
-     "betrag_2025": 102353
+     "betrag": 99887,
+     "betrag_vorjahr": 102353
     },
     {
      "nr": "1017",
      "name": "Bundesamt für Verbraucherschutz und Lebensmittelsicherheit (BVL)",
-     "betrag_2026": 98594,
-     "betrag_2025": 96089
+     "betrag": 98594,
+     "betrag_vorjahr": 96089
     },
     {
      "nr": "1515",
      "name": "Paul-Ehrlich-Institut",
-     "betrag_2026": 97381,
-     "betrag_2025": 96660
+     "betrag": 97381,
+     "betrag_vorjahr": 96660
     },
     {
      "nr": "1113",
      "name": "Bundesanstalt für Arbeitsschutz und Arbeitsmedizin",
-     "betrag_2026": 95903,
-     "betrag_2025": 94367
+     "betrag": 95903,
+     "betrag_vorjahr": 94367
     },
     {
      "nr": "1504",
      "name": "Forschungsvorhaben und -einrichtungen",
-     "betrag_2026": 28945,
-     "betrag_2025": 32725
+     "betrag": 28945,
+     "betrag_vorjahr": 32725
     },
     {
      "nr": "1411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 25100,
-     "betrag_2025": 25100
+     "betrag": 25100,
+     "betrag_vorjahr": 25100
     },
     {
      "nr": "1513",
      "name": "Bundesinstitut für Öffentliche Gesundheit",
-     "betrag_2026": 21673,
-     "betrag_2025": 23445
+     "betrag": 21673,
+     "betrag_vorjahr": 23445
     },
     {
      "nr": "1511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 20279,
-     "betrag_2025": 18462
+     "betrag": 20279,
+     "betrag_vorjahr": 18462
     },
     {
      "nr": "1107",
      "name": "Arbeitswelt im Wandel, Fachkräftesicherung",
-     "betrag_2026": 9319,
-     "betrag_2025": 12078
+     "betrag": 9319,
+     "betrag_vorjahr": 12078
     },
     {
      "nr": "1512",
      "name": "Bundesministerium",
-     "betrag_2026": 8931,
-     "betrag_2025": 7494
+     "betrag": 8931,
+     "betrag_vorjahr": 7494
     },
     {
      "nr": "0611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 6784,
-     "betrag_2025": 5554
+     "betrag": 6784,
+     "betrag_vorjahr": 5554
     },
     {
      "nr": "1211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 6775,
-     "betrag_2025": 6782
+     "betrag": 6775,
+     "betrag_vorjahr": 6782
     },
     {
      "nr": "1703",
      "name": "Stärkung der Zivilgesellschaft, Familien-, Gleichstellungs- und Seniorenpolitik",
-     "betrag_2026": 5683,
-     "betrag_2025": 5183
+     "betrag": 5683,
+     "betrag_vorjahr": 5183
     },
     {
      "nr": "2501",
      "name": "Bau- und Wohnungswesen",
-     "betrag_2026": 4600,
-     "betrag_2025": 5300
+     "betrag": 4600,
+     "betrag_vorjahr": 5300
     },
     {
      "nr": "0811",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 2000,
-     "betrag_2025": 1744
+     "betrag": 2000,
+     "betrag_vorjahr": 1744
     },
     {
      "nr": "1011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 1536,
-     "betrag_2025": 1536
+     "betrag": 1536,
+     "betrag_vorjahr": 1536
     },
     {
      "nr": "0511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 1211,
-     "betrag_2025": 1211
+     "betrag": 1211,
+     "betrag_vorjahr": 1211
     },
     {
      "nr": "0911",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 931,
-     "betrag_2025": 944
+     "betrag": 931,
+     "betrag_vorjahr": 944
     },
     {
      "nr": "1106",
      "name": "Maßnahmen des Bundes mit Beteiligung Europäischer Fonds (ESF, EGF) sowie sonstige internationale Angelegenheiten",
-     "betrag_2026": 821,
-     "betrag_2025": 596
+     "betrag": 821,
+     "betrag_vorjahr": 596
     },
     {
      "nr": "0211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 450,
-     "betrag_2025": 450
+     "betrag": 450,
+     "betrag_vorjahr": 450
     },
     {
      "nr": "0451",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des BKM und des Geschäftsbereichs",
-     "betrag_2026": 393,
-     "betrag_2025": 293
+     "betrag": 393,
+     "betrag_vorjahr": 293
     },
     {
      "nr": "0711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 350,
-     "betrag_2025": 350
+     "betrag": 350,
+     "betrag_vorjahr": 350
     },
     {
      "nr": "1711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 306,
-     "betrag_2025": 300
+     "betrag": 306,
+     "betrag_vorjahr": 300
     },
     {
      "nr": "1611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 300,
-     "betrag_2025": 300
+     "betrag": 300,
+     "betrag_vorjahr": 300
     },
     {
      "nr": "2511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 221,
-     "betrag_2025": 221
+     "betrag": 221,
+     "betrag_vorjahr": 221
     },
     {
      "nr": "1111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 190,
-     "betrag_2025": 190
+     "betrag": 190,
+     "betrag_vorjahr": 190
     },
     {
      "nr": "2311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 145,
-     "betrag_2025": 145
+     "betrag": 145,
+     "betrag_vorjahr": 145
     },
     {
      "nr": "1911",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 75,
-     "betrag_2025": 56
+     "betrag": 75,
+     "betrag_vorjahr": 56
     },
     {
      "nr": "0431",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des Geschäftsbereichs des BPA",
-     "betrag_2026": 65,
-     "betrag_2025": 60
+     "betrag": 65,
+     "betrag_vorjahr": 60
     },
     {
      "nr": "1222",
      "name": "Bundesaufsichtsamt für Flugsicherung",
-     "betrag_2026": 65,
-     "betrag_2025": 65
+     "betrag": 65,
+     "betrag_vorjahr": 65
     },
     {
      "nr": "0411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des Geschäftsbereichs des BKAmts",
-     "betrag_2026": 56,
-     "betrag_2025": 56
+     "betrag": 56,
+     "betrag_vorjahr": 56
     },
     {
      "nr": "3011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 55,
-     "betrag_2025": 60
+     "betrag": 55,
+     "betrag_vorjahr": 60
     },
     {
      "nr": "0311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 30,
-     "betrag_2025": 30
+     "betrag": 30,
+     "betrag_vorjahr": 30
     },
     {
      "nr": "1110",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 29,
-     "betrag_2025": 29
+     "betrag": 29,
+     "betrag_vorjahr": 29
     },
     {
      "nr": "2411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 17,
-     "betrag_2025": 3
+     "betrag": 17,
+     "betrag_vorjahr": 3
     },
     {
      "nr": "0111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 12,
-     "betrag_2025": 12
+     "betrag": 12,
+     "betrag_vorjahr": 12
     },
     {
      "nr": "1221",
      "name": "Luftfahrt-Bundesamt",
-     "betrag_2026": 6,
-     "betrag_2025": 6
+     "betrag": 6,
+     "betrag_vorjahr": 6
     },
     {
      "nr": "2111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 6,
-     "betrag_2025": 6
+     "betrag": 6,
+     "betrag_vorjahr": 6
     },
     {
      "nr": "2011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 5,
-     "betrag_2025": 4
+     "betrag": 5,
+     "betrag_vorjahr": 4
     },
     {
      "nr": "0113",
      "name": "Büro der Gemeinsamen Wissenschaftskonferenz",
-     "betrag_2026": 2,
-     "betrag_2025": 2
+     "betrag": 2,
+     "betrag_vorjahr": 2
     },
     {
      "nr": "2211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 2,
-     "betrag_2025": 5
+     "betrag": 2,
+     "betrag_vorjahr": 5
     }
    ],
    "bindung": "gesetzlich gebunden",
@@ -763,7 +766,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 216716,
+    "betrag": 216716,
     "kategorien": {
      "Schutz informationstechnischer Systeme": 191616,
      "Verteidigung": 25100
@@ -777,21 +780,21 @@
       "kapitel": "1501",
       "titel": "63606",
       "name": "Pauschale Abgeltung der Aufwendungen der Krankenkassen für gesamtgesellschaftliche Aufgaben (Gesundheitsfonds)",
-      "betrag_2026": 14500000,
+      "betrag": 14500000,
       "text": "Pauschale Abgeltung der Aufwendungen der Krankenkassen für gesamtgesellschaftliche Aufgaben (Gesundheitsfonds): 14,5 Mrd. €"
      },
      {
       "kapitel": "1502",
       "titel": "85602",
       "name": "Überjähriges Darlehen an den Ausgleichsfonds der sozialen Pflegeversicherung",
-      "betrag_2026": 3200000,
+      "betrag": 3200000,
       "text": "Überjähriges Darlehen an den Ausgleichsfonds der sozialen Pflegeversicherung: 3,2 Mrd. €"
      },
      {
       "kapitel": "1501",
       "titel": "85601",
       "name": "Überjähriges Darlehen an den Gesundheitsfonds",
-      "betrag_2026": 2300000,
+      "betrag": 2300000,
       "text": "Überjähriges Darlehen an den Gesundheitsfonds: 2,3 Mrd. €"
      }
     ],
@@ -854,9 +857,9 @@
   {
    "id": "arbeit",
    "name": "Arbeitsmarkt und Grundsicherungsgeld",
-   "betrag_2026": 55448626,
-   "betrag_2025": 54770170,
-   "anteil_2026": 0.1057,
+   "betrag": 55448626,
+   "betrag_vorjahr": 54770170,
+   "anteil": 0.1057,
    "funktionen": [
     "225",
     "25"
@@ -873,46 +876,46 @@
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 55209754,
-     "betrag_2025": 54555231
+     "betrag": 55209754,
+     "betrag_vorjahr": 54555231
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 238872,
-     "betrag_2025": 214939
+     "betrag": 238872,
+     "betrag_vorjahr": 214939
     }
    ],
    "kapitel": [
     {
      "nr": "1101",
      "name": "Leistungen nach dem Zweiten und Dritten Buch Sozialgesetzbuch und gleichartige Leistungen",
-     "betrag_2026": 55048914,
-     "betrag_2025": 54370073
+     "betrag": 55048914,
+     "betrag_vorjahr": 54370073
     },
     {
      "nr": "0903",
      "name": "Energie und Nachhaltigkeit",
-     "betrag_2026": 213037,
-     "betrag_2025": 189490
+     "betrag": 213037,
+     "betrag_vorjahr": 189490
     },
     {
      "nr": "1106",
      "name": "Maßnahmen des Bundes mit Beteiligung Europäischer Fonds (ESF, EGF) sowie sonstige internationale Angelegenheiten",
-     "betrag_2026": 156818,
-     "betrag_2025": 164022
+     "betrag": 156818,
+     "betrag_vorjahr": 164022
     },
     {
      "nr": "0902",
      "name": "Mittelstand: Gründen, Wachsen, Investieren",
-     "betrag_2026": 25835,
-     "betrag_2025": 25449
+     "betrag": 25835,
+     "betrag_vorjahr": 25449
     },
     {
      "nr": "1107",
      "name": "Arbeitswelt im Wandel, Fachkräftesicherung",
-     "betrag_2026": 4022,
-     "betrag_2025": 21136
+     "betrag": 4022,
+     "betrag_vorjahr": 21136
     }
    ],
    "bindung": "gesetzlich gebunden",
@@ -925,7 +928,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "nein",
-    "betrag_2026": 0,
+    "betrag": 0,
     "kategorien": {}
    },
    "erklaerung": {
@@ -936,21 +939,21 @@
       "kapitel": "1101",
       "titel": "68112",
       "name": "Bürgergeld (seit Juli 2026 Grundsicherungsgeld)",
-      "betrag_2026": 28050000,
+      "betrag": 28050000,
       "text": "Bürgergeld (seit Juli 2026 Grundsicherungsgeld): 28,1 Mrd. €"
      },
      {
       "kapitel": "1101",
       "titel": "63211",
       "name": "Beteiligung des Bundes an den Leistungen für Unterkunft und Heizung",
-      "betrag_2026": 13000000,
+      "betrag": 13000000,
       "text": "Beteiligung des Bundes an den Leistungen für Unterkunft und Heizung: 13,0 Mrd. €"
      },
      {
       "kapitel": "1101",
       "titel": "63613",
       "name": "Verwaltungskosten für die Durchführung der Grundsicherung für Arbeitsuchende",
-      "betrag_2026": 5250000,
+      "betrag": 5250000,
       "text": "Verwaltungskosten für die Durchführung der Grundsicherung für Arbeitsuchende: 5,2 Mrd. €"
      }
     ],
@@ -1031,9 +1034,9 @@
   {
    "id": "familie",
    "name": "Familie und weitere Sozialleistungen",
-   "betrag_2026": 22318530,
-   "betrag_2025": 22336371,
-   "anteil_2026": 0.0425,
+   "betrag": 22318530,
+   "betrag_vorjahr": 22336371,
+   "anteil": 0.0425,
    "funktionen": [
     "21",
     "23",
@@ -1063,214 +1066,214 @@
     {
      "nr": "17",
      "name": "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",
-     "betrag_2026": 14150879,
-     "betrag_2025": 13938113
+     "betrag": 14150879,
+     "betrag_vorjahr": 13938113
     },
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": 2426250,
-     "betrag_2025": 2362000
+     "betrag": 2426250,
+     "betrag_vorjahr": 2362000
     },
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 2345027,
-     "betrag_2025": 2224812
+     "betrag": 2345027,
+     "betrag_vorjahr": 2224812
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 1686231,
-     "betrag_2025": 1693658
+     "betrag": 1686231,
+     "betrag_vorjahr": 1693658
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 1304221,
-     "betrag_2025": 1408765
+     "betrag": 1304221,
+     "betrag_vorjahr": 1408765
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 344170,
-     "betrag_2025": 634001
+     "betrag": 344170,
+     "betrag_vorjahr": 634001
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 23664,
-     "betrag_2025": 13168
+     "betrag": 23664,
+     "betrag_vorjahr": 13168
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 22000,
-     "betrag_2025": 21500
+     "betrag": 22000,
+     "betrag_vorjahr": 21500
     },
     {
      "nr": "15",
      "name": "Bundesministerium für Gesundheit",
-     "betrag_2026": 9889,
-     "betrag_2025": 9155
+     "betrag": 9889,
+     "betrag_vorjahr": 9155
     },
     {
      "nr": "07",
      "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-     "betrag_2026": 6199,
-     "betrag_2025": 31199
+     "betrag": 6199,
+     "betrag_vorjahr": 31199
     }
    ],
    "kapitel": [
     {
      "nr": "1701",
      "name": "Gesetzliche Leistungen für die Familien",
-     "betrag_2026": 13013728,
-     "betrag_2025": 12900228
+     "betrag": 13013728,
+     "betrag_vorjahr": 12900228
     },
     {
      "nr": "2501",
      "name": "Bau- und Wohnungswesen",
-     "betrag_2026": 2426250,
-     "betrag_2025": 2362000
+     "betrag": 2426250,
+     "betrag_vorjahr": 2362000
     },
     {
      "nr": "0801",
      "name": "Wiedergutmachungen des Bundes",
-     "betrag_2026": 1686231,
-     "betrag_2025": 1693658
+     "betrag": 1686231,
+     "betrag_vorjahr": 1693658
     },
     {
      "nr": "0603",
      "name": "Integration und Migration, Minderheiten und Vertriebene",
-     "betrag_2026": 1342028,
-     "betrag_2025": 1331994
+     "betrag": 1342028,
+     "betrag_vorjahr": 1331994
     },
     {
      "nr": "0633",
      "name": "Bundesamt für Migration und Flüchtlinge",
-     "betrag_2026": 999372,
-     "betrag_2025": 879108
+     "betrag": 999372,
+     "betrag_vorjahr": 879108
     },
     {
      "nr": "1703",
      "name": "Stärkung der Zivilgesellschaft, Familien-, Gleichstellungs- und Seniorenpolitik",
-     "betrag_2026": 492678,
-     "betrag_2025": 423372
+     "betrag": 492678,
+     "betrag_vorjahr": 423372
     },
     {
      "nr": "1101",
      "name": "Leistungen nach dem Zweiten und Dritten Buch Sozialgesetzbuch und gleichartige Leistungen",
-     "betrag_2026": 450000,
-     "betrag_2025": 450000
+     "betrag": 450000,
+     "betrag_vorjahr": 450000
     },
     {
      "nr": "1103",
      "name": "Soziale Entschädigung: Leistungen nach dem Vierzehnten Buch Sozialgesetzbuch und gleichartige Leistungen",
-     "betrag_2026": 421114,
-     "betrag_2025": 457429
+     "betrag": 421114,
+     "betrag_vorjahr": 457429
     },
     {
      "nr": "1702",
      "name": "Kinder- und Jugendpolitik",
-     "betrag_2026": 399094,
-     "betrag_2025": 376093
+     "betrag": 399094,
+     "betrag_vorjahr": 376093
     },
     {
      "nr": "1105",
      "name": "Förderung der Inklusion von Menschen mit Behinderungen",
-     "betrag_2026": 323824,
-     "betrag_2025": 390118
+     "betrag": 323824,
+     "betrag_vorjahr": 390118
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 201950,
-     "betrag_2025": 502450
+     "betrag": 201950,
+     "betrag_vorjahr": 502450
     },
     {
      "nr": "1713",
      "name": "Bundesamt für Familie und zivilgesellschaftliche Aufgaben",
-     "betrag_2026": 142323,
-     "betrag_2025": 134940
+     "betrag": 142323,
+     "betrag_vorjahr": 134940
     },
     {
      "nr": "6003",
      "name": "Leistungen im Zusammenhang mit der deutschen Einheit",
-     "betrag_2026": 142220,
-     "betrag_2025": 131551
+     "betrag": 142220,
+     "betrag_vorjahr": 131551
     },
     {
      "nr": "1710",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 94929,
-     "betrag_2025": 95349
+     "betrag": 94929,
+     "betrag_vorjahr": 95349
     },
     {
      "nr": "1116",
      "name": "Bundesamt für Soziale Sicherung",
-     "betrag_2026": 87311,
-     "betrag_2025": 87988
+     "betrag": 87311,
+     "betrag_vorjahr": 87988
     },
     {
      "nr": "0416",
      "name": "Staatsministerin für Sport und Ehrenamt",
-     "betrag_2026": 23664,
-     "betrag_2025": 0
+     "betrag": 23664,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0502",
      "name": "Bilaterale Zusammenarbeit und Pflege der Auslandsbeziehungen",
-     "betrag_2026": 22000,
-     "betrag_2025": 21500
+     "betrag": 22000,
+     "betrag_vorjahr": 21500
     },
     {
      "nr": "1117",
      "name": "Die Beauftragte der Bundesregierung für Migration, Flüchtlinge und Integration. Die Beauftragte der Bundesregierung für Antirassismus",
-     "betrag_2026": 19622,
-     "betrag_2025": 20900
+     "betrag": 19622,
+     "betrag_vorjahr": 20900
     },
     {
      "nr": "1502",
      "name": "Pflegevorsorge und sonstige soziale Sicherung",
-     "betrag_2026": 9889,
-     "betrag_2025": 9155
+     "betrag": 9889,
+     "betrag_vorjahr": 9155
     },
     {
      "nr": "1714",
      "name": "Bundeszentrale für Kinder- und Jugendmedienschutz",
-     "betrag_2026": 8043,
-     "betrag_2025": 8073
+     "betrag": 8043,
+     "betrag_vorjahr": 8073
     },
     {
      "nr": "0718",
      "name": "Bundesamt für Justiz",
-     "betrag_2026": 6199,
-     "betrag_2025": 31199
+     "betrag": 6199,
+     "betrag_vorjahr": 31199
     },
     {
      "nr": "0601",
      "name": "Heimat, Gesellschaft und Verfassung",
-     "betrag_2026": 3627,
-     "betrag_2025": 13710
+     "betrag": 3627,
+     "betrag_vorjahr": 13710
     },
     {
      "nr": "1110",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 2350,
-     "betrag_2025": 2330
+     "betrag": 2350,
+     "betrag_vorjahr": 2330
     },
     {
      "nr": "1711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 84,
-     "betrag_2025": 58
+     "betrag": 84,
+     "betrag_vorjahr": 58
     },
     {
      "nr": "0452",
      "name": "Der Beauftragte der Bundesregierung für Kultur und Medien",
-     "betrag_2026": 0,
-     "betrag_2025": 13168
+     "betrag": 0,
+     "betrag_vorjahr": 13168
     }
    ],
    "bindung": "teilweise gebunden",
@@ -1287,7 +1290,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 8121,
+    "betrag": 8121,
     "kategorien": {
      "Schutz informationstechnischer Systeme": 8121
     }
@@ -1300,21 +1303,21 @@
       "kapitel": "1701",
       "titel": "68102",
       "name": "Elterngeld",
-      "betrag_2026": 7510000,
+      "betrag": 7510000,
       "text": "Elterngeld: 7,5 Mrd. €"
      },
      {
       "kapitel": "1701",
       "titel": "68113",
       "name": "Kinderzuschlag für Anspruchsberechtigte nach § 6 a Bundeskindergeldgesetz",
-      "betrag_2026": 3375000,
+      "betrag": 3375000,
       "text": "Kinderzuschlag für Anspruchsberechtigte nach § 6 a Bundeskindergeldgesetz: 3,4 Mrd. €"
      },
      {
       "kapitel": "2501",
       "titel": "63201",
       "name": "Wohngeld nach dem Wohngeldgesetz",
-      "betrag_2026": 2425000,
+      "betrag": 2425000,
       "text": "Wohngeld nach dem Wohngeldgesetz: 2,4 Mrd. €"
      }
     ],
@@ -1377,9 +1380,9 @@
   {
    "id": "verteidigung",
    "name": "Verteidigung",
-   "betrag_2026": 81910524,
-   "betrag_2025": 61616019,
-   "anteil_2026": 0.1562,
+   "betrag": 81910524,
+   "betrag_vorjahr": 61616019,
+   "anteil": 0.1562,
    "funktionen": [
     "03"
    ],
@@ -1397,106 +1400,106 @@
     {
      "nr": "14",
      "name": "Bundesministerium der Verteidigung",
-     "betrag_2026": 81413453,
-     "betrag_2025": 61212420
+     "betrag": 81413453,
+     "betrag_vorjahr": 61212420
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 478201,
-     "betrag_2025": 391179
+     "betrag": 478201,
+     "betrag_vorjahr": 391179
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 18870,
-     "betrag_2025": 12420
+     "betrag": 18870,
+     "betrag_vorjahr": 12420
     }
    ],
    "kapitel": [
     {
      "nr": "1403",
      "name": "Kommandobehörden und Truppen, Sozialversicherungsbeiträge, Fürsorgemaßnahmen und Versorgung für Soldatinnen und Soldaten",
-     "betrag_2026": 21271402,
-     "betrag_2025": 19747150
+     "betrag": 21271402,
+     "betrag_vorjahr": 19747150
     },
     {
      "nr": "1405",
      "name": "Militärische Beschaffungen",
-     "betrag_2026": 19521606,
-     "betrag_2025": 8776202
+     "betrag": 19521606,
+     "betrag_vorjahr": 8776202
     },
     {
      "nr": "1408",
      "name": "Unterbringung",
-     "betrag_2026": 11458904,
-     "betrag_2025": 9784009
+     "betrag": 11458904,
+     "betrag_vorjahr": 9784009
     },
     {
      "nr": "1413",
      "name": "Bundeswehrverwaltung, Universitäten der Bundeswehr, Militärseelsorge usw.",
-     "betrag_2026": 8859152,
-     "betrag_2025": 7927304
+     "betrag": 8859152,
+     "betrag_vorjahr": 7927304
     },
     {
      "nr": "1406",
      "name": "Materialerhaltung der Bundeswehr",
-     "betrag_2026": 7664310,
-     "betrag_2025": 6795244
+     "betrag": 7664310,
+     "betrag_vorjahr": 6795244
     },
     {
      "nr": "1407",
      "name": "Sonstiger Betrieb der Bundeswehr",
-     "betrag_2026": 7356557,
-     "betrag_2025": 3858166
+     "betrag": 7356557,
+     "betrag_vorjahr": 3858166
     },
     {
      "nr": "1401",
      "name": "Verpflichtungen im Rahmen der Mitgliedschaft zur NATO und zu anderen internationalen Institutionen sowie Maßnahmen im Zusammenhang mit internationalen Einsätzen",
-     "betrag_2026": 2019220,
-     "betrag_2025": 1519418
+     "betrag": 2019220,
+     "betrag_vorjahr": 1519418
     },
     {
      "nr": "1404",
      "name": "Wehrforschung, Entwicklung und Erprobung",
-     "betrag_2026": 1580506,
-     "betrag_2025": 1188066
+     "betrag": 1580506,
+     "betrag_vorjahr": 1188066
     },
     {
      "nr": "1411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 1331198,
-     "betrag_2025": 1306186
+     "betrag": 1331198,
+     "betrag_vorjahr": 1306186
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 478201,
-     "betrag_2025": 391179
+     "betrag": 478201,
+     "betrag_vorjahr": 391179
     },
     {
      "nr": "1414",
      "name": "Bundesamt für den Militärischen Abschirmdienst",
-     "betrag_2026": 302138,
-     "betrag_2025": 262185
+     "betrag": 302138,
+     "betrag_vorjahr": 262185
     },
     {
      "nr": "1410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 48460,
-     "betrag_2025": 48490
+     "betrag": 48460,
+     "betrag_vorjahr": 48490
     },
     {
      "nr": "0802",
      "name": "Lasten im Zusammenhang mit dem Aufenthalt bzw. Abzug von ausländischen Streitkräften",
-     "betrag_2026": 18860,
-     "betrag_2025": 12410
+     "betrag": 18860,
+     "betrag_vorjahr": 12410
     },
     {
      "nr": "0801",
      "name": "Wiedergutmachungen des Bundes",
-     "betrag_2026": 10,
-     "betrag_2025": 10
+     "betrag": 10,
+     "betrag_vorjahr": 10
     }
    ],
    "bindung": "teilweise gebunden",
@@ -1509,7 +1512,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 80964231,
+    "betrag": 80964231,
     "kategorien": {
      "Verteidigung": 80964231
     }
@@ -1522,21 +1525,21 @@
       "kapitel": "1403",
       "titel": "42301",
       "name": "Bezüge und Nebenleistungen der Berufssoldatinnen und Berufssoldaten, der Soldatinnen und Soldaten auf Zeit sowie Ausbildungsgeld für Anwärterinnen und Anwärter der Sanitätsoffizierslaufbahn",
-      "betrag_2026": 9903290,
+      "betrag": 9903290,
       "text": "Bezüge und Nebenleistungen der Berufssoldatinnen und Berufssoldaten, der Soldatinnen und Soldaten auf Zeit sowie Ausbildungsgeld für Anwärterinnen und Anwärter der Sanitätsoffizierslaufbahn: 9,9 Mrd. €"
      },
      {
       "kapitel": "1405",
       "titel": "55408",
       "name": "Beschaffung von Munition",
-      "betrag_2026": 8938385,
+      "betrag": 8938385,
       "text": "Beschaffung von Munition: 8,9 Mrd. €"
      },
      {
       "kapitel": "1407",
       "titel": "55319",
       "name": "Betrieb des Bekleidungswesens",
-      "betrag_2026": 3931160,
+      "betrag": 3931160,
       "text": "Betrieb des Bekleidungswesens: 3,9 Mrd. €"
      }
     ],
@@ -1617,9 +1620,9 @@
   {
    "id": "ukraine",
    "name": "Militärische Hilfe für die Ukraine",
-   "betrag_2026": 11546799,
-   "betrag_2025": 8258821,
-   "anteil_2026": 0.022,
+   "betrag": 11546799,
+   "betrag_vorjahr": 8258821,
+   "anteil": 0.022,
    "funktionen": [],
    "funktionskennziffern": [
     "032"
@@ -1631,16 +1634,16 @@
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 11546799,
-     "betrag_2025": 8258821
+     "betrag": 11546799,
+     "betrag_vorjahr": 8258821
     }
    ],
    "kapitel": [
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 11546799,
-     "betrag_2025": 8258821
+     "betrag": 11546799,
+     "betrag_vorjahr": 8258821
     }
    ],
    "bindung": "politisch frei gestaltbar",
@@ -1653,7 +1656,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "ganz",
-    "betrag_2026": 11546799,
+    "betrag": 11546799,
     "kategorien": {
      "Hilfe für völkerrechtswidrig angegriffene Staaten": 11546799
     }
@@ -1666,7 +1669,7 @@
       "kapitel": "6002",
       "titel": "68706",
       "name": "Ertüchtigung von völkerrechtswidrig angegriffenen Staaten im Bereich Sicherheit, Verteidigung und Stabilisierung",
-      "betrag_2026": 11546799,
+      "betrag": 11546799,
       "text": "Ertüchtigung von völkerrechtswidrig angegriffenen Staaten im Bereich Sicherheit, Verteidigung und Stabilisierung: 11,5 Mrd. €"
      }
     ],
@@ -1739,9 +1742,9 @@
   {
    "id": "zinsen",
    "name": "Zinsen für Schulden",
-   "betrag_2026": 30225684,
-   "betrag_2025": 30189301,
-   "anteil_2026": 0.0576,
+   "betrag": 30225684,
+   "betrag_vorjahr": 30189301,
+   "anteil": 0.0576,
    "funktionen": [
     "83"
    ],
@@ -1753,16 +1756,16 @@
     {
      "nr": "32",
      "name": "Bundesschuld",
-     "betrag_2026": 30225684,
-     "betrag_2025": 30189301
+     "betrag": 30225684,
+     "betrag_vorjahr": 30189301
     }
    ],
    "kapitel": [
     {
      "nr": "3205",
      "name": "Verzinsung",
-     "betrag_2026": 30225684,
-     "betrag_2025": 30189301
+     "betrag": 30225684,
+     "betrag_vorjahr": 30189301
     }
    ],
    "bindung": "gesetzlich gebunden",
@@ -1775,7 +1778,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "nein",
-    "betrag_2026": 0,
+    "betrag": 0,
     "kategorien": {}
    },
    "erklaerung": {
@@ -1786,21 +1789,21 @@
       "kapitel": "3205",
       "titel": "57501",
       "name": "Zinsen für Bundesanleihen",
-      "betrag_2026": 20143902,
+      "betrag": 20143902,
       "text": "Zinsen für Bundesanleihen: 20,1 Mrd. €"
      },
      {
       "kapitel": "3205",
       "titel": "57503",
       "name": "Zinsen für Bundesobligationen",
-      "betrag_2026": 3190897,
+      "betrag": 3190897,
       "text": "Zinsen für Bundesobligationen: 3,2 Mrd. €"
      },
      {
       "kapitel": "3205",
       "titel": "57505",
       "name": "Zinsen für Bundesschatzanweisungen",
-      "betrag_2026": 2428623,
+      "betrag": 2428623,
       "text": "Zinsen für Bundesschatzanweisungen: 2,4 Mrd. €"
      }
     ],
@@ -1881,9 +1884,9 @@
   {
    "id": "bildung",
    "name": "Bildung, Forschung und Kultur",
-   "betrag_2026": 30155542,
-   "betrag_2025": 31071338,
-   "anteil_2026": 0.0575,
+   "betrag": 30155542,
+   "betrag_vorjahr": 31071338,
+   "anteil": 0.0575,
    "funktionen": [
     "11",
     "12",
@@ -1921,628 +1924,628 @@
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": 21467731,
-     "betrag_2025": 22245306
+     "betrag": 21467731,
+     "betrag_vorjahr": 22245306
     },
     {
      "nr": "17",
      "name": "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",
-     "betrag_2026": 2452849,
-     "betrag_2025": 218574
+     "betrag": 2452849,
+     "betrag_vorjahr": 218574
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 2138540,
-     "betrag_2025": 4794764
+     "betrag": 2138540,
+     "betrag_vorjahr": 4794764
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 2121486,
-     "betrag_2025": 1853758
+     "betrag": 2121486,
+     "betrag_vorjahr": 1853758
     },
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 611108,
-     "betrag_2025": 560187
+     "betrag": 611108,
+     "betrag_vorjahr": 560187
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": 536566,
-     "betrag_2025": 504102
+     "betrag": 536566,
+     "betrag_vorjahr": 504102
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 243854,
-     "betrag_2025": 244313
+     "betrag": 243854,
+     "betrag_vorjahr": 244313
     },
     {
      "nr": "24",
      "name": "Bundesministerium für Digitales und Staatsmodernisierung",
-     "betrag_2026": 121141,
-     "betrag_2025": 0
+     "betrag": 121141,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "15",
      "name": "Bundesministerium für Gesundheit",
-     "betrag_2026": 117863,
-     "betrag_2025": 122139
+     "betrag": 117863,
+     "betrag_vorjahr": 122139
     },
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": 99883,
-     "betrag_2025": 96156
+     "betrag": 99883,
+     "betrag_vorjahr": 96156
     },
     {
      "nr": "16",
      "name": "Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",
-     "betrag_2026": 93093,
-     "betrag_2025": 94660
+     "betrag": 93093,
+     "betrag_vorjahr": 94660
     },
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 69260,
-     "betrag_2025": 273281
+     "betrag": 69260,
+     "betrag_vorjahr": 273281
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 25359,
-     "betrag_2025": 25981
+     "betrag": 25359,
+     "betrag_vorjahr": 25981
     },
     {
      "nr": "14",
      "name": "Bundesministerium der Verteidigung",
-     "betrag_2026": 17212,
-     "betrag_2025": 13499
+     "betrag": 17212,
+     "betrag_vorjahr": 13499
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 13700,
-     "betrag_2025": 10700
+     "betrag": 13700,
+     "betrag_vorjahr": 10700
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 11000,
-     "betrag_2025": 2422
+     "betrag": 11000,
+     "betrag_vorjahr": 2422
     },
     {
      "nr": "02",
      "name": "Deutscher Bundestag",
-     "betrag_2026": 6565,
-     "betrag_2025": 6329
+     "betrag": 6565,
+     "betrag_vorjahr": 6329
     },
     {
      "nr": "07",
      "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-     "betrag_2026": 6332,
-     "betrag_2025": 3167
+     "betrag": 6332,
+     "betrag_vorjahr": 3167
     },
     {
      "nr": "01",
      "name": "Bundespräsident und Bundespräsidialamt",
-     "betrag_2026": 2000,
-     "betrag_2025": 2000
+     "betrag": 2000,
+     "betrag_vorjahr": 2000
     }
    ],
    "kapitel": [
     {
      "nr": "3004",
      "name": "Forschung für Innovationen, Hightech Agenda Deutschland",
-     "betrag_2026": 8301518,
-     "betrag_2025": 8135394
+     "betrag": 8301518,
+     "betrag_vorjahr": 8135394
     },
     {
      "nr": "3003",
      "name": "Wettbewerbsfähigkeit des Wissenschafts- und Innovationssystems",
-     "betrag_2026": 8234624,
-     "betrag_2025": 8110487
+     "betrag": 8234624,
+     "betrag_vorjahr": 8110487
     },
     {
      "nr": "3002",
      "name": "Bildungsfinanzierung, Talent- und Fachkräfteförderung",
-     "betrag_2026": 2553987,
-     "betrag_2025": 5999425
+     "betrag": 2553987,
+     "betrag_vorjahr": 5999425
     },
     {
      "nr": "3009",
      "name": "Raumfahrt, Innovationsförderung",
-     "betrag_2026": 2377602,
-     "betrag_2025": 0
+     "betrag": 2377602,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0452",
      "name": "Der Beauftragte der Bundesregierung für Kultur und Medien",
-     "betrag_2026": 1881574,
-     "betrag_2025": 1613455
+     "betrag": 1881574,
+     "betrag_vorjahr": 1613455
     },
     {
      "nr": "1704",
      "name": "Leistungsfähigkeit des Bildungswesens",
-     "betrag_2026": 1736177,
-     "betrag_2025": 0
+     "betrag": 1736177,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0901",
      "name": "Innovation, Technologie und Neue Mobilität",
-     "betrag_2026": 1205839,
-     "betrag_2025": 3407478
+     "betrag": 1205839,
+     "betrag_vorjahr": 3407478
     },
     {
      "nr": "1702",
      "name": "Kinder- und Jugendpolitik",
-     "betrag_2026": 708630,
-     "betrag_2025": 208969
+     "betrag": 708630,
+     "betrag_vorjahr": 208969
     },
     {
      "nr": "0902",
      "name": "Mittelstand: Gründen, Wachsen, Investieren",
-     "betrag_2026": 332914,
-     "betrag_2025": 314411
+     "betrag": 332914,
+     "betrag_vorjahr": 314411
     },
     {
      "nr": "0601",
      "name": "Heimat, Gesellschaft und Verfassung",
-     "betrag_2026": 269683,
-     "betrag_2025": 261534
+     "betrag": 269683,
+     "betrag_vorjahr": 261534
     },
     {
      "nr": "0913",
      "name": "Physikalisch-Technische Bundesanstalt",
-     "betrag_2026": 250794,
-     "betrag_2025": 249151
+     "betrag": 250794,
+     "betrag_vorjahr": 249151
     },
     {
      "nr": "0453",
      "name": "Bundesarchiv",
-     "betrag_2026": 204763,
-     "betrag_2025": 207709
+     "betrag": 204763,
+     "betrag_vorjahr": 207709
     },
     {
      "nr": "0914",
      "name": "Bundesanstalt für Materialforschung und -prüfung",
-     "betrag_2026": 178191,
-     "betrag_2025": 178896
+     "betrag": 178191,
+     "betrag_vorjahr": 178896
     },
     {
      "nr": "1014",
      "name": "Friedrich-Loeffler-Institut, Bundesforschungsinstitut für Tiergesundheit",
-     "betrag_2026": 159064,
-     "betrag_2025": 136582
+     "betrag": 159064,
+     "betrag_vorjahr": 136582
     },
     {
      "nr": "2401",
      "name": "Digitalpolitik, digitale Innovationen und Konnektivität",
-     "betrag_2026": 119350,
-     "betrag_2025": 0
+     "betrag": 119350,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1504",
      "name": "Forschungsvorhaben und -einrichtungen",
-     "betrag_2026": 117863,
-     "betrag_2025": 122139
+     "betrag": 117863,
+     "betrag_vorjahr": 122139
     },
     {
      "nr": "1013",
      "name": "Julius Kühn-Institut, Bundesforschungsinstitut für Kulturpflanzen",
-     "betrag_2026": 113818,
-     "betrag_2025": 111031
+     "betrag": 113818,
+     "betrag_vorjahr": 111031
     },
     {
      "nr": "1016",
      "name": "Johann Heinrich von Thünen-Institut, Bundesforschungsinstitut für Ländliche Räume, Wald und Fischerei",
-     "betrag_2026": 104605,
-     "betrag_2025": 106869
+     "betrag": 104605,
+     "betrag_vorjahr": 106869
     },
     {
      "nr": "0635",
      "name": "Bundeszentrale für politische Bildung",
-     "betrag_2026": 103138,
-     "betrag_2025": 105228
+     "betrag": 103138,
+     "betrag_vorjahr": 105228
     },
     {
      "nr": "0616",
      "name": "Bundesamt für Kartographie und Geodäsie",
-     "betrag_2026": 92855,
-     "betrag_2025": 85305
+     "betrag": 92855,
+     "betrag_vorjahr": 85305
     },
     {
      "nr": "0915",
      "name": "Bundesanstalt für Geowissenschaften und Rohstoffe",
-     "betrag_2026": 87468,
-     "betrag_2025": 85574
+     "betrag": 87468,
+     "betrag_vorjahr": 85574
     },
     {
      "nr": "0512",
      "name": "Bundesministerium",
-     "betrag_2026": 84330,
-     "betrag_2025": 84330
+     "betrag": 84330,
+     "betrag_vorjahr": 84330
     },
     {
      "nr": "0910",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 83334,
-     "betrag_2025": 73140
+     "betrag": 83334,
+     "betrag_vorjahr": 73140
     },
     {
      "nr": "1005",
      "name": "Nachhaltigkeit, Forschung und Innovation",
-     "betrag_2026": 80712,
-     "betrag_2025": 72022
+     "betrag": 80712,
+     "betrag_vorjahr": 72022
     },
     {
      "nr": "1015",
      "name": "Max Rubner-Institut, Bundesforschungsinstitut für Ernährung und Lebensmittel",
-     "betrag_2026": 74774,
-     "betrag_2025": 73510
+     "betrag": 74774,
+     "betrag_vorjahr": 73510
     },
     {
      "nr": "2501",
      "name": "Bau- und Wohnungswesen",
-     "betrag_2026": 68864,
-     "betrag_2025": 59781
+     "betrag": 68864,
+     "betrag_vorjahr": 59781
     },
     {
      "nr": "0634",
      "name": "Hochschule des Bundes für öffentliche Verwaltung",
-     "betrag_2026": 56409,
-     "betrag_2025": 58316
+     "betrag": 56409,
+     "betrag_vorjahr": 58316
     },
     {
      "nr": "1601",
      "name": "Umweltschutz",
-     "betrag_2026": 48753,
-     "betrag_2025": 48242
+     "betrag": 48753,
+     "betrag_vorjahr": 48242
     },
     {
      "nr": "1210",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 48435,
-     "betrag_2025": 38146
+     "betrag": 48435,
+     "betrag_vorjahr": 38146
     },
     {
      "nr": "0602",
      "name": "IT und Netzpolitik, Digitalfunk und Moderne Verwaltung",
-     "betrag_2026": 41435,
-     "betrag_2025": 20608
+     "betrag": 41435,
+     "betrag_vorjahr": 20608
     },
     {
      "nr": "0511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 41285,
-     "betrag_2025": 42585
+     "betrag": 41285,
+     "betrag_vorjahr": 42585
     },
     {
      "nr": "0513",
      "name": "Deutsches Archäologisches Institut",
-     "betrag_2026": 40550,
-     "betrag_2025": 40550
+     "betrag": 40550,
+     "betrag_vorjahr": 40550
     },
     {
      "nr": "0501",
      "name": "Sicherung von Frieden und Stabilität",
-     "betrag_2026": 35196,
-     "betrag_2025": 35955
+     "betrag": 35196,
+     "betrag_vorjahr": 35955
     },
     {
      "nr": "0603",
      "name": "Integration und Migration, Minderheiten und Vertriebene",
-     "betrag_2026": 34874,
-     "betrag_2025": 14588
+     "betrag": 34874,
+     "betrag_vorjahr": 14588
     },
     {
      "nr": "2502",
      "name": "Stadtentwicklung und Raumordnung",
-     "betrag_2026": 27461,
-     "betrag_2025": 33567
+     "betrag": 27461,
+     "betrag_vorjahr": 33567
     },
     {
      "nr": "0504",
      "name": "Pflege kultureller Beziehungen zum Ausland",
-     "betrag_2026": 25275,
-     "betrag_2025": 25275
+     "betrag": 25275,
+     "betrag_vorjahr": 25275
     },
     {
      "nr": "1605",
      "name": "Nukleare Sicherheit und Strahlenschutz",
-     "betrag_2026": 25195,
-     "betrag_2025": 25021
+     "betrag": 25195,
+     "betrag_vorjahr": 25021
     },
     {
      "nr": "0410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 19302,
-     "betrag_2025": 18967
+     "betrag": 19302,
+     "betrag_vorjahr": 18967
     },
     {
      "nr": "1604",
      "name": "Naturschutz",
-     "betrag_2026": 15495,
-     "betrag_2025": 16395
+     "betrag": 15495,
+     "betrag_vorjahr": 16395
     },
     {
      "nr": "0502",
      "name": "Bilaterale Zusammenarbeit und Pflege der Auslandsbeziehungen",
-     "betrag_2026": 14118,
-     "betrag_2025": 12918
+     "betrag": 14118,
+     "betrag_vorjahr": 12918
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 13700,
-     "betrag_2025": 10700
+     "betrag": 13700,
+     "betrag_vorjahr": 10700
     },
     {
      "nr": "1112",
      "name": "Bundesministerium",
-     "betrag_2026": 12906,
-     "betrag_2025": 13175
+     "betrag": 12906,
+     "betrag_vorjahr": 13175
     },
     {
      "nr": "1107",
      "name": "Arbeitswelt im Wandel, Fachkräftesicherung",
-     "betrag_2026": 11545,
-     "betrag_2025": 11937
+     "betrag": 11545,
+     "betrag_vorjahr": 11937
     },
     {
      "nr": "1410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 11312,
-     "betrag_2025": 6599
+     "betrag": 11312,
+     "betrag_vorjahr": 6599
     },
     {
      "nr": "1201",
      "name": "Bundesfernstraßen",
-     "betrag_2026": 10670,
-     "betrag_2025": 10670
+     "betrag": 10670,
+     "betrag_vorjahr": 10670
     },
     {
      "nr": "0417",
      "name": "Bundesinstitut für Sportwissenschaft",
-     "betrag_2026": 10571,
-     "betrag_2025": 0
+     "betrag": 10571,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0617",
      "name": "Bundesinstitut für Bevölkerungsforschung",
-     "betrag_2026": 9539,
-     "betrag_2025": 9345
+     "betrag": 9539,
+     "betrag_vorjahr": 9345
     },
     {
      "nr": "0817",
      "name": "Die Beauftragte der Bundesregierung für Ostdeutschland",
-     "betrag_2026": 8500,
-     "betrag_2025": 0
+     "betrag": 8500,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0212",
      "name": "Deutscher Bundestag",
-     "betrag_2026": 6565,
-     "betrag_2025": 6329
+     "betrag": 6565,
+     "betrag_vorjahr": 6329
     },
     {
      "nr": "1716",
      "name": "Die Unabhängige Beauftragte für Fragen des sexuellen Kindesmissbrauchs",
-     "betrag_2026": 6000,
-     "betrag_2025": 3600
+     "betrag": 6000,
+     "betrag_vorjahr": 3600
     },
     {
      "nr": "0456",
      "name": "Kunstverwaltung des Bundes",
-     "betrag_2026": 4536,
-     "betrag_2025": 4310
+     "betrag": 4536,
+     "betrag_vorjahr": 4310
     },
     {
      "nr": "1206",
      "name": "Verbesserung der Verkehrsverhältnisse der Gemeinden",
-     "betrag_2026": 4167,
-     "betrag_2025": 4167
+     "betrag": 4167,
+     "betrag_vorjahr": 4167
     },
     {
      "nr": "1214",
      "name": "Bundesanstalt für Straßen- und Verkehrswesen",
-     "betrag_2026": 4042,
-     "betrag_2025": 4160
+     "betrag": 4042,
+     "betrag_vorjahr": 4160
     },
     {
      "nr": "1615",
      "name": "Bundesamt für die Sicherheit der nuklearen Entsorgung",
-     "betrag_2026": 3650,
-     "betrag_2025": 3650
+     "betrag": 3650,
+     "betrag_vorjahr": 3650
     },
     {
      "nr": "1017",
      "name": "Bundesamt für Verbraucherschutz und Lebensmittelsicherheit (BVL)",
-     "betrag_2026": 3593,
-     "betrag_2025": 4088
+     "betrag": 3593,
+     "betrag_vorjahr": 4088
     },
     {
      "nr": "2503",
      "name": "Hochbau- und Förderungsmaßnahmen in Berlin und Bonn",
-     "betrag_2026": 3550,
-     "betrag_2025": 2800
+     "betrag": 3550,
+     "betrag_vorjahr": 2800
     },
     {
      "nr": "0701",
      "name": "Verbraucherpolitik",
-     "betrag_2026": 3164,
-     "betrag_2025": 0
+     "betrag": 3164,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0514",
      "name": "Bundesamt für Auswärtige Angelegenheiten",
-     "betrag_2026": 3100,
-     "betrag_2025": 2700
+     "betrag": 3100,
+     "betrag_vorjahr": 2700
     },
     {
      "nr": "1408",
      "name": "Unterbringung",
-     "betrag_2026": 3000,
-     "betrag_2025": 4000
+     "betrag": 3000,
+     "betrag_vorjahr": 4000
     },
     {
      "nr": "1413",
      "name": "Bundeswehrverwaltung, Universitäten der Bundeswehr, Militärseelsorge usw.",
-     "betrag_2026": 2900,
-     "betrag_2025": 2900
+     "betrag": 2900,
+     "betrag_vorjahr": 2900
     },
     {
      "nr": "0710",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 2776,
-     "betrag_2025": 2775
+     "betrag": 2776,
+     "betrag_vorjahr": 2775
     },
     {
      "nr": "0812",
      "name": "Bundesministerium",
-     "betrag_2026": 2500,
-     "betrag_2025": 2422
+     "betrag": 2500,
+     "betrag_vorjahr": 2422
     },
     {
      "nr": "0636",
      "name": "Bundesinstitut für Kultur und Geschichte des östlichen Europa",
-     "betrag_2026": 2013,
-     "betrag_2025": 0
+     "betrag": 2013,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0101",
      "name": "Bundespräsident",
-     "betrag_2026": 2000,
-     "betrag_2025": 2000
+     "betrag": 2000,
+     "betrag_vorjahr": 2000
     },
     {
      "nr": "1715",
      "name": "Antidiskriminierungsstelle des Bundes",
-     "betrag_2026": 1799,
-     "betrag_2025": 5805
+     "betrag": 1799,
+     "betrag_vorjahr": 5805
     },
     {
      "nr": "2403",
      "name": "Staatsmodernisierung und Bürokratierückbau",
-     "betrag_2026": 1791,
-     "betrag_2025": 0
+     "betrag": 1791,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1219",
      "name": "Bundesamt für Seeschifffahrt und Hydrographie",
-     "betrag_2026": 1089,
-     "betrag_2025": 1089
+     "betrag": 1089,
+     "betrag_vorjahr": 1089
     },
     {
      "nr": "0610",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 1077,
-     "betrag_2025": 1100
+     "betrag": 1077,
+     "betrag_vorjahr": 1100
     },
     {
      "nr": "0416",
      "name": "Staatsministerin für Sport und Ehrenamt",
-     "betrag_2026": 740,
-     "betrag_2025": 0
+     "betrag": 740,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1205",
      "name": "Luftfahrt",
-     "betrag_2026": 739,
-     "betrag_2025": 213233
+     "betrag": 739,
+     "betrag_vorjahr": 213233
     },
     {
      "nr": "1113",
      "name": "Bundesanstalt für Arbeitsschutz und Arbeitsmedizin",
-     "betrag_2026": 558,
-     "betrag_2025": 569
+     "betrag": 558,
+     "betrag_vorjahr": 569
     },
     {
      "nr": "0711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 392,
-     "betrag_2025": 392
+     "betrag": 392,
+     "betrag_vorjahr": 392
     },
     {
      "nr": "1711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 243,
-     "betrag_2025": 200
+     "betrag": 243,
+     "betrag_vorjahr": 200
     },
     {
      "nr": "1117",
      "name": "Die Beauftragte der Bundesregierung für Migration, Flüchtlinge und Integration. Die Beauftragte der Bundesregierung für Antirassismus",
-     "betrag_2026": 200,
-     "betrag_2025": 150
+     "betrag": 200,
+     "betrag_vorjahr": 150
     },
     {
      "nr": "1110",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 150,
-     "betrag_2025": 150
+     "betrag": 150,
+     "betrag_vorjahr": 150
     },
     {
      "nr": "1211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 118,
-     "betrag_2025": 116
+     "betrag": 118,
+     "betrag_vorjahr": 116
     },
     {
      "nr": "0615",
      "name": "Bundesverwaltungsamt",
-     "betrag_2026": 45,
-     "betrag_2025": 45
+     "betrag": 45,
+     "betrag_vorjahr": 45
     },
     {
      "nr": "0619",
      "name": "Beschaffungsamt des BMI",
-     "betrag_2026": 40,
-     "betrag_2025": 40
+     "betrag": 40,
+     "betrag_vorjahr": 40
     },
     {
      "nr": "2514",
      "name": "Bundesamt für Bauwesen und Raumordnung",
-     "betrag_2026": 8,
-     "betrag_2025": 8
+     "betrag": 8,
+     "betrag_vorjahr": 8
     },
     {
      "nr": "0415",
      "name": "Die Beauftragte der Bundesregierung für Ostdeutschland",
-     "betrag_2026": 0,
-     "betrag_2025": 7200
+     "betrag": 0,
+     "betrag_vorjahr": 7200
     },
     {
      "nr": "0454",
      "name": "Bundesinstitut für Kultur und Geschichte des östlichen Europa",
-     "betrag_2026": 0,
-     "betrag_2025": 2117
+     "betrag": 0,
+     "betrag_vorjahr": 2117
     },
     {
      "nr": "0618",
      "name": "Bundesinstitut für Sportwissenschaft",
-     "betrag_2026": 0,
-     "betrag_2025": 4078
+     "betrag": 0,
+     "betrag_vorjahr": 4078
     },
     {
      "nr": "0903",
      "name": "Energie und Nachhaltigkeit",
-     "betrag_2026": 0,
-     "betrag_2025": 486114
+     "betrag": 0,
+     "betrag_vorjahr": 486114
     },
     {
      "nr": "1204",
      "name": "Digitale Infrastruktur",
-     "betrag_2026": 0,
-     "betrag_2025": 1700
+     "betrag": 0,
+     "betrag_vorjahr": 1700
     },
     {
      "nr": "1608",
      "name": "Verbraucherpolitik",
-     "betrag_2026": 0,
-     "betrag_2025": 1352
+     "betrag": 0,
+     "betrag_vorjahr": 1352
     }
    ],
    "bindung": "teilweise gebunden",
@@ -2555,7 +2558,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 1196813,
+    "betrag": 1196813,
     "kategorien": {
      "Schutz informationstechnischer Systeme": 1089666,
      "Zivil- und Bevölkerungsschutz": 92835,
@@ -2570,21 +2573,21 @@
       "kapitel": "3004",
       "titel": "68570",
       "name": "HGF-Zentren (Betrieb)",
-      "betrag_2026": 2658521,
+      "betrag": 2658521,
       "text": "HGF-Zentren (Betrieb): 2,7 Mrd. €"
      },
      {
       "kapitel": "3003",
       "titel": "68530",
       "name": "DFG: Laufende Zwecke",
-      "betrag_2026": 2159799,
+      "betrag": 2159799,
       "text": "DFG: Laufende Zwecke: 2,2 Mrd. €"
      },
      {
       "kapitel": "3003",
       "titel": "63205",
       "name": "Zukunftsvertrag Studium und Lehre stärken",
-      "betrag_2026": 2143193,
+      "betrag": 2143193,
       "text": "Zukunftsvertrag Studium und Lehre stärken: 2,1 Mrd. €"
      }
     ],
@@ -2647,9 +2650,9 @@
   {
    "id": "verkehr",
    "name": "Verkehr",
-   "betrag_2026": 21402871,
-   "betrag_2025": 31307082,
-   "anteil_2026": 0.0408,
+   "betrag": 21402871,
+   "betrag_vorjahr": 31307082,
+   "anteil": 0.0408,
    "funktionen": [
     "71",
     "72",
@@ -2681,172 +2684,172 @@
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 20917241,
-     "betrag_2025": 30877361
+     "betrag": 20917241,
+     "betrag_vorjahr": 30877361
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 419941,
-     "betrag_2025": 429710
+     "betrag": 419941,
+     "betrag_vorjahr": 429710
     },
     {
      "nr": "24",
      "name": "Bundesministerium für Digitales und Staatsmodernisierung",
-     "betrag_2026": 56755,
-     "betrag_2025": 0
+     "betrag": 56755,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": 8923,
-     "betrag_2025": 0
+     "betrag": 8923,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "16",
      "name": "Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",
-     "betrag_2026": 11,
-     "betrag_2025": 11
+     "betrag": 11,
+     "betrag_vorjahr": 11
     }
    ],
    "kapitel": [
     {
      "nr": "1201",
      "name": "Bundesfernstraßen",
-     "betrag_2026": 10801267,
-     "betrag_2025": 10865493
+     "betrag": 10801267,
+     "betrag_vorjahr": 10865493
     },
     {
      "nr": "1202",
      "name": "Bundesschienenwege",
-     "betrag_2026": 2682481,
-     "betrag_2025": 12594989
+     "betrag": 2682481,
+     "betrag_vorjahr": 12594989
     },
     {
      "nr": "1206",
      "name": "Verbesserung der Verkehrsverhältnisse der Gemeinden",
-     "betrag_2026": 2036000,
-     "betrag_2025": 2000000
+     "betrag": 2036000,
+     "betrag_vorjahr": 2000000
     },
     {
      "nr": "1203",
      "name": "Bundeswasserstraßen",
-     "betrag_2026": 1823223,
-     "betrag_2025": 1985198
+     "betrag": 1823223,
+     "betrag_vorjahr": 1985198
     },
     {
      "nr": "1210",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 1214491,
-     "betrag_2025": 1125879
+     "betrag": 1214491,
+     "betrag_vorjahr": 1125879
     },
     {
      "nr": "1218",
      "name": "Wasserstraßen- und Schifffahrtsverwaltung des Bundes",
-     "betrag_2026": 1103857,
-     "betrag_2025": 1093917
+     "betrag": 1103857,
+     "betrag_vorjahr": 1093917
     },
     {
      "nr": "1205",
      "name": "Luftfahrt",
-     "betrag_2026": 463982,
-     "betrag_2025": 300884
+     "betrag": 463982,
+     "betrag_vorjahr": 300884
     },
     {
      "nr": "0452",
      "name": "Der Beauftragte der Bundesregierung für Kultur und Medien",
-     "betrag_2026": 419941,
-     "betrag_2025": 429710
+     "betrag": 419941,
+     "betrag_vorjahr": 429710
     },
     {
      "nr": "1217",
      "name": "Eisenbahn-Bundesamt",
-     "betrag_2026": 169635,
-     "betrag_2025": 168693
+     "betrag": 169635,
+     "betrag_vorjahr": 168693
     },
     {
      "nr": "1219",
      "name": "Bundesamt für Seeschifffahrt und Hydrographie",
-     "betrag_2026": 131406,
-     "betrag_2025": 154765
+     "betrag": 131406,
+     "betrag_vorjahr": 154765
     },
     {
      "nr": "1215",
      "name": "Kraftfahrt-Bundesamt",
-     "betrag_2026": 114616,
-     "betrag_2025": 106097
+     "betrag": 114616,
+     "betrag_vorjahr": 106097
     },
     {
      "nr": "1221",
      "name": "Luftfahrt-Bundesamt",
-     "betrag_2026": 97508,
-     "betrag_2025": 94206
+     "betrag": 97508,
+     "betrag_vorjahr": 94206
     },
     {
      "nr": "1213",
      "name": "Bundesamt für Logistik und Mobilität",
-     "betrag_2026": 92416,
-     "betrag_2025": 100777
+     "betrag": 92416,
+     "betrag_vorjahr": 100777
     },
     {
      "nr": "1228",
      "name": "Fernstraßen-Bundesamt",
-     "betrag_2026": 90457,
-     "betrag_2025": 85157
+     "betrag": 90457,
+     "betrag_vorjahr": 85157
     },
     {
      "nr": "1214",
      "name": "Bundesanstalt für Straßen- und Verkehrswesen",
-     "betrag_2026": 51313,
-     "betrag_2025": 49258
+     "betrag": 51313,
+     "betrag_vorjahr": 49258
     },
     {
      "nr": "2401",
      "name": "Digitalpolitik, digitale Innovationen und Konnektivität",
-     "betrag_2026": 46815,
-     "betrag_2025": 0
+     "betrag": 46815,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1223",
      "name": "Bundesanstalt für Verwaltungsdienstleistungen",
-     "betrag_2026": 26720,
-     "betrag_2025": 36652
+     "betrag": 26720,
+     "betrag_vorjahr": 36652
     },
     {
      "nr": "2410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 9940,
-     "betrag_2025": 0
+     "betrag": 9940,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1222",
      "name": "Bundesaufsichtsamt für Flugsicherung",
-     "betrag_2026": 9826,
-     "betrag_2025": 9375
+     "betrag": 9826,
+     "betrag_vorjahr": 9375
     },
     {
      "nr": "3009",
      "name": "Raumfahrt, Innovationsförderung",
-     "betrag_2026": 8923,
-     "betrag_2025": 0
+     "betrag": 8923,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 8043,
-     "betrag_2025": 35051
+     "betrag": 8043,
+     "betrag_vorjahr": 35051
     },
     {
      "nr": "1612",
      "name": "Bundesministerium",
-     "betrag_2026": 11,
-     "betrag_2025": 11
+     "betrag": 11,
+     "betrag_vorjahr": 11
     },
     {
      "nr": "1204",
      "name": "Digitale Infrastruktur",
-     "betrag_2026": 0,
-     "betrag_2025": 70970
+     "betrag": 0,
+     "betrag_vorjahr": 70970
     }
    ],
    "bindung": "teilweise gebunden",
@@ -2859,7 +2862,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "nein",
-    "betrag_2026": 0,
+    "betrag": 0,
     "kategorien": {}
    },
    "erklaerung": {
@@ -2870,21 +2873,21 @@
       "kapitel": "1201",
       "titel": "89111",
       "name": "Investitionen der Autobahn GmbH des Bundes",
-      "betrag_2026": 4262881,
+      "betrag": 4262881,
       "text": "Investitionen der Autobahn GmbH des Bundes: 4,3 Mrd. €"
      },
      {
       "kapitel": "1201",
       "titel": "68212",
       "name": "Ausgaben der Autobahn GmbH des Bundes für Betrieb, Planungsleistungen und Verwaltung",
-      "betrag_2026": 2043374,
+      "betrag": 2043374,
       "text": "Ausgaben der Autobahn GmbH des Bundes für Betrieb, Planungsleistungen und Verwaltung: 2,0 Mrd. €"
      },
      {
       "kapitel": "1202",
       "titel": "89101",
       "name": "Baukostenzuschüsse für Investitionen des Bedarfsplans Schiene",
-      "betrag_2026": 1807695,
+      "betrag": 1807695,
       "text": "Baukostenzuschüsse für Investitionen des Bedarfsplans Schiene: 1,8 Mrd. €"
      }
     ],
@@ -2947,9 +2950,9 @@
   {
    "id": "wirtschaft",
    "name": "Wirtschaft, Energie und Landwirtschaft",
-   "betrag_2026": 26984169,
-   "betrag_2025": 29012659,
-   "anteil_2026": 0.0514,
+   "betrag": 26984169,
+   "betrag_vorjahr": 29012659,
+   "anteil": 0.0514,
    "funktionen": [
     "51",
     "52",
@@ -2992,286 +2995,286 @@
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 18717163,
-     "betrag_2025": 19586802
+     "betrag": 18717163,
+     "betrag_vorjahr": 19586802
     },
     {
      "nr": "32",
      "name": "Bundesschuld",
-     "betrag_2026": 3370000,
-     "betrag_2025": 3930000
+     "betrag": 3370000,
+     "betrag_vorjahr": 3930000
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 2389978,
-     "betrag_2025": 2703976
+     "betrag": 2389978,
+     "betrag_vorjahr": 2703976
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": 1862298,
-     "betrag_2025": 1870767
+     "betrag": 1862298,
+     "betrag_vorjahr": 1870767
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 485463,
-     "betrag_2025": 441071
+     "betrag": 485463,
+     "betrag_vorjahr": 441071
     },
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 66617,
-     "betrag_2025": 448300
+     "betrag": 66617,
+     "betrag_vorjahr": 448300
     },
     {
      "nr": "24",
      "name": "Bundesministerium für Digitales und Staatsmodernisierung",
-     "betrag_2026": 56540,
-     "betrag_2025": 0
+     "betrag": 56540,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": 31138,
-     "betrag_2025": 24358
+     "betrag": 31138,
+     "betrag_vorjahr": 24358
     },
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": 4088,
-     "betrag_2025": 2423
+     "betrag": 4088,
+     "betrag_vorjahr": 2423
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 461,
-     "betrag_2025": 1739
+     "betrag": 461,
+     "betrag_vorjahr": 1739
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 423,
-     "betrag_2025": 3223
+     "betrag": 423,
+     "betrag_vorjahr": 3223
     }
    ],
    "kapitel": [
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 18717162,
-     "betrag_2025": 19586801
+     "betrag": 18717162,
+     "betrag_vorjahr": 19586801
     },
     {
      "nr": "3208",
      "name": "Bürgschaften, Garantien und sonstige Gewährleistungen",
-     "betrag_2026": 3370000,
-     "betrag_2025": 3930000
+     "betrag": 3370000,
+     "betrag_vorjahr": 3930000
     },
     {
      "nr": "1003",
      "name": "Gemeinschaftsaufgabe Verbesserung der Agrarstruktur und des Küstenschutzes (GAK)",
-     "betrag_2026": 907008,
-     "betrag_2025": 907008
+     "betrag": 907008,
+     "betrag_vorjahr": 907008
     },
     {
      "nr": "0902",
      "name": "Mittelstand: Gründen, Wachsen, Investieren",
-     "betrag_2026": 798440,
-     "betrag_2025": 810586
+     "betrag": 798440,
+     "betrag_vorjahr": 810586
     },
     {
      "nr": "0901",
      "name": "Innovation, Technologie und Neue Mobilität",
-     "betrag_2026": 641157,
-     "betrag_2025": 969428
+     "betrag": 641157,
+     "betrag_vorjahr": 969428
     },
     {
      "nr": "0803",
      "name": "Finanzierung der Nachfolgeeinrichtungen der Treuhandanstalt",
-     "betrag_2026": 482623,
-     "betrag_2025": 441031
+     "betrag": 482623,
+     "betrag_vorjahr": 441031
     },
     {
      "nr": "0903",
      "name": "Energie und Nachhaltigkeit",
-     "betrag_2026": 378694,
-     "betrag_2025": 345960
+     "betrag": 378694,
+     "betrag_vorjahr": 345960
     },
     {
      "nr": "0904",
      "name": "Chancen der Globalisierung",
-     "betrag_2026": 326426,
-     "betrag_2025": 327890
+     "betrag": 326426,
+     "betrag_vorjahr": 327890
     },
     {
      "nr": "1010",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 309510,
-     "betrag_2025": 261623
+     "betrag": 309510,
+     "betrag_vorjahr": 261623
     },
     {
      "nr": "1005",
      "name": "Nachhaltigkeit, Forschung und Innovation",
-     "betrag_2026": 275433,
-     "betrag_2025": 305803
+     "betrag": 275433,
+     "betrag_vorjahr": 305803
     },
     {
      "nr": "1004",
      "name": "Marktordnung, Maßnahmen der Notfallvorsorge",
-     "betrag_2026": 219677,
-     "betrag_2025": 240213
+     "betrag": 219677,
+     "betrag_vorjahr": 240213
     },
     {
      "nr": "0916",
      "name": "Bundesamt für Wirtschaft und Ausfuhrkontrolle",
-     "betrag_2026": 131666,
-     "betrag_2025": 132650
+     "betrag": 131666,
+     "betrag_vorjahr": 132650
     },
     {
      "nr": "1210",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 66617,
-     "betrag_2025": 306674
+     "betrag": 66617,
+     "betrag_vorjahr": 306674
     },
     {
      "nr": "1006",
      "name": "Internationale Maßnahmen",
-     "betrag_2026": 65401,
-     "betrag_2025": 67855
+     "betrag": 65401,
+     "betrag_vorjahr": 67855
     },
     {
      "nr": "0910",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 57775,
-     "betrag_2025": 57217
+     "betrag": 57775,
+     "betrag_vorjahr": 57217
     },
     {
      "nr": "2401",
      "name": "Digitalpolitik, digitale Innovationen und Konnektivität",
-     "betrag_2026": 56293,
-     "betrag_2025": 0
+     "betrag": 56293,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0917",
      "name": "Bundeskartellamt",
-     "betrag_2026": 55820,
-     "betrag_2025": 60245
+     "betrag": 55820,
+     "betrag_vorjahr": 60245
     },
     {
      "nr": "1018",
      "name": "Bundessortenamt",
-     "betrag_2026": 29894,
-     "betrag_2025": 30176
+     "betrag": 29894,
+     "betrag_vorjahr": 30176
     },
     {
      "nr": "1002",
      "name": "Gesundheitlicher Verbraucherschutz und Ernährung",
-     "betrag_2026": 27585,
-     "betrag_2025": 32832
+     "betrag": 27585,
+     "betrag_vorjahr": 32832
     },
     {
      "nr": "3004",
      "name": "Forschung für Innovationen, Hightech Agenda Deutschland",
-     "betrag_2026": 24988,
-     "betrag_2025": 24358
+     "betrag": 24988,
+     "betrag_vorjahr": 24358
     },
     {
      "nr": "1011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 17000,
-     "betrag_2025": 14834
+     "betrag": 17000,
+     "betrag_vorjahr": 14834
     },
     {
      "nr": "1012",
      "name": "Bundesministerium",
-     "betrag_2026": 10006,
-     "betrag_2025": 9726
+     "betrag": 10006,
+     "betrag_vorjahr": 9726
     },
     {
      "nr": "3009",
      "name": "Raumfahrt, Innovationsförderung",
-     "betrag_2026": 6150,
-     "betrag_2025": 0
+     "betrag": 6150,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "2501",
      "name": "Bau- und Wohnungswesen",
-     "betrag_2026": 4074,
-     "betrag_2025": 2409
+     "betrag": 4074,
+     "betrag_vorjahr": 2409
     },
     {
      "nr": "0817",
      "name": "Die Beauftragte der Bundesregierung für Ostdeutschland",
-     "betrag_2026": 2800,
-     "betrag_2025": 0
+     "betrag": 2800,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1017",
      "name": "Bundesamt für Verbraucherschutz und Lebensmittelsicherheit (BVL)",
-     "betrag_2026": 784,
-     "betrag_2025": 697
+     "betrag": 784,
+     "betrag_vorjahr": 697
     },
     {
      "nr": "1107",
      "name": "Arbeitswelt im Wandel, Fachkräftesicherung",
-     "betrag_2026": 461,
-     "betrag_2025": 1739
+     "betrag": 461,
+     "betrag_vorjahr": 1739
     },
     {
      "nr": "0452",
      "name": "Der Beauftragte der Bundesregierung für Kultur und Medien",
-     "betrag_2026": 423,
-     "betrag_2025": 423
+     "betrag": 423,
+     "betrag_vorjahr": 423
     },
     {
      "nr": "2410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 247,
-     "betrag_2025": 0
+     "betrag": 247,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0810",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 40,
-     "betrag_2025": 40
+     "betrag": 40,
+     "betrag_vorjahr": 40
     },
     {
      "nr": "2512",
      "name": "Bundesministerium",
-     "betrag_2026": 14,
-     "betrag_2025": 14
+     "betrag": 14,
+     "betrag_vorjahr": 14
     },
     {
      "nr": "6003",
      "name": "Leistungen im Zusammenhang mit der deutschen Einheit",
-     "betrag_2026": 1,
-     "betrag_2025": 1
+     "betrag": 1,
+     "betrag_vorjahr": 1
     },
     {
      "nr": "0415",
      "name": "Die Beauftragte der Bundesregierung für Ostdeutschland",
-     "betrag_2026": 0,
-     "betrag_2025": 2800
+     "betrag": 0,
+     "betrag_vorjahr": 2800
     },
     {
      "nr": "1203",
      "name": "Bundeswasserstraßen",
-     "betrag_2026": 0,
-     "betrag_2025": 10000
+     "betrag": 0,
+     "betrag_vorjahr": 10000
     },
     {
      "nr": "1204",
      "name": "Digitale Infrastruktur",
-     "betrag_2026": 0,
-     "betrag_2025": 125476
+     "betrag": 0,
+     "betrag_vorjahr": 125476
     },
     {
      "nr": "1205",
      "name": "Luft- und Raumfahrt",
-     "betrag_2026": 0,
-     "betrag_2025": 6150
+     "betrag": 0,
+     "betrag_vorjahr": 6150
     }
    ],
    "bindung": "teilweise gebunden",
@@ -3284,7 +3287,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "nein",
-    "betrag_2026": 0,
+    "betrag": 0,
     "kategorien": {}
    },
    "erklaerung": {
@@ -3295,21 +3298,21 @@
       "kapitel": "6002",
       "titel": "68307",
       "name": "Zuschüsse zur Entlastung beim Strompreis",
-      "betrag_2026": 16160000,
+      "betrag": 16160000,
       "text": "Zuschüsse zur Entlastung beim Strompreis: 16,2 Mrd. €"
      },
      {
       "kapitel": "3208",
       "titel": "87601",
       "name": "Entschädigungen und Kosten aus auslandsbezogenen Gewährleistungen und Umschuldungen, Zahlungen zur Abwendung oder Minderung von Schäden",
-      "betrag_2026": 2900000,
+      "betrag": 2900000,
       "text": "Entschädigungen und Kosten aus auslandsbezogenen Gewährleistungen und Umschuldungen, Zahlungen zur Abwendung oder Minderung von Schäden: 2,9 Mrd. €"
      },
      {
       "kapitel": "6002",
       "titel": "67104",
       "name": "Erstattung von Ausfällen aus der Garantie für das KfW-Sonderprogramm 2020",
-      "betrag_2026": 790000,
+      "betrag": 790000,
       "text": "Erstattung von Ausfällen aus der Garantie für das KfW-Sonderprogramm 2020: 790 Mio. €"
      }
     ],
@@ -3372,9 +3375,9 @@
   {
    "id": "staat",
    "name": "Verwaltung, Sicherheit und Justiz",
-   "betrag_2026": 44332066,
-   "betrag_2025": 41642286,
-   "anteil_2026": 0.0845,
+   "betrag": 44332066,
+   "betrag_vorjahr": 41642286,
+   "anteil": 0.0845,
    "funktionen": [
     "01",
     "04",
@@ -3406,958 +3409,958 @@
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 12636975,
-     "betrag_2025": 11975562
+     "betrag": 12636975,
+     "betrag_vorjahr": 11975562
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 10855322,
-     "betrag_2025": 10612861
+     "betrag": 10855322,
+     "betrag_vorjahr": 10612861
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 8456821,
-     "betrag_2025": 8255994
+     "betrag": 8456821,
+     "betrag_vorjahr": 8255994
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 2108019,
-     "betrag_2025": 1761335
+     "betrag": 2108019,
+     "betrag_vorjahr": 1761335
     },
     {
      "nr": "02",
      "name": "Deutscher Bundestag",
-     "betrag_2026": 1264108,
-     "betrag_2025": 1237677
+     "betrag": 1264108,
+     "betrag_vorjahr": 1237677
     },
     {
      "nr": "07",
      "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-     "betrag_2026": 1187146,
-     "betrag_2025": 1118609
+     "betrag": 1187146,
+     "betrag_vorjahr": 1118609
     },
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 1129049,
-     "betrag_2025": 1181847
+     "betrag": 1129049,
+     "betrag_vorjahr": 1181847
     },
     {
      "nr": "24",
      "name": "Bundesministerium für Digitales und Staatsmodernisierung",
-     "betrag_2026": 1124183,
-     "betrag_2025": 11032
+     "betrag": 1124183,
+     "betrag_vorjahr": 11032
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 1026437,
-     "betrag_2025": 1093207
+     "betrag": 1026437,
+     "betrag_vorjahr": 1093207
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 881691,
-     "betrag_2025": 936612
+     "betrag": 881691,
+     "betrag_vorjahr": 936612
     },
     {
      "nr": "14",
      "name": "Bundesministerium der Verteidigung",
-     "betrag_2026": 780705,
-     "betrag_2025": 735130
+     "betrag": 780705,
+     "betrag_vorjahr": 735130
     },
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": 578435,
-     "betrag_2025": 484448
+     "betrag": 578435,
+     "betrag_vorjahr": 484448
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 368814,
-     "betrag_2025": 358272
+     "betrag": 368814,
+     "betrag_vorjahr": 358272
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": 306233,
-     "betrag_2025": 300267
+     "betrag": 306233,
+     "betrag_vorjahr": 300267
     },
     {
      "nr": "16",
      "name": "Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",
-     "betrag_2026": 267290,
-     "betrag_2025": 282941
+     "betrag": 267290,
+     "betrag_vorjahr": 282941
     },
     {
      "nr": "17",
      "name": "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",
-     "betrag_2026": 229803,
-     "betrag_2025": 196375
+     "betrag": 229803,
+     "betrag_vorjahr": 196375
     },
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": 229659,
-     "betrag_2025": 241363
+     "betrag": 229659,
+     "betrag_vorjahr": 241363
     },
     {
      "nr": "23",
      "name": "Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung",
-     "betrag_2026": 219688,
-     "betrag_2025": 217480
+     "betrag": 219688,
+     "betrag_vorjahr": 217480
     },
     {
      "nr": "15",
      "name": "Bundesministerium für Gesundheit",
-     "betrag_2026": 214134,
-     "betrag_2025": 200285
+     "betrag": 214134,
+     "betrag_vorjahr": 200285
     },
     {
      "nr": "20",
      "name": "Bundesrechnungshof",
-     "betrag_2026": 197053,
-     "betrag_2025": 191537
+     "betrag": 197053,
+     "betrag_vorjahr": 191537
     },
     {
      "nr": "01",
      "name": "Bundespräsident und Bundespräsidialamt",
-     "betrag_2026": 64883,
-     "betrag_2025": 56455
+     "betrag": 64883,
+     "betrag_vorjahr": 56455
     },
     {
      "nr": "32",
      "name": "Bundesschuld",
-     "betrag_2026": 53683,
-     "betrag_2025": 52669
+     "betrag": 53683,
+     "betrag_vorjahr": 52669
     },
     {
      "nr": "21",
      "name": "Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit",
-     "betrag_2026": 51139,
-     "betrag_2025": 46387
+     "betrag": 51139,
+     "betrag_vorjahr": 46387
     },
     {
      "nr": "19",
      "name": "Bundesverfassungsgericht",
-     "betrag_2026": 45768,
-     "betrag_2025": 44313
+     "betrag": 45768,
+     "betrag_vorjahr": 44313
     },
     {
      "nr": "03",
      "name": "Bundesrat",
-     "betrag_2026": 40499,
-     "betrag_2025": 38054
+     "betrag": 40499,
+     "betrag_vorjahr": 38054
     },
     {
      "nr": "22",
      "name": "Unabhängiger Kontrollrat",
-     "betrag_2026": 14529,
-     "betrag_2025": 11574
+     "betrag": 14529,
+     "betrag_vorjahr": 11574
     }
    ],
    "kapitel": [
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 10707445,
-     "betrag_2025": 10480457
+     "betrag": 10707445,
+     "betrag_vorjahr": 10480457
     },
     {
      "nr": "0625",
      "name": "Bundespolizei",
-     "betrag_2026": 5004017,
-     "betrag_2025": 4880017
+     "betrag": 5004017,
+     "betrag_vorjahr": 4880017
     },
     {
      "nr": "0813",
      "name": "Zollverwaltung",
-     "betrag_2026": 3457425,
-     "betrag_2025": 3580913
+     "betrag": 3457425,
+     "betrag_vorjahr": 3580913
     },
     {
      "nr": "0811",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 1716815,
-     "betrag_2025": 1667327
+     "betrag": 1716815,
+     "betrag_vorjahr": 1667327
     },
     {
      "nr": "0611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 1706829,
-     "betrag_2025": 1713140
+     "betrag": 1706829,
+     "betrag_vorjahr": 1713140
     },
     {
      "nr": "0816",
      "name": "Informationstechnikzentrum Bund",
-     "betrag_2026": 1609239,
-     "betrag_2025": 1532684
+     "betrag": 1609239,
+     "betrag_vorjahr": 1532684
     },
     {
      "nr": "0414",
      "name": "Bundesnachrichtendienst",
-     "betrag_2026": 1510273,
-     "betrag_2025": 1195153
+     "betrag": 1510273,
+     "betrag_vorjahr": 1195153
     },
     {
      "nr": "0624",
      "name": "Bundeskriminalamt",
-     "betrag_2026": 1240119,
-     "betrag_2025": 1047791
+     "betrag": 1240119,
+     "betrag_vorjahr": 1047791
     },
     {
      "nr": "0212",
      "name": "Deutscher Bundestag",
-     "betrag_2026": 1159677,
-     "betrag_2025": 1136928
+     "betrag": 1159677,
+     "betrag_vorjahr": 1136928
     },
     {
      "nr": "0815",
      "name": "Bundeszentralamt für Steuern",
-     "betrag_2026": 1013985,
-     "betrag_2025": 894543
+     "betrag": 1013985,
+     "betrag_vorjahr": 894543
     },
     {
      "nr": "2402",
      "name": "IT-Infrastruktur des Bundes",
-     "betrag_2026": 956153,
-     "betrag_2025": 0
+     "betrag": 956153,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0615",
      "name": "Bundesverwaltungsamt",
-     "betrag_2026": 739639,
-     "betrag_2025": 619756
+     "betrag": 739639,
+     "betrag_vorjahr": 619756
     },
     {
      "nr": "0629",
      "name": "Bundesanstalt Technisches Hilfswerk",
-     "betrag_2026": 727936,
-     "betrag_2025": 458048
+     "betrag": 727936,
+     "betrag_vorjahr": 458048
     },
     {
      "nr": "0602",
      "name": "IT und Netzpolitik, Digitalfunk und Moderne Verwaltung",
-     "betrag_2026": 695809,
-     "betrag_2025": 1178074
+     "betrag": 695809,
+     "betrag_vorjahr": 1178074
     },
     {
      "nr": "0626",
      "name": "Bundesamt für Verfassungsschutz",
-     "betrag_2026": 690852,
-     "betrag_2025": 576991
+     "betrag": 690852,
+     "betrag_vorjahr": 576991
     },
     {
      "nr": "0628",
      "name": "Bundesamt für Bevölkerungsschutz und Katastrophenhilfe",
-     "betrag_2026": 605727,
-     "betrag_2025": 332761
+     "betrag": 605727,
+     "betrag_vorjahr": 332761
     },
     {
      "nr": "0512",
      "name": "Bundesministerium",
-     "betrag_2026": 563535,
-     "betrag_2025": 652643
+     "betrag": 563535,
+     "betrag_vorjahr": 652643
     },
     {
      "nr": "1211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 550386,
-     "betrag_2025": 574073
+     "betrag": 550386,
+     "betrag_vorjahr": 574073
     },
     {
      "nr": "1411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 446806,
-     "betrag_2025": 411908
+     "betrag": 446806,
+     "betrag_vorjahr": 411908
     },
     {
      "nr": "0812",
      "name": "Bundesministerium",
-     "betrag_2026": 406631,
-     "betrag_2025": 367341
+     "betrag": 406631,
+     "betrag_vorjahr": 367341
     },
     {
      "nr": "1220",
      "name": "Deutscher Wetterdienst",
-     "betrag_2026": 384530,
-     "betrag_2025": 378656
+     "betrag": 384530,
+     "betrag_vorjahr": 378656
     },
     {
      "nr": "0623",
      "name": "Bundesamt für Sicherheit in der Informationstechnik",
-     "betrag_2026": 379263,
-     "betrag_2025": 230731
+     "betrag": 379263,
+     "betrag_vorjahr": 230731
     },
     {
      "nr": "0911",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 366922,
-     "betrag_2025": 387313
+     "betrag": 366922,
+     "betrag_vorjahr": 387313
     },
     {
      "nr": "1412",
      "name": "Bundesministerium",
-     "betrag_2026": 333899,
-     "betrag_2025": 323222
+     "betrag": 333899,
+     "betrag_vorjahr": 323222
     },
     {
      "nr": "0912",
      "name": "Bundesministerium",
-     "betrag_2026": 307524,
-     "betrag_2025": 326269
+     "betrag": 307524,
+     "betrag_vorjahr": 326269
     },
     {
      "nr": "0719",
      "name": "Deutsches Patent- und Markenamt",
-     "betrag_2026": 304393,
-     "betrag_2025": 303959
+     "betrag": 304393,
+     "betrag_vorjahr": 303959
     },
     {
      "nr": "0918",
      "name": "Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und Eisenbahnen (Bundesnetzagentur)",
-     "betrag_2026": 303463,
-     "betrag_2025": 316115
+     "betrag": 303463,
+     "betrag_vorjahr": 316115
     },
     {
      "nr": "0412",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 260259,
-     "betrag_2025": 240087
+     "betrag": 260259,
+     "betrag_vorjahr": 240087
     },
     {
      "nr": "0711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 259185,
-     "betrag_2025": 256398
+     "betrag": 259185,
+     "betrag_vorjahr": 256398
     },
     {
      "nr": "0614",
      "name": "Statistisches Bundesamt",
-     "betrag_2026": 247012,
-     "betrag_2025": 232595
+     "betrag": 247012,
+     "betrag_vorjahr": 232595
     },
     {
      "nr": "0810",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 245786,
-     "betrag_2025": 212186
+     "betrag": 245786,
+     "betrag_vorjahr": 212186
     },
     {
      "nr": "0612",
      "name": "Bundesministerium",
-     "betrag_2026": 233597,
-     "betrag_2025": 258713
+     "betrag": 233597,
+     "betrag_vorjahr": 258713
     },
     {
      "nr": "0511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 217314,
-     "betrag_2025": 200407
+     "betrag": 217314,
+     "betrag_vorjahr": 200407
     },
     {
      "nr": "1112",
      "name": "Bundesministerium",
-     "betrag_2026": 201421,
-     "betrag_2025": 195216
+     "betrag": 201421,
+     "betrag_vorjahr": 195216
     },
     {
      "nr": "2503",
      "name": "Hochbau- und Förderungsmaßnahmen in Berlin und Bonn",
-     "betrag_2026": 180226,
-     "betrag_2025": 115723
+     "betrag": 180226,
+     "betrag_vorjahr": 115723
     },
     {
      "nr": "1212",
      "name": "Bundesministerium",
-     "betrag_2026": 176137,
-     "betrag_2025": 185688
+     "betrag": 176137,
+     "betrag_vorjahr": 185688
     },
     {
      "nr": "0601",
      "name": "Heimat, Gesellschaft und Verfassung",
-     "betrag_2026": 166538,
-     "betrag_2025": 265884
+     "betrag": 166538,
+     "betrag_vorjahr": 265884
     },
     {
      "nr": "1612",
      "name": "Bundesministerium",
-     "betrag_2026": 166278,
-     "betrag_2025": 146109
+     "betrag": 166278,
+     "betrag_vorjahr": 146109
     },
     {
      "nr": "2312",
      "name": "Bundesministerium",
-     "betrag_2026": 164681,
-     "betrag_2025": 166111
+     "betrag": 164681,
+     "betrag_vorjahr": 166111
     },
     {
      "nr": "3012",
      "name": "Bundesministerium",
-     "betrag_2026": 162199,
-     "betrag_2025": 173434
+     "betrag": 162199,
+     "betrag_vorjahr": 173434
     },
     {
      "nr": "1512",
      "name": "Bundesministerium",
-     "betrag_2026": 159582,
-     "betrag_2025": 149262
+     "betrag": 159582,
+     "betrag_vorjahr": 149262
     },
     {
      "nr": "1712",
      "name": "Bundesministerium",
-     "betrag_2026": 156411,
-     "betrag_2025": 129138
+     "betrag": 156411,
+     "betrag_vorjahr": 129138
     },
     {
      "nr": "2514",
      "name": "Bundesamt für Bauwesen und Raumordnung",
-     "betrag_2026": 153614,
-     "betrag_2025": 150665
+     "betrag": 153614,
+     "betrag_vorjahr": 150665
     },
     {
      "nr": "1012",
      "name": "Bundesministerium",
-     "betrag_2026": 144809,
-     "betrag_2025": 141557
+     "betrag": 144809,
+     "betrag_vorjahr": 141557
     },
     {
      "nr": "0432",
      "name": "Presse- und Informationsamt der Bundesregierung",
-     "betrag_2026": 137579,
-     "betrag_2025": 131121
+     "betrag": 137579,
+     "betrag_vorjahr": 131121
     },
     {
      "nr": "0712",
      "name": "Bundesministerium",
-     "betrag_2026": 137110,
-     "betrag_2025": 134438
+     "betrag": 137110,
+     "betrag_vorjahr": 134438
     },
     {
      "nr": "1011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 136674,
-     "betrag_2025": 135155
+     "betrag": 136674,
+     "betrag_vorjahr": 135155
     },
     {
      "nr": "0718",
      "name": "Bundesamt für Justiz",
-     "betrag_2026": 133071,
-     "betrag_2025": 128031
+     "betrag": 133071,
+     "betrag_vorjahr": 128031
     },
     {
      "nr": "2012",
      "name": "Bundesrechnungshof",
-     "betrag_2026": 125842,
-     "betrag_2025": 123027
+     "betrag": 125842,
+     "betrag_vorjahr": 123027
     },
     {
      "nr": "2501",
      "name": "Bau- und Wohnungswesen",
-     "betrag_2026": 121090,
-     "betrag_2025": 103690
+     "betrag": 121090,
+     "betrag_vorjahr": 103690
     },
     {
      "nr": "1111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 105747,
-     "betrag_2025": 108254
+     "betrag": 105747,
+     "betrag_vorjahr": 108254
     },
     {
      "nr": "1611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 101012,
-     "betrag_2025": 97125
+     "betrag": 101012,
+     "betrag_vorjahr": 97125
     },
     {
      "nr": "2512",
      "name": "Bundesministerium",
-     "betrag_2026": 99585,
-     "betrag_2025": 99163
+     "betrag": 99585,
+     "betrag_vorjahr": 99163
     },
     {
      "nr": "2412",
      "name": "Bundesministerium",
-     "betrag_2026": 88915,
-     "betrag_2025": 9483
+     "betrag": 88915,
+     "betrag_vorjahr": 9483
     },
     {
      "nr": "0622",
      "name": "Zentrale Stelle für Informationstechnik im Sicherheitsbereich",
-     "betrag_2026": 88034,
-     "betrag_2025": 80625
+     "betrag": 88034,
+     "betrag_vorjahr": 80625
     },
     {
      "nr": "6067",
      "name": "Sonstige Versorgungsausgaben",
-     "betrag_2026": 87170,
-     "betrag_2025": 96920
+     "betrag": 87170,
+     "betrag_vorjahr": 96920
     },
     {
      "nr": "0710",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 86616,
-     "betrag_2025": 77328
+     "betrag": 86616,
+     "betrag_vorjahr": 77328
     },
     {
      "nr": "0714",
      "name": "Der Generalbundesanwalt beim Bundesgerichtshof",
-     "betrag_2026": 85770,
-     "betrag_2025": 80897
+     "betrag": 85770,
+     "betrag_vorjahr": 80897
     },
     {
      "nr": "0211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 81769,
-     "betrag_2025": 79200
+     "betrag": 81769,
+     "betrag_vorjahr": 79200
     },
     {
      "nr": "0411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des Geschäftsbereichs des BKAmts",
-     "betrag_2026": 80115,
-     "betrag_2025": 80951
+     "betrag": 80115,
+     "betrag_vorjahr": 80951
     },
     {
      "nr": "0713",
      "name": "Bundesgerichtshof",
-     "betrag_2026": 73606,
-     "betrag_2025": 69185
+     "betrag": 73606,
+     "betrag_vorjahr": 69185
     },
     {
      "nr": "2011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 71211,
-     "betrag_2025": 68510
+     "betrag": 71211,
+     "betrag_vorjahr": 68510
     },
     {
      "nr": "3011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 67460,
-     "betrag_2025": 67929
+     "betrag": 67460,
+     "betrag_vorjahr": 67929
     },
     {
      "nr": "0514",
      "name": "Bundesamt für Auswärtige Angelegenheiten",
-     "betrag_2026": 64178,
-     "betrag_2025": 49398
+     "betrag": 64178,
+     "betrag_vorjahr": 49398
     },
     {
      "nr": "2403",
      "name": "Staatsmodernisierung und Bürokratierückbau",
-     "betrag_2026": 61135,
-     "betrag_2025": 0
+     "betrag": 61135,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "6004",
      "name": "Bundesimmobilienangelegenheiten",
-     "betrag_2026": 60707,
-     "betrag_2025": 35484
+     "betrag": 60707,
+     "betrag_vorjahr": 35484
     },
     {
      "nr": "1711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 56618,
-     "betrag_2025": 50253
+     "betrag": 56618,
+     "betrag_vorjahr": 50253
     },
     {
      "nr": "2311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 54007,
-     "betrag_2025": 50369
+     "betrag": 54007,
+     "betrag_vorjahr": 50369
     },
     {
      "nr": "3205",
      "name": "Verzinsung",
-     "betrag_2026": 53683,
-     "betrag_2025": 52669
+     "betrag": 53683,
+     "betrag_vorjahr": 52669
     },
     {
      "nr": "0452",
      "name": "Der Beauftragte der Bundesregierung für Kultur und Medien",
-     "betrag_2026": 52189,
-     "betrag_2025": 48150
+     "betrag": 52189,
+     "betrag_vorjahr": 48150
     },
     {
      "nr": "1511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 51600,
-     "betrag_2025": 51023
+     "betrag": 51600,
+     "betrag_vorjahr": 51023
     },
     {
      "nr": "0112",
      "name": "Bundespräsidialamt",
-     "betrag_2026": 48490,
-     "betrag_2025": 40376
+     "betrag": 48490,
+     "betrag_vorjahr": 40376
     },
     {
      "nr": "0619",
      "name": "Beschaffungsamt des BMI",
-     "betrag_2026": 43806,
-     "betrag_2025": 45311
+     "betrag": 43806,
+     "betrag_vorjahr": 45311
     },
     {
      "nr": "2112",
      "name": "Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit",
-     "betrag_2026": 42839,
-     "betrag_2025": 38144
+     "betrag": 42839,
+     "betrag_vorjahr": 38144
     },
     {
      "nr": "0610",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 41835,
-     "betrag_2025": 31546
+     "betrag": 41835,
+     "betrag_vorjahr": 31546
     },
     {
      "nr": "0701",
      "name": "Verbraucherpolitik",
-     "betrag_2026": 37791,
-     "betrag_2025": 0
+     "betrag": 37791,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0451",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des BKM und des Geschäftsbereichs",
-     "betrag_2026": 35591,
-     "betrag_2025": 35556
+     "betrag": 35591,
+     "betrag_vorjahr": 35556
     },
     {
      "nr": "1912",
      "name": "Bundesverfassungsgericht",
-     "betrag_2026": 33905,
-     "betrag_2025": 32595
+     "betrag": 33905,
+     "betrag_vorjahr": 32595
     },
     {
      "nr": "0312",
      "name": "Bundesrat",
-     "betrag_2026": 32380,
-     "betrag_2025": 30758
+     "betrag": 32380,
+     "betrag_vorjahr": 30758
     },
     {
      "nr": "0910",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 31064,
-     "betrag_2025": 39531
+     "betrag": 31064,
+     "betrag_vorjahr": 39531
     },
     {
      "nr": "0715",
      "name": "Bundesverwaltungsgericht",
-     "betrag_2026": 30135,
-     "betrag_2025": 29240
+     "betrag": 30135,
+     "betrag_vorjahr": 29240
     },
     {
      "nr": "0501",
      "name": "Sicherung von Frieden und Stabilität",
-     "betrag_2026": 29244,
-     "betrag_2025": 27444
+     "betrag": 29244,
+     "betrag_vorjahr": 27444
     },
     {
      "nr": "1115",
      "name": "Bundessozialgericht",
-     "betrag_2026": 27305,
-     "betrag_2025": 25340
+     "betrag": 27305,
+     "betrag_vorjahr": 25340
     },
     {
      "nr": "0620",
      "name": "Bundesamt für zentrale Dienste und offene Vermögensfragen mit Bundesausgleichsamt",
-     "betrag_2026": 25962,
-     "betrag_2025": 23579
+     "betrag": 25962,
+     "betrag_vorjahr": 23579
     },
     {
      "nr": "1004",
      "name": "Marktordnung, Maßnahmen der Notfallvorsorge",
-     "betrag_2026": 24750,
-     "betrag_2025": 23555
+     "betrag": 24750,
+     "betrag_vorjahr": 23555
     },
     {
      "nr": "2511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 23920,
-     "betrag_2025": 15207
+     "betrag": 23920,
+     "betrag_vorjahr": 15207
     },
     {
      "nr": "0716",
      "name": "Bundesfinanzhof",
-     "betrag_2026": 22640,
-     "betrag_2025": 22210
+     "betrag": 22640,
+     "betrag_vorjahr": 22210
     },
     {
      "nr": "1114",
      "name": "Bundesarbeitsgericht",
-     "betrag_2026": 21884,
-     "betrag_2025": 21251
+     "betrag": 21884,
+     "betrag_vorjahr": 21251
     },
     {
      "nr": "2411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 17676,
-     "betrag_2025": 1549
+     "betrag": 17676,
+     "betrag_vorjahr": 1549
     },
     {
      "nr": "0717",
      "name": "Bundespatentgericht",
-     "betrag_2026": 16829,
-     "betrag_2025": 16923
+     "betrag": 16829,
+     "betrag_vorjahr": 16923
     },
     {
      "nr": "0431",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des Geschäftsbereichs des BPA",
-     "betrag_2026": 14275,
-     "betrag_2025": 14084
+     "betrag": 14275,
+     "betrag_vorjahr": 14084
     },
     {
      "nr": "2212",
      "name": "Unabhängiger Kontrollrat",
-     "betrag_2026": 13916,
-     "betrag_2025": 10978
+     "betrag": 13916,
+     "betrag_vorjahr": 10978
     },
     {
      "nr": "1911",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 11863,
-     "betrag_2025": 11718
+     "betrag": 11863,
+     "betrag_vorjahr": 11718
     },
     {
      "nr": "0416",
      "name": "Staatsministerin für Sport und Ehrenamt",
-     "betrag_2026": 11834,
-     "betrag_2025": 0
+     "betrag": 11834,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0903",
      "name": "Energie und Nachhaltigkeit",
-     "betrag_2026": 11520,
-     "betrag_2025": 12000
+     "betrag": 11520,
+     "betrag_vorjahr": 12000
     },
     {
      "nr": "1117",
      "name": "Die Beauftragte der Bundesregierung für Migration, Flüchtlinge und Integration. Die Beauftragte der Bundesregierung für Antirassismus",
-     "betrag_2026": 11488,
-     "betrag_2025": 7301
+     "betrag": 11488,
+     "betrag_vorjahr": 7301
     },
     {
      "nr": "0111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 10459,
-     "betrag_2025": 10118
+     "betrag": 10459,
+     "betrag_vorjahr": 10118
     },
     {
      "nr": "1205",
      "name": "Luftfahrt",
-     "betrag_2026": 8580,
-     "betrag_2025": 19214
+     "betrag": 8580,
+     "betrag_vorjahr": 19214
     },
     {
      "nr": "0215",
      "name": "Mitglieder des Europäischen Parlaments",
-     "betrag_2026": 8573,
-     "betrag_2025": 8541
+     "betrag": 8573,
+     "betrag_vorjahr": 8541
     },
     {
      "nr": "1715",
      "name": "Antidiskriminierungsstelle des Bundes",
-     "betrag_2026": 8511,
-     "betrag_2025": 8606
+     "betrag": 8511,
+     "betrag_vorjahr": 8606
     },
     {
      "nr": "2111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 8300,
-     "betrag_2025": 8243
+     "betrag": 8300,
+     "betrag_vorjahr": 8243
     },
     {
      "nr": "1716",
      "name": "Die Unabhängige Beauftragte für Fragen des sexuellen Kindesmissbrauchs",
-     "betrag_2026": 8163,
-     "betrag_2025": 8278
+     "betrag": 8163,
+     "betrag_vorjahr": 8278
     },
     {
      "nr": "0311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 8119,
-     "betrag_2025": 7296
+     "betrag": 8119,
+     "betrag_vorjahr": 7296
     },
     {
      "nr": "0502",
      "name": "Bilaterale Zusammenarbeit und Pflege der Auslandsbeziehungen",
-     "betrag_2026": 7420,
-     "betrag_2025": 6720
+     "betrag": 7420,
+     "betrag_vorjahr": 6720
     },
     {
      "nr": "1202",
      "name": "Bundesschienenwege",
-     "betrag_2026": 6891,
-     "betrag_2025": 6891
+     "betrag": 6891,
+     "betrag_vorjahr": 6891
     },
     {
      "nr": "0901",
      "name": "Innovation, Technologie und Neue Mobilität",
-     "betrag_2026": 5944,
-     "betrag_2025": 11979
+     "betrag": 5944,
+     "betrag_vorjahr": 11979
     },
     {
      "nr": "0817",
      "name": "Die Beauftragte der Bundesregierung für Ostdeutschland",
-     "betrag_2026": 5940,
-     "betrag_2025": 0
+     "betrag": 5940,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 5668,
-     "betrag_2025": 8008
+     "betrag": 5668,
+     "betrag_vorjahr": 8008
     },
     {
      "nr": "0213",
      "name": "Der Wehrbeauftragte des Deutschen Bundestages",
-     "betrag_2026": 5576,
-     "betrag_2025": 5406
+     "betrag": 5576,
+     "betrag_vorjahr": 5406
     },
     {
      "nr": "0216",
      "name": "Parlamentarische Kontrolle der Nachrichtendienste",
-     "betrag_2026": 3835,
-     "betrag_2025": 3923
+     "betrag": 3835,
+     "betrag_vorjahr": 3923
     },
     {
      "nr": "0113",
      "name": "Büro der Gemeinsamen Wissenschaftskonferenz",
-     "betrag_2026": 3131,
-     "betrag_2025": 3158
+     "betrag": 3131,
+     "betrag_vorjahr": 3158
     },
     {
      "nr": "0101",
      "name": "Bundespräsident",
-     "betrag_2026": 2803,
-     "betrag_2025": 2803
+     "betrag": 2803,
+     "betrag_vorjahr": 2803
     },
     {
      "nr": "1201",
      "name": "Bundesfernstraßen",
-     "betrag_2026": 2425,
-     "betrag_2025": 2425
+     "betrag": 2425,
+     "betrag_vorjahr": 2425
     },
     {
      "nr": "0218",
      "name": "Der Polizeibeauftragte des Bundes beim Deutschen Bundestag",
-     "betrag_2026": 2343,
-     "betrag_2025": 2357
+     "betrag": 2343,
+     "betrag_vorjahr": 2357
     },
     {
      "nr": "0217",
      "name": "Die Bundesbeauftragte für die Opfer der SED-Diktatur beim Deutschen Bundestag",
-     "betrag_2026": 2335,
-     "betrag_2025": 1322
+     "betrag": 2335,
+     "betrag_vorjahr": 1322
     },
     {
      "nr": "1517",
      "name": "Robert Koch-Institut",
-     "betrag_2026": 1100,
-     "betrag_2025": 0
+     "betrag": 1100,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0802",
      "name": "Lasten im Zusammenhang mit dem Aufenthalt bzw. Abzug von ausländischen Streitkräften",
-     "betrag_2026": 1000,
-     "betrag_2025": 1000
+     "betrag": 1000,
+     "betrag_vorjahr": 1000
     },
     {
      "nr": "2310",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 1000,
-     "betrag_2025": 1000
+     "betrag": 1000,
+     "betrag_vorjahr": 1000
     },
     {
      "nr": "1516",
      "name": "Bundesinstitut für Arzneimittel und Medizinprodukte",
-     "betrag_2026": 1000,
-     "betrag_2025": 0
+     "betrag": 1000,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "2211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 613,
-     "betrag_2025": 596
+     "betrag": 613,
+     "betrag_vorjahr": 596
     },
     {
      "nr": "1106",
      "name": "Maßnahmen des Bundes mit Beteiligung Europäischer Fonds (ESF, EGF) sowie sonstige internationale Angelegenheiten",
-     "betrag_2026": 611,
-     "betrag_2025": 566
+     "betrag": 611,
+     "betrag_vorjahr": 566
     },
     {
      "nr": "1503",
      "name": "Prävention und Gesundheitsverbände",
-     "betrag_2026": 432,
-     "betrag_2025": 0
+     "betrag": 432,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1515",
      "name": "Paul-Ehrlich-Institut",
-     "betrag_2026": 390,
-     "betrag_2025": 0
+     "betrag": 390,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1110",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 358,
-     "betrag_2025": 344
+     "betrag": 358,
+     "betrag_vorjahr": 344
     },
     {
      "nr": "2410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 304,
-     "betrag_2025": 0
+     "betrag": 304,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0417",
      "name": "Bundesinstitut für Sportwissenschaft",
-     "betrag_2026": 236,
-     "betrag_2025": 0
+     "betrag": 236,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1218",
      "name": "Wasserstraßen- und Schifffahrtsverwaltung des Bundes",
-     "betrag_2026": 100,
-     "betrag_2025": 100
+     "betrag": 100,
+     "betrag_vorjahr": 100
     },
     {
      "nr": "1714",
      "name": "Bundeszentrale für Kinder- und Jugendmedienschutz",
-     "betrag_2026": 100,
-     "betrag_2025": 100
+     "betrag": 100,
+     "betrag_vorjahr": 100
     },
     {
      "nr": "1513",
      "name": "Bundesinstitut für Öffentliche Gesundheit",
-     "betrag_2026": 30,
-     "betrag_2025": 0
+     "betrag": 30,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "0415",
      "name": "Die Beauftragte der Bundesregierung für Ostdeutschland",
-     "betrag_2026": 0,
-     "betrag_2025": 8223
+     "betrag": 0,
+     "betrag_vorjahr": 8223
     },
     {
      "nr": "0454",
      "name": "Bundesinstitut für Kultur und Geschichte des östlichen Europa",
-     "betrag_2026": 0,
-     "betrag_2025": 2
+     "betrag": 0,
+     "betrag_vorjahr": 2
     },
     {
      "nr": "1204",
      "name": "Digitale Infrastruktur",
-     "betrag_2026": 0,
-     "betrag_2025": 14800
+     "betrag": 0,
+     "betrag_vorjahr": 14800
     },
     {
      "nr": "1608",
      "name": "Verbraucherpolitik",
-     "betrag_2026": 0,
-     "betrag_2025": 39707
+     "betrag": 0,
+     "betrag_vorjahr": 39707
     }
    ],
    "bindung": "teilweise gebunden",
@@ -4370,7 +4373,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 6253272,
+    "betrag": 6253272,
     "kategorien": {
      "Schutz informationstechnischer Systeme": 1282203,
      "Nachrichtendienste": 2201125,
@@ -4386,21 +4389,21 @@
       "kapitel": "6002",
       "titel": "68501",
       "name": "Zuschuss an die Postbeamtenversorgungskasse",
-      "betrag_2026": 10338100,
+      "betrag": 10338100,
       "text": "Zuschuss an die Postbeamtenversorgungskasse: 10,3 Mrd. €"
      },
      {
       "kapitel": "0625",
       "titel": "42201",
       "name": "Bezüge und Nebenleistungen der planmäßigen Beamtinnen und Beamten (Bundespolizei)",
-      "betrag_2026": 2414466,
+      "betrag": 2414466,
       "text": "Bezüge und Nebenleistungen der planmäßigen Beamtinnen und Beamten (Bundespolizei): 2,4 Mrd. €"
      },
      {
       "kapitel": "0813",
       "titel": "42201",
       "name": "Bezüge und Nebenleistungen der planmäßigen Beamtinnen und Beamten (Zollverwaltung)",
-      "betrag_2026": 2051254,
+      "betrag": 2051254,
       "text": "Bezüge und Nebenleistungen der planmäßigen Beamtinnen und Beamten (Zollverwaltung): 2,1 Mrd. €"
      }
     ],
@@ -4463,9 +4466,9 @@
   {
    "id": "aussen",
    "name": "Außenpolitik und Entwicklung",
-   "betrag_2026": 15350702,
-   "betrag_2025": 15456299,
-   "anteil_2026": 0.0293,
+   "betrag": 15350702,
+   "betrag_vorjahr": 15456299,
+   "anteil": 0.0293,
    "funktionen": [
     "02"
    ],
@@ -4481,214 +4484,214 @@
     {
      "nr": "23",
      "name": "Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung",
-     "betrag_2026": 9877358,
-     "betrag_2025": 10130850
+     "betrag": 9877358,
+     "betrag_vorjahr": 10130850
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 4805694,
-     "betrag_2025": 4659112
+     "betrag": 4805694,
+     "betrag_vorjahr": 4659112
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 471627,
-     "betrag_2025": 450944
+     "betrag": 471627,
+     "betrag_vorjahr": 450944
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 116057,
-     "betrag_2025": 112472
+     "betrag": 116057,
+     "betrag_vorjahr": 112472
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": 25427,
-     "betrag_2025": 28083
+     "betrag": 25427,
+     "betrag_vorjahr": 28083
     },
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 22904,
-     "betrag_2025": 30102
+     "betrag": 22904,
+     "betrag_vorjahr": 30102
     },
     {
      "nr": "15",
      "name": "Bundesministerium für Gesundheit",
-     "betrag_2026": 16000,
-     "betrag_2025": 32000
+     "betrag": 16000,
+     "betrag_vorjahr": 32000
     },
     {
      "nr": "07",
      "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-     "betrag_2026": 7413,
-     "betrag_2025": 7213
+     "betrag": 7413,
+     "betrag_vorjahr": 7213
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 6976,
-     "betrag_2025": 5523
+     "betrag": 6976,
+     "betrag_vorjahr": 5523
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 1246,
-     "betrag_2025": 0
+     "betrag": 1246,
+     "betrag_vorjahr": 0
     }
    ],
    "kapitel": [
     {
      "nr": "2301",
      "name": "Bilaterale staatliche Entwicklungszusammenarbeit",
-     "betrag_2026": 4638219,
-     "betrag_2025": 4796498
+     "betrag": 4638219,
+     "betrag_vorjahr": 4796498
     },
     {
      "nr": "0501",
      "name": "Sicherung von Frieden und Stabilität",
-     "betrag_2026": 2373228,
-     "betrag_2025": 2438266
+     "betrag": 2373228,
+     "betrag_vorjahr": 2438266
     },
     {
      "nr": "2303",
      "name": "Europäische Entwicklungszusammenarbeit, Beiträge an die Vereinten Nationen sowie andere internationale Einrichtungen",
-     "betrag_2026": 1775771,
-     "betrag_2025": 1961945
+     "betrag": 1775771,
+     "betrag_vorjahr": 1961945
     },
     {
      "nr": "0512",
      "name": "Bundesministerium",
-     "betrag_2026": 1346050,
-     "betrag_2025": 1164910
+     "betrag": 1346050,
+     "betrag_vorjahr": 1164910
     },
     {
      "nr": "2302",
      "name": "Zivilgesellschaftliches, kommunales und wirtschaftliches Engagement",
-     "betrag_2026": 1324895,
-     "betrag_2025": 1310257
+     "betrag": 1324895,
+     "betrag_vorjahr": 1310257
     },
     {
      "nr": "2304",
      "name": "Beiträge an multilaterale Entwicklungsbanken",
-     "betrag_2026": 1208227,
-     "betrag_2025": 985238
+     "betrag": 1208227,
+     "betrag_vorjahr": 985238
     },
     {
      "nr": "0504",
      "name": "Pflege kultureller Beziehungen zum Ausland",
-     "betrag_2026": 952882,
-     "betrag_2025": 931893
+     "betrag": 952882,
+     "betrag_vorjahr": 931893
     },
     {
      "nr": "2310",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 871220,
-     "betrag_2025": 1017031
+     "betrag": 871220,
+     "betrag_vorjahr": 1017031
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 471627,
-     "betrag_2025": 450944
+     "betrag": 471627,
+     "betrag_vorjahr": 450944
     },
     {
      "nr": "0502",
      "name": "Bilaterale Zusammenarbeit und Pflege der Auslandsbeziehungen",
-     "betrag_2026": 133520,
-     "betrag_2025": 124029
+     "betrag": 133520,
+     "betrag_vorjahr": 124029
     },
     {
      "nr": "0904",
      "name": "Chancen der Globalisierung",
-     "betrag_2026": 116057,
-     "betrag_2025": 112472
+     "betrag": 116057,
+     "betrag_vorjahr": 112472
     },
     {
      "nr": "2305",
      "name": "Forschung, Evaluierung und Qualifizierung in der Entwicklungszusammenarbeit",
-     "betrag_2026": 54276,
-     "betrag_2025": 55131
+     "betrag": 54276,
+     "betrag_vorjahr": 55131
     },
     {
      "nr": "1106",
      "name": "Maßnahmen des Bundes mit Beteiligung Europäischer Fonds (ESF, EGF) sowie sonstige internationale Angelegenheiten",
-     "betrag_2026": 25427,
-     "betrag_2025": 28083
+     "betrag": 25427,
+     "betrag_vorjahr": 28083
     },
     {
      "nr": "0603",
      "name": "Integration und Migration, Minderheiten und Vertriebene",
-     "betrag_2026": 19417,
-     "betrag_2025": 17704
+     "betrag": 19417,
+     "betrag_vorjahr": 17704
     },
     {
      "nr": "1505",
      "name": "Internationales Gesundheitswesen",
-     "betrag_2026": 15000,
-     "betrag_2025": 30000
+     "betrag": 15000,
+     "betrag_vorjahr": 30000
     },
     {
      "nr": "0710",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 7413,
-     "betrag_2025": 7213
+     "betrag": 7413,
+     "betrag_vorjahr": 7213
     },
     {
      "nr": "0810",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 6676,
-     "betrag_2025": 5223
+     "betrag": 6676,
+     "betrag_vorjahr": 5223
     },
     {
      "nr": "2311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 4750,
-     "betrag_2025": 4750
+     "betrag": 4750,
+     "betrag_vorjahr": 4750
     },
     {
      "nr": "0601",
      "name": "Heimat, Gesellschaft und Verfassung",
-     "betrag_2026": 2000,
-     "betrag_2025": 10042
+     "betrag": 2000,
+     "betrag_vorjahr": 10042
     },
     {
      "nr": "0416",
      "name": "Staatsministerin für Sport und Ehrenamt",
-     "betrag_2026": 1246,
-     "betrag_2025": 0
+     "betrag": 1246,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1502",
      "name": "Pflegevorsorge und sonstige soziale Sicherung",
-     "betrag_2026": 1000,
-     "betrag_2025": 2000
+     "betrag": 1000,
+     "betrag_vorjahr": 2000
     },
     {
      "nr": "0611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 787,
-     "betrag_2025": 796
+     "betrag": 787,
+     "betrag_vorjahr": 796
     },
     {
      "nr": "0610",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 700,
-     "betrag_2025": 1560
+     "betrag": 700,
+     "betrag_vorjahr": 1560
     },
     {
      "nr": "0802",
      "name": "Lasten im Zusammenhang mit dem Aufenthalt bzw. Abzug von ausländischen Streitkräften",
-     "betrag_2026": 300,
-     "betrag_2025": 300
+     "betrag": 300,
+     "betrag_vorjahr": 300
     },
     {
      "nr": "0511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 14,
-     "betrag_2025": 14
+     "betrag": 14,
+     "betrag_vorjahr": 14
     }
    ],
    "bindung": "politisch frei gestaltbar",
@@ -4701,7 +4704,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 218984,
+    "betrag": 218984,
     "kategorien": {
      "Schutz informationstechnischer Systeme": 218984
     }
@@ -4714,21 +4717,21 @@
       "kapitel": "2301",
       "titel": "89611",
       "name": "Bilaterale Finanzielle Zusammenarbeit (Zuschüsse)",
-      "betrag_2026": 1749000,
+      "betrag": 1749000,
       "text": "Bilaterale Finanzielle Zusammenarbeit (Zuschüsse): 1,7 Mrd. €"
      },
      {
       "kapitel": "2301",
       "titel": "89603",
       "name": "Bilaterale Technische Zusammenarbeit",
-      "betrag_2026": 1742000,
+      "betrag": 1742000,
       "text": "Bilaterale Technische Zusammenarbeit: 1,7 Mrd. €"
      },
      {
       "kapitel": "0501",
       "titel": "68732",
       "name": "Humanitäre Hilfsmaßnahmen im Ausland",
-      "betrag_2026": 1048000,
+      "betrag": 1048000,
       "text": "Humanitäre Hilfsmaßnahmen im Ausland: 1,0 Mrd. €"
      }
     ],
@@ -4791,9 +4794,9 @@
   {
    "id": "umwelt",
    "name": "Umwelt, Wohnen und Sport",
-   "betrag_2026": 7938121,
-   "betrag_2025": 7667328,
-   "anteil_2026": 0.0151,
+   "betrag": 7938121,
+   "betrag_vorjahr": 7667328,
+   "anteil": 0.0151,
    "funktionen": [
     "32",
     "33",
@@ -4819,232 +4822,232 @@
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": 4641317,
-     "betrag_2025": 4431725
+     "betrag": 4641317,
+     "betrag_vorjahr": 4431725
     },
     {
      "nr": "16",
      "name": "Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",
-     "betrag_2026": 2421832,
-     "betrag_2025": 2331804
+     "betrag": 2421832,
+     "betrag_vorjahr": 2331804
     },
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": 434396,
-     "betrag_2025": 399352
+     "betrag": 434396,
+     "betrag_vorjahr": 399352
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": 349580,
-     "betrag_2025": 0
+     "betrag": 349580,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 61649,
-     "betrag_2025": 81534
+     "betrag": 61649,
+     "betrag_vorjahr": 81534
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": 27309,
-     "betrag_2025": 93587
+     "betrag": 27309,
+     "betrag_vorjahr": 93587
     },
     {
      "nr": "14",
      "name": "Bundesministerium der Verteidigung",
-     "betrag_2026": 1500,
-     "betrag_2025": 1510
+     "betrag": 1500,
+     "betrag_vorjahr": 1510
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 440,
-     "betrag_2025": 420
+     "betrag": 440,
+     "betrag_vorjahr": 420
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": 88,
-     "betrag_2025": 88
+     "betrag": 88,
+     "betrag_vorjahr": 88
     },
     {
      "nr": "17",
      "name": "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",
-     "betrag_2026": 10,
-     "betrag_2025": 25
+     "betrag": 10,
+     "betrag_vorjahr": 25
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 0,
-     "betrag_2025": 2164
+     "betrag": 0,
+     "betrag_vorjahr": 2164
     },
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 0,
-     "betrag_2025": 325119
+     "betrag": 0,
+     "betrag_vorjahr": 325119
     }
    ],
    "kapitel": [
     {
      "nr": "2501",
      "name": "Bau- und Wohnungswesen",
-     "betrag_2026": 3736803,
-     "betrag_2025": 3205149
+     "betrag": 3736803,
+     "betrag_vorjahr": 3205149
     },
     {
      "nr": "1603",
      "name": "Zwischenlagerung und Endlagerung radioaktiver Abfälle",
-     "betrag_2026": 1464759,
-     "betrag_2025": 1400355
+     "betrag": 1464759,
+     "betrag_vorjahr": 1400355
     },
     {
      "nr": "2502",
      "name": "Stadtentwicklung und Raumordnung",
-     "betrag_2026": 904514,
-     "betrag_2025": 1226576
+     "betrag": 904514,
+     "betrag_vorjahr": 1226576
     },
     {
      "nr": "3010",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 434396,
-     "betrag_2025": 399352
+     "betrag": 434396,
+     "betrag_vorjahr": 399352
     },
     {
      "nr": "0416",
      "name": "Staatsministerin für Sport und Ehrenamt",
-     "betrag_2026": 348995,
-     "betrag_2025": 0
+     "betrag": 348995,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "1601",
      "name": "Umweltschutz",
-     "betrag_2026": 212649,
-     "betrag_2025": 214915
+     "betrag": 212649,
+     "betrag_vorjahr": 214915
     },
     {
      "nr": "1613",
      "name": "Umweltbundesamt",
-     "betrag_2026": 211133,
-     "betrag_2025": 205192
+     "betrag": 211133,
+     "betrag_vorjahr": 205192
     },
     {
      "nr": "1604",
      "name": "Naturschutz",
-     "betrag_2026": 183975,
-     "betrag_2025": 183745
+     "betrag": 183975,
+     "betrag_vorjahr": 183745
     },
     {
      "nr": "1605",
      "name": "Nukleare Sicherheit und Strahlenschutz",
-     "betrag_2026": 125650,
-     "betrag_2025": 106333
+     "betrag": 125650,
+     "betrag_vorjahr": 106333
     },
     {
      "nr": "1616",
      "name": "Bundesamt für Strahlenschutz",
-     "betrag_2026": 81669,
-     "betrag_2025": 80492
+     "betrag": 81669,
+     "betrag_vorjahr": 80492
     },
     {
      "nr": "1614",
      "name": "Bundesamt für Naturschutz",
-     "betrag_2026": 64639,
-     "betrag_2025": 65589
+     "betrag": 64639,
+     "betrag_vorjahr": 65589
     },
     {
      "nr": "1615",
      "name": "Bundesamt für die Sicherheit der nuklearen Entsorgung",
-     "betrag_2026": 59713,
-     "betrag_2025": 57273
+     "betrag": 59713,
+     "betrag_vorjahr": 57273
     },
     {
      "nr": "1210",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 58950,
-     "betrag_2025": 78835
+     "betrag": 58950,
+     "betrag_vorjahr": 78835
     },
     {
      "nr": "0915",
      "name": "Bundesanstalt für Geowissenschaften und Rohstoffe",
-     "betrag_2026": 18863,
-     "betrag_2025": 18192
+     "betrag": 18863,
+     "betrag_vorjahr": 18192
     },
     {
      "nr": "1611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 17645,
-     "betrag_2025": 17910
+     "betrag": 17645,
+     "betrag_vorjahr": 17910
     },
     {
      "nr": "0903",
      "name": "Energie und Nachhaltigkeit",
-     "betrag_2026": 7643,
-     "betrag_2025": 74584
+     "betrag": 7643,
+     "betrag_vorjahr": 74584
     },
     {
      "nr": "1220",
      "name": "Deutscher Wetterdienst",
-     "betrag_2026": 2699,
-     "betrag_2025": 2699
+     "betrag": 2699,
+     "betrag_vorjahr": 2699
     },
     {
      "nr": "1408",
      "name": "Unterbringung",
-     "betrag_2026": 1500,
-     "betrag_2025": 1510
+     "betrag": 1500,
+     "betrag_vorjahr": 1510
     },
     {
      "nr": "0914",
      "name": "Bundesanstalt für Materialforschung und -prüfung",
-     "betrag_2026": 803,
-     "betrag_2025": 811
+     "betrag": 803,
+     "betrag_vorjahr": 811
     },
     {
      "nr": "0417",
      "name": "Bundesinstitut für Sportwissenschaft",
-     "betrag_2026": 585,
-     "betrag_2025": 0
+     "betrag": 585,
+     "betrag_vorjahr": 0
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 440,
-     "betrag_2025": 420
+     "betrag": 440,
+     "betrag_vorjahr": 420
     },
     {
      "nr": "1010",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 88,
-     "betrag_2025": 88
+     "betrag": 88,
+     "betrag_vorjahr": 88
     },
     {
      "nr": "1702",
      "name": "Kinder- und Jugendpolitik",
-     "betrag_2026": 10,
-     "betrag_2025": 25
+     "betrag": 10,
+     "betrag_vorjahr": 25
     },
     {
      "nr": "0501",
      "name": "Sicherung von Frieden und Stabilität",
-     "betrag_2026": 0,
-     "betrag_2025": 2164
+     "betrag": 0,
+     "betrag_vorjahr": 2164
     },
     {
      "nr": "0601",
      "name": "Heimat, Gesellschaft und Verfassung",
-     "betrag_2026": 0,
-     "betrag_2025": 324530
+     "betrag": 0,
+     "betrag_vorjahr": 324530
     },
     {
      "nr": "0618",
      "name": "Bundesinstitut für Sportwissenschaft",
-     "betrag_2026": 0,
-     "betrag_2025": 589
+     "betrag": 0,
+     "betrag_vorjahr": 589
     }
    ],
    "bindung": "teilweise gebunden",
@@ -5057,7 +5060,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 7978,
+    "betrag": 7978,
     "kategorien": {
      "Verteidigung": 1500,
      "Schutz informationstechnischer Systeme": 6478
@@ -5071,21 +5074,21 @@
       "kapitel": "2501",
       "titel": "88206",
       "name": "Sozialer Wohnungsbau",
-      "betrag_2026": 2652500,
+      "betrag": 2652500,
       "text": "Sozialer Wohnungsbau: 2,7 Mrd. €"
      },
      {
       "kapitel": "1603",
       "titel": "89101",
       "name": "Endlagerung und Standortauswahlverfahren",
-      "betrag_2026": 969998,
+      "betrag": 969998,
       "text": "Endlagerung und Standortauswahlverfahren: 970 Mio. €"
      },
      {
       "kapitel": "2501",
       "titel": "89305",
       "name": "Zuschüsse zum Wohneigentumserwerb (Baukindergeld)",
-      "betrag_2026": 807946,
+      "betrag": 807946,
       "text": "Zuschüsse zum Wohneigentumserwerb (Baukindergeld): 808 Mio. €"
      }
     ],
@@ -5148,9 +5151,9 @@
   {
    "id": "finanzen",
    "name": "Allgemeine Finanzwirtschaft",
-   "betrag_2026": 7799606,
-   "betrag_2025": 8364849,
-   "anteil_2026": 0.0149,
+   "betrag": 7799606,
+   "betrag_vorjahr": 8364849,
+   "anteil": 0.0149,
    "funktionen": [
     "81",
     "82",
@@ -5176,400 +5179,400 @@
     {
      "nr": "12",
      "name": "Bundesministerium für Verkehr",
-     "betrag_2026": 5650668,
-     "betrag_2025": 5418410
+     "betrag": 5650668,
+     "betrag_vorjahr": 5418410
     },
     {
      "nr": "60",
      "name": "Allgemeine Finanzverwaltung",
-     "betrag_2026": 2285962,
-     "betrag_2025": 4275357
+     "betrag": 2285962,
+     "betrag_vorjahr": 4275357
     },
     {
      "nr": "14",
      "name": "Bundesministerium der Verteidigung",
-     "betrag_2026": 449342,
-     "betrag_2025": 319561
+     "betrag": 449342,
+     "betrag_vorjahr": 319561
     },
     {
      "nr": "08",
      "name": "Bundesministerium der Finanzen",
-     "betrag_2026": 155710,
-     "betrag_2025": 149804
+     "betrag": 155710,
+     "betrag_vorjahr": 149804
     },
     {
      "nr": "06",
      "name": "Bundesministerium des Innern",
-     "betrag_2026": 138797,
-     "betrag_2025": 120236
+     "betrag": 138797,
+     "betrag_vorjahr": 120236
     },
     {
      "nr": "05",
      "name": "Auswärtiges Amt",
-     "betrag_2026": 67843,
-     "betrag_2025": 27343
+     "betrag": 67843,
+     "betrag_vorjahr": 27343
     },
     {
      "nr": "07",
      "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-     "betrag_2026": 5839,
-     "betrag_2025": 2250
+     "betrag": 5839,
+     "betrag_vorjahr": 2250
     },
     {
      "nr": "20",
      "name": "Bundesrechnungshof",
-     "betrag_2026": 5181,
-     "betrag_2025": 4429
+     "betrag": 5181,
+     "betrag_vorjahr": 4429
     },
     {
      "nr": "02",
      "name": "Deutscher Bundestag",
-     "betrag_2026": 4850,
-     "betrag_2025": 4350
+     "betrag": 4850,
+     "betrag_vorjahr": 4350
     },
     {
      "nr": "21",
      "name": "Die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit",
-     "betrag_2026": 1009,
-     "betrag_2025": 1009
+     "betrag": 1009,
+     "betrag_vorjahr": 1009
     },
     {
      "nr": "24",
      "name": "Bundesministerium für Digitales und Staatsmodernisierung",
-     "betrag_2026": 988,
-     "betrag_2025": 156
+     "betrag": 988,
+     "betrag_vorjahr": 156
     },
     {
      "nr": "19",
      "name": "Bundesverfassungsgericht",
-     "betrag_2026": 580,
-     "betrag_2025": 460
+     "betrag": 580,
+     "betrag_vorjahr": 460
     },
     {
      "nr": "01",
      "name": "Bundespräsident und Bundespräsidialamt",
-     "betrag_2026": 491,
-     "betrag_2025": 471
+     "betrag": 491,
+     "betrag_vorjahr": 471
     },
     {
      "nr": "03",
      "name": "Bundesrat",
-     "betrag_2026": 439,
-     "betrag_2025": 439
+     "betrag": 439,
+     "betrag_vorjahr": 439
     },
     {
      "nr": "22",
      "name": "Unabhängiger Kontrollrat",
-     "betrag_2026": 69,
-     "betrag_2025": 67
+     "betrag": 69,
+     "betrag_vorjahr": 67
     },
     {
      "nr": "25",
      "name": "Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",
-     "betrag_2026": -9113,
-     "betrag_2025": -12378
+     "betrag": -9113,
+     "betrag_vorjahr": -12378
     },
     {
      "nr": "15",
      "name": "Bundesministerium für Gesundheit",
-     "betrag_2026": -9145,
-     "betrag_2025": -23736
+     "betrag": -9145,
+     "betrag_vorjahr": -23736
     },
     {
      "nr": "16",
      "name": "Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",
-     "betrag_2026": -10437,
-     "betrag_2025": -16837
+     "betrag": -10437,
+     "betrag_vorjahr": -16837
     },
     {
      "nr": "04",
      "name": "Bundeskanzler und Bundeskanzleramt",
-     "betrag_2026": -26581,
-     "betrag_2025": -18379
+     "betrag": -26581,
+     "betrag_vorjahr": -18379
     },
     {
      "nr": "09",
      "name": "Bundesministerium für Wirtschaft und Energie",
-     "betrag_2026": -34820,
-     "betrag_2025": 7729
+     "betrag": -34820,
+     "betrag_vorjahr": 7729
     },
     {
      "nr": "23",
      "name": "Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung",
-     "betrag_2026": -41458,
-     "betrag_2025": -41438
+     "betrag": -41458,
+     "betrag_vorjahr": -41438
     },
     {
      "nr": "10",
      "name": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
-     "betrag_2026": -146605,
-     "betrag_2025": -143214
+     "betrag": -146605,
+     "betrag_vorjahr": -143214
     },
     {
      "nr": "11",
      "name": "Bundesministerium für Arbeit und Soziales",
-     "betrag_2026": -160854,
-     "betrag_2025": -1004919
+     "betrag": -160854,
+     "betrag_vorjahr": -1004919
     },
     {
      "nr": "17",
      "name": "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",
-     "betrag_2026": -175516,
-     "betrag_2025": -159587
+     "betrag": -175516,
+     "betrag_vorjahr": -159587
     },
     {
      "nr": "30",
      "name": "Bundesministerium für Forschung, Technologie und Raumfahrt",
-     "betrag_2026": -353633,
-     "betrag_2025": -546734
+     "betrag": -353633,
+     "betrag_vorjahr": -546734
     }
    ],
    "kapitel": [
     {
      "nr": "1216",
      "name": "Bundeseisenbahnvermögen",
-     "betrag_2026": 5975270,
-     "betrag_2025": 5872510
+     "betrag": 5975270,
+     "betrag_vorjahr": 5872510
     },
     {
      "nr": "6002",
      "name": "Allgemeine Bewilligungen",
-     "betrag_2026": 2250862,
-     "betrag_2025": 4235257
+     "betrag": 2250862,
+     "betrag_vorjahr": 4235257
     },
     {
      "nr": "1403",
      "name": "Kommandobehörden und Truppen, Sozialversicherungsbeiträge, Fürsorgemaßnahmen und Versorgung für Soldatinnen und Soldaten",
-     "betrag_2026": 257075,
-     "betrag_2025": 250000
+     "betrag": 257075,
+     "betrag_vorjahr": 250000
     },
     {
      "nr": "1411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 192267,
-     "betrag_2025": 193944
+     "betrag": 192267,
+     "betrag_vorjahr": 193944
     },
     {
      "nr": "0811",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 155710,
-     "betrag_2025": 149804
+     "betrag": 155710,
+     "betrag_vorjahr": 149804
     },
     {
      "nr": "0512",
      "name": "Bundesministerium",
-     "betrag_2026": 73941,
-     "betrag_2025": 73941
+     "betrag": 73941,
+     "betrag_vorjahr": 73941
     },
     {
      "nr": "0625",
      "name": "Bundespolizei",
-     "betrag_2026": 70725,
-     "betrag_2025": 60725
+     "betrag": 70725,
+     "betrag_vorjahr": 60725
     },
     {
      "nr": "0611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 68072,
-     "betrag_2025": 59511
+     "betrag": 68072,
+     "betrag_vorjahr": 59511
     },
     {
      "nr": "6003",
      "name": "Leistungen im Zusammenhang mit der deutschen Einheit",
-     "betrag_2026": 35100,
-     "betrag_2025": 40100
+     "betrag": 35100,
+     "betrag_vorjahr": 40100
     },
     {
      "nr": "1211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 29317,
-     "betrag_2025": 29364
+     "betrag": 29317,
+     "betrag_vorjahr": 29364
     },
     {
      "nr": "0911",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 23949,
-     "betrag_2025": 20742
+     "betrag": 23949,
+     "betrag_vorjahr": 20742
     },
     {
      "nr": "1011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 8084,
-     "betrag_2025": 7925
+     "betrag": 8084,
+     "betrag_vorjahr": 7925
     },
     {
      "nr": "0711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 5839,
-     "betrag_2025": 2250
+     "betrag": 5839,
+     "betrag_vorjahr": 2250
     },
     {
      "nr": "2011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 5181,
-     "betrag_2025": 4429
+     "betrag": 5181,
+     "betrag_vorjahr": 4429
     },
     {
      "nr": "0211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 4850,
-     "betrag_2025": 4350
+     "betrag": 4850,
+     "betrag_vorjahr": 4350
     },
     {
      "nr": "0411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des Geschäftsbereichs des BKAmts",
-     "betrag_2026": 1965,
-     "betrag_2025": 1649
+     "betrag": 1965,
+     "betrag_vorjahr": 1649
     },
     {
      "nr": "2111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 1009,
-     "betrag_2025": 1009
+     "betrag": 1009,
+     "betrag_vorjahr": 1009
     },
     {
      "nr": "2411",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 988,
-     "betrag_2025": 156
+     "betrag": 988,
+     "betrag_vorjahr": 156
     },
     {
      "nr": "1911",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 580,
-     "betrag_2025": 460
+     "betrag": 580,
+     "betrag_vorjahr": 460
     },
     {
      "nr": "0111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 440,
-     "betrag_2025": 420
+     "betrag": 440,
+     "betrag_vorjahr": 420
     },
     {
      "nr": "0311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 439,
-     "betrag_2025": 439
+     "betrag": 439,
+     "betrag_vorjahr": 439
     },
     {
      "nr": "3012",
      "name": "Bundesministerium",
-     "betrag_2026": 407,
-     "betrag_2025": 464
+     "betrag": 407,
+     "betrag_vorjahr": 464
     },
     {
      "nr": "0431",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des Geschäftsbereichs des BPA",
-     "betrag_2026": 350,
-     "betrag_2025": 350
+     "betrag": 350,
+     "betrag_vorjahr": 350
     },
     {
      "nr": "0514",
      "name": "Bundesamt für Auswärtige Angelegenheiten",
-     "betrag_2026": 200,
-     "betrag_2025": 200
+     "betrag": 200,
+     "betrag_vorjahr": 200
     },
     {
      "nr": "2211",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": 69,
-     "betrag_2025": 67
+     "betrag": 69,
+     "betrag_vorjahr": 67
     },
     {
      "nr": "0113",
      "name": "Büro der Gemeinsamen Wissenschaftskonferenz",
-     "betrag_2026": 51,
-     "betrag_2025": 51
+     "betrag": 51,
+     "betrag_vorjahr": 51
     },
     {
      "nr": "1213",
      "name": "Bundesamt für Logistik und Mobilität",
-     "betrag_2026": 6,
-     "betrag_2025": 6
+     "betrag": 6,
+     "betrag_vorjahr": 6
     },
     {
      "nr": "0452",
      "name": "Der Beauftragte der Bundesregierung für Kultur und Medien",
-     "betrag_2026": 0,
-     "betrag_2025": 15
+     "betrag": 0,
+     "betrag_vorjahr": 15
     },
     {
      "nr": "1410",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": 0,
-     "betrag_2025": -124383
+     "betrag": 0,
+     "betrag_vorjahr": -124383
     },
     {
      "nr": "0511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -6298,
-     "betrag_2025": -46798
+     "betrag": -6298,
+     "betrag_vorjahr": -46798
     },
     {
      "nr": "2511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -9113,
-     "betrag_2025": -12378
+     "betrag": -9113,
+     "betrag_vorjahr": -12378
     },
     {
      "nr": "1511",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -9145,
-     "betrag_2025": -23736
+     "betrag": -9145,
+     "betrag_vorjahr": -23736
     },
     {
      "nr": "1611",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -10437,
-     "betrag_2025": -16837
+     "betrag": -10437,
+     "betrag_vorjahr": -16837
     },
     {
      "nr": "0451",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben des BKM und des Geschäftsbereichs",
-     "betrag_2026": -28896,
-     "betrag_2025": -20393
+     "betrag": -28896,
+     "betrag_vorjahr": -20393
     },
     {
      "nr": "2311",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -41458,
-     "betrag_2025": -41438
+     "betrag": -41458,
+     "betrag_vorjahr": -41438
     },
     {
      "nr": "0910",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": -58769,
-     "betrag_2025": -13013
+     "betrag": -58769,
+     "betrag_vorjahr": -13013
     },
     {
      "nr": "1010",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": -154689,
-     "betrag_2025": -151139
+     "betrag": -154689,
+     "betrag_vorjahr": -151139
     },
     {
      "nr": "1111",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -160854,
-     "betrag_2025": -1004919
+     "betrag": -160854,
+     "betrag_vorjahr": -1004919
     },
     {
      "nr": "1711",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -175516,
-     "betrag_2025": -159587
+     "betrag": -175516,
+     "betrag_vorjahr": -159587
     },
     {
      "nr": "1210",
      "name": "Sonstige Bewilligungen",
-     "betrag_2026": -353925,
-     "betrag_2025": -483470
+     "betrag": -353925,
+     "betrag_vorjahr": -483470
     },
     {
      "nr": "3011",
      "name": "Zentral veranschlagte Verwaltungseinnahmen und -ausgaben",
-     "betrag_2026": -354040,
-     "betrag_2025": -547198
+     "betrag": -354040,
+     "betrag_vorjahr": -547198
     }
    ],
    "bindung": "teilweise gebunden",
@@ -5582,7 +5585,7 @@
    ],
    "bereichsausnahme": {
     "betroffen": "teilweise",
-    "betrag_2026": 449342,
+    "betrag": 449342,
     "kategorien": {
      "Verteidigung": 449342
     }
@@ -5595,21 +5598,21 @@
       "kapitel": "1216",
       "titel": "63401",
       "name": "Erstattungen von Verwaltungsausgaben des Bundeseisenbahnvermögens",
-      "betrag_2026": 5632610,
+      "betrag": 5632610,
       "text": "Erstattungen von Verwaltungsausgaben des Bundeseisenbahnvermögens: 5,6 Mrd. €"
      },
      {
       "kapitel": "6002",
       "titel": "46171",
       "name": "Verstärkung von Personalausgaben der Hgr. 4",
-      "betrag_2026": 3008656,
+      "betrag": 3008656,
       "text": "Verstärkung von Personalausgaben der Hgr. 4: 3,0 Mrd. €"
      },
      {
       "kapitel": "6002",
       "titel": "63401",
       "name": "Zuweisung an das Sondervermögen Aufbauhilfe 2021",
-      "betrag_2026": 2500000,
+      "betrag": 2500000,
       "text": "Zuweisung an das Sondervermögen Aufbauhilfe 2021: 2,5 Mrd. €"
      }
     ],

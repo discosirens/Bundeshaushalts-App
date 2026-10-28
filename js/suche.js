@@ -88,14 +88,14 @@ function baueSuchIndex() {
   for (const ep of daten.einzelplaene) {
     const en = EP_NAMEN_EN[ep.nr] || [];
     index.push({ typ: "ep", ep, name: epName(ep), text: norm([ep.name, ...en, SUCHWORTE_GRUPPE[ep.nr] || ""].join(" ")),
-      betrag: ep.soll["2026"] });
+      betrag: ep.soll[HAUPTJAHR] });
     for (const k of ep.kapitel) {
       const kname = anzeigename(k.name.replace(/^Anlage \d+ /, ""));
       index.push({ typ: "kapitel", ep, k, name: SPRACHE === "en" && ANLAGEN_EN[k.nr] ? ANLAGEN_EN[k.nr] : kname,
-        text: norm(`${k.name} ${ANLAGEN_EN[k.nr] || ""} ${SUCHWORTE_GRUPPE[k.nr] || ""}`), betrag: k.soll["2026"] });
+        text: norm(`${k.name} ${ANLAGEN_EN[k.nr] || ""} ${SUCHWORTE_GRUPPE[k.nr] || ""}`), betrag: k.soll[HAUPTJAHR] });
       for (const ti of k.titel) {
         const extra = SUCHWORTE[`${k.nr}/${ti.nr}`] || "";
-        index.push({ typ: "titel", ep, k, ti, name: titelName(k, ti), text: norm(`${ti.name} ${extra}`), betrag: ti.soll["2026"] });
+        index.push({ typ: "titel", ep, k, ti, name: titelName(k, ti), text: norm(`${ti.name} ${extra}`), betrag: ti.soll[HAUPTJAHR] });
       }
     }
   }

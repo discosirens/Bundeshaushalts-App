@@ -16,6 +16,9 @@
 - Jede Zahl in der App braucht Jahr, Art (Soll, Ist, Schätzung, Entwurf) und Quelle.
 - Der Regierungsentwurf 2027 (`HH_2027_RegE_ALL.csv`) ist noch nicht beschlossen: immer als „Entwurf 2027“
   kennzeichnen, nie als Soll. Die Treemap und alle Anteile beziehen sich weiter auf das Soll 2026.
+- Jahre stehen zentral in `skripte/jahre.py` und oben in `js/sprache.js` (`HAUPTJAHR`, `VORJAHR`, `ENTWURFSJAHR`),
+  in Texten als `{haushaltsjahr}`, `{vorjahr}`, `{entwurfsjahr}`. Keine Jahreszahlen fest in Code schreiben.
+  Texte mit von Hand eingetragenen Zahlen nennen ihr Jahr fest. Umstellung auf ein neues Jahr: `JAHRESWECHSEL.md`.
 - Sondervermögen werden immer getrennt vom Kernhaushalt dargestellt und nie einfach addiert.
   Bei Themen wie Verteidigung wird die Summe aus Kernhaushalt und zugehörigem Sondervermögen
   zusätzlich ausgewiesen, mit Hinweis auf mögliche Doppelzählung.

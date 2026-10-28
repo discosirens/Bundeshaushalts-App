@@ -4,7 +4,7 @@
 const MRD = 1_000_000;
 
 let bereiche = null;   // Bereiche nach id
-let soll2026 = 0;
+let sollHaupt = 0;
 let runden = [];
 let nr = 0;            // aktuelle Runde (Index)
 const plan = {};       // Änderung je Bereich in Tausend Euro
@@ -46,7 +46,7 @@ function pruefeRunden() {
 function zeigeStatus() {
   el("status").hidden = false;
   el("status-runde").textContent = `${Math.min(nr + 1, runden.length)} / ${runden.length}`;
-  el("status-ausgaben").textContent = milliarden(soll2026 + summePlan());
+  el("status-ausgaben").textContent = milliarden(sollHaupt + summePlan());
   el("status-kredite").textContent = milliarden(kreditGesamt(), true);
   el("status-gesetze").textContent = String(gesetzlichGekuerzt().length);
   el("fortschritt").style.width = `${(entscheidungen.length / runden.length) * 100}%`;
@@ -189,7 +189,7 @@ function zeigeEnde() {
   h.textContent = t("spiel.ende.titel");
   const summe = document.createElement("p");
   summe.className = "ende-summe";
-  summe.textContent = t("spiel.ende.ausgaben", { plan: milliarden(soll2026 + summePlan()), soll: milliarden(soll2026) });
+  summe.textContent = t("spiel.ende.ausgaben", { plan: milliarden(sollHaupt + summePlan()), soll: milliarden(sollHaupt) });
   box.append(h, summe);
 
   // Kennzahlen
@@ -235,7 +235,7 @@ function zeigeEnde() {
     li.innerHTML = `<span></span><strong></strong>`;
     li.querySelector("span").textContent = bName(bereiche[id]);
     const s = li.querySelector("strong");
-    s.textContent = `${milliarden(wert, true)} (${prozent(wert / bereiche[id].betrag_2026, true)})`;
+    s.textContent = `${milliarden(wert, true)} (${prozent(wert / bereiche[id].betrag, true)})`;
     s.className = wert > 0 ? "plus" : "minus";
     ul.appendChild(li);
   }
@@ -296,7 +296,7 @@ async function start() {
       fetch(datei("daten/runden.json")).then((a) => a.json()),
     ]);
     bereiche = Object.fromEntries(b.bereiche.map((x) => [x.id, x]));
-    soll2026 = b.summe_2026;
+    sollHaupt = b.summe;
     runden = r.runden;
   } catch (fehler) {
     el("start").textContent = t("fehler.laden");

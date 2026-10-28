@@ -170,7 +170,12 @@
    ]
   }
  },
- "steuern_alle_ebenen_2025": {
+ "jahre": {
+  "haupt": "2026",
+  "entwurf": "2027"
+ },
+ "steuern_alle_ebenen": {
+  "jahr": 2025,
   "gesamt_mrd": 990.7,
   "art": "Schätzung",
   "quelle": {
@@ -184,7 +189,8 @@
    "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html"
   }
  },
- "schuldenbremse_2026": {
+ "schuldenbremse": {
+  "jahr": 2026,
   "zulaessig_mrd": 40.392,
   "nettokredit_mrd": 97.965,
   "abzug_bereichsausnahme_mrd": 57.573,
@@ -547,7 +553,8 @@
     "art": "Schätzung"
    }
   ],
-  "quote_2026": {
+  "quote": {
+   "jahr": 2026,
    "kern": 2.7,
    "sicherheit": 1.5,
    "art": "Schätzung",

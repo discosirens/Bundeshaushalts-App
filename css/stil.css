@@ -1073,6 +1073,11 @@ td button {
   .hundert-zeile { grid-template-columns: minmax(0, 1fr) 3.5rem 4.25rem; gap: 0.5rem; font-size: 0.875rem; padding-inline: 0.25rem; }
 }
 
+/* Ohne Regierungsentwurf (ENTWURFSJAHR = null in js/sprache.js): Entwurfs-Spalten und -Hinweise ausblenden */
+.ohne-entwurf [data-nur-entwurf], .ohne-entwurf .hero-entwurf,
+.ohne-entwurf #tabelle th:nth-child(5), .ohne-entwurf #tabelle td:nth-child(5),
+.ohne-entwurf #ua-tabelle th:nth-child(4), .ohne-entwurf #ua-tabelle td:nth-child(4) { display: none; }
+
 /* ---------- Drucken ---------- */
 
 @media print {

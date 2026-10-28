@@ -30,9 +30,9 @@ const bErklaerung = (b) => (SPRACHE === "en" ? b.en.erklaerung : b.erklaerung);
 
 // ---------- Berechnung ----------
 
-const basis = (b) => b.betrag_2026;
+const basis = (b) => b.betrag;
 const aenderung = (b) => werte[b.id] - basis(b);
-const zielSumme = () => daten.summe_2026 + szenario.zielaenderung;
+const zielSumme = () => daten.summe + szenario.zielaenderung;
 const planSumme = () => daten.bereiche.reduce((s, b) => s + werte[b.id], 0);
 
 function setzeWert(b, wert) {
@@ -83,7 +83,7 @@ function baueBereiche() {
       </details>`;
     karte.querySelector("h3").textContent = bName(b);
     karte.querySelector(".bindung").textContent = t(`bindung.${b.bindung}`);
-    karte.querySelector(".soll").textContent = t("karte.soll", { betrag: mrd(basis(b)), anteil: prozent(b.anteil_2026) });
+    karte.querySelector(".soll").textContent = t("karte.soll", { betrag: mrd(basis(b)), anteil: prozent(b.anteil) });
     karte.querySelector("summary").textContent = t("karte.mehr");
     karte.querySelector(".minus").setAttribute("aria-label", t("karte.minus"));
     karte.querySelector(".plus").setAttribute("aria-label", t("karte.plus"));
@@ -157,7 +157,7 @@ function fuelleErklaerung(box, b) {
 
   absatz(box, t("erkl.bindung"), `${t(`bindung.${b.bindung}`)}. ${bBegruendung(b)}`);
   if (b.bereichsausnahme.betroffen !== "nein") {
-    absatz(box, t("erkl.schuldenbremse"), t("erkl.schuldenbremse.text", { betrag: mrd(b.bereichsausnahme.betrag_2026) }));
+    absatz(box, t("erkl.schuldenbremse"), t("erkl.schuldenbremse.text", { betrag: mrd(b.bereichsausnahme.betrag) }));
   }
 
   const hq = document.createElement("h4");
@@ -241,7 +241,7 @@ function zeigeErgebnis() {
     .sort((a, b) => aenderung(b) - aenderung(a));
 
   const summe = document.createElement("p");
-  summe.textContent = t("ergebnis.summe", { plan: mrd(planSumme()), soll: mrd(daten.summe_2026) });
+  summe.textContent = t("ergebnis.summe", { plan: mrd(planSumme()), soll: mrd(daten.summe) });
   box.appendChild(summe);
 
   if (geaendert.length === 0) {

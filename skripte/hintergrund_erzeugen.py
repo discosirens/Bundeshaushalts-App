@@ -2,7 +2,8 @@
 
 Aufruf (im Projektordner):  py skripte/hintergrund_erzeugen.py
 
-- Einnahmen 2025 und 2026 aus den Rohdaten (Kernhaushalt, Soll), Tausend Euro
+- Einnahmen für Vorjahr, Hauptjahr und Entwurfsjahr aus den Rohdaten (Kernhaushalt, Soll), Tausend Euro.
+  Die Jahre stehen in skripte/jahre.py.
 - Zeitreihe der Ausgaben, Steuereinnahmen und Nettokreditaufnahme des Bundes (Mrd. Euro),
   von Hand übernommen aus den genannten BMF-Tabellen
 """
@@ -12,12 +13,12 @@ import json
 import sys
 from pathlib import Path
 
+from jahre import ENTWURFSJAHR, HAUPTJAHR, JAHRE, ROHDATEIEN as DATEIEN, SUMMEN as SUMME_SOLL, pruefe_handwerte
+
 PROJEKT = Path(__file__).resolve().parent.parent
 ROH = PROJEKT / "daten" / "roh"
 ZIEL = PROJEKT / "daten" / "hintergrund.json"
 
-SUMME_SOLL = {"2025": 502_546_135, "2026": 524_540_138, "2027": 555_435_744}  # 2027: Regierungsentwurf
-DATEIEN = {"2025": "HH_2025_ALL.csv", "2026": "HH_2026_ALL.csv", "2027": "HH_2027_RegE_ALL.csv"}
 
 QUELLE_BMF_2019 = {
     "titel": "BMF-Monatsbericht August 2019, Gesamtübersicht über die Entwicklung des Bundeshaushalts 1969 bis 2020",
@@ -27,8 +28,12 @@ QUELLE_BMF_2026 = {
     "titel": "BMF-Monatsbericht August 2026, Bundeshaushalt Gesamtübersicht 2020 bis 2025",
     "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/08/Inhalte/Kapitel-5-Statistiken/5-1-s07-bundeshaushalt-gesamtuebersicht.html",
 }
-QUELLE_PLAN = {"titel": "Bundeshaushaltsplan 2026 (Soll), Vorspann", "url": "https://www.bundeshaushalt.de/"}
-QUELLE_ENTWURF = {"titel": "Regierungsentwurf zum Bundeshaushalt 2027 (noch nicht beschlossen)", "url": "https://www.bundeshaushalt.de/"}
+QUELLE_PLAN = {"titel": f"Bundeshaushaltsplan {HAUPTJAHR} (Soll), Vorspann", "url": "https://www.bundeshaushalt.de/"}
+QUELLE_ENTWURF = {"titel": f"Regierungsentwurf zum Bundeshaushalt {ENTWURFSJAHR} (noch nicht beschlossen)", "url": "https://www.bundeshaushalt.de/"}
+
+# Schuldenbremse laut Vorspann des Hauptjahres (Gesamtplan Teil II B), Mrd. Euro. Von Hand übernommen, beim Jahreswechsel neu eintragen.
+SCHULDENBREMSE_JAHR = "2026"
+SCHULDENBREMSE = {"zulaessig_mrd": 40.392, "nettokredit_mrd": 97.965, "abzug_bereichsausnahme_mrd": 57.573}
 
 # Jahr: (Ausgaben, Steuereinnahmen, Nettokreditaufnahme) in Mrd. Euro, Ist-Ergebnisse.
 # Bis 2001 von D-Mark in Euro umgerechnet (wie in der Quelle). Für 2019 liegt in diesen Quellen kein Ist vor.
@@ -94,7 +99,7 @@ UKRAINE_EN = {
 
 def ukraine_posten():
     werte = {}
-    for jahr in ("2025", "2026", "2027"):
+    for jahr in JAHRE:
         with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
             for z in csv.DictReader(f, delimiter=";"):
                 z = {k.strip(): (v or "").strip() for k, v in z.items() if k is not None}
@@ -105,13 +110,13 @@ def ukraine_posten():
                     eintrag = werte.setdefault(schluessel, {
                         "kapitel": z["kapitel"], "titel": z["titel"], "einzelplan": z["einzelplan"],
                         "de": z["titel-text"].replace('"', ""), "en": UKRAINE_EN.get(schluessel, z["titel-text"]),
-                        "2025": 0, "2026": 0, "2027": 0,
+                        **{j: 0 for j in JAHRE},
                     })
                     eintrag[jahr] = int(z["soll"] or 0)
-                    if jahr != "2027":
-                        eintrag["de"] = z["titel-text"].replace('"', "")  # Name laut Haushalt 2026
-    posten = [p for p in werte.values() if p["2025"] or p["2026"] or p["2027"]]
-    return sorted(posten, key=lambda p: -p["2026"])
+                    if jahr != ENTWURFSJAHR:
+                        eintrag["de"] = z["titel-text"].replace('"', "")  # Name laut beschlossenem Haushalt
+    posten = [p for p in werte.values() if any(p[j] for j in JAHRE)]
+    return sorted(posten, key=lambda p: -p[HAUPTJAHR])
 
 
 # ---------------------------------------------------------------------------
@@ -160,7 +165,7 @@ def pruefe_nato_pdf():
 
 def verteidigung():
     haushalt = []
-    for jahr in ("2025", "2026", "2027"):
+    for jahr in JAHRE:
         ep14 = sv = 0
         with open(ROH / DATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
             for z in csv.DictReader(f, delimiter=";"):
@@ -171,7 +176,7 @@ def verteidigung():
                     ep14 += int(z["soll"] or 0)
                 if z["kapitel"] == "1491":
                     sv += int(z["soll"] or 0)
-        haushalt.append({"jahr": int(jahr), "art": "Entwurf" if jahr == "2027" else "Soll",
+        haushalt.append({"jahr": int(jahr), "art": "Entwurf" if jahr == ENTWURFSJAHR else "Soll",
                          "ep14_mrd": round(ep14 / 1e6, 1), "sondervermoegen_mrd": round(sv / 1e6, 1)})
     for jahr, wert in FINANZPLAN_EP14.items():
         haushalt.append({"jahr": jahr, "art": "Finanzplan", "ep14_mrd": wert, "sondervermoegen_mrd": None})
@@ -179,7 +184,8 @@ def verteidigung():
         "haushalt": haushalt,
         "nato": [{"jahr": j, "mrd": round(m / 1000, 1), "anteil_bip": a, "art": art}
                  for j, (m, a, art) in sorted(NATO_DEUTSCHLAND.items())],
-        "quote_2026": {"kern": 2.7, "sicherheit": 1.5, "art": "Schätzung", "quelle": QUELLE_FINANZBERICHT},
+        # NATO-Quote laut Finanzbericht; gilt für das genannte Jahr
+        "quote": {"jahr": 2026, "kern": 2.7, "sicherheit": 1.5, "art": "Schätzung", "quelle": QUELLE_FINANZBERICHT},
         "ziel": {"kern": 3.5, "sicherheit": 1.5, "deutschland_bis": 2029},
         "quellen": [QUELLE_NATO, QUELLE_FINANZBERICHT, QUELLE_PLAN, QUELLE_ENTWURF],
         "pruefung": pruefe_nato_pdf(),
@@ -240,9 +246,10 @@ def lese_einnahmen(jahr):
 
 
 def main():
+    pruefe_handwerte("Schuldenbremse (SCHULDENBREMSE)", SCHULDENBREMSE_JAHR)
     fehler = []
     einnahmen = {}
-    for jahr in ("2025", "2026", "2027"):
+    for jahr in JAHRE:
         zeilen = lese_einnahmen(jahr)
         gesamt = sum(z["soll"] for z in zeilen)
         if gesamt != SUMME_SOLL[jahr]:
@@ -267,36 +274,31 @@ def main():
         {"jahr": j, "art": "Ist", "ausgaben": a, "steuern": s, "nettokredit": n, "quelle": q}
         for j, (a, s, n, q) in sorted(ZEITREIHE.items())
     ]
-    e26 = einnahmen["2026"]
-    zeitreihe.append({
-        "jahr": 2026, "art": "Soll",
-        "ausgaben": round(SUMME_SOLL["2026"] / 1e6, 1),
-        "steuern": round(e26["steuern"] / 1e6, 1),
-        "nettokredit": round(e26["kredite"] / 1e6, 1),
-        "quelle": QUELLE_PLAN,
-    })
-    e27 = einnahmen["2027"]
-    zeitreihe.append({
-        "jahr": 2027, "art": "Entwurf",
-        "ausgaben": round(SUMME_SOLL["2027"] / 1e6, 1),
-        "steuern": round(e27["steuern"] / 1e6, 1),
-        "nettokredit": round(e27["kredite"] / 1e6, 1),
-        "quelle": QUELLE_ENTWURF,
-    })
+    # Hauptjahr (Soll) und Entwurfsjahr hinten an die Ist-Reihe anhängen
+    for jahr, art, quelle in ((HAUPTJAHR, "Soll", QUELLE_PLAN), (ENTWURFSJAHR, "Entwurf", QUELLE_ENTWURF)):
+        if not jahr:
+            continue
+        e = einnahmen[jahr]
+        zeitreihe.append({
+            "jahr": int(jahr), "art": art,
+            "ausgaben": round(SUMME_SOLL[jahr] / 1e6, 1),
+            "steuern": round(e["steuern"] / 1e6, 1),
+            "nettokredit": round(e["kredite"] / 1e6, 1),
+            "quelle": quelle,
+        })
 
     daten = {
         "hinweis": "Einnahmen in Tausend Euro (Soll, Kernhaushalt). Zeitreihe in Mrd. Euro, nicht inflationsbereinigt.",
         "einnahmen": einnahmen,
-        "steuern_alle_ebenen_2025": {
-            "gesamt_mrd": 990.7, "art": "Schätzung",
+        "jahre": {"haupt": HAUPTJAHR, "entwurf": ENTWURFSJAHR},
+        # Steuereinnahmen aller Ebenen (Bund, Länder, Gemeinden) im genannten Jahr, von Hand übernommen
+        "steuern_alle_ebenen": {
+            "jahr": 2025, "gesamt_mrd": 990.7, "art": "Schätzung",
             "quelle": {"titel": "BMF, Ergebnisse der 169. Steuerschätzung, Oktober 2025",
                        "url": "https://www.bundesfinanzministerium.de/Content/DE/Pressemitteilungen/Finanzpolitik/2025/10/2025-10-23-ergebnisse-der-169-steuerschaetzung.html"},
             "bund_mrd": 388.6, "bund_art": "Ist", "bund_quelle": QUELLE_BMF_2026,
         },
-        "schuldenbremse_2026": {
-            "zulaessig_mrd": 40.392, "nettokredit_mrd": 97.965, "abzug_bereichsausnahme_mrd": 57.573,
-            "quelle": QUELLE_PLAN,
-        },
+        "schuldenbremse": {"jahr": int(SCHULDENBREMSE_JAHR), **SCHULDENBREMSE, "quelle": QUELLE_PLAN},
         "zeitreihe": zeitreihe,
         "ereignisse": EREIGNISSE,
         "verteidigung": verteidigung(),

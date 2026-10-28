@@ -1,4 +1,4 @@
-// Seite "Hintergrund": Einnahmen 2026, wovon die Höhe abhängt, Verlauf seit 1969, aktuelle Debatten.
+// Seite "Hintergrund": Einnahmen des Hauptjahres, wovon die Höhe abhängt, Verlauf seit 1969, aktuelle Debatten.
 // Daten: daten/hintergrund.json (Einnahmen in Tausend Euro, Zeitreihe in Mrd. Euro), daten/debatten.json.
 
 let hg = null;
@@ -42,7 +42,7 @@ function link(eltern, quelle, mitKlammer = true) {
 // ---------- Woher kommt das Geld? ----------
 
 function zeigeEinnahmen() {
-  const e = hg.einnahmen["2026"];
+  const e = hg.einnahmen[HAUPTJAHR];
   el("einnahmen-text").textContent = t("hg.einnahmen.text", { gesamt: milliarden(e.gesamt) });
 
   const teile = [
@@ -81,7 +81,7 @@ function zeigeEinnahmen() {
     liste.appendChild(li);
   }
 
-  const st = hg.steuern_alle_ebenen_2025;
+  const st = hg.steuern_alle_ebenen;
   const p = el("steuer-verteilung");
   p.textContent = t("hg.steuern.anteil", {
     alle: mrdAusMrd(st.gesamt_mrd), bund: mrdAusMrd(st.bund_mrd), anteil: prozent(st.bund_mrd / st.gesamt_mrd),
@@ -92,16 +92,18 @@ function zeigeEinnahmen() {
 // ---------- Wovon hängt die Höhe ab? ----------
 
 function zeigeHoehe() {
-  const sb = hg.schuldenbremse_2026;
+  const sb = hg.schuldenbremse;
   const zr = Object.fromEntries(hg.zeitreihe.map((z) => [z.jahr, z]));
+  const istJahr = hg.zeitreihe.filter((z) => z.art === "Ist" && hg.einnahmen[z.jahr]).map((z) => z.jahr).pop();
   const karten = [
-    { k: "k1", werte: {}, quelle: hg.steuern_alle_ebenen_2025.quelle },
+    { k: "k1", werte: {}, quelle: hg.steuern_alle_ebenen.quelle },
     { k: "k2", werte: { zulaessig: mrdAusMrd(sb.zulaessig_mrd), nka: mrdAusMrd(sb.nettokredit_mrd), abzug: mrdAusMrd(sb.abzug_bereichsausnahme_mrd) },
       quelle: { titel: "Art. 115 GG", url: "https://www.gesetze-im-internet.de/gg/art_115.html" } },
     { k: "k3", werte: {}, quelle: null, verweis: "umschichten.html" },
     { k: "k4", werte: {}, quelle: { titel: "Art. 110 GG", url: "https://www.gesetze-im-internet.de/gg/art_110.html" } },
-    { k: "k5", werte: { soll25: milliarden(hg.einnahmen["2025"].gesamt), ist25: mrdAusMrd(zr[2025].ausgaben) }, quelle: zr[2025].quelle },
-  ];
+    // Soll und Ist für das letzte Jahr, für das es beides gibt
+    istJahr && { k: "k5", werte: { jahr: istJahr, soll25: milliarden(hg.einnahmen[istJahr].gesamt), ist25: mrdAusMrd(zr[istJahr].ausgaben) }, quelle: zr[istJahr].quelle },
+  ].filter(Boolean);
   const raster = el("hoehe");
   raster.replaceChildren();
   karten.forEach((x, i) => {
@@ -278,7 +280,7 @@ function zeichneVerlauf() {
     g.addEventListener("mouseenter", () => zeigeInfo(z));
   }
 
-  // Direkte Beschriftung (nur bei genug Platz): höchster Wert und Soll 2026
+  // Direkte Beschriftung (nur bei genug Platz): höchster Wert und letzter Wert
   if (breite < 560) return;
   const spitze = hg.zeitreihe.reduce((a, b) => (b.ausgaben > a.ausgaben ? b : a));
   const letzter = hg.zeitreihe[hg.zeitreihe.length - 1];
@@ -339,10 +341,10 @@ function zeigeVerteidigung() {
     zellen[2].textContent = SPRACHE === "en" ? `${zahl(z.anteil_bip, 2)}%` : `${zahl(z.anteil_bip, 2)} %`;
     reihe.appendChild(tr);
   }
-  // Sichtbar: Soll und Entwurf bis 2027 sowie die letzten drei NATO-Jahre
-  kuerzeTabelle(el("nato-haushalt"), (i) => v.haushalt[i].jahr <= 2027);
+  // Sichtbar: Soll und Entwurf (ohne Finanzplanjahre) sowie die letzten drei NATO-Jahre
+  kuerzeTabelle(el("nato-haushalt"), (i) => v.haushalt[i].art !== "Finanzplan");
   kuerzeTabelle(el("nato-reihe"), (i, n) => i >= n - 3);
-  const q = v.quote_2026;
+  const q = v.quote;
   const p = el("nato-quote");
   p.textContent = t("nato.quote", {
     ziel_kern: prozent(v.ziel.kern / 100), ziel_sicherheit: prozent(v.ziel.sicherheit / 100),
@@ -359,32 +361,32 @@ function zeigeVerteidigung() {
 function zeigeUkraine() {
   const ua = hg.ukraine;
   const summe = (jahr) => ua.posten.reduce((s, p) => s + p[jahr], 0);
-  const im2026 = ua.posten.filter((p) => p["2026"] > 0).length;
+  const imHauptjahr = ua.posten.filter((p) => p[HAUPTJAHR] > 0).length;
   el("ua-einleitung").textContent = t("ua.einleitung", {
-    n: im2026, summe: milliarden(summe("2026")), summe25: milliarden(summe("2025")), summe27: milliarden(summe("2027")),
+    n: imHauptjahr, summe: milliarden(summe(HAUPTJAHR)), summe25: milliarden(summe(VORJAHR)), summe27: milliarden(summe(ENTWURFSJAHR)),
   });
 
   const tbody = el("ua-tabelle").querySelector("tbody");
   tbody.replaceChildren();
-  // Größte Posten (Soll 2026) zuerst, damit beim Kürzen die wichtigsten sichtbar bleiben
-  for (const p of [...ua.posten].sort((a, b) => b["2026"] - a["2026"] || b["2027"] - a["2027"])) {
+  // Größte Posten (Soll des Hauptjahres) zuerst, damit beim Kürzen die wichtigsten sichtbar bleiben
+  for (const p of [...ua.posten].sort((a, b) => b[HAUPTJAHR] - a[HAUPTJAHR] || (b[ENTWURFSJAHR] || 0) - (a[ENTWURFSJAHR] || 0))) {
     const tr = document.createElement("tr");
     tr.innerHTML = "<td><span></span><br><small></small></td><td></td><td></td><td></td>";
     const zellen = tr.querySelectorAll("td");
     zellen[0].querySelector("span").textContent = SPRACHE === "en" ? p.en : p.de;
     zellen[0].querySelector("small").textContent = `${t("suche.kapitel", { nr: p.kapitel })} · ${t("suche.titel", { nr: `${p.titel.slice(0, 3)} ${p.titel.slice(3)}` })}`;
-    zellen[1].textContent = euro(p["2026"]);
-    zellen[2].textContent = euro(p["2025"]);
-    zellen[3].textContent = euro(p["2027"]);
+    zellen[1].textContent = euro(p[HAUPTJAHR]);
+    zellen[2].textContent = euro(p[VORJAHR]);
+    zellen[3].textContent = euro(p[ENTWURFSJAHR]);
     tbody.appendChild(tr);
   }
   kuerzeTabelle(el("ua-tabelle"), (i) => i < 5);
   const tfoot = el("ua-tabelle").querySelector("tfoot");
   tfoot.innerHTML = "<tr><th scope=\"row\"></th><td></td><td></td><td></td></tr>";
   tfoot.querySelector("th").textContent = t("ua.summe");
-  tfoot.querySelectorAll("td")[0].textContent = euro(summe("2026"));
-  tfoot.querySelectorAll("td")[1].textContent = euro(summe("2025"));
-  tfoot.querySelectorAll("td")[2].textContent = euro(summe("2027"));
+  tfoot.querySelectorAll("td")[0].textContent = euro(summe(HAUPTJAHR));
+  tfoot.querySelectorAll("td")[1].textContent = euro(summe(VORJAHR));
+  tfoot.querySelectorAll("td")[2].textContent = euro(summe(ENTWURFSJAHR));
 
   zeigeTracker(ua.tracker);
 
@@ -562,7 +564,7 @@ function zeigeQuellen() {
   const ul = el("hg-quellen");
   const quellen = new Map();
   for (const z of hg.zeitreihe) quellen.set(z.quelle.url + z.quelle.titel, z.quelle);
-  quellen.set("st", hg.steuern_alle_ebenen_2025.quelle);
+  quellen.set("st", hg.steuern_alle_ebenen.quelle);
   for (const q of quellen.values()) {
     const li = document.createElement("li");
     link(li, q, false);

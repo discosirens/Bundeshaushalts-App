@@ -2,7 +2,7 @@
 Den Bundeshaushalt verständlich machen
 
 Ziel: eine statische Web-App (HTML, CSS, JavaScript, kein Server), die den deutschen
-Bundeshaushalt für Laien verständlich darstellt. Online: https://discosirens.github.io/Bundeshaushalts-App/
+Bundeshaushalt ohne Vorwissen verständlich darstellt. Online: https://discosirens.github.io/Bundeshaushalts-App/
 (Deutsch und Englisch, Umschalter oben).
 
 ## Ordnerstruktur
@@ -31,7 +31,10 @@ daten/
   kapitel_texte.json Erklärungen der 30 größten Kapitel (von Hand gepflegt, mit Freigabe-Schalter)
   verfahren.json    Zeitstrahl „Wie entsteht der Haushalt?“ mit Terminen (von Hand gepflegt)
   glossar.json      Begriffe mit kurzen Erklärungen auf Deutsch und Englisch (von Hand gepflegt)
+JAHRESWECHSEL.md    Checkliste für die Umstellung auf ein neues Haushaltsjahr
 skripte/
+  jahre.py            zentrale Jahresangaben (Hauptjahr, Vorjahr, Entwurfsjahr) für alle Skripte
+  jahr_pruefen.py     prüft beim Jahreswechsel die Jahresangaben und listet Stellen mit dem alten Jahr
   haushalt_zu_json.py
   bereiche_erzeugen.py
   hintergrund_erzeugen.py

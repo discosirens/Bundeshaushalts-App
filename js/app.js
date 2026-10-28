@@ -35,21 +35,21 @@ const TITEL_HINWEIS = { "1101/68112": "titel.buergergeld" };
 
 let daten = null;
 let kapitelTexte = { freigegeben: false, texte: {} };
-let gesamt2026 = 0;
+let gesamtHaupt = 0;
 let aktuellerEp = null;   // null = Übersicht aller Einzelpläne
 let ausgewaehlt = null;   // id des angetippten Feldes
 let weitereStapel = [];   // geöffnete "Weitere"-Kacheln (jeweils Liste ihrer Einträge)
 
 const el = (id) => document.getElementById(id);
 
-// Veränderung 2025 zu 2026 als Text, mit Sonderfällen für neue und entfallene Posten.
+// Veränderung Vorjahr zu Hauptjahr als Text, mit Sonderfällen für neue und entfallene Posten.
 function veraenderung(e) {
-  if (e.s25 === null) return { text: t("veraenderung.neu"), klasse: "" };
-  const diff = e.s26 - e.s25;
+  if (e.sVor === null) return { text: t("veraenderung.neu"), klasse: "" };
+  const diff = e.sHaupt - e.sVor;
   if (diff === 0) return { text: t("veraenderung.gleich"), klasse: "" };
   const klasse = diff > 0 ? "plus" : "minus";
-  if (e.s25 <= 0) return { text: euro(diff, true), klasse };
-  return { text: `${euro(diff, true)} (${prozent(diff / e.s25, true)})`, klasse };
+  if (e.sVor <= 0) return { text: euro(diff, true), klasse };
+  return { text: `${euro(diff, true)} (${prozent(diff / e.sVor, true)})`, klasse };
 }
 
 // Namen aus den Rohdaten ohne " - " zeigen (Projektregel: keine Gedankenstriche).
@@ -82,9 +82,9 @@ function einzelplanEintraege() {
     nr: ep.nr,
     name: epName(ep),
     kurz: epKurz(ep),
-    s26: ep.soll["2026"],
-    s25: ep.soll["2025"],
-    s27: ep.soll["2027"],
+    sHaupt: ep.soll[HAUPTJAHR],
+    sVor: ep.soll[VORJAHR],
+    sEntwurf: ep.soll[ENTWURFSJAHR],
   }));
 }
 
@@ -92,18 +92,18 @@ function kapitelEintraege(ep) {
   return ep.kapitel
     .filter((k) => !k.anlage)
     .map((k) => {
-      // Kapitel, das es 2025 noch nicht gab: alle Titel haben für 2025 keinen Wert.
-      const gab2025 = k.titel.some((ti) => ti.soll["2025"] !== null);
-      const gibt2027 = k.titel.some((ti) => ti.soll["2027"] != null);
+      // Kapitel, das es im Vorjahr noch nicht gab: alle Titel haben für das Vorjahr keinen Wert.
+      const gabVorjahr = k.titel.some((ti) => ti.soll[VORJAHR] !== null);
+      const gibtEntwurf = ENTWURFSJAHR && k.titel.some((ti) => ti.soll[ENTWURFSJAHR] != null);
       return {
         id: k.nr,
         typ: "kapitel",
         nr: k.nr,
         name: anzeigename(k.name),
         kurz: anzeigename(k.name),
-        s26: k.soll["2026"],
-        s25: gab2025 ? k.soll["2025"] : null,
-        s27: gibt2027 ? k.soll["2027"] : null,
+        sHaupt: k.soll[HAUPTJAHR],
+        sVor: gabVorjahr ? k.soll[VORJAHR] : null,
+        sEntwurf: !ENTWURFSJAHR ? undefined : gibtEntwurf ? k.soll[ENTWURFSJAHR] : null,
         kapitel: k,
       };
     });
@@ -117,16 +117,16 @@ function aktuelleEintraege() {
 
 // Sammelkachel "Weitere (n)" für zu kleine Einträge. Antippen öffnet sie als eigene Treemap.
 function gruppeAus(klein) {
-  const kinder = [...klein].sort((a, b) => b.s26 - a.s26);
-  const s25 = kinder.every((e) => e.s25 === null) ? null : kinder.reduce((s, e) => s + (e.s25 || 0), 0);
+  const kinder = [...klein].sort((a, b) => b.sHaupt - a.sHaupt);
+  const sVor = kinder.every((e) => e.sVor === null) ? null : kinder.reduce((s, e) => s + (e.sVor || 0), 0);
   const name = t(aktuellerEp ? "treemap.weitere.kapitel" : "treemap.weitere.ep", { n: kinder.length });
   return { id: `weitere-${weitereStapel.length}`, typ: "gruppe", name, kurz: name,
-    s26: kinder.reduce((s, e) => s + e.s26, 0), s25, kinder };
+    sHaupt: kinder.reduce((s, e) => s + e.sHaupt, 0), sVor, kinder };
 }
 
 function rechneTreemap(liste, breite, hoehe) {
   const wurzel = d3.hierarchy({ children: liste })
-    .sum((d) => d.s26 || 0)
+    .sum((d) => d.sHaupt || 0)
     // "Weitere" immer zuletzt (unten rechts), sonst nach Größe
     .sort((a, b) => (a.data.typ === "gruppe") - (b.data.typ === "gruppe") || b.value - a.value);
   d3.treemap().size([breite, hoehe]).paddingInner(2).round(true)(wurzel);
@@ -137,7 +137,7 @@ function rechneTreemap(liste, breite, hoehe) {
 // Ist am Ende auch "Weitere" zu klein, wird es als Knopf unter der Treemap gezeigt.
 function berechneLayout(eintraege, breite, hoehe) {
   const zuKlein = (b) => b.x1 - b.x0 < MIN_BREITE || b.y1 - b.y0 < MIN_HOEHE;
-  let sichtbar = eintraege.filter((e) => e.s26 > 0).sort((a, b) => b.s26 - a.s26);
+  let sichtbar = eintraege.filter((e) => e.sHaupt > 0).sort((a, b) => b.sHaupt - a.sHaupt);
   let weitere = [];
   let gruppeAlsKachel = true;
   for (let runde = 0; runde < 15; runde++) {
@@ -175,7 +175,7 @@ function zeichneTreemap() {
     const b = document.createElement("button");
     b.type = "button";
     b.className = "weitere-knopf";
-    b.textContent = t("treemap.weitere.knopf", { name: weitereKnopf.name, betrag: euro(weitereKnopf.s26) });
+    b.textContent = t("treemap.weitere.knopf", { name: weitereKnopf.name, betrag: euro(weitereKnopf.sHaupt) });
     b.addEventListener("click", () => waehle(weitereKnopf));
     mehr.appendChild(b);
   }
@@ -198,11 +198,11 @@ function zeichneTreemap() {
     if (e.typ === "gruppe") knopf.classList.add("gruppe");
     if (e.id === ausgewaehlt) knopf.classList.add("aktiv");
     Object.assign(knopf.style, { left: `${blatt.x0}px`, top: `${blatt.y0}px`, width: `${w}px`, height: `${h}px` });
-    knopf.setAttribute("aria-label", t("treemap.feld.label", { name: e.name, betrag: euro(e.s26) }));
-    knopf.title = `${e.name}: ${euro(e.s26)}`;
+    knopf.setAttribute("aria-label", t("treemap.feld.label", { name: e.name, betrag: euro(e.sHaupt) }));
+    knopf.title = `${e.name}: ${euro(e.sHaupt)}`;
     knopf.innerHTML = `<span class="name"></span><span class="betrag"></span>`;
     knopf.querySelector(".name").textContent = e.kurz;
-    knopf.querySelector(".betrag").textContent = euro(e.s26);
+    knopf.querySelector(".betrag").textContent = euro(e.sHaupt);
     knopf.addEventListener("click", () => waehle(e));
     behaelter.appendChild(knopf);
     passeTextAn(knopf);
@@ -274,24 +274,24 @@ function zeigeDetails(e, kennung) {
   kasten.innerHTML = `
     <h2></h2>
     <dl>
-      <div><dt>${t("details.soll26")}</dt><dd>${euro(e.s26)}</dd></div>
-      <div><dt>${t("details.soll25")}</dt><dd>${e.s25 === null ? t("details.fehlt") : euro(e.s25)}</dd></div>
+      <div><dt>${t("details.soll")}</dt><dd>${euro(e.sHaupt)}</dd></div>
+      <div><dt>${t("details.soll.vorjahr")}</dt><dd>${e.sVor === null ? t("details.fehlt") : euro(e.sVor)}</dd></div>
       <div><dt>${t("details.veraenderung")}</dt><dd class="${v.klasse}">${v.text}</dd></div>
-      <div><dt>${t("details.anteil")}</dt><dd>${prozent(e.s26 / gesamt2026)}</dd></div>
-      ${e.s27 === undefined ? "" : `<div class="entwurf"><dt>${t("details.entwurf27")}</dt><dd>${entwurfText(e)}</dd></div>`}
+      <div><dt>${t("details.anteil")}</dt><dd>${prozent(e.sHaupt / gesamtHaupt)}</dd></div>
+      ${e.sEntwurf === undefined ? "" : `<div class="entwurf"><dt>${t("details.entwurf")}</dt><dd>${entwurfText(e)}</dd></div>`}
     </dl>`;
   kasten.querySelector("h2").textContent = `${kennung}: ${e.name}`;
   if (e.kapitel) zeigeKapitelInfo(kasten, e.kapitel);
   kasten.hidden = false;
 }
 
-// Entwurf 2027 mit Veränderung gegenüber dem Soll 2026
+// Regierungsentwurf mit Veränderung gegenüber dem Soll des Hauptjahres
 function entwurfText(e) {
-  if (e.s27 === null) return t("details.entwurf.fehlt");
-  const diff = e.s27 - e.s26;
-  if (diff === 0 || e.s26 <= 0) return euro(e.s27);
+  if (e.sEntwurf === null) return t("details.entwurf.fehlt");
+  const diff = e.sEntwurf - e.sHaupt;
+  if (diff === 0 || e.sHaupt <= 0) return euro(e.sEntwurf);
   const klasse = diff > 0 ? "plus" : "minus";
-  return `${euro(e.s27)} <small class="${klasse}">${euro(diff, true)} (${prozent(diff / e.s26, true)})</small>`;
+  return `${euro(e.sEntwurf)} <small class="${klasse}">${euro(diff, true)} (${prozent(diff / e.sHaupt, true)})</small>`;
 }
 
 function titelName(kap, ti) {
@@ -310,7 +310,7 @@ function zeigeKapitelInfo(kasten, kap) {
     kasten.querySelector("h2").after(p);
   }
 
-  const titel = kap.titel.filter((ti) => (ti.soll["2026"] || 0) > 0);
+  const titel = kap.titel.filter((ti) => (ti.soll[HAUPTJAHR] || 0) > 0);
   if (titel.length === 0) return;
   const block = document.createElement("div");
   block.className = "kapitel-info";
@@ -319,19 +319,19 @@ function zeigeKapitelInfo(kasten, kap) {
   h1.textContent = t("kapitel.posten");
   const ol = document.createElement("ol");
   ol.className = "rangliste";
-  for (const ti of [...titel].sort((a, b) => b.soll["2026"] - a.soll["2026"]).slice(0, 3)) {
+  for (const ti of [...titel].sort((a, b) => b.soll[HAUPTJAHR] - a.soll[HAUPTJAHR]).slice(0, 3)) {
     const li = document.createElement("li");
     li.innerHTML = "<span></span><strong></strong>";
     li.querySelector("span").textContent = titelName(kap, ti);
-    li.querySelector("strong").textContent = euro(ti.soll["2026"]);
+    li.querySelector("strong").textContent = euro(ti.soll[HAUPTJAHR]);
     ol.appendChild(li);
   }
   block.append(h1, ol);
 
   // Anteile der Ausgabearten an den positiven Beträgen
-  const summe = titel.reduce((s, ti) => s + ti.soll["2026"], 0);
+  const summe = titel.reduce((s, ti) => s + ti.soll[HAUPTJAHR], 0);
   const arten = {};
-  for (const ti of titel) arten[ti.art] = (arten[ti.art] || 0) + ti.soll["2026"];
+  for (const ti of titel) arten[ti.art] = (arten[ti.art] || 0) + ti.soll[HAUPTJAHR];
   const h2 = document.createElement("h3");
   h2.textContent = t("kapitel.arten");
   const balken = document.createElement("div");
@@ -347,12 +347,12 @@ function zeigeKapitelInfo(kasten, kap) {
   }
   block.append(h2, balken);
 
-  // Bereichsausnahme der Schuldenbremse je Posten gibt es nur im Entwurf 2027
-  const ba27 = kap.titel.filter((ti) => ti.bereichsausnahme_2027).reduce((s, ti) => s + (ti.soll["2027"] || 0), 0);
-  if (ba27 > 0) {
+  // Bereichsausnahme der Schuldenbremse je Posten gibt es nur im Regierungsentwurf
+  const baEntwurf = kap.titel.filter((ti) => ti[`bereichsausnahme_${ENTWURFSJAHR}`]).reduce((s, ti) => s + (ti.soll[ENTWURFSJAHR] || 0), 0);
+  if (baEntwurf > 0) {
     const p = document.createElement("p");
     p.className = "ergebnis-hinweis";
-    p.textContent = t("kapitel.ba27", { betrag: euro(ba27), gesamt: euro(kap.soll["2027"]) });
+    p.textContent = t("kapitel.ba", { betrag: euro(baEntwurf), gesamt: euro(kap.soll[ENTWURFSJAHR]) });
     block.appendChild(p);
   }
 
@@ -391,13 +391,13 @@ function zeigeEbene() {
 // Sondervermögen und andere Anlagen: getrennt zeigen, nie in den Kernhaushalt einrechnen.
 function zeigeAnlagen() {
   const kasten = el("anlagen");
-  const anlagen = aktuellerEp ? aktuellerEp.kapitel.filter((k) => k.anlage && k.soll["2026"] > 0) : [];
+  const anlagen = aktuellerEp ? aktuellerEp.kapitel.filter((k) => k.anlage && k.soll[HAUPTJAHR] > 0) : [];
   if (anlagen.length === 0) {
     kasten.hidden = true;
     return;
   }
-  const summeAnlagen = anlagen.reduce((s, k) => s + k.soll["2026"], 0);
-  const kern = aktuellerEp.soll["2026"];
+  const summeAnlagen = anlagen.reduce((s, k) => s + k.soll[HAUPTJAHR], 0);
+  const kern = aktuellerEp.soll[HAUPTJAHR];
   kasten.innerHTML = `
     <h2>${t("anlagen.titel")}</h2>
     <p>${t("anlagen.text")}</p>
@@ -409,40 +409,40 @@ function zeigeAnlagen() {
     const name = SPRACHE === "en" && ANLAGEN_EN[k.nr]
       ? ANLAGEN_EN[k.nr]
       : anzeigename(k.name.replace(/^Anlage \d+ /, ""));
-    li.textContent = `${name}: ${euro(k.soll["2026"])}`;
+    li.textContent = `${name}: ${euro(k.soll[HAUPTJAHR])}`;
     liste.appendChild(li);
   }
   kasten.hidden = false;
 }
 
 function fuelleTabelle() {
-  const eintraege = aktuelleEintraege().sort((a, b) => b.s26 - a.s26);
+  const eintraege = aktuelleEintraege().sort((a, b) => b.sHaupt - a.sHaupt);
   const tbody = el("tabelle").querySelector("tbody");
   tbody.replaceChildren();
   for (const e of eintraege) {
     const v = veraenderung(e);
     const zeile = document.createElement("tr");
-    zeile.innerHTML = `<td><button type="button"></button></td><td>${euro(e.s26)}</td><td>${e.s25 === null ? t("tabelle.neu") : euro(e.s25)}</td><td class="${v.klasse}">${v.text}</td><td>${e.s27 == null ? "" : euro(e.s27)}</td>`;
+    zeile.innerHTML = `<td><button type="button"></button></td><td>${euro(e.sHaupt)}</td><td>${e.sVor === null ? t("tabelle.neu") : euro(e.sVor)}</td><td class="${v.klasse}">${v.text}</td><td>${e.sEntwurf == null ? "" : euro(e.sEntwurf)}</td>`;
     const knopf = zeile.querySelector("button");
     knopf.textContent = e.typ === "ep" ? `${e.nr} ${e.kurz}` : `${e.nr} ${e.name}`;
     knopf.addEventListener("click", () => waehle(e));
     tbody.appendChild(zeile);
   }
-  const ohneFlaeche = eintraege.filter((e) => e.s26 <= 0).length;
+  const ohneFlaeche = eintraege.filter((e) => e.sHaupt <= 0).length;
   el("tabelle-hinweis").textContent = ohneFlaeche ? t("tabelle.hinweis", { n: ohneFlaeche }) : "";
 }
 
-// Drei Zahlen zum Mitnehmen, alle aus dem Soll 2026 berechnet.
+// Drei Zahlen zum Mitnehmen, alle aus dem Soll des Hauptjahres berechnet.
 function zeigeFakten() {
-  const euroGesamt = gesamt2026 * 1000;
+  const euroGesamt = gesamtHaupt * 1000;
   const proKopf = Math.round(euroGesamt / EINWOHNER / 10) * 10;
   const proSekunde = Math.round(euroGesamt / (365 * 24 * 60 * 60) / 100) * 100;
-  const groesster = einzelplanEintraege().sort((a, b) => b.s26 - a.s26)[0];
+  const groesster = einzelplanEintraege().sort((a, b) => b.sHaupt - a.sHaupt)[0];
   const fakten = [
     { wert: geldbetrag(proKopf), text: t("fakt.kopf.text"), quelle: t("fakt.kopf.quelle") },
     { wert: geldbetrag(proSekunde), text: t("fakt.sekunde.text"), quelle: t("fakt.sekunde.quelle") },
     {
-      wert: prozent(groesster.s26 / gesamt2026),
+      wert: prozent(groesster.sHaupt / gesamtHaupt),
       text: t("fakt.anteil.text", { name: groesster.kurz }),
       quelle: t("fakt.anteil.quelle", { nr: groesster.nr }),
     },
@@ -492,8 +492,8 @@ async function zeigeHundert() {
   } catch (fehler) {
     return;   // Abschnitt bleibt ausgeblendet
   }
-  const liste = [...bereiche.bereiche].sort((a, b) => b.betrag_2026 - a.betrag_2026);
-  const cents = aufHundert(liste.map((b) => b.betrag_2026));
+  const liste = [...bereiche.bereiche].sort((a, b) => b.betrag - a.betrag);
+  const cents = aufHundert(liste.map((b) => b.betrag));
   const ol = el("hundert-liste");
   ol.replaceChildren();
   liste.forEach((b, i) => {
@@ -506,7 +506,7 @@ async function zeigeHundert() {
     ol.appendChild(li);
   });
 
-  const e = hintergrund.einnahmen["2026"];
+  const e = hintergrund.einnahmen[HAUPTJAHR];
   const [steuern, kredite, sonstige] = aufHundert([e.steuern, e.kredite, e.sonstige]);
   el("hundert-bezahlt").textContent = t("hundert.bezahlt", { steuern: cent(steuern), kredite: cent(kredite), sonstige: cent(sonstige) });
   el("hundert").hidden = false;
@@ -522,13 +522,17 @@ async function start() {
     el("gesamt-text").textContent = t("fehler.laden");
     return;
   }
-  gesamt2026 = daten.summen["2026"].kernhaushalt;
-  el("gesamt").textContent = euro(gesamt2026);
-  el("entwurf27").textContent = t("hero.entwurf", { betrag: euro(daten.summen["2027"].kernhaushalt) });
-  const weiter = document.createElement("a");
-  weiter.href = `${mitSprache("hintergrund.html")}#verfahren`;
-  weiter.textContent = `${t("hero.verfahren")} →`;
-  el("entwurf27").append(" ", weiter);
+  gesamtHaupt = daten.summen[HAUPTJAHR].kernhaushalt;
+  el("gesamt").textContent = euro(gesamtHaupt);
+  if (daten.jahre && daten.jahre.haupt !== HAUPTJAHR) console.error("Jahre in js/sprache.js und daten/haushalt.json passen nicht zusammen");
+  // Hinweis auf den Regierungsentwurf, solange es einen gibt
+  if (ENTWURFSJAHR && daten.summen[ENTWURFSJAHR]) {
+    el("entwurf").textContent = t("hero.entwurf", { betrag: euro(daten.summen[ENTWURFSJAHR].kernhaushalt) });
+    const weiter = document.createElement("a");
+    weiter.href = `${mitSprache("hintergrund.html")}#verfahren`;
+    weiter.textContent = `${t("hero.verfahren")} →`;
+    el("entwurf").append(" ", weiter);
+  }
   zeigeHundert();
   zeigeFakten();
 

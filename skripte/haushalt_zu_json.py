@@ -2,8 +2,9 @@
 
 Aufruf (im Projektordner):  py skripte/haushalt_zu_json.py
 
-Ergebnis: Ausgaben nach Einzelplan -> Kapitel -> Titel für 2025 und 2026 (Soll) und
-2027 (Regierungsentwurf, noch nicht beschlossen), alle Beträge in Tausend Euro (wie in den Rohdaten).
+Ergebnis: Ausgaben nach Einzelplan -> Kapitel -> Titel für Vorjahr und Hauptjahr (Soll) und
+das Entwurfsjahr (Regierungsentwurf, noch nicht beschlossen), alle Beträge in Tausend Euro (wie in den Rohdaten).
+Welche Jahre das sind, steht in skripte/jahre.py.
 """
 
 import csv
@@ -12,21 +13,14 @@ import re
 import sys
 from pathlib import Path
 
+from jahre import ENTWURFSJAHR, HAUPTJAHR, JAHRE as JAHRESLISTE, ROHDATEIEN, SUMMEN, VORJAHR
+
 PROJEKT = Path(__file__).resolve().parent.parent
 ROH = PROJEKT / "daten" / "roh"
 ZIEL = PROJEKT / "daten" / "haushalt.json"
 
-JAHRE = {
-    "2025": ROH / "HH_2025_ALL.csv",
-    "2026": ROH / "HH_2026_ALL.csv",
-    "2027": ROH / "HH_2027_RegE_ALL.csv",   # Regierungsentwurf, noch nicht beschlossen
-}
-ENTWURF = "2027"
-
-# Summen zum Abgleich (Tausend Euro): Gesamtplan 2026 und Regierungsentwurf 2027
-# (555,4 Mrd. Euro laut Bundesfinanzministerium und Bundestag)
-GESAMTPLAN_2026 = 524_540_138
-ENTWURF_2027 = 555_435_744
+JAHRE = {j: ROH / ROHDATEIEN[j] for j in JAHRESLISTE}
+ENTWURF = ENTWURFSJAHR
 
 # Hauptgruppen des Gruppierungsplans: erste Ziffer der Titelnummer.
 HAUPTGRUPPEN = {
@@ -72,7 +66,7 @@ def main():
                 "kapitel": {},
             })
             if jahr != ENTWURF:
-                ep["name"] = z["einzelplan-text"]  # Namen laut beschlossenem Haushalt 2026
+                ep["name"] = z["einzelplan-text"]  # Namen laut beschlossenem Haushalt
 
             kap_name = kapitelname(z["kapitel-text"])
             kap = ep["kapitel"].setdefault(z["kapitel"], {
@@ -92,15 +86,15 @@ def main():
                 "titelgruppe": None,
                 "soll": {j: None for j in JAHRE},
             })
-            if jahr != ENTWURF or titel["soll"]["2026"] is None:
+            if jahr != ENTWURF or titel["soll"][HAUPTJAHR] is None:
                 titel["name"] = z["titel-text"]
                 titel["funktion"] = z["funktion"]
                 if z["titelgruppe"]:
                     titel["titelgruppe"] = {"nr": z["titelgruppe"], "name": z["tgr-text"]}
             titel["soll"][jahr] = betrag
-            # Nur der Entwurf 2027 markiert jeden Titel mit der Bereichsausnahme der Schuldenbremse
+            # Nur der Regierungsentwurf markiert jeden Titel mit der Bereichsausnahme der Schuldenbremse
             if jahr == ENTWURF and z.get("bereichsausnahme") == "ja":
-                titel["bereichsausnahme_2027"] = True
+                titel[f"bereichsausnahme_{ENTWURF}"] = True
 
     # Summen bilden. Einzelplan-Summen enthalten nur den Kernhaushalt (ohne Anlage-Kapitel).
     def summe(eintraege, jahr):
@@ -123,8 +117,9 @@ def main():
     daten = {
         "einheit": "Tausend Euro",
         "hinweis": "Einzelplan-Summen und 'summen.kernhaushalt' ohne Kapitel mit anlage=true. "
-                   "soll=null bedeutet: Titel gab es in diesem Jahr nicht. 2027 ist der Regierungsentwurf "
-                   "(Kabinett 6. Juli 2026), vom Bundestag noch nicht beschlossen.",
+                   "soll=null bedeutet: Titel gab es in diesem Jahr nicht. "
+                   + (f"{ENTWURF} ist der Regierungsentwurf, vom Bundestag noch nicht beschlossen." if ENTWURF else ""),
+        "jahre": {"haupt": HAUPTJAHR, "vorjahr": VORJAHR, "entwurf": ENTWURF},
         "entwurf": ENTWURF,
         "summen": summen,
         "einzelplaene": ergebnis,
@@ -138,7 +133,8 @@ def main():
               f"alles {s['kernhaushalt'] + s['anlagen']:>13,}  (Tsd. Euro)".replace(",", "."))
 
     fehler = False
-    for jahr, soll in (("2026", GESAMTPLAN_2026), (ENTWURF, ENTWURF_2027)):
+    for jahr in [j for j in (HAUPTJAHR, ENTWURF) if j]:
+        soll = SUMMEN[jahr]
         abweichung = summen[jahr]["kernhaushalt"] - soll
         if abweichung == 0:
             print(f"Prüfung {jahr}: Kernhaushalt stimmt exakt mit dem Referenzwert überein.")

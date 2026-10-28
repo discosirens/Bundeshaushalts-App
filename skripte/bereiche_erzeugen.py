@@ -5,7 +5,7 @@ Aufruf (im Projektordner):  py skripte/bereiche_erzeugen.py
 Jeder Ausgabetitel des Kernhaushalts wird genau einem Bereich zugeordnet, auf Basis
 der Funktionskennziffer (Funktionenplan des Bundes). Abweichungen davon stehen in
 ABWEICHUNGEN und werden in bereiche.json dokumentiert.
-Alle Beträge in Tausend Euro, Soll laut Bundeshaushaltsplan.
+Alle Beträge in Tausend Euro, Soll laut Bundeshaushaltsplan. Die Jahre stehen in skripte/jahre.py.
 """
 
 import csv
@@ -15,15 +15,14 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from jahre import HAUPTJAHR, ROHDATEIEN, SUMMEN, VORJAHR, pruefe_handwerte
+
 PROJEKT = Path(__file__).resolve().parent.parent
 ROH = PROJEKT / "daten" / "roh"
 ZIEL = PROJEKT / "daten" / "bereiche.json"
-JAHRE = ("2025", "2026")
-GESAMTPLAN_2026 = 524_540_138
+JAHRE = (VORJAHR, HAUPTJAHR)
 
-QUELLE_HAUSHALT = {"titel": "Bundeshaushaltsplan 2026 (Soll), Bundesministerium der Finanzen",
-                   "url": "https://www.bundeshaushalt.de/"}
-QUELLE_VORSPANN = {"titel": "Bundeshaushaltsplan 2026, Vorspann, Gesamtplan Teil II A: Ausgaben der Bereichsausnahme",
+QUELLE_HAUSHALT = {"titel": f"Bundeshaushaltsplan {HAUPTJAHR} (Soll), Bundesministerium der Finanzen",
                    "url": "https://www.bundeshaushalt.de/"}
 
 
@@ -80,7 +79,14 @@ GLIEDERUNGSHINWEISE = [
 # Bereichsausnahme nach § 1a Artikel 115-Gesetz, Regeln laut Vorspann 2026 (Gesamtplan Teil II A)
 # ---------------------------------------------------------------------------
 
-BA_SOLL_2026 = {
+# Von Hand aus dem Vorspann übernommen; gelten nur für BA_JAHR. Beim Jahreswechsel neu eintragen.
+BA_JAHR = "2026"
+QUELLE_VORSPANN = {"titel": f"Bundeshaushaltsplan {BA_JAHR}, Vorspann, Gesamtplan Teil II A: Ausgaben der Bereichsausnahme",
+                   "url": "https://www.bundeshaushalt.de/"}
+# Schwelle (1 % des BIP) und Abzug laut Vorspann, Tausend Euro
+BA_SCHWELLE = 43_290_000
+BA_ABZUG = 57_573_000
+BA_SOLL = {
     "Verteidigung": 82_235_190,
     "Zivil- und Bevölkerungsschutz": 2_082_074,
     "Nachrichtendienste": 2_201_125,
@@ -694,7 +700,7 @@ TITEL_EN = {
 
 def lese(jahr):
     zeilen = []
-    with open(ROH / f"HH_{jahr}_ALL.csv", encoding="utf-8-sig", newline="") as f:
+    with open(ROH / ROHDATEIEN[jahr], encoding="utf-8-sig", newline="") as f:
         for z in csv.DictReader(f, delimiter=";"):
             z = {k.strip(): (v or "").strip() for k, v in z.items() if k is not None}
             if z["einahmen-ausgaben"] == "A" and not z["kapitel-text"].startswith("Anlage"):
@@ -745,14 +751,15 @@ def woerter(text):
 
 
 def main():
+    pruefe_handwerte("Bereichsausnahme (BA_SOLL)", BA_JAHR)
     ids = [b["id"] for b in BEREICHE]
     assert set(ids) == set(FUNKTIONEN), "Bereichsliste und Funktionszuordnung passen nicht zusammen"
 
     summe = {j: defaultdict(int) for j in JAHRE}
-    titel26 = defaultdict(list)
+    titel_haupt = defaultdict(list)
     funk = defaultdict(set)
-    eps = defaultdict(lambda: defaultdict(lambda: {"name": "", "2025": 0, "2026": 0}))
-    kaps = defaultdict(lambda: defaultdict(lambda: {"name": "", "2025": 0, "2026": 0}))
+    eps = defaultdict(lambda: defaultdict(lambda: {"name": "", VORJAHR: 0, HAUPTJAHR: 0}))
+    kaps = defaultdict(lambda: defaultdict(lambda: {"name": "", VORJAHR: 0, HAUPTJAHR: 0}))
     ba = defaultdict(lambda: defaultdict(int))
     ba_kategorie = defaultdict(int)
     abw_betrag = defaultdict(lambda: {j: 0 for j in JAHRE})
@@ -769,9 +776,9 @@ def main():
             kap = kaps[b][z["kapitel"]]
             kap["name"] = sauber(z["kapitel-text"])
             kap[jahr] += z["soll"]
-            if jahr == "2026":
+            if jahr == HAUPTJAHR:
                 funk[b].add(z["funktion"])
-                titel26[b].append(z)
+                titel_haupt[b].append(z)
                 kat = bereichsausnahme(z)
                 if kat:
                     ba[b][kat] += z["soll"]
@@ -779,17 +786,17 @@ def main():
 
     # Prüfungen
     fehler = []
-    gesamt26 = sum(summe["2026"].values())
-    if gesamt26 != GESAMTPLAN_2026:
-        fehler.append(f"Summe 2026 {gesamt26:,} statt {GESAMTPLAN_2026:,}")
-    for kat, soll in BA_SOLL_2026.items():
+    gesamt = sum(summe[HAUPTJAHR].values())
+    if gesamt != SUMMEN[HAUPTJAHR]:
+        fehler.append(f"Summe {HAUPTJAHR} {gesamt:,} statt {SUMMEN[HAUPTJAHR]:,}")
+    for kat, soll in BA_SOLL.items():
         if ba_kategorie[kat] != soll:
             fehler.append(f"Bereichsausnahme '{kat}': {ba_kategorie[kat]:,} statt {soll:,}")
 
     bereiche = []
     for d in BEREICHE:
         b = d["id"]
-        top = sorted(titel26[b], key=lambda z: -z["soll"])[:3]
+        top = sorted(titel_haupt[b], key=lambda z: -z["soll"])[:3]
         namen = [TITEL_DE.get((z["kapitel"], z["titel"]), sauber(z["titel-text"])) for z in top]
         posten = []
         for z, name in zip(top, namen):
@@ -797,7 +804,7 @@ def main():
             if namen.count(name) > 1:
                 name = f"{name} ({sauber(z['kapitel-text'])})"
             posten.append({"kapitel": z["kapitel"], "titel": z["titel"], "name": name,
-                           "betrag_2026": z["soll"], "text": f"{name}: {mrd(z['soll'])}"})
+                           "betrag": z["soll"], "text": f"{name}: {mrd(z['soll'])}"})
         e = d["erklaerung"]
         anzahl = sum(woerter(e[t]) for t in ("was_ist_das", "wer_bekommt_das_geld", "warum_so_viel"))
         anzahl += sum(woerter(p["text"]) for p in posten) + sum(woerter(g["text"]) for g in e["gut_zu_wissen"])
@@ -810,7 +817,7 @@ def main():
         posten_en = []
         for p in posten:
             name_en = TITEL_EN.get((p["kapitel"], p["titel"]), p["name"])
-            posten_en.append({"name": name_en, "text": f"{name_en}: {mrd_en(p['betrag_2026'])}"})
+            posten_en.append({"name": name_en, "text": f"{name_en}: {mrd_en(p['betrag'])}"})
         anzahl_en = sum(woerter(en[t]) for t in ("was", "wer", "warum"))
         anzahl_en += sum(woerter(p["text"]) for p in posten_en) + sum(woerter(g) for g in en["gut"])
         if anzahl_en > 150:
@@ -829,7 +836,7 @@ def main():
         }
 
         ba_summe = sum(ba[b].values())
-        s26, s25 = summe["2026"][b], summe["2025"][b]
+        betrag, betrag_vj = summe[HAUPTJAHR][b], summe[VORJAHR][b]
         quellen = [QUELLE_HAUSHALT] + d.get("zusatzquellen", [])
         for g in e["gut_zu_wissen"]:
             if g["quelle"] not in quellen:
@@ -837,22 +844,22 @@ def main():
         bereiche.append({
             "id": b,
             "name": d["name"],
-            "betrag_2026": s26,
-            "betrag_2025": s25,
-            "anteil_2026": round(s26 / gesamt26, 4),
+            "betrag": betrag,
+            "betrag_vorjahr": betrag_vj,
+            "anteil": round(betrag / gesamt, 4),
             "funktionen": FUNKTIONEN[b],
             "funktionskennziffern": sorted(funk[b]),
             "abweichungen": [f"Kap. {a['kapitel']} Tit. {a['titel']}" for a in ABWEICHUNGEN if a["bereich"] == b],
-            "einzelplaene": [{"nr": nr, "name": v["name"], "betrag_2026": v["2026"], "betrag_2025": v["2025"]}
-                             for nr, v in sorted(eps[b].items(), key=lambda x: -x[1]["2026"]) if v["2026"] or v["2025"]],
-            "kapitel": [{"nr": nr, "name": v["name"], "betrag_2026": v["2026"], "betrag_2025": v["2025"]}
-                        for nr, v in sorted(kaps[b].items(), key=lambda x: -x[1]["2026"]) if v["2026"] or v["2025"]],
+            "einzelplaene": [{"nr": nr, "name": v["name"], "betrag": v[HAUPTJAHR], "betrag_vorjahr": v[VORJAHR]}
+                             for nr, v in sorted(eps[b].items(), key=lambda x: -x[1][HAUPTJAHR]) if v[HAUPTJAHR] or v[VORJAHR]],
+            "kapitel": [{"nr": nr, "name": v["name"], "betrag": v[HAUPTJAHR], "betrag_vorjahr": v[VORJAHR]}
+                        for nr, v in sorted(kaps[b].items(), key=lambda x: -x[1][HAUPTJAHR]) if v[HAUPTJAHR] or v[VORJAHR]],
             "bindung": d["bindung"],
             "begruendung": d["begruendung"],
             "quelle": d["quelle"],
             "bereichsausnahme": {
-                "betroffen": "ganz" if ba_summe == s26 else ("teilweise" if ba_summe else "nein"),
-                "betrag_2026": ba_summe,
+                "betroffen": "ganz" if ba_summe == betrag else ("teilweise" if ba_summe else "nein"),
+                "betrag": ba_summe,
                 "kategorien": dict(ba[b]),
             },
             "erklaerung": {
@@ -869,14 +876,16 @@ def main():
 
     daten = {
         "einheit": "Tausend Euro",
-        "art": "Soll laut Bundeshaushaltsplan 2025 und 2026, Kernhaushalt ohne Sondervermögen",
+        "art": f"Soll laut Bundeshaushaltsplan {VORJAHR} und {HAUPTJAHR}, Kernhaushalt ohne Sondervermögen",
+        "jahr": HAUPTJAHR,
+        "vorjahr": VORJAHR,
         "quelle": QUELLE_HAUSHALT,
-        "summe_2026": gesamt26,
-        "summe_2025": sum(summe["2025"].values()),
+        "summe": gesamt,
+        "summe_vorjahr": sum(summe[VORJAHR].values()),
         "zuordnung": "Jeder Ausgabetitel ist genau einem Bereich zugeordnet, nach seiner Funktionskennziffer "
                      "(Funktionenplan des Bundes). Längstes passendes Präfix gewinnt; Ausnahmen siehe 'abweichungen'.",
-        "abweichungen": [{**a, "betrag_2026": abw_betrag[(a["kapitel"], a["titel"])]["2026"],
-                          "betrag_2025": abw_betrag[(a["kapitel"], a["titel"])]["2025"]} for a in ABWEICHUNGEN],
+        "abweichungen": [{**a, "betrag": abw_betrag[(a["kapitel"], a["titel"])][HAUPTJAHR],
+                          "betrag_vorjahr": abw_betrag[(a["kapitel"], a["titel"])][VORJAHR]} for a in ABWEICHUNGEN],
         "gliederungshinweise": GLIEDERUNGSHINWEISE,
         "bindung_stufen": {
             "gesetzlich gebunden": "nur durch Gesetzesänderung veränderbar",
@@ -889,13 +898,14 @@ def main():
                           "angegriffene Staaten nicht für die Schuldenbremse, soweit sie 1 % des Bruttoinlandsprodukts "
                           "übersteigen. Die Beträge je Bereich zeigen alle Ausgaben dieser Kategorien, nicht nur den "
                           "Teil über 1 %.",
-            "summe_2026": sum(ba_kategorie.values()),
-            "schwelle_1_prozent_bip_2026": 43_290_000,
-            "abzug_2026": 57_573_000,
-            "kategorien_2026": dict(ba_kategorie),
+            "jahr": BA_JAHR,
+            "summe": sum(ba_kategorie.values()),
+            "schwelle_1_prozent_bip": BA_SCHWELLE,
+            "abzug": BA_ABZUG,
+            "kategorien": dict(ba_kategorie),
             "quelle": [QUELLE_VORSPANN, gesetz("Art. 115 Grundgesetz", "gg/art_115.html")],
-            "hinweis": "Für 2025 nicht berechnet. Schwelle und Abzug laut Vorspann 2026 in Millionen Euro "
-                       "(43.290 und 57.573), hier in Tausend Euro.",
+            "hinweis": f"Für {VORJAHR} nicht berechnet. Schwelle und Abzug laut Vorspann {BA_JAHR}, "
+                       "hier in Tausend Euro.",
         },
         "bereiche": bereiche,
     }
@@ -903,14 +913,14 @@ def main():
 
     print(f"Geschrieben: {ZIEL.relative_to(PROJEKT)}")
     for x in bereiche:
-        print(f"{x['name']:<40} {x['betrag_2026'] / 1e6:7.1f} Mrd. €  {x['anteil_2026'] * 100:5.1f} %  "
+        print(f"{x['name']:<40} {x['betrag'] / 1e6:7.1f} Mrd. €  {x['anteil'] * 100:5.1f} %  "
               f"BA: {x['bereichsausnahme']['betroffen']:<9}  {x['erklaerung']['woerter']} / "
               f"{x['en']['erklaerung']['woerter']} Wörter (DE/EN)")
-    print(f"Summe 2026: {gesamt26:,}".replace(",", "."))
+    print(f"Summe {HAUPTJAHR}: {gesamt:,}".replace(",", "."))
     if fehler:
         print("FEHLER:\n  " + "\n  ".join(fehler))
         sys.exit(1)
-    print("Prüfungen bestanden: Summe 2026 und Bereichsausnahme stimmen mit dem Gesamtplan überein.")
+    print(f"Prüfungen bestanden: Summe {HAUPTJAHR} und Bereichsausnahme stimmen mit dem Gesamtplan überein.")
 
 
 if __name__ == "__main__":
