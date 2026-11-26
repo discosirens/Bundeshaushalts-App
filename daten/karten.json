@@ -2,6 +2,7 @@
   "hinweis": "Schnellspiel (schnellspiel.html). Von Hand gepflegt, Deutsch und Englisch. Jede Forderung mit Quelle zuschreiben, nie bewerten. ziel_mrd ist der Beitrag zum Ziel (weniger Kredite nach der normalen Schuldenbremse) in Mrd. Euro; Karten mit aha zeigen, warum etwas nicht zum Ziel beiträgt. Beträge sind Größenordnungen für ein Jahr. Stand: 26. November 2026.",
   "jahr": 2026,
   "kredite_mrd": 40.4,
+  "kernhaushalt_mrd": 524.5,
   "ziel_mrd": 30,
   "karten": [
     {

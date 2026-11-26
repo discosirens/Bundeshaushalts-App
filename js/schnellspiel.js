@@ -160,7 +160,86 @@ function summe(arten) {
   return spiel.karten.filter((k) => arten.includes(k.art)).reduce((s, k) => s + k.ziel_mrd, 0);
 }
 
-function zeigeEnde() {
+// 100 Kästchen = Ausgaben des Bundes im Jahr der Karten (Kernhaushalt). Farbig: dein Paket und die übrigen Kredite.
+function waffel(wert) {
+  const haushalt = spiel.kernhaushalt_mrd;
+  const kaestchen = (n) => (n <= 0 ? 0 : Math.max(1, Math.round((n / haushalt) * 100)));
+  const paket = kaestchen(wert);
+  const rest = kaestchen(spiel.kredite_mrd - wert);
+
+  const block = document.createElement("div");
+  block.className = "waffel-block";
+  const h3 = document.createElement("h3");
+  h3.textContent = t("schnell.waffel.titel");
+  const text = document.createElement("p");
+  text.textContent = t("schnell.waffel.text", { jahr: spiel.jahr, haushalt: mrd(haushalt), anteil: prozent(wert / haushalt) });
+  const raster = document.createElement("div");
+  raster.className = "waffel";
+  raster.setAttribute("role", "img");
+  raster.setAttribute("aria-label", text.textContent);
+  for (let i = 0; i < 100; i++) {
+    const k = document.createElement("span");
+    if (i < paket) k.className = "w-paket";
+    else if (i < paket + rest) k.className = "w-rest";
+    raster.appendChild(k);
+  }
+  const legende = document.createElement("ul");
+  legende.className = "verlauf-legende";
+  const eintraege = [["w-paket", t("schnell.waffel.paket", { betrag: mrd(wert) })]];
+  if (rest) eintraege.push(["w-rest", t("schnell.waffel.rest", { betrag: mrd(spiel.kredite_mrd - wert) })]);
+  eintraege.push(["w-sonst", t("schnell.waffel.sonst")]);
+  for (const [klasse, inhalt] of eintraege) {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="punkt ${klasse}"></span><span></span>`;
+    li.lastChild.textContent = inhalt;
+    legende.appendChild(li);
+  }
+  block.append(h3, text, raster, legende);
+  return block;
+}
+
+// ---------- Teilen ----------
+
+// Link auf das eigene Ergebnis: schnellspiel.html?lang=de&ergebnis=id.id.id (angenommene Karten, "-" für keine)
+function teilenLink() {
+  const ids = spiel.karten.filter((_, i) => entscheidungen[i]).map((k) => k.id);
+  const url = new URL(location.href);
+  url.search = "";
+  url.hash = "";
+  url.searchParams.set("lang", SPRACHE);
+  url.searchParams.set("ergebnis", ids.length ? ids.join(".") : "-");
+  return url.toString();
+}
+
+async function teile(knopf, ausgabe) {
+  const url = teilenLink();
+  const text = t("schnell.teilen.text", { gespart: mrd(gespart()) });
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: document.title, text, url });
+      return;
+    } catch (fehler) {
+      if (fehler.name === "AbortError") return;   // selbst abgebrochen
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    ausgabe.textContent = t("schnell.teilen.kopiert");
+  } catch (fehler) {
+    // Ohne Zugriff auf die Zwischenablage: Link zum Kopieren anzeigen
+    ausgabe.textContent = `${t("schnell.teilen.manuell")} `;
+    const feld = document.createElement("input");
+    feld.type = "text";
+    feld.readOnly = true;
+    feld.value = url;
+    feld.className = "suchfeld teilen-feld";
+    ausgabe.appendChild(feld);
+    feld.select();
+  }
+  knopf.focus();
+}
+
+function zeigeEnde(geteilt = false) {
   el("schnell-karte").hidden = true;
   const box = el("schnell-ende");
   box.replaceChildren();
@@ -174,6 +253,14 @@ function zeigeEnde() {
   const p = document.createElement("p");
   p.className = "ende-summe";
   p.textContent = t("schnell.ende.text", { gespart: mrd(wert), ziel: mrd(spiel.ziel_mrd) });
+
+  // Geteiltes Ergebnis von jemand anderem: Hinweis (der Knopf unten heißt dann "Selbst spielen")
+  const geteiltHinweis = document.createElement("div");
+  if (geteilt) {
+    geteiltHinweis.className = "schnell-aha";
+    geteiltHinweis.innerHTML = "<p></p>";
+    geteiltHinweis.querySelector("p").textContent = t("schnell.geteilt");
+  }
 
   // Kennzahlen: weniger Ausgaben, mehr Einnahmen, angenommene Karten
   const ausgaben = angenommen.filter((k) => k.art === "ausgabe").reduce((s, k) => s + k.ziel_mrd, 0);
@@ -241,9 +328,18 @@ function zeigeEnde() {
   ausfuehrlich.className = "knopf knopf-gross knopf-rand";
   ausfuehrlich.href = mitSprache("spiel.html");
   ausfuehrlich.textContent = t("schnell.ende.ausfuehrlich");
-  knoepfe.append(nochmal, ausfuehrlich);
+  const teilenKnopf = document.createElement("button");
+  teilenKnopf.type = "button";
+  teilenKnopf.className = "knopf knopf-gross knopf-rand";
+  teilenKnopf.textContent = t("schnell.teilen");
+  const teilenAusgabe = document.createElement("p");
+  teilenAusgabe.className = "hinweis";
+  teilenAusgabe.setAttribute("aria-live", "polite");
+  teilenKnopf.addEventListener("click", () => teile(teilenKnopf, teilenAusgabe));
+  if (geteilt) nochmal.textContent = t("schnell.selbst");
+  knoepfe.append(nochmal, teilenKnopf, ausfuehrlich);
 
-  box.append(h2, p, dl, vonTitel, vonListe, gut, details, hinweis, knoepfe);
+  box.append(h2, geteiltHinweis, p, dl, waffel(wert), vonTitel, vonListe, gut, details, hinweis, knoepfe, teilenAusgabe);
   h2.focus({ preventScroll: true });
   el("ziel-stand").scrollIntoView({ block: "start" });
 }
@@ -251,6 +347,12 @@ function zeigeEnde() {
 // ---------- Start ----------
 
 function starte() {
+  // Ein geöffnetes geteiltes Ergebnis aus der Adresse entfernen
+  const url = new URL(location.href);
+  if (url.searchParams.has("ergebnis")) {
+    url.searchParams.delete("ergebnis");
+    history.replaceState(null, "", url);
+  }
   index = 0;
   entscheidungen = [];
   el("schnell-start").hidden = true;
@@ -287,6 +389,18 @@ async function lade() {
     jahr: spiel.jahr, kredite: mrd(spiel.kredite_mrd), ziel: mrd(spiel.ziel_mrd), n: spiel.karten.length,
   });
   el("schnell-starten").addEventListener("click", starte);
+
+  // Geteiltes Ergebnis (?ergebnis=id.id) direkt als Auswertung zeigen
+  const ergebnis = new URLSearchParams(location.search).get("ergebnis");
+  if (ergebnis !== null) {
+    const ja = new Set(ergebnis.split("."));
+    entscheidungen = spiel.karten.map((k) => ja.has(k.id));
+    index = spiel.karten.length;
+    el("schnell-start").hidden = true;
+    el("ziel-stand").hidden = false;
+    zeigeStand();
+    zeigeEnde(true);
+  }
 }
 
 lade();
