@@ -284,6 +284,7 @@ function neuStarten() {
   entscheidungen.length = 0;
   el("ende").hidden = true;
   el("start").hidden = true;
+  el("spiel-wahl").hidden = true;
   zeigeRunde();
 }
 

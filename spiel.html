@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Haushaltsspiel</title>
   <meta name="description" content="Übernimm das Finanzministerium: sechs Runden, sechs Entscheidungen zum Bundeshaushalt 2026.">
-  <meta name="app-version" content="20261126084551">
+  <meta name="app-version" content="20261126084746">
   <meta name="theme-color" content="#0f1630">
-  <link rel="stylesheet" href="css/stil.css?v=20261126084551">
+  <link rel="stylesheet" href="css/stil.css?v=20261126084746">
 </head>
 <body data-seite="spiel">
   <header class="topbar">
@@ -36,6 +36,24 @@
   </section>
 
   <main class="seite">
+    <section class="spiel-wahl" id="spiel-wahl" aria-labelledby="spiel-wahl-titel">
+      <h2 class="abschnitt-titel" id="spiel-wahl-titel" data-t="spiel.wahl.titel">Zwei Spiele zur Auswahl</h2>
+      <div class="spiel-wahl-raster">
+        <article class="wahl-kachel hervor">
+          <span class="wahl-etikett" data-t="spiel.wahl.schnell.etikett"></span>
+          <h3 data-t="spiel.wahl.schnell.titel"></h3>
+          <p data-t="spiel.wahl.schnell.text"></p>
+          <a class="knopf knopf-gross" href="schnellspiel.html" data-intern data-t="spiel.wahl.schnell.knopf"></a>
+        </article>
+        <article class="wahl-kachel">
+          <span class="wahl-etikett" data-t="spiel.wahl.lang.etikett"></span>
+          <h3 data-t="spiel.wahl.lang.titel"></h3>
+          <p data-t="spiel.wahl.lang.text"></p>
+          <a class="knopf knopf-gross knopf-rand" href="#spiel" data-t="spiel.wahl.lang.knopf"></a>
+        </article>
+      </div>
+    </section>
+
     <div class="spiel-status" id="status" hidden>
       <div class="fortschritt"><div class="fortschritt-balken" id="fortschritt"></div></div>
       <dl class="kennzahlen">
@@ -55,7 +73,6 @@
           <li data-t="spiel.regel3"></li>
         </ul>
         <button type="button" class="knopf knopf-gross" id="starten" data-t="spiel.start">Spiel starten</button>
-        <p class="hinweis"><a href="schnellspiel.html" data-intern data-t="spiel.schnell.link"></a></p>
       </div>
       <div id="runde" hidden></div>
       <div id="ende" hidden></div>
@@ -73,8 +90,8 @@
     </footer>
   </main>
 
-  <script src="js/sprache.js?v=20261126084551"></script>
-  <script src="js/glossar.js?v=20261126084551"></script>
-  <script src="js/spiel.js?v=20261126084551"></script>
+  <script src="js/sprache.js?v=20261126084746"></script>
+  <script src="js/glossar.js?v=20261126084746"></script>
+  <script src="js/spiel.js?v=20261126084746"></script>
 </body>
 </html>
