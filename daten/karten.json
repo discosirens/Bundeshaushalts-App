@@ -1,0 +1,210 @@
+{
+  "hinweis": "Schnellspiel (schnellspiel.html). Von Hand gepflegt, Deutsch und Englisch. Jede Forderung mit Quelle zuschreiben, nie bewerten. ziel_mrd ist der Beitrag zum Ziel (weniger Kredite nach der normalen Schuldenbremse) in Mrd. Euro; Karten mit aha zeigen, warum etwas nicht zum Ziel beiträgt. Beträge sind Größenordnungen für ein Jahr. Stand: 26. November 2026.",
+  "jahr": 2026,
+  "kredite_mrd": 40.4,
+  "ziel_mrd": 30,
+  "karten": [
+    {
+      "id": "subventionen",
+      "art": "beides",
+      "ziel_mrd": 3.9,
+      "titel": {"de": "Alle Subventionen um 5 % kürzen", "en": "Cut all subsidies by 5%"},
+      "text": {"de": "Jede Finanzhilfe und jede Steuervergünstigung des Bundes wird pauschal um 5 % gekürzt.", "en": "Every federal financial aid programme and every federal tax break is cut by a flat 5%."},
+      "betrag": {"de": "Laut Subventionsbericht der Bundesregierung betragen Finanzhilfen und Steuervergünstigungen des Bundes 2026 zusammen 77,8 Mrd. €. 5 % davon sind rund 3,9 Mrd. €. Überschneidungen mit anderen Karten sind möglich.", "en": "According to the federal government's subsidy report, federal financial aid and tax breaks total €77.8bn in 2026. 5% of that is about €3.9bn. There may be overlaps with other cards."},
+      "wer": {"de": "Jens Spahn (CDU), Vorsitzender der Unionsfraktion im Bundestag, hat das vorgeschlagen. Finanzminister Lars Klingbeil (SPD) zeigte sich offen dafür.", "en": "Jens Spahn (CDU), leader of the CDU/CSU parliamentary group, proposed this. Finance Minister Lars Klingbeil (SPD) said he was open to it."},
+      "fordernde": [{"de": "Jens Spahn (CDU)", "en": "Jens Spahn (CDU)"}],
+      "braucht": {"de": "Viele einzelne Gesetzesänderungen und Haushaltsbeschlüsse, weil jede Subvention eine eigene Grundlage hat.", "en": "Many separate changes to laws and budget decisions, because each subsidy has its own legal basis."},
+      "quellen": [
+        {"titel": "BMF-Monatsbericht Oktober 2025: 30. Subventionsbericht der Bundesregierung", "url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2025/10/Inhalte/Kapitel-2-Analysen/2-4-30-subventionsbericht-der-bundesregierung.html"},
+        {"titel": "Berliner Zeitung: So will Jens Spahn die Steuerreform finanzieren", "url": "https://www.berliner-zeitung.de/article/kuerzung-von-subventionen-und-verguenstigungen-so-will-jens-spahn-die-steuerreform-finanzieren-10035724"},
+        {"titel": "Nordkurier: Klingbeil offen für Sparen mit Spahns Rasenmäher-Methode", "url": "https://www.nordkurier.de/politik/klingbeil-offen-fuer-sparen-mit-spahns-rasenmaeher-methode-4593832"}
+      ]
+    },
+    {
+      "id": "grundsicherung",
+      "art": "ausgabe",
+      "ziel_mrd": 5.0,
+      "titel": {"de": "Beim Grundsicherungsgeld 5 Mrd. € einsparen", "en": "Save €5bn on basic income support"},
+      "text": {"de": "Weniger Geld für die Grundsicherung von Arbeitsuchenden (bis Juni 2026 Bürgergeld), zum Beispiel durch strengere Regeln oder niedrigere Leistungen.", "en": "Less money for basic income support for jobseekers (called citizen's income until June 2026), for example through stricter rules or lower payments."},
+      "betrag": {"de": "Kap. 1101 Tit. 681 12, Soll 2026: 28,1 Mrd. € (im Haushaltsplan noch „Bürgergeld“). Die Karte nimmt die genannten 5 Mrd. € an.", "en": "Chapter 1101 title 681 12, budget 2026: €28.1bn (still called Bürgergeld in the budget plan). The card assumes the €5bn that was named."},
+      "wer": {"de": "Friedrich Merz (CDU) nannte im Wahlkampf 10 Mrd. € Einsparung, später 5 Mrd. €. Die Bundesarbeitsministerin rechnete für die beschlossene Reform mit einem viel kleineren Spareffekt.", "en": "During the election campaign Friedrich Merz (CDU) named savings of €10bn, later €5bn. The labour minister expected much smaller savings from the reform that was passed."},
+      "fordernde": [{"de": "Friedrich Merz (CDU)", "en": "Friedrich Merz (CDU)"}],
+      "braucht": {"de": "Eine Änderung des Sozialgesetzbuchs II. Laut Bundesverfassungsgericht muss das Existenzminimum gesichert bleiben.", "en": "A change to Social Code II. According to the Federal Constitutional Court, the subsistence minimum must remain guaranteed."},
+      "quellen": [
+        {"titel": "ZDFheute: Bürgergeld, Merz will fünf Milliarden einsparen", "url": "https://www.zdfheute.de/politik/deutschland/sozialstaat-merz-buergergeld-sparen-100.html"},
+        {"titel": "Bundeshaushaltsplan 2026, Kap. 1101 Tit. 681 12", "url": "https://www.bundeshaushalt.de/"}
+      ]
+    },
+    {
+      "id": "diesel",
+      "art": "einnahme",
+      "ziel_mrd": 7.0,
+      "titel": {"de": "Dieselprivileg abschaffen", "en": "Abolish the diesel tax break"},
+      "text": {"de": "Diesel wird so hoch besteuert wie Benzin. Bisher ist die Energiesteuer auf einen Liter Diesel niedriger.", "en": "Diesel is taxed at the same rate as petrol. At the moment the energy tax on a litre of diesel is lower."},
+      "betrag": {"de": "Rund 7 Mrd. € pro Jahr laut Bundesrechnungshof, je nachdem, ob und wie Betroffene entlastet werden. Die Energiesteuer bekommt allein der Bund.", "en": "About €7bn a year according to the Federal Court of Audit, depending on whether and how those affected are compensated. Energy tax goes entirely to the federal government."},
+      "wer": {"de": "Der Bundesrechnungshof und das Umweltbundesamt empfehlen, das Dieselprivileg abzuschaffen.", "en": "The Federal Court of Audit and the Federal Environment Agency recommend abolishing the diesel tax break."},
+      "fordernde": [{"de": "Bundesrechnungshof", "en": "Federal Court of Audit"}, {"de": "Umweltbundesamt", "en": "Federal Environment Agency"}],
+      "braucht": {"de": "Eine Änderung des Energiesteuergesetzes.", "en": "A change to the Energy Tax Act."},
+      "quellen": [
+        {"titel": "auto motor und sport: Bundesrechnungshof will gleiche Steuer für Benzin und Diesel", "url": "https://www.auto-motor-und-sport.de/verkehr/bundesrechnungshof-will-gleiche-steuer-fuer-benzin-und-diesel/"},
+        {"titel": "Umweltbundesamt: Umweltschädliche Subventionen im Verkehrssektor", "url": "https://www.umweltbundesamt.de/presse/pressemitteilungen/umweltschaedliche-subventionen-im-verkehrssektor"}
+      ]
+    },
+    {
+      "id": "verteidigung",
+      "art": "ausgabe",
+      "ziel_mrd": 0,
+      "titel": {"de": "Verteidigungsetat um 10 % kürzen", "en": "Cut the defence budget by 10%"},
+      "text": {"de": "Weniger Geld für die Bundeswehr im Kernhaushalt.", "en": "Less money for the armed forces in the core budget."},
+      "betrag": {"de": "Einzelplan 14, Soll 2026: 82,7 Mrd. €. 10 % sind 8,3 Mrd. € weniger Ausgaben.", "en": "Budget section 14, budget 2026: €82.7bn. 10% means €8.3bn less spending."},
+      "aha": {"de": "Für dein Ziel bringt das 0 €. Verteidigungsausgaben über 1 % der Wirtschaftsleistung zählen nicht zur Schuldenbremse. 2026 betragen die Ausgaben dieser Bereichsausnahme 100,9 Mrd. €, die Grenze liegt bei 43,3 Mrd. €. Eine Kürzung senkt deshalb nur die ausgenommenen Kredite, nicht die 40,4 Mrd. € nach der normalen Regel.", "en": "This brings €0 towards your goal. Defence spending above 1% of economic output does not count under the debt brake. In 2026 spending under this exemption is €100.9bn and the threshold is €43.3bn. A cut therefore only reduces the exempted borrowing, not the €40.4bn under the normal rule."},
+      "wer": {"de": "Das BSW will die Rüstungsausgaben auf dem Stand von 2021 einfrieren. Die Linke kritisiert die Höhe des Verteidigungsetats.", "en": "The BSW wants to freeze defence spending at its 2021 level. The Left party criticises the size of the defence budget."},
+      "fordernde": [{"de": "BSW", "en": "BSW"}, {"de": "Die Linke", "en": "The Left"}],
+      "braucht": {"de": "Einen anderen Haushaltsbeschluss des Bundestages. Deutschland hat der NATO höhere Ausgaben zugesagt.", "en": "A different budget decision by the Bundestag. Germany has pledged higher spending to NATO."},
+      "quellen": [
+        {"titel": "Joyn: Wagenknecht bezeichnet Bundeshaushalt 2026 als Kriegshaushalt", "url": "https://newstime.joyn.de/themen/politik/wahnwitzige-aufruestung-wagenknecht-bezeichnet-bundeshaushalt2026-als-kriegshaushalt-37031"},
+        {"titel": "Deutscher Bundestag: Debatte zum Verteidigungsetat 2027", "url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw37-de-verteidigung-1194766"},
+        {"titel": "Art. 115 Grundgesetz", "url": "https://www.gesetze-im-internet.de/gg/art_115.html"}
+      ]
+    },
+    {
+      "id": "elterngeld",
+      "art": "ausgabe",
+      "ziel_mrd": 1.1,
+      "titel": {"de": "Elterngeld nur noch 12 statt 14 Monate", "en": "Parental allowance for 12 instead of 14 months"},
+      "text": {"de": "Eltern bekommen zusammen höchstens 12 Monate Elterngeld, auch wenn beide Elternzeit nehmen.", "en": "Parents receive parental allowance for at most 12 months in total, even if both take parental leave."},
+      "betrag": {"de": "Kap. 1701 Tit. 681 02, Soll 2026: 7,5 Mrd. €. Eigene Überschlagsrechnung: Wenn 2 von 14 Monaten wegfallen, sind das rund 1,1 Mrd. €.", "en": "Chapter 1701 title 681 02, budget 2026: €7.5bn. Our own rough estimate: dropping 2 of 14 months saves about €1.1bn."},
+      "wer": {"de": "Die FDP hat vorgeschlagen, das Elterngeld für alle auf 12 Monate zu begrenzen.", "en": "The FDP proposed limiting parental allowance to 12 months for everyone."},
+      "fordernde": [{"de": "FDP", "en": "FDP"}],
+      "braucht": {"de": "Eine Änderung des Bundeselterngeld- und Elternzeitgesetzes.", "en": "A change to the Federal Parental Allowance and Parental Leave Act."},
+      "quellen": [
+        {"titel": "Tagesspiegel: Nur noch 12 statt bisher 14 Monate, FDP will Elterngeld für alle kürzen", "url": "https://www.tagesspiegel.de/politik/nur-noch-12-statt-bisher-14-monate-fdp-will-elterngeld-fur-alle-kurzen-10638400.html"},
+        {"titel": "Bundeshaushaltsplan 2026, Kap. 1701 Tit. 681 02", "url": "https://www.bundeshaushalt.de/"}
+      ]
+    },
+    {
+      "id": "spitzensteuer",
+      "art": "einnahme",
+      "ziel_mrd": 6.0,
+      "titel": {"de": "Spitzensteuersatz von 42 auf 45 % erhöhen", "en": "Raise the top income tax rate from 42% to 45%"},
+      "text": {"de": "Wer sehr gut verdient, zahlt auf den oberen Teil des Einkommens mehr Einkommensteuer.", "en": "High earners pay more income tax on the top part of their income."},
+      "betrag": {"de": "Laut Bundesregierung rund 14 Mrd. € mehr Steuern (Schätzung für 2025). Davon bekommt der Bund 42,5 %, also rund 6 Mrd. €. Den Rest bekommen Länder und Gemeinden.", "en": "According to the federal government, about €14bn more tax (estimate for 2025). The federal government receives 42.5% of that, about €6bn. The rest goes to the states and municipalities."},
+      "wer": {"de": "Die Linke will den Spitzensteuersatz sogar auf 53 % erhöhen (Wahlprogramm 2025).", "en": "The Left party wants to raise the top rate even to 53% (2025 election manifesto)."},
+      "fordernde": [{"de": "Die Linke", "en": "The Left"}],
+      "braucht": {"de": "Eine Änderung des Einkommensteuergesetzes. Der Bundesrat muss zustimmen.", "en": "A change to the Income Tax Act. The Bundesrat has to approve it."},
+      "quellen": [
+        {"titel": "Deutscher Bundestag, hib 87/2025: Antwort der Bundesregierung zum Spitzensteuersatz", "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1050526"},
+        {"titel": "Ebner Stolz: Steuerthemen in den Bundestagswahlprogrammen 2025", "url": "https://www.ebnerstolz.de/de/themen/news/steuerthemen-bundestagswahlprogramme-2025-78511.html"},
+        {"titel": "Art. 106 Grundgesetz (Verteilung der Steuern)", "url": "https://www.gesetze-im-internet.de/gg/art_106.html"}
+      ]
+    },
+    {
+      "id": "verwaltung",
+      "art": "ausgabe",
+      "ziel_mrd": 0.8,
+      "titel": {"de": "8 % weniger Stellen in der Bundesverwaltung", "en": "8% fewer jobs in the federal administration"},
+      "text": {"de": "In Ministerien und Bundesbehörden werden Stellen abgebaut. Sicherheitsbehörden sind ausgenommen.", "en": "Jobs are cut in ministries and federal agencies. Security agencies are exempt."},
+      "betrag": {"de": "Eigene Überschlagsrechnung: 8 % der Bezüge und Entgelte (Gruppe 42) aller Einzelpläne ohne Verteidigung und Inneres, Soll 2026 9,9 Mrd. €. Das sind rund 0,8 Mrd. €, erreicht schrittweise bis 2029.", "en": "Our own rough estimate: 8% of salaries and wages (group 42) in all budget sections except defence and interior, budget 2026 €9.9bn. That is about €0.8bn, reached step by step by 2029."},
+      "wer": {"de": "Das steht im Koalitionsvertrag von CDU, CSU und SPD: Bis 2029 sollen mindestens 8 % der Stellen wegfallen.", "en": "This is in the coalition agreement of the CDU, CSU and SPD: at least 8% of jobs are to go by 2029."},
+      "fordernde": [{"de": "Koalitionsvertrag CDU, CSU und SPD", "en": "Coalition agreement CDU, CSU and SPD"}],
+      "braucht": {"de": "Haushaltsbeschlüsse über mehrere Jahre. Ein Gesetz ist nicht nötig.", "en": "Budget decisions over several years. No new law is needed."},
+      "quellen": [
+        {"titel": "Schwäbische Zeitung: 8-Prozent-Ziel der Bundesregierung beim Personal", "url": "https://www.schwaebische.de/politik/rotstift-in-den-behoerden-amthor-will-8-500-stellen-streichen-lassen-4558010"},
+        {"titel": "dbb: Stellenabbau in der Bundesverwaltung", "url": "https://www.dbb.de/artikel/stellenabbau-in-der-bundesverwaltung-pferd-nicht-von-hinten-aufzaeumen.html"},
+        {"titel": "Bundeshaushaltsplan 2026, Gruppe 42 (eigene Auswertung)", "url": "https://www.bundeshaushalt.de/"}
+      ]
+    },
+    {
+      "id": "vermoegensteuer",
+      "art": "einnahme",
+      "ziel_mrd": 0,
+      "titel": {"de": "Vermögensteuer wieder erheben", "en": "Reintroduce the wealth tax"},
+      "text": {"de": "Sehr große Vermögen werden jedes Jahr mit einem kleinen Prozentsatz besteuert. Seit 1997 wird die Vermögensteuer nicht mehr erhoben.", "en": "Very large fortunes are taxed at a small percentage every year. The wealth tax has not been levied since 1997."},
+      "betrag": {"de": "Die Grünen rechnen in einem Antrag im Bundestag mit 20 Mrd. € Mehreinnahmen pro Jahr.", "en": "In a motion in the Bundestag, the Greens expect €20bn of extra revenue a year."},
+      "aha": {"de": "Für dein Ziel bringt das 0 €. Die Vermögensteuer steht laut Grundgesetz den Ländern zu, nicht dem Bund (Art. 106 Abs. 2 GG).", "en": "This brings €0 towards your goal. Under the Basic Law, wealth tax revenue goes to the states, not to the federal government (Art. 106(2))."},
+      "wer": {"de": "SPD, Grüne und Linke fordern die Vermögensteuer in ihren Wahlprogrammen 2025.", "en": "The SPD, the Greens and the Left call for a wealth tax in their 2025 election manifestos."},
+      "fordernde": [{"de": "SPD", "en": "SPD"}, {"de": "Grüne", "en": "Greens"}, {"de": "Die Linke", "en": "The Left"}],
+      "braucht": {"de": "Ein neues Vermögensteuergesetz, das die Vorgaben des Bundesverfassungsgerichts von 1995 erfüllt.", "en": "A new wealth tax law that meets the requirements set by the Federal Constitutional Court in 1995."},
+      "quellen": [
+        {"titel": "Deutscher Bundestag: Debatte zur Vermögensteuer", "url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw10-de-vermoegensteuer-1150522"},
+        {"titel": "IW Köln: Erbschaft- und Vermögensteuer in den Wahlprogrammen", "url": "https://www.iwkoeln.de/studien/martin-beznoska-tobias-hentze-erbschaft-und-vermoegensteuer-in-den-wahlprogrammen.html"},
+        {"titel": "Art. 106 Grundgesetz", "url": "https://www.gesetze-im-internet.de/gg/art_106.html"}
+      ]
+    },
+    {
+      "id": "entwicklung",
+      "art": "ausgabe",
+      "ziel_mrd": 8.1,
+      "titel": {"de": "Entwicklungsministerium von 10,1 auf 2 Mrd. € kürzen", "en": "Cut the development ministry from €10.1bn to €2bn"},
+      "text": {"de": "Weniger Geld für Entwicklungszusammenarbeit, etwa für Projekte gegen Armut und Hunger in ärmeren Ländern.", "en": "Less money for development cooperation, for example for projects against poverty and hunger in poorer countries."},
+      "betrag": {"de": "Einzelplan 23, Soll 2026: 10,1 Mrd. €. Eine Kürzung auf 2 Mrd. € bringt 8,1 Mrd. €.", "en": "Budget section 23, budget 2026: €10.1bn. Cutting it to €2bn saves €8.1bn."},
+      "wer": {"de": "Die AfD-Fraktion beantragt im Bundestag, den Etat um rund 80 % zu kürzen und das Ministerium aufzulösen. Der zuständige Ausschuss hat den Antrag im November 2026 abgelehnt.", "en": "The AfD parliamentary group proposes in the Bundestag to cut the budget by about 80% and to abolish the ministry. The responsible committee rejected the motion in November 2026."},
+      "fordernde": [{"de": "AfD", "en": "AfD"}],
+      "braucht": {"de": "Einen anderen Haushaltsbeschluss des Bundestages. Bereits zugesagte Projekte laufen oft über mehrere Jahre.", "en": "A different budget decision by the Bundestag. Projects already agreed often run for several years."},
+      "quellen": [
+        {"titel": "Deutscher Bundestag, hib 569/2026: Antrag der AfD", "url": "https://www.bundestag.de/1194370"},
+        {"titel": "Deutscher Bundestag, hib 889/2026: Ausschuss lehnt Antrag ab", "url": "https://www.bundestag.de/1231168"}
+      ]
+    },
+    {
+      "id": "pendler",
+      "art": "einnahme",
+      "ziel_mrd": 2.7,
+      "titel": {"de": "Pendlerpauschale abschaffen", "en": "Abolish the commuter allowance"},
+      "text": {"de": "Fahrten zur Arbeit können nicht mehr von der Steuer abgesetzt werden.", "en": "Travel to work can no longer be deducted from taxable income."},
+      "betrag": {"de": "Bis zu 2,7 Mrd. € pro Jahr für den Bund, laut Schätzung des Sachverständigenrats.", "en": "Up to €2.7bn a year for the federal government, according to an estimate by the German Council of Economic Experts."},
+      "wer": {"de": "Das Umweltbundesamt empfiehlt, die Pauschale abzuschaffen oder zu senken. Auch ein Bündnis von Verbänden, darunter die Caritas, fordert die Abschaffung.", "en": "The Federal Environment Agency recommends abolishing or reducing the allowance. An alliance of organisations including Caritas also calls for its abolition."},
+      "fordernde": [{"de": "Umweltbundesamt", "en": "Federal Environment Agency"}, {"de": "Caritas und weitere Verbände", "en": "Caritas and other organisations"}],
+      "braucht": {"de": "Eine Änderung des Einkommensteuergesetzes. Der Bundesrat muss zustimmen.", "en": "A change to the Income Tax Act. The Bundesrat has to approve it."},
+      "quellen": [
+        {"titel": "Umweltbundesamt: Steuerliche Umweltwirkungen der Pauschalen", "url": "https://www.umweltbundesamt.de/themen/steuer-umweltwirkungen-der-pauschalen"},
+        {"titel": "Stuttgarter Zeitung: Wirtschaftsweise sehen Sparpotenzial bei der Pendlerpauschale", "url": "https://www.stuttgarter-zeitung.de/wirtschaft/wirtschaftsweise-sehen-sparpotenzial-pendlerpauschale-vor-dem-aus-79691354.html"},
+        {"titel": "Caritas: Breites Bündnis fordert Abschaffung der Entfernungspauschale", "url": "https://www.caritas.de/presse/pressemeldungen-dcv/studie-entfernungspauschale-ungerecht-und-klimaschaedlich--breites-buendnis-fordert-abschaffung-50d169bb-c450-4955-9205-8bd962f555b7"}
+      ]
+    },
+    {
+      "id": "wohngeld",
+      "art": "ausgabe",
+      "ziel_mrd": 0.6,
+      "titel": {"de": "Wohngeld um 0,6 Mrd. € kürzen", "en": "Cut housing benefit by €0.6bn"},
+      "text": {"de": "Weniger Zuschuss zu Miete und Wohnkosten für Haushalte mit kleinem Einkommen.", "en": "Less support with rent and housing costs for low-income households."},
+      "betrag": {"de": "Kap. 2501 Tit. 632 01: Soll 2026 2,4 Mrd. €, im Regierungsentwurf 2027 1,8 Mrd. €.", "en": "Chapter 2501 title 632 01: budget 2026 €2.4bn, 2027 government draft €1.8bn."},
+      "wer": {"de": "Im Regierungsentwurf für 2027 sind 0,6 Mrd. € weniger eingeplant als 2026.", "en": "The government draft for 2027 plans €0.6bn less than in 2026."},
+      "fordernde": [{"de": "Bundesregierung (Entwurf 2027)", "en": "Federal government (2027 draft)"}],
+      "braucht": {"de": "Wohngeld ist ein Rechtsanspruch. Weniger Ausgaben gibt es nur mit einer Änderung des Wohngeldgesetzes oder wenn weniger Haushalte Anspruch haben.", "en": "Housing benefit is a legal entitlement. Spending only falls if the Housing Benefit Act is changed or fewer households are eligible."},
+      "quellen": [
+        {"titel": "Bundeshaushaltsplan 2026 und Regierungsentwurf 2027, Kap. 2501 Tit. 632 01", "url": "https://www.bundeshaushalt.de/"}
+      ]
+    },
+    {
+      "id": "dienstwagen",
+      "art": "einnahme",
+      "ziel_mrd": 1.8,
+      "titel": {"de": "Dienstwagenprivileg abschaffen", "en": "Abolish the company car tax break"},
+      "text": {"de": "Firmenwagen, die auch privat genutzt werden, werden höher besteuert als mit der bisherigen Pauschale von 1 % des Listenpreises pro Monat.", "en": "Company cars that are also used privately are taxed more heavily than under the current flat rate of 1% of the list price per month."},
+      "betrag": {"de": "Laut einer Studie für das Umweltbundesamt entgehen dem Staat dadurch mindestens 4,2 Mrd. € pro Jahr (2024). Der Bund bekommt davon 42,5 %, rund 1,8 Mrd. €.", "en": "According to a study for the Federal Environment Agency, the state loses at least €4.2bn a year (2024). The federal government's share is 42.5%, about €1.8bn."},
+      "wer": {"de": "Das Umweltbundesamt empfiehlt, den Steuervorteil für privat genutzte Dienstwagen abzubauen.", "en": "The Federal Environment Agency recommends reducing the tax advantage for company cars used privately."},
+      "fordernde": [{"de": "Umweltbundesamt", "en": "Federal Environment Agency"}],
+      "braucht": {"de": "Eine Änderung des Einkommensteuergesetzes. Der Bundesrat muss zustimmen.", "en": "A change to the Income Tax Act. The Bundesrat has to approve it."},
+      "quellen": [
+        {"titel": "firmenauto: Ein-Prozent-Regel kostet Staat Milliarden (Studie für das Umweltbundesamt)", "url": "https://www.firmenauto.de/branche/ein-prozent-regel-dienstwagen-kostet-staat-milliarden-und-erhoeht-co2-emissionen/"},
+        {"titel": "Umweltbundesamt: Umweltschädliche Subventionen im Verkehrssektor", "url": "https://www.umweltbundesamt.de/presse/pressemitteilungen/umweltschaedliche-subventionen-im-verkehrssektor"}
+      ]
+    },
+    {
+      "id": "zinsen",
+      "art": "erklaerung",
+      "ziel_mrd": 0,
+      "titel": {"de": "Zinsen für die Schulden kürzen", "en": "Cut interest on the debt"},
+      "text": {"de": "Der Bund zahlt 2026 rund 30,3 Mrd. € Zinsen für seine Schulden.", "en": "In 2026 the federal government pays about €30.3bn in interest on its debt."},
+      "betrag": {"de": "Kap. 3205 (Verzinsung), Soll 2026: 30,3 Mrd. €.", "en": "Chapter 3205 (interest), budget 2026: €30.3bn."},
+      "aha": {"de": "Das geht nicht. Zinsen sind vertraglich geschuldet. Sie sinken nur, wenn der Bund weniger Schulden hat oder die Zinssätze fallen.", "en": "That is not possible. Interest is owed under contract. It only falls if the federal government has less debt or interest rates fall."},
+      "wer": {"de": "Niemand. Diese Karte erklärt nur, warum ein großer Posten nicht zur Wahl steht.", "en": "Nobody. This card only explains why a large item is not up for choice."},
+      "fordernde": [],
+      "braucht": {"de": "Weniger Schulden oder niedrigere Zinsen am Kapitalmarkt.", "en": "Less debt or lower interest rates on the capital market."},
+      "quellen": [
+        {"titel": "Bundeshaushaltsplan 2026, Kap. 3205", "url": "https://www.bundeshaushalt.de/"}
+      ]
+    }
+  ]
+}

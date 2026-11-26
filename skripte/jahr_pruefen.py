@@ -24,6 +24,7 @@ HANDGEPFLEGT = [
     "skripte/bereiche_erzeugen.py",
     "skripte/hintergrund_erzeugen.py",
     "daten/runden.json",
+    "daten/karten.json",
     "daten/kapitel_texte.json",
     "daten/debatten.json",
     "daten/glossar.json",

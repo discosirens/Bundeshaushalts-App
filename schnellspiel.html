@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schnellspiel: Wo würdest du sparen?</title>
+  <meta name="description" content="Kartenspiel zum Bundeshaushalt: Ja oder Nein zu Sparvorschlägen aus der Politik.">
+  <meta name="app-version" content="20261126084219">
+  <meta name="theme-color" content="#0f1630">
+  <link rel="stylesheet" href="css/stil.css?v=20261126084219">
+</head>
+<body data-seite="schnell">
+  <header class="topbar">
+    <a class="marke" href="index.html" data-intern data-t-html="marke">Bundeshaushalt <span>verständlich</span></a>
+    <div class="topbar-rechts">
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <a href="index.html" data-intern data-t="nav.ueberblick">Überblick</a>
+        <a href="hintergrund.html" data-intern data-t="nav.hintergrund">Hintergrund</a>
+        <a href="spiel.html" data-intern aria-current="page" data-t="nav.spielen">Spielen</a>
+        <a href="umschichten.html" data-intern data-t="nav.verteilen">Selbst verteilen</a>
+      </nav>
+      <nav class="sprachwahl" data-t-label="nav.sprache" aria-label="Sprache">
+        <a data-lang="de" hreflang="de" lang="de">DE</a>
+        <a data-lang="en" hreflang="en" lang="en">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero seiten-kopf">
+    <div class="hero-inhalt">
+      <p class="dachzeile" data-t="schnell.dachzeile">Schnellspiel · Haushalt 2026</p>
+      <h1 data-t="schnell.ueberschrift">Wo würdest du sparen?</h1>
+      <p id="schnell-einleitung"></p>
+    </div>
+  </section>
+
+  <main class="seite">
+    <div class="ziel-stand" id="ziel-stand" hidden>
+      <div class="ziel-balken" role="img" id="ziel-balken"><div class="ziel-fuellung" id="ziel-fuellung"></div></div>
+      <p class="ziel-text" id="ziel-text" aria-live="polite"></p>
+    </div>
+
+    <section class="spiel-karte schnell" id="schnell">
+      <div id="schnell-start">
+        <p data-t="schnell.regel"></p>
+        <button type="button" class="knopf knopf-gross" id="schnell-starten" data-t="schnell.start">Los geht's</button>
+        <p class="hinweis"><a href="spiel.html" data-intern data-t="schnell.ausfuehrlich.link"></a></p>
+      </div>
+      <div id="schnell-karte" hidden></div>
+      <div id="schnell-ende" hidden></div>
+    </section>
+
+    <footer class="quellen">
+      <details class="quellen-auf">
+        <summary><h2 data-t="quellen.titel">Quellen</h2></summary>
+        <ul>
+          <li data-t-html="spiel.quellen.schuldenbremse"></li>
+          <li data-t="schnell.quellen.karten"></li>
+          <li data-t="schnell.quellen.hinweis"></li>
+        </ul>
+      </details>
+    </footer>
+  </main>
+
+  <script src="js/sprache.js?v=20261126084219"></script>
+  <script src="js/glossar.js?v=20261126084219"></script>
+  <script src="js/schnellspiel.js?v=20261126084219"></script>
+</body>
+</html>

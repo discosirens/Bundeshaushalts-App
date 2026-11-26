@@ -42,6 +42,11 @@
   aufgehen (Mehrausgaben minus Kürzungen minus Kredite = Ziel der Runde; das Spiel prüft das beim Laden).
   Über alle Runden hinweg stehen Kürzungen in verschiedenen politischen Richtungen zur Wahl.
   Rückmeldungen nur aus belegten Daten, keine erfundenen Wirtschaftseffekte.
+- `daten/karten.json` (Schnellspiel) wird von Hand gepflegt, Deutsch und Englisch: Jede Karte ist ein Vorschlag aus
+  der Debatte, mit Quelle zugeschrieben („Wer schlägt das vor?“), Rechenweg und Quellen. Karten aus verschiedenen
+  politischen Richtungen; das Ziel soll nur erreichbar sein, wenn man Vorschläge mehrerer Richtungen verbindet.
+  Karten mit `aha` erklären, warum etwas nicht zum Ziel beiträgt (Bereichsausnahme, Ländersteuern, Zinsen).
+  Die Auswertung zählt nur auf, von wem die Vorschläge stammen, und bewertet nicht.
 - `daten/hintergrund.json` wird mit `py skripte/hintergrund_erzeugen.py` erzeugt (Einnahmen aus den Rohdaten,
   Zeitreihe aus BMF-Tabellen mit Quelle je Jahr).
 - `daten/debatten.json` (aktuelle Debatten) wird von Hand gepflegt: Positionen immer zuschreiben, nie bewerten,

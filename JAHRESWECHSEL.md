@@ -58,6 +58,8 @@ Vom Bundesfinanzministerium (bundeshaushalt.de), in `daten/roh/` ablegen (Rohdat
       - `js/sprache.js`: z. B. erlaubte Kredite, Bereichsausnahme, Einwohnerzahl
       - `skripte/bereiche_erzeugen.py`: „Gut zu wissen“ und Erklärungen der 14 Bereiche (Deutsch und Englisch)
       - `daten/runden.json`: Spielrunden. Jede Option muss weiter aufgehen, das Spiel prüft das beim Laden.
+      - `daten/karten.json`: Schnellspiel. Kredite nach der normalen Schuldenbremse (`kredite_mrd`), Ziel,
+        Beträge der Karten und ob die Forderungen noch aktuell sind.
       - `daten/kapitel_texte.json`: Erklärungen der größten Kapitel. Bis zur Prüfung `"freigegeben": false` setzen.
       - `daten/debatten.json`: Zahlen und `stand_datum`
 - [ ] Einwohnerzahl: `EINWOHNER` in `js/app.js` und `quellen.einwohner`, falls es eine neue Zahl gibt.

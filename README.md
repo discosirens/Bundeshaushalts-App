@@ -11,6 +11,7 @@ Bundeshaushalt ohne Vorwissen verständlich darstellt. Online: https://discosire
 index.html          Startseite: Gesamtsumme, Treemap nach Einzelplan und Kapitel
 umschichten.html    Umschicht-Modus: Geld zwischen 14 Bereichen verschieben
 spiel.html          Haushaltsspiel: sechs Runden als Finanzministerin oder Finanzminister
+schnellspiel.html   Schnellspiel: Sparvorschläge aus der Debatte als Karten mit Ja und Nein
 hintergrund.html    Hintergrund: Einnahmen, Höhe des Haushalts, Verlauf seit 1969, aktuelle Debatten
 css/stil.css        Gestaltung beider Seiten (hell und dunkel)
 js/sprache.js       alle Oberflächentexte Deutsch/Englisch, Zahlenformate, Sprachwahl
@@ -18,6 +19,7 @@ js/app.js           Logik der Startseite
 js/suche.js         Suche auf der Startseite (mit Suchwörtern für unklare Postennamen)
 js/umschichten.js   Logik des Umschicht-Modus
 js/spiel.js         Logik des Haushaltsspiels
+js/schnellspiel.js  Logik des Schnellspiels
 js/hintergrund.js   Logik der Hintergrund-Seite (Verlaufsgrafik als SVG)
 js/glossar.js       Fachbegriffe im Text anklickbar machen, Erklärung einblenden (alle Seiten)
 daten/
@@ -25,6 +27,7 @@ daten/
   haushalt.json     aufbereitete Ausgaben 2025, 2026 (Soll) und 2027 (Entwurf) (wird vom Skript erzeugt)
   bereiche.json     14 Bereiche mit Erklärungen auf Deutsch und Englisch (wird vom Skript erzeugt)
   runden.json       Situationen und Optionen des Haushaltsspiels (von Hand gepflegt)
+  karten.json       Karten des Schnellspiels mit Beträgen, Forderungen und Quellen (von Hand gepflegt)
   hintergrund.json  Einnahmen 2025/2026 und Zeitreihe seit 1969 (wird vom Skript erzeugt)
   laender.json      deutsche Entwicklungsleistungen nach Empfängerland 2020 bis 2024 (OECD, Ist, Mio. US-Dollar; vom Skript erzeugt)
   debatten.json     aktuelle Debatten mit Positionen und Quellen (von Hand gepflegt)
